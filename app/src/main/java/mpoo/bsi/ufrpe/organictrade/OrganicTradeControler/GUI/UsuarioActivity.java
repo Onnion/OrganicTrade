@@ -33,14 +33,19 @@ public class UsuarioActivity extends AppCompatActivity {
         //-----------------------------------PopularLisView------------------------------------//
         //--------------------------------------Instacias--------------------------------//
         //-------------------------OnClickLisView------------------------------------//
-        ListView listaDeItens = (ListView) findViewById(R.id.usuarioListViewList);
+        final ListView listaDeItens = (ListView) findViewById(R.id.usuarioListViewList);
         listaDeItens.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(Session.getContext(),"Teste", Toast.LENGTH_LONG).show();
+                ItensDeTenda item = (ItensDeTenda)listaDeItens.getAdapter().getItem(position);
+
+
+                
+                Toast.makeText(Session.getContext(),item.getNomeProduto(), Toast.LENGTH_LONG).show();
+
+
             }
         });
-
         //--------------------------------------------------------------------------//
         TendaPersistencia tendaPersistencia = new TendaPersistencia();
         Tenda tenda = tendaPersistencia.retornarListaDeUsuarios();
