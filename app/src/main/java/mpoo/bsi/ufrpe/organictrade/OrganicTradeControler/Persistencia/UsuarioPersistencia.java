@@ -24,12 +24,11 @@ public class UsuarioPersistencia {
     }
 
     public boolean buscarELogarUsuario(String username, String senha) {
-
         db = banco.getReadableDatabase();
         Cursor cursor = db.rawQuery(ComandosSql.sqlUsuarioApartirDoLoginESenha(), new String[]{username,senha});
         if(cursor.moveToFirst()) {
             Usuario usuario = criarUsuario(cursor);
-            //this.logarUsuario(usuario);
+            logarUsuario(usuario);
             Session.setUserAtual(usuario);
             cursor.close();
             db.close();
@@ -73,13 +72,24 @@ public class UsuarioPersistencia {
         return false;
     }
 
-    public void deslogarUsuario(String userId){
-
+    public void deslogarUsuario(){
         db = banco.getReadableDatabase();
-        Cursor cursor = db.rawQuery(ComandosSql.sqlDeslogarUsuario(), new String[]{userId});
+        Cursor cursor = db.rawQuery(ComandosSql.sqlDeslogarUsuario(), new String[]{Session.getUserAtual().getId()});
         if(cursor.moveToFirst()) {
             Session.setUserAtual(null);
-            db.execSQL(ComandosSql.sqlDropTableUsuarioLogado());
+            db.execSQL(ComandosSql.sqlLimparTabela());
+        }
+    }
+
+    public void buscarApartirDoUsuarioLogado(){
+        db = banco.getReadableDatabase();
+        Cursor cursor = db.rawQuery(ComandosSql.sqlBuscarNoBancoDeUsuarioLogado(), null);
+        if(cursor.moveToFirst()){
+            Cursor usuario = db.rawQuery(ComandosSql.sqlUsuarioApartirDoId(), new String[]{cursor.getString(0)});
+            if (usuario.moveToFirst()){
+                Usuario usuarioLogado = criarUsuario(usuario);
+                Session.setUserAtual(usuarioLogado);
+            }
         }
     }
 }

@@ -51,6 +51,24 @@ public class ComandosSql {
         return (sqlUsuarioApartirDoLoginESenha);
     }
 
+    public static String sqlUsuarioApartirDoId(){
+        String sqlUsuarioApartirDoId=
+                "SELECT * FROM "+DatabaseHelper.getTableUserName() +" WHERE "
+                        +DatabaseHelper.getColumnUserId() +" =?;";
+        return (sqlUsuarioApartirDoId);
+    }
+
+    public static String sqlLimparTabela(){
+        String sqlLimparTabela = "DELETE FROM " + DatabaseHelper.getTableUserLogadoName();
+        return (sqlLimparTabela);
+    }
+
+    public static String sqlBuscarNoBancoDeUsuarioLogado(){
+        String sqlUsuarioApartirDoBancoUsuarioLogado =
+                "SELECT "+ DatabaseHelper.getColumnUserLogadoId()+" FROM "+DatabaseHelper.getTableUserLogadoName() +";";
+        return (sqlUsuarioApartirDoBancoUsuarioLogado);
+    }
+
     public static String sqlUsuarioLogado(){
         String sqlUsuarioLogado =
                 "SELECT * FROM " + DatabaseHelper.getTableUserName()+";";
@@ -75,7 +93,7 @@ public class ComandosSql {
     }
 
     public static String sqlDropTableItensDeTenda() {
-        String sqlDropTableItensDeTenda = "DROP TABLE IF EXISTS " + DatabaseHelper.getTableUserName();
+        String sqlDropTableItensDeTenda = "DROP TABLE IF EXISTS " + DatabaseHelper.getTableItensdetendaName();
         return (sqlDropTableItensDeTenda);
     }
 }

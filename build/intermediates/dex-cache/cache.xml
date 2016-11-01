@@ -12,21 +12,21 @@
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\marci\AndroidStudioProjects\OrganicTrade\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.3.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="8a034dd16c0dfd75fe86c52c2cd581592acc684a">
-        <dex dex="C:\Users\marci\AndroidStudioProjects\OrganicTrade\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-v4-23.3.0_38303a152af7e808f0f01ddac63d08ffa0ec9f1a\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="C:\Users\marci\AndroidStudioProjects\OrganicTrade\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.3.0\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="23.0.3"
         sha1="1b8e03daaa43fb0a4cd57e378167c2fd70454c1e">
         <dex dex="C:\Users\marci\AndroidStudioProjects\OrganicTrade\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-appcompat-v7-23.3.0_a45c00d65f6ae83a45cb707c8da52246bec9d734\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\marci\AndroidStudioProjects\OrganicTrade\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="1d672b3c1ae7c2ec9cc055f677ced7959c8765e5">
+        <dex dex="C:\Users\marci\AndroidStudioProjects\OrganicTrade\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_8b25faf5a4e0f8da3cc688441d4b203bd487317f\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -39,12 +39,12 @@
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\marci\AndroidStudioProjects\OrganicTrade\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jar="C:\Users\marci\AndroidStudioProjects\OrganicTrade\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.3.0\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="23.0.3"
-        sha1="c346f5d66a035c5f1e37ab8e36677b443847c6e6">
-        <dex dex="C:\Users\marci\AndroidStudioProjects\OrganicTrade\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_8b25faf5a4e0f8da3cc688441d4b203bd487317f\classes.dex" />
+        sha1="8a034dd16c0dfd75fe86c52c2cd581592acc684a">
+        <dex dex="C:\Users\marci\AndroidStudioProjects\OrganicTrade\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-v4-23.3.0_38303a152af7e808f0f01ddac63d08ffa0ec9f1a\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -61,7 +61,7 @@
         jumboMode="true"
         optimize="true"
         revision="23.0.3"
-        sha1="9999ae94eb6c13b6528ce161db4bf3e06183f386">
+        sha1="c7e14a000c6c21a2ba10804bfbc653d90a915f3f">
         <dex dex="C:\Users\marci\AndroidStudioProjects\OrganicTrade\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_1bdeea90e750a86f8f54fc83fb6c079b59868297\classes.dex" />
     </item>
     <item

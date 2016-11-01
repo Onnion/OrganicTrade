@@ -8,7 +8,6 @@ import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import java.util.List;
 import mpoo.bsi.ufrpe.organictrade.Infra.Session;
 import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Dominio.ItensDeTenda;
@@ -16,6 +15,7 @@ import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Dominio.Tenda;
 import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Dominio.ItemListAdaoter;
 import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Dominio.Usuario;
 import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Persistencia.TendaPersistencia;
+import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Persistencia.UsuarioPersistencia;
 import mpoo.bsi.ufrpe.organictrade.R;
 
 public class UsuarioActivity extends AppCompatActivity {
@@ -27,23 +27,21 @@ public class UsuarioActivity extends AppCompatActivity {
         Session.setContext(getBaseContext());
 
         TextView text = (TextView)findViewById(R.id.usuarioTextName);
+
         String[] nome = Session.getUserAtual().getNome().split(" ");
+
         text.setText(nome[0]);
 
         //-----------------------------------PopularLisView------------------------------------//
         //--------------------------------------Instacias--------------------------------//
         //-------------------------OnClickLisView------------------------------------//
         final ListView listaDeItens = (ListView) findViewById(R.id.usuarioListViewList);
-        listaDeItens.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        listaDeItens.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
                 ItensDeTenda item = (ItensDeTenda)listaDeItens.getAdapter().getItem(position);
-
-
-                
                 Toast.makeText(Session.getContext(),item.getNomeProduto(), Toast.LENGTH_LONG).show();
-
-
+                return false;
             }
         });
         //--------------------------------------------------------------------------//
@@ -66,6 +64,8 @@ public class UsuarioActivity extends AppCompatActivity {
     }
 
     public void sair(View v){
+        UsuarioPersistencia crud = new UsuarioPersistencia();
+        crud.deslogarUsuario();
         Session.setUserAtual(new Usuario());
         Intent p = new Intent(Session.getContext(),LoginActivity.class);
         startActivity(p);

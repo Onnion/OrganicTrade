@@ -11,16 +11,16 @@ public class TelaDeCarregamentoActivity extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tela_de_carregamento);
-
-
+        Session.setContext(getBaseContext());
+        Session session = new Session();
 
         Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-
                 UsuarioPersistencia crud = new UsuarioPersistencia();
                 if(crud.usuarioLogado()){
+                    crud.buscarApartirDoUsuarioLogado();
                     Intent j = new Intent(Session.getContext(), UsuarioActivity.class);
                     startActivity(j);
                 }else{
