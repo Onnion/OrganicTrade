@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="mpoo.bsi.ufrpe.organictrade">
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/icone_logo_organic_trade"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".OrganicTradeControler.GUI.LoginActivity">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+        </activity>>
+        <activity android:name=".OrganicTradeControler.GUI.CadastroUsuarioActivity" />
+        <activity android:name=".OrganicTradeControler.GUI.UsuarioActivity" />
+        <activity android:name=".OrganicTradeControler.GUI.CadastroProdutoActivity" />
+        <activity android:name=".OrganicTradeControler.GUI.TelaDeCarregamentoActivity">
+        </activity>
+    </application>
+</manifest>
