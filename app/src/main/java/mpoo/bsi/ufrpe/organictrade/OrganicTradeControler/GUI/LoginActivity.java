@@ -14,7 +14,7 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_login);
         Session.setContext(getBaseContext());
     }
 
@@ -22,8 +22,8 @@ public class LoginActivity extends AppCompatActivity {
 
         UsuarioPersistencia crud =  new UsuarioPersistencia();
 
-        EditText user = (EditText)findViewById(R.id.mainEdUsername);
-        EditText pass = (EditText)findViewById((R.id.mainEtPassword));
+        EditText user = (EditText)findViewById(R.id.loginEdtLogin);
+        EditText pass = (EditText)findViewById((R.id.loginEdtPassword));
 
         String userString = user.getText().toString();
         String passString = pass.getText().toString();
@@ -31,19 +31,19 @@ public class LoginActivity extends AppCompatActivity {
         if(UsuarioNegocio.verificacaoLogin(userString,passString)){
             if(crud.buscarELogarUsuario(userString,passString)){
                 Toast.makeText(Session.getContext(),"Ola "+Session.getUserAtual().getName(), Toast.LENGTH_LONG).show();
-                Intent j = new Intent(Session.getContext(), UsuarioActivity.class);
+                Intent j = new Intent(Session.getContext(), UserActivity.class);
                 startActivity(j);
                 finish();
             }else{
-                Toast.makeText(Session.getContext(),getText(R.string.loginsenhaInvalido) , Toast.LENGTH_LONG).show();
+                Toast.makeText(Session.getContext(),getText(R.string.tstInvalidLoginAndPassword) , Toast.LENGTH_LONG).show();
             }
         }else{
-            Toast.makeText(Session.getContext(),getText(R.string.loginsenhaInvalido) , Toast.LENGTH_LONG).show();
+            Toast.makeText(Session.getContext(),getText(R.string.tstInvalidLoginAndPassword) , Toast.LENGTH_LONG).show();
         }
     }
 
     public void toCadastro(View v){
-        Intent i = new Intent(Session.getContext(), CadastroUsuarioActivity.class);
+        Intent i = new Intent(Session.getContext(), RegisterUserActivity.class);
         startActivity(i);
     }
 }

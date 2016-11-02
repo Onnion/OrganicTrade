@@ -88,7 +88,7 @@ public class UsuarioNegocio {
         if (matcher.find()) {
             return true;
         } else {
-            Toast.makeText(Session.getContext(), R.string.emailInvalido, Toast.LENGTH_LONG).show();
+            Toast.makeText(Session.getContext(), R.string.tstInvalidEmail, Toast.LENGTH_LONG).show();
             return false;
         }
     }
@@ -98,7 +98,7 @@ public class UsuarioNegocio {
         if (matcher.find() && !nameSmaller(nameStr)) {
             return true;
         } else {
-            Toast.makeText(Session.getContext(), R.string.nomeInvalido, Toast.LENGTH_LONG).show();
+            Toast.makeText(Session.getContext(), R.string.tstInvalidName, Toast.LENGTH_LONG).show();
             return false;
         }
     }
@@ -108,7 +108,7 @@ public class UsuarioNegocio {
         if (matcher.find() && !senhaSmaller(passStr)) {
             return true;
         } else {
-            Toast.makeText(Session.getContext(), R.string.senhaInvalida, Toast.LENGTH_LONG).show();
+            Toast.makeText(Session.getContext(), R.string.tstInvalidPassword, Toast.LENGTH_LONG).show();
             return false;
         }
     }
@@ -118,7 +118,7 @@ public class UsuarioNegocio {
         if (matcher.find() && !loginSmaller(loginStr)) {
             return true;
         } else {
-            Toast.makeText(Session.getContext(), R.string.loginInvalido, Toast.LENGTH_LONG).show();
+            Toast.makeText(Session.getContext(), R.string.tstInvalidLogin, Toast.LENGTH_LONG).show();
             return false;
         }
     }
@@ -141,7 +141,7 @@ public class UsuarioNegocio {
                 if(usuarioNaoCadastrado(login)&& emailNaoCadastrado(email)){
                     return true;
                 }else{
-                    Toast.makeText(Session.getContext(), R.string.loginemailInvalido, Toast.LENGTH_LONG).show();
+                    Toast.makeText(Session.getContext(), R.string.tstLoginOrEmailRegistered, Toast.LENGTH_LONG).show();
                     return false;
                 }
             } else {

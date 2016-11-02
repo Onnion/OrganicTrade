@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_pesquisar_produtos"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.GUI.SearchProductsActivity">
+
+    <GridView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:numColumns="auto_fit"
+        android:id="@+id/pesquisarProdutoGridItens"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="196dp" />
+
+    <LinearLayout
+        android:background="@color/verdeParaTudo"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="429dp">
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:background="@color/accent300"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="138dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true">
+
+    </LinearLayout>
+
+</RelativeLayout>

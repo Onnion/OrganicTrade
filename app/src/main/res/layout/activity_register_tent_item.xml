@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_register_tent_item"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.GUI.RegisterTentItemActivity">
+
+    <TextView
+        android:text="Cadastrar Item de Tenda"
+        android:textSize="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <!--<ImageView-->
+        <!--android:id="@+id/rtiImgProduct-->
+        <!--android:src=""-->
+        <!--android:layout_width=""-->
+        <!--android:layout_height=""-->
+        <!--android:scaleType="centerCrop" />-->
+
+
+    <Spinner
+        android:id="@+id/rtiSpiProductName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+
+    <Spinner
+        android:id="@+id/rtiSpiProductType"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+
+    <EditText
+        android:id="@+id/rtiEdtProductUnity"
+        android:hint="Unidade"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+
+    <EditText
+        android:id="@+id/rtiEdtProductAmount"
+        android:hint="Quantidade"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+
+    <Button
+        android:id="@+id/rtiBtnRegister"
+        android:text="@string/btnRegister"
+        android:background="@color/verdeParaTudo"
+        android:textColor="#ffff"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:layout_marginTop="83dp"
+        android:onClick="cadastrarProduto"
+        />
+
+</LinearLayout>

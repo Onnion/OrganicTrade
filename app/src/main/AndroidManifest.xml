@@ -9,16 +9,16 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".OrganicTradeControler.GUI.LoginActivity"></activity>
-        <activity android:name=".OrganicTradeControler.GUI.CadastroUsuarioActivity" />
-        <activity android:name=".OrganicTradeControler.GUI.UsuarioActivity" />
-        <activity android:name=".OrganicTradeControler.GUI.CadastroProdutoActivity" />
-        <activity android:name=".OrganicTradeControler.GUI.TelaDeCarregamentoActivity">
+        <activity android:name=".OrganicTradeControler.GUI.RegisterUserActivity" />
+        <activity android:name=".OrganicTradeControler.GUI.UserActivity" />
+        <activity android:name=".OrganicTradeControler.GUI.RegisterTentItemActivity" />
+        <activity android:name=".OrganicTradeControler.GUI.LoadingActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".OrganicTradeControler.GUI.PesquisarProdutosActivity">
+        <activity android:name=".OrganicTradeControler.GUI.SearchProductsActivity">
 
         </activity>
     </application>
