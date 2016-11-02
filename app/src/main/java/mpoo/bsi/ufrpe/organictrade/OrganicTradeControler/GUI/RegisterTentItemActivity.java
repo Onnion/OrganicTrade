@@ -30,12 +30,13 @@ public class RegisterTentItemActivity extends AppCompatActivity {
         TentItemsPersistence crud = new TentItemsPersistence();
 
 
-        Spinner nameProduct = (Spinner) findViewById(R.id.registerTentItemSpiProductName);
+        //Spinner nameProduct = (Spinner) findViewById(R.id.registerTentItemSpiProductName);
         EditText unidade = (EditText) findViewById(R.id.registerTentItemEdtProductUnity);
         EditText quantidade = (EditText) findViewById((R.id.registerTentItemEdtProductAmount));
         EditText price = (EditText) findViewById(R.id.registerTentItemEdtProductPrice);
 
-        String nameProductString = nameProduct.getSelectedItem().toString();
+        String nameProductString = "Banana";
+        //nameProduct.getSelectedItem().toString();
         String unidadeString = unidade.getText().toString();
         String quantidadeString = quantidade.getText().toString();
         String priceString = price.getText().toString();
