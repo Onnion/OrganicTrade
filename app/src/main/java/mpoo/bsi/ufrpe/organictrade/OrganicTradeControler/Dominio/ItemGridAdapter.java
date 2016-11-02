@@ -44,7 +44,7 @@ public class ItemGridAdapter extends BaseAdapter{
             view = LayoutInflater.from(context).inflate(R.layout.item_listview_adapter, null);
 
         TextView textoNomeProduto = (TextView) view.findViewById(R.id.itemTxtNome);
-        textoNomeProduto.setText(itenDeTenda.getNomeProduto());
+        textoNomeProduto.setText(itenDeTenda.getProdutoId());
 
         TextView textoPriceProduto = (TextView)view.findViewById(R.id.itemTxtPrice);
         textoPriceProduto.setText(itenDeTenda.getValor());

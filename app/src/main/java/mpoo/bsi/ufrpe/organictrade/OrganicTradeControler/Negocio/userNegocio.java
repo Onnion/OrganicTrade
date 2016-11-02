@@ -11,7 +11,7 @@ import mpoo.bsi.ufrpe.organictrade.Infra.Persistencia.DatabaseHelper;
 import mpoo.bsi.ufrpe.organictrade.Infra.Session;
 import mpoo.bsi.ufrpe.organictrade.R;
 
-public class userNegocio {
+public class UserNegocio {
 
     private static SQLiteDatabase db;
     private static DatabaseHelper banco = Session.getDbAtual();

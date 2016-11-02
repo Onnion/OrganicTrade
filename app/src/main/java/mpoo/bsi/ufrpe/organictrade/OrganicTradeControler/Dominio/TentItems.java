@@ -5,7 +5,7 @@ public class TentItems {
     private String intensdetenda_id;
     private String valor;
     private String quantidadeAtual;
-    private String nomeProduto;
+    private String produtoId;
     private String usurio_id;
 
     public String getUsurio_id() {
@@ -16,12 +16,12 @@ public class TentItems {
         this.usurio_id = usurio_id;
     }
 
-    public String getNomeProduto() {
-        return nomeProduto;
+    public String getProdutoId() {
+        return produtoId;
     }
 
-    public void setNomeProduto(String nomeProduto) {
-        this.nomeProduto = nomeProduto;
+    public void setProdutoId(String produtoId) {
+        this.produtoId = produtoId;
     }
 
     public String getIntensdetenda_id() {

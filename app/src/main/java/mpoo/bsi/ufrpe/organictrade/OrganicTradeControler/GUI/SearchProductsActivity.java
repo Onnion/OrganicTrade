@@ -27,12 +27,12 @@ public class SearchProductsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_search_products);
         Session.setContext(getBaseContext());
 
-        final GridView listaDeItens = (GridView) findViewById(R.id.pesquisarProdutoGridItens);
+        final GridView listaDeItens = (GridView) findViewById(R.id.searchProductsGridItens);
         listaDeItens.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
                 TentItems item = (TentItems)listaDeItens.getAdapter().getItem(position);
-                Toast.makeText(Session.getContext(),item.getNomeProduto(), Toast.LENGTH_LONG).show();
+                Toast.makeText(Session.getContext(),item.getProdutoId(), Toast.LENGTH_LONG).show();
                 return false;
             }
         });
