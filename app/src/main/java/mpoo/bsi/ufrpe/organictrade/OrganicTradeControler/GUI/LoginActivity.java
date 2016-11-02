@@ -33,6 +33,7 @@ public class LoginActivity extends AppCompatActivity {
                 Toast.makeText(Session.getContext(),"Ola "+Session.getUserAtual().getNome(), Toast.LENGTH_LONG).show();
                 Intent j = new Intent(Session.getContext(), UsuarioActivity.class);
                 startActivity(j);
+                finish();
             }else{
                 Toast.makeText(Session.getContext(),getText(R.string.loginsenhaInvalido) , Toast.LENGTH_LONG).show();
             }

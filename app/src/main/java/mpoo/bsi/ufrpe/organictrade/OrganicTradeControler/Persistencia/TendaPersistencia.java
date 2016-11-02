@@ -12,7 +12,7 @@ public class TendaPersistencia {
     private SQLiteDatabase db;
     private DatabaseHelper banco = Session.getDbAtual();
 
-    public Tenda retornarListaDeUsuarios(){
+    public Tenda retornarTendaDoUsuario(){
         Tenda tenda = new Tenda();
         ItensDeTendaPersistencia crud = new ItensDeTendaPersistencia();
         db = banco.getReadableDatabase();
@@ -25,4 +25,18 @@ public class TendaPersistencia {
         }
         return tenda;
     }
+    public Tenda retornarTendaDosUsuarios(){
+        Tenda tenda = new Tenda();
+        ItensDeTendaPersistencia crud = new ItensDeTendaPersistencia();
+        db = banco.getReadableDatabase();
+        Cursor cursor = db.rawQuery(ComandosSql.sqlTodosOsItens(), new String[]{Session.getUserAtual().getId()});
+        if(cursor.moveToFirst()){
+            do{
+                ItensDeTenda itensDeTenda = crud.criarItensDeTenda(cursor);
+                tenda.setItensDeTendas(itensDeTenda);
+            }while(cursor.moveToNext());
+        }
+        return tenda;
+    }
+
 }

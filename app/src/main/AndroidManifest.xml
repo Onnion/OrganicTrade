@@ -13,14 +13,13 @@
         <activity android:name=".OrganicTradeControler.GUI.UsuarioActivity" />
         <activity android:name=".OrganicTradeControler.GUI.CadastroProdutoActivity" />
         <activity android:name=".OrganicTradeControler.GUI.TelaDeCarregamentoActivity">
-
-        </activity>
-        <activity android:name=".OrganicTradeControler.GUI.PesquisarProdutos">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".OrganicTradeControler.GUI.PesquisarProdutosActivity">
+
         </activity>
     </application>
 

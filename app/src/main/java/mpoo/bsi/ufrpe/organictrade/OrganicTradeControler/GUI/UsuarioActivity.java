@@ -12,7 +12,7 @@ import java.util.List;
 import mpoo.bsi.ufrpe.organictrade.Infra.Session;
 import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Dominio.ItensDeTenda;
 import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Dominio.Tenda;
-import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Dominio.ItemListAdaoter;
+import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Dominio.ItemListAdapter;
 import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Dominio.Usuario;
 import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Persistencia.TendaPersistencia;
 import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Persistencia.UsuarioPersistencia;
@@ -25,16 +25,14 @@ public class UsuarioActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_usuario);
         Session.setContext(getBaseContext());
-
         TextView text = (TextView)findViewById(R.id.usuarioTextName);
 
         String[] nome = Session.getUserAtual().getNome().split(" ");
-
         text.setText(nome[0]);
 
         //-----------------------------------PopularLisView------------------------------------//
-        //--------------------------------------Instacias--------------------------------//
-        //-------------------------OnClickLisView------------------------------------//
+        //--------------------------------------Instacias------------------------------------//
+        //------------------------------OnClickLisView------------------------------------//
         final ListView listaDeItens = (ListView) findViewById(R.id.usuarioListViewList);
         listaDeItens.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
@@ -44,20 +42,29 @@ public class UsuarioActivity extends AppCompatActivity {
                 return false;
             }
         });
-        //--------------------------------------------------------------------------//
-        TendaPersistencia tendaPersistencia = new TendaPersistencia();
-        Tenda tenda = tendaPersistencia.retornarListaDeUsuarios();
-        List<ItensDeTenda> tendaFinal = tenda.getItensDeTendas();
         //-------------------------------------------------------------------------------//
-        ItemListAdaoter adapter = new ItemListAdaoter(tendaFinal);
+        TendaPersistencia tendaPersistencia = new TendaPersistencia();
+        Tenda tenda = tendaPersistencia.retornarTendaDoUsuario();
+        List<ItensDeTenda> tendaFinal = tenda.getItensDeTendas();
+        //---------------------------------------------------------------------------------//
+        ItemListAdapter adapter = new ItemListAdapter(tendaFinal);
         listaDeItens.setAdapter(adapter);
         //-------------------------------------------------------------------------------------//
 
-        ImageButton imageButton = (ImageButton) findViewById(R.id.usuarioImgButnToCadastro);
-        imageButton.setOnClickListener(new View.OnClickListener() {
+        ImageButton addBtn = (ImageButton) findViewById(R.id.usuarioImgButnToCadastro);
+        addBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent p = new Intent(Session.getContext(),CadastroProdutoActivity.class);
+                startActivity(p);
+            }
+        });
+
+        ImageButton searchBtn =(ImageButton) findViewById(R.id.usuarioImgButnToSearch);
+        searchBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent p = new Intent(Session.getContext(),PesquisarProdutosActivity.class);
                 startActivity(p);
             }
         });

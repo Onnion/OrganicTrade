@@ -43,6 +43,13 @@ public class ComandosSql {
         return (sqlUsuarioQueTemOItem);
     }
 
+    public static String sqlTodosOsItens(){
+        String sqlUTodosOsItens =
+                "SELECT * FROM " + DatabaseHelper.getTableItensdetendaName() + " WHERE NOT "
+                        + DatabaseHelper.getColumnItensdetendaUserId() + " =?;";
+        return (sqlUTodosOsItens);
+    }
+
     public static String sqlUsuarioApartirDoLoginESenha(){
         String sqlUsuarioApartirDoLoginESenha =
                 "SELECT * FROM "+DatabaseHelper.getTableUserName() +" WHERE "

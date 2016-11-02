@@ -23,9 +23,11 @@ public class TelaDeCarregamentoActivity extends AppCompatActivity{
                     crud.buscarApartirDoUsuarioLogado();
                     Intent j = new Intent(Session.getContext(), UsuarioActivity.class);
                     startActivity(j);
+                    finish();
                 }else{
                     Intent j = new Intent(Session.getContext(), LoginActivity.class);
                     startActivity(j);
+                    finish();
                 }
             }
         }, 5000);
