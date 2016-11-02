@@ -25,7 +25,7 @@ public class UserActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user);
         Session.setContext(getBaseContext());
-        TextView text = (TextView)findViewById(R.id.usuarioTextName);
+        TextView text = (TextView)findViewById(R.id.userTextName);
 
         String[] nome = Session.getUserAtual().getName().split(" ");
         text.setText(nome[0]);
@@ -60,7 +60,7 @@ public class UserActivity extends AppCompatActivity {
             }
         });
 
-        ImageButton searchBtn =(ImageButton) findViewById(R.id.usuarioImgButnToSearch);
+        ImageButton searchBtn =(ImageButton) findViewById(R.id.userImgBtnToSearch);
         searchBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -2,6 +2,7 @@
     <string name="app_name">OrganicTrade</string>
 
     <string name="btnLogin">Entrar</string>
+    <string name="btnLogOut">Sair</string>
     <string name="btnMyTent">Meus Produtos</string>
     <string name="btnRegister">Cadastrar</string>
     <string name="btnRegisterProduct">Cadastrar Produto</string>
@@ -11,6 +12,7 @@
     <string name="hntName">Nome</string>
     <string name="hntPassword">Senha</string>
     <string name="hntPasswordConfirmation">Confirme a senha</string>
+    <string name="hntPhone">Celular</string>
 
     <string name="tstInvalidEmail">Email inválido</string>
     <string name="tstInvalidPassword">Senha inválida</string>

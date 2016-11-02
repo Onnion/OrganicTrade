@@ -23,45 +23,51 @@
 
 
     <Spinner
-        android:id="@+id/rtiSpiProductName"
+        android:id="@+id/registerTentItemSpiProductName"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         />
 
     <!--<Spinner-->
-        <!--android:id="@+id/rtiSpiProductType"-->
+        <!--android:id="@+id/registerTentItemSpiProductType"-->
         <!--android:layout_width="match_parent"-->
         <!--android:layout_height="wrap_content"-->
         <!--/>-->
 
+    <!--Transformar em Spinner-->
     <EditText
-        android:id="@+id/rtiEdtProductUnity"
+        android:id="@+id/registerTentItemEdtProductUnity"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:hint="Unidade"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         />
 
     <EditText
-        android:id="@+id/rtiEdtProductAmount"
+        android:id="@+id/registerTentItemEdtProductAmount"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:hint="Quantidade"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         />
 
     <EditText
-        android:id="@+id/rtiEdtProductPrice"
-        android:hint="Valor"
+        android:id="@+id/registerTentItemEdtProductPrice"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:hint="Valor"
         />
 
     <Button
-        android:id="@+id/rtiBtnRegister"
+        android:id="@+id/registerTentItemBtnRegister"
         android:text="@string/btnRegister"
         android:background="@color/verdeParaTudo"
         android:textColor="#ffff"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_weight="0"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
         android:layout_marginTop="83dp"

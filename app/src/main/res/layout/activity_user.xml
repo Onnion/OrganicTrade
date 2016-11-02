@@ -12,7 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_marginTop="160dp"
-        android:layout_below="@+id/usuarioTextName"
+        android:layout_below="@+id/userTextName"
         />
 
     <SurfaceView
@@ -23,14 +23,15 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:layout_alignBottom="@+id/logout"
-        android:layout_alignTop="@+id/usuarioImgButnToCadastro" />
+        android:layout_alignTop="@+id/usuarioImgButnToCadastro"
+        />
 
     <ImageButton
         android:id="@+id/usuarioImgButnToCadastro"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="102dp"
-        android:layout_below="@+id/usuarioTextName"
+        android:layout_below="@+id/userTextName"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginLeft="31dp"
@@ -44,60 +45,65 @@
         android:background="@color/verdeParaTudo"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:longClickable="false"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_above="@+id/surfaceView" />
+        android:layout_above="@+id/surfaceView"
+        android:longClickable="false"
+        />
 
     <ImageView
+        android:id="@+id/userImgUser"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:srcCompat="@android:drawable/sym_def_app_icon"
-        android:id="@+id/imageView2"
         android:layout_marginBottom="26dp"
         android:layout_above="@+id/surfaceView"
-        android:layout_alignTop="@+id/usuarioTextName"
+        android:layout_alignTop="@+id/userTextName"
         android:layout_toLeftOf="@+id/logout"
         android:layout_alignLeft="@+id/usuarioImgButnToCadastro"
-        android:layout_alignStart="@+id/usuarioImgButnToCadastro" />
+        android:layout_alignStart="@+id/usuarioImgButnToCadastro"
+        app:srcCompat="@android:drawable/sym_def_app_icon"
+        />
 
     <Button
-        android:text="Sair"
+        android:id="@+id/logout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/logout"
         android:onClick="sair"
         android:layout_alignBottom="@+id/usuarioImgButnToCadastro"
-        android:layout_alignRight="@+id/usuarioTextName"
-        android:layout_alignEnd="@+id/usuarioTextName"
+        android:layout_alignRight="@+id/userTextName"
+        android:layout_alignEnd="@+id/userTextName"
         android:layout_marginRight="38dp"
-        android:layout_marginEnd="38dp" />
+        android:layout_marginEnd="38dp"
+        android:text="@string/btnLogOut"
+        />
 
     <ImageButton
+        android:id="@+id/userImgBtnToSearch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:srcCompat="@android:drawable/ic_search_category_default"
-        android:id="@+id/usuarioImgButnToSearch"
         android:layout_alignBottom="@+id/surfaceView"
         android:layout_toRightOf="@+id/usuarioImgButnToCadastro"
         android:layout_marginLeft="33dp"
         android:layout_marginStart="33dp"
-        android:layout_below="@+id/colorTeste" />
+        android:layout_below="@+id/colorTeste"
+        app:srcCompat="@android:drawable/ic_search_category_default"
+        />
 
     <TextView
-        android:id="@+id/usuarioTextName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/userTextName"
         android:textSize="27sp"
         android:textColor="#ffffff"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginTop="48dp"
-        android:text="@string/hntName"
         android:layout_marginRight="47dp"
         android:layout_marginEnd="47dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:text="@string/hntName"
+        />
 
 
 </RelativeLayout>
