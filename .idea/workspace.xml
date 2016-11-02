@@ -7,24 +7,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="67e5dd69-0b4f-4e2b-a609-acc4a1bfa914" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/mpoo/bsi/ufrpe/organictrade/OrganicTradeControler/Negocio/userNegocio.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/cache.properties.lock" afterPath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/cache.properties.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/fileHashes.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/fileSnapshots.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/fileSnapshotsToTreeSnapshotsIndex.bin" afterPath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/fileSnapshotsToTreeSnapshotsIndex.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/taskArtifacts.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.bin" afterPath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" afterPath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" afterPath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/generated/mockable-android-23.jar" afterPath="$PROJECT_DIR$/build/generated/mockable-android-23.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/rules_0_5.xml" afterPath="$PROJECT_DIR$/.idea/libraries/rules_0_5.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/runner_0_5.xml" afterPath="$PROJECT_DIR$/.idea/libraries/runner_0_5.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/support_v4_23_3_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/support_v4_23_3_0.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.iml" afterPath="$PROJECT_DIR$/app/app.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/mpoo/bsi/ufrpe/organictrade/OrganicTradeControler/GUI/RegisterTentItemActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/mpoo/bsi/ufrpe/organictrade/OrganicTradeControler/GUI/RegisterTentItemActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" afterPath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/local.properties" afterPath="$PROJECT_DIR$/local.properties" />
     </list>
     <ignored path="OrganicTrade.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -85,8 +79,8 @@
       <file leaf-file-name="RegisterTentItemActivity.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/mpoo/bsi/ufrpe/organictrade/OrganicTradeControler/GUI/RegisterTentItemActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="318">
-              <caret line="34" column="57" selection-start-line="34" selection-start-column="57" selection-end-line="34" selection-end-column="57" />
+            <state relative-caret-position="504">
+              <caret line="43" column="0" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -120,7 +114,9 @@
         <option value="iagoneres" />
       </list>
     </option>
+    <option name="ROOT_SYNC" value="DONT_SYNC" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="FORCE_PUSH_ALLOWED" value="true" />
   </component>
   <component name="GradleLocalSettings">
     <option name="availableProjects">
@@ -1823,6 +1819,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="AndroidView">
         <subPane>
           <PATH>
@@ -1956,9 +1953,8 @@
         </subPane>
       </pane>
       <pane id="PackagesPane" />
-      <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="ProjectPane" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -2305,7 +2301,14 @@
       <option name="project" value="LOCAL" />
       <updated>1478107430096</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Commit Lu">
+      <created>1478117259254</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1478117259254</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TodoView">
@@ -2321,30 +2324,29 @@
     <frame x="0" y="27" width="1920" height="1053" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32912844" sideWeight="0.50427353" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.13706897" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32984293" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26450512" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32935154" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27178898" sideWeight="0.4957265" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31996974" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32912844" sideWeight="0.4957265" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.328125" sideWeight="0.50625" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.15481651" sideWeight="0.49198717" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.328125" sideWeight="0.49375" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32912844" sideWeight="0.49786323" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2820513" sideWeight="0.5060514" order="13" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22809829" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22239584" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980332" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.13706897" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32984293" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26450512" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -2353,6 +2355,7 @@
       <window_info id="Find Sample Code" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.8051282" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31996974" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.6364679" sideWeight="0.49786323" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
@@ -2454,7 +2457,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2462,7 +2464,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2504,7 +2505,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="524">
           <caret line="52" column="0" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2515,7 +2515,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="311">
           <caret line="21" column="16" selection-start-line="21" selection-start-column="16" selection-end-line="21" selection-end-column="16" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2533,7 +2532,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2573,7 +2571,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="558">
           <caret line="31" column="44" selection-start-line="31" selection-start-column="43" selection-end-line="31" selection-end-column="44" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2592,11 +2589,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="366">
           <caret line="55" column="21" selection-start-line="55" selection-start-column="21" selection-end-line="55" selection-end-column="21" />
-          <folding>
-            <element signature="e#1070#1088#0" expanded="false" />
-            <element signature="e#1715#1733#0" expanded="false" />
-            <element signature="e#2139#2160#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2607,7 +2599,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="244">
           <caret line="20" column="45" selection-start-line="20" selection-start-column="45" selection-end-line="20" selection-end-column="45" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2618,7 +2609,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1598">
           <caret line="94" column="31" selection-start-line="94" selection-start-column="31" selection-end-line="94" selection-end-column="31" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2626,7 +2616,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="432">
           <caret line="24" column="12" selection-start-line="24" selection-start-column="12" selection-end-line="24" selection-end-column="12" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2641,7 +2630,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
           <caret line="17" column="56" selection-start-line="17" selection-start-column="56" selection-end-line="17" selection-end-column="56" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2649,7 +2637,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="234">
           <caret line="29" column="90" selection-start-line="29" selection-start-column="90" selection-end-line="29" selection-end-column="90" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2658,7 +2645,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="558">
           <caret line="40" column="43" selection-start-line="40" selection-start-column="43" selection-end-line="40" selection-end-column="43" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2666,7 +2652,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="288">
           <caret line="22" column="20" selection-start-line="22" selection-start-column="20" selection-end-line="22" selection-end-column="20" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2674,7 +2659,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
           <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2682,7 +2666,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="252">
           <caret line="16" column="63" selection-start-line="16" selection-start-column="63" selection-end-line="16" selection-end-column="63" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2690,20 +2673,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="252">
           <caret line="25" column="35" selection-start-line="25" selection-start-column="35" selection-end-line="25" selection-end-column="35" />
-          <folding>
-            <element signature="method#sqlCreateUserTable#0;class#ComandosSql#0" expanded="false" />
-            <element signature="method#sqlCreateUsuarioLogadoTable#0;class#ComandosSql#0" expanded="false" />
-            <element signature="method#sqlCreateProductTable#0;class#ComandosSql#0" expanded="false" />
-            <element signature="method#sqlUsuarioQueTemOItem#0;class#ComandosSql#0" expanded="false" />
-            <element signature="method#sqlTodosOsItens#0;class#ComandosSql#0" expanded="false" />
-            <element signature="method#sqlUsuarioApartirDoLoginESenha#0;class#ComandosSql#0" expanded="false" />
-            <element signature="method#sqlUsuarioApartirDoId#0;class#ComandosSql#0" expanded="false" />
-            <element signature="method#sqlLimparTabela#0;class#ComandosSql#0" expanded="false" />
-            <element signature="method#sqlBuscarNoBancoDeUsuarioLogado#0;class#ComandosSql#0" expanded="false" />
-            <element signature="method#sqlUsuarioLogado#0;class#ComandosSql#0" expanded="false" />
-            <element signature="method#sqlDeslogarUsuario#0;class#ComandosSql#0" expanded="false" />
-            <element signature="method#sqlDropTableUsuarioLogado#0;class#ComandosSql#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2739,8 +2708,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/mpoo/bsi/ufrpe/organictrade/OrganicTradeControler/GUI/RegisterTentItemActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="318">
-          <caret line="34" column="57" selection-start-line="34" selection-start-column="57" selection-end-line="34" selection-end-column="57" />
+        <state relative-caret-position="504">
+          <caret line="43" column="0" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
