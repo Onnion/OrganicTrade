@@ -15,7 +15,7 @@ import mpoo.bsi.ufrpe.organictrade.Infra.Session;
 import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Dominio.ItemListAdapter;
 import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Dominio.TentItems;
 import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Dominio.Tent;
-import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Persistencia.TendaPersistencia;
+import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Persistencia.TentPersistence;
 import mpoo.bsi.ufrpe.organictrade.R;
 
 public class SearchProductsActivity extends AppCompatActivity {
@@ -37,8 +37,8 @@ public class SearchProductsActivity extends AppCompatActivity {
             }
         });
         //-------------------------------------------------------------------------------//
-        TendaPersistencia tendaPersistencia = new TendaPersistencia();
-        Tent tent = tendaPersistencia.retornarTendaDosUsuarios();
+        TentPersistence tentPersistence = new TentPersistence();
+        Tent tent = tentPersistence.retornarTendaDosUsuarios();
         List<TentItems> tendaFinal = tent.getTent();
         //---------------------------------------------------------------------------------//
         ItemListAdapter adapter = new ItemListAdapter(tendaFinal);

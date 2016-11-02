@@ -4,7 +4,7 @@ import android.os.Handler;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import mpoo.bsi.ufrpe.organictrade.Infra.Session;
-import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Persistencia.UsuarioPersistencia;
+import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Persistencia.UserPersistence;
 import mpoo.bsi.ufrpe.organictrade.R;
 
 public class LoadingActivity extends AppCompatActivity{
@@ -18,7 +18,7 @@ public class LoadingActivity extends AppCompatActivity{
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                UsuarioPersistencia crud = new UsuarioPersistencia();
+                UserPersistence crud = new UserPersistence();
                 if(crud.usuarioLogado()){
                     crud.buscarApartirDoUsuarioLogado();
                     Intent j = new Intent(Session.getContext(), UserActivity.class);

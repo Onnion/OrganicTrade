@@ -8,7 +8,7 @@ import mpoo.bsi.ufrpe.organictrade.Infra.Persistencia.DatabaseHelper;
 import mpoo.bsi.ufrpe.organictrade.Infra.Session;
 import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Dominio.TentItems;
 
-public class ItensDeTendaPersistencia {
+public class TentItemsPersistence {
     private SQLiteDatabase db;
     private DatabaseHelper banco = Session.getDbAtual();
 
@@ -25,12 +25,12 @@ public class ItensDeTendaPersistencia {
     public void inserirItensDeTenda(TentItems tentItems){
         db = banco.getWritableDatabase();
         ContentValues valoresItensDeTenda = new ContentValues();
-        valoresItensDeTenda.put(DatabaseHelper.getColumnItensdetendaId(), tentItems.getIntensdetenda_id());
-        valoresItensDeTenda.put(DatabaseHelper.getColumnItensdetendaQuantidade(), tentItems.getQuantidadeAtual());
-        valoresItensDeTenda.put(DatabaseHelper.getColumnItensdetendaValor(), tentItems.getValor());
-        valoresItensDeTenda.put(DatabaseHelper.getColumnItensdetendaNomePoroduto(), tentItems.getNomeProduto());
-        valoresItensDeTenda.put(DatabaseHelper.getColumnItensdetendaUserId(),Session.getUserAtual().getId_user());
-        db.insert(DatabaseHelper.getTableItensdetendaName(), null, valoresItensDeTenda);
+        valoresItensDeTenda.put(DatabaseHelper.getColumnTentitemsId(), tentItems.getIntensdetenda_id());
+        valoresItensDeTenda.put(DatabaseHelper.getColumnTentitemsAmount(), tentItems.getQuantidadeAtual());
+        valoresItensDeTenda.put(DatabaseHelper.getColumnTentitemsPrice(), tentItems.getValor());
+        valoresItensDeTenda.put(DatabaseHelper.getColumnProductName(), tentItems.getNomeProduto());
+        valoresItensDeTenda.put(DatabaseHelper.getColumnTentitemsUserId(),Session.getUserAtual().getId_user());
+        db.insert(DatabaseHelper.getTableTentitemsName(), null, valoresItensDeTenda);
         db.close();
     }
 }

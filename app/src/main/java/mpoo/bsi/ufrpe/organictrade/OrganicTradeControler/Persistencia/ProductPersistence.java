@@ -8,7 +8,7 @@ import mpoo.bsi.ufrpe.organictrade.Infra.Persistencia.DatabaseHelper;
 import mpoo.bsi.ufrpe.organictrade.Infra.Session;
 import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Dominio.Product;
 
-public class ProductPersistencia {
+public class ProductPersistence {
     private int id = 0;
     private SQLiteDatabase db;
     private DatabaseHelper banco = Session.getDbAtual();
@@ -44,7 +44,7 @@ public class ProductPersistencia {
         }
     }
 
-    public ProductPersistencia(){
+    public ProductPersistence(){
         populateProductTable();
     }
 }

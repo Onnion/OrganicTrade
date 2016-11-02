@@ -14,8 +14,8 @@ import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Dominio.TentItems;
 import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Dominio.Tent;
 import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Dominio.ItemListAdapter;
 import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Dominio.User;
-import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Persistencia.TendaPersistencia;
-import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Persistencia.UsuarioPersistencia;
+import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Persistencia.TentPersistence;
+import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Persistencia.UserPersistence;
 import mpoo.bsi.ufrpe.organictrade.R;
 
 public class UserActivity extends AppCompatActivity {
@@ -43,8 +43,8 @@ public class UserActivity extends AppCompatActivity {
             }
         });
         //-------------------------------------------------------------------------------//
-        TendaPersistencia tendaPersistencia = new TendaPersistencia();
-        Tent tent = tendaPersistencia.retornarTendaDoUsuario();
+        TentPersistence tentPersistence = new TentPersistence();
+        Tent tent = tentPersistence.retornarTendaDoUsuario();
         List<TentItems> tendaFinal = tent.getTent();
         //---------------------------------------------------------------------------------//
         ItemListAdapter adapter = new ItemListAdapter(tendaFinal);
@@ -71,7 +71,7 @@ public class UserActivity extends AppCompatActivity {
     }
 
     public void sair(View v){
-        UsuarioPersistencia crud = new UsuarioPersistencia();
+        UserPersistence crud = new UserPersistence();
         crud.deslogarUsuario();
         Session.setUserAtual(new User());
         Intent p = new Intent(Session.getContext(),LoginActivity.class);

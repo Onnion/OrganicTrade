@@ -5,57 +5,62 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.GUI.LoginActivity">
-    <Button
-    android:background="@color/verdeParaTudo"
-    android:textColor="#ffff"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="@string/btnRegister"
-    android:id="@+id/mainBtnToCadastro"
-    android:onClick="toCadastro"
-    android:layout_alignParentBottom="true"
-    android:layout_alignLeft="@+id/mainBtnEntrar"
-    android:layout_alignStart="@+id/mainBtnEntrar"
-    android:layout_marginBottom="18dp" />
 
     <Button
-    android:background="@color/verdeParaTudo"
-    android:textColor="#ffff"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="@string/btnLogin"
-    android:id="@+id/mainBtnEntrar"
-    android:onClick="logar"
-    android:layout_above="@+id/mainBtnToCadastro"
-    android:layout_centerHorizontal="true"
-    android:layout_marginBottom="33dp" />
-
-    <EditText
-    android:layout_width="fill_parent"
-    android:layout_height="wrap_content"
-    android:id="@+id/loginEdtLogin"
-    android:layout_marginBottom="74dp"
-    android:layout_above="@+id/mainBtnEntrar"
-    android:layout_alignParentLeft="true"
-    android:layout_alignParentStart="true"
-    android:hint="Login" />
-
-    <EditText
-    android:layout_width="fill_parent"
-    android:layout_height="wrap_content"
-    android:id="@+id/loginEdtPassword"
-    android:inputType="textPassword"
-    android:layout_above="@+id/mainBtnEntrar"
-    android:layout_alignParentLeft="true"
-    android:layout_alignParentStart="true"
-    android:layout_marginBottom="14dp"
-    android:hint="Senha" />
-
-    <ImageView
+        android:id="@+id/mainBtnToCadastro"
+        android:background="@color/verdeParaTudo"
+        android:textColor="#ffff"
+        android:text="@string/btnRegister"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/image_logo_oragnic_trade"
+        android:layout_alignParentBottom="true"
+        android:layout_alignLeft="@+id/mainBtnEntrar"
+        android:layout_alignStart="@+id/mainBtnEntrar"
+        android:layout_marginBottom="18dp"
+        android:onClick="toCadastro"
+        />
+
+    <Button
+        android:id="@+id/mainBtnEntrar"
+        android:background="@color/verdeParaTudo"
+        android:textColor="#ffff"
+        android:text="@string/btnLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/mainBtnToCadastro"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="33dp"
+        android:onClick="logar"
+        />
+
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/loginEdtLogin"
+        android:layout_marginBottom="74dp"
+        android:layout_above="@+id/mainBtnEntrar"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:hint="@string/hntLogin"
+        />
+
+    <EditText
+        android:id="@+id/loginEdtPassword"
+        android:inputType="textPassword"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/mainBtnEntrar"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="14dp"
+        android:hint="@string/hntPassword"
+        />
+
+    <ImageView
         android:id="@+id/loginImgLogo"
+        app:srcCompat="@drawable/image_logo_oragnic_trade"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_above="@+id/loginEdtLogin"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"

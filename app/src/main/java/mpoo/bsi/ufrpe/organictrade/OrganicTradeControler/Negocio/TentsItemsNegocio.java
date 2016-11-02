@@ -4,7 +4,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import mpoo.bsi.ufrpe.organictrade.Infra.Session;
 
-public class ItensDeTendaNegocio {
+public class TentsItemsNegocio {
     private static final Pattern DECIMAL_VERIFICATION_CHARACTERS = Pattern.compile("^\\d+(\\.\\d{1,2})?$", Pattern.CASE_INSENSITIVE);
 
     //preco com apenas duas casas deciamais

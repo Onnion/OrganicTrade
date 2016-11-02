@@ -8,7 +8,7 @@ import mpoo.bsi.ufrpe.organictrade.Infra.Persistencia.DatabaseHelper;
 import mpoo.bsi.ufrpe.organictrade.Infra.Session;
 import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Dominio.User;
 
-public class UsuarioPersistencia {
+public class UserPersistence {
     private SQLiteDatabase db;
     private DatabaseHelper banco = Session.getDbAtual();
 

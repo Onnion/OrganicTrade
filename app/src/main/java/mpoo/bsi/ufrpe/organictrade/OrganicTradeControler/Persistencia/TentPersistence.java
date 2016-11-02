@@ -8,13 +8,13 @@ import mpoo.bsi.ufrpe.organictrade.Infra.Persistencia.DatabaseHelper;
 import mpoo.bsi.ufrpe.organictrade.Infra.Session;
 import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Dominio.TentItems;
 import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Dominio.Tent;
-public class TendaPersistencia {
+public class TentPersistence {
     private SQLiteDatabase db;
     private DatabaseHelper banco = Session.getDbAtual();
 
     public Tent retornarTendaDoUsuario(){
         Tent tent = new Tent();
-        ItensDeTendaPersistencia crud = new ItensDeTendaPersistencia();
+        TentItemsPersistence crud = new TentItemsPersistence();
         db = banco.getReadableDatabase();
         Cursor cursor = db.rawQuery(ComandosSql.sqlUsuarioQueTemOItem(), new String[]{Session.getUserAtual().getId_user()});
         if(cursor.moveToFirst()){
@@ -27,7 +27,7 @@ public class TendaPersistencia {
     }
     public Tent retornarTendaDosUsuarios(){
         Tent tent = new Tent();
-        ItensDeTendaPersistencia crud = new ItensDeTendaPersistencia();
+        TentItemsPersistence crud = new TentItemsPersistence();
         db = banco.getReadableDatabase();
         Cursor cursor = db.rawQuery(ComandosSql.sqlTodosOsItens(), new String[]{Session.getUserAtual().getId_user()});
         if(cursor.moveToFirst()){

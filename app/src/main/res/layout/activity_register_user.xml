@@ -9,7 +9,7 @@
         android:id="@+id/registerUserEdtName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Nome"
+        android:hint="@string/hntName"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
@@ -20,32 +20,32 @@
         android:id="@+id/registerUserEdtLogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Login"
         android:layout_below="@+id/registerUserEdtName"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
+        android:hint="@string/hntLogin"
         />
 
     <EditText
         android:id="@+id/registerUserEdtPassword"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:inputType="textPassword"
-        android:hint="Senha"
         android:layout_below="@+id/registerUserEdtLogin"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
+        android:inputType="textPassword"
+        android:hint="@string/hntPassword"
         />
 
     <EditText
         android:id="@+id/registerUserEdtRepeatPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="textPassword"
-        android:hint="Confirme a Senha"
         android:layout_below="@+id/registerUserEdtPassword"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
+        android:inputType="textPassword"
+        android:hint="@string/hntPasswordConfirmation"
         />
 
     <EditText
@@ -53,27 +53,27 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textEmailAddress"
-        android:ems="10"
-        android:hint="Email"
         android:layout_below="@+id/registerUserEdtPassword"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginTop="43dp"
+        android:ems="10"
+        android:hint="@string/hntEmail"
         />
 
     <Button
         android:id="@+id/registerUserBtnRegister"
         android:background="@color/verdeParaTudo"
         android:textColor="#ffff"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:text="@string/btnRegister"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
-        android:onClick="cadastrarUsuario"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/registerUserEdtEmail"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="83dp"
+        android:onClick="cadastrarUsuario"
         />
 
 </RelativeLayout>
