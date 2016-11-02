@@ -2,7 +2,6 @@ package mpoo.bsi.ufrpe.organictrade.Infra.Persistencia;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-
 public class DatabaseHelper extends SQLiteOpenHelper {
 
     //
@@ -15,21 +14,25 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String COLUMN_USER_USERNAME = "user_name";
     private static final String COLUMN_USER_PASSWORD = "user_password";
     private static final String COLUMN_USER_EMAIL = "user_email";
-
     private static final String COLUMN_USER_NAME = "user_nome";
     private static final String COLUMN_USER_PHONE = "user_nome";
 
-    //UsuarioLogado
-    private static final String TABLE_USER_LOGGED_NAME = "usuario_logado";
+    //UserLogged
+    private static final String TABLE_USER_LOGGED_NAME = "user_logged";
     private static final String COLUMN_USER_LOGGED_ID = "user_id";
 
     //TentItems
-    private static final String TABLE_ITENSDETENDA_NAME = "itensdetenda";
-    private static final String COLUMN_ITENSDETENDA_ID = "itensdetenda_id";
-    private static final String COLUMN_ITENSDETENDA_QUANTIDADE = "itensdetenda_quantidade";
-    private static final String COLUMN_ITENSDETENDA_VALOR = "itensdetenda_valor";
-    private static final String COLUMN_ITENSDETENDA_NOME_PORODUTO = "itensdetenda_nome_produto";
-    private static final String COLUMN_ITENSDETENDA_USER_ID = "user_id";
+    private static final String TABLE_TENTITEMS_NAME = "tentitems";
+    private static final String COLUMN_TENTITEMS_ID = "tentitems_id";
+    private static final String COLUMN_TENTITEMS_AMOUNT = "tentitems_amout";
+    private static final String COLUMN_TENTITEMS_PRICE = "tentitems_price";
+    private static final String COLUMN_TENTITEMS_PRODUCT_ID = "product_id";
+    private static final String COLUMN_TENTITEMS_USER_ID = "user_id";
+
+    //Products
+    private static final String TABLE_PRODUCT_NAME = "product";
+    private static final String COLUMN_PRODUCT_ID = "product_id";
+    private static final String COLUMN_PRODUCT_NAME = "product_name";
 
     //
     private SQLiteDatabase db;
@@ -59,43 +62,54 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return COLUMN_USER_PHONE;
     }
 
-
-    public static String getTableItensdetendaName() {
-        return TABLE_ITENSDETENDA_NAME;
+    public static String getColumnUserName() {
+        return COLUMN_USER_NAME;
+    }
+    //----------------------------------------------------------------------------//
+    public static String getTableTentitemsName() {
+        return TABLE_TENTITEMS_NAME;
     }
 
-    public static String getColumnItensdetendaId() {
-        return COLUMN_ITENSDETENDA_ID;
+    public static String getColumnTentitemsId() {
+        return COLUMN_TENTITEMS_ID;
     }
 
-    public static String getColumnItensdetendaQuantidade() {
-        return COLUMN_ITENSDETENDA_QUANTIDADE;
+    public static String getColumnTentitemsAmount() {
+        return COLUMN_TENTITEMS_AMOUNT;
     }
 
-    public static String getColumnItensdetendaValor() {
-        return COLUMN_ITENSDETENDA_VALOR;
+    public static String getColumnTentitemsPrice() {
+        return COLUMN_TENTITEMS_PRICE;
     }
 
-    public static String getColumnItensdetendaNomePoroduto() {
-        return COLUMN_ITENSDETENDA_NOME_PORODUTO;
+    public static String getColumnTentitemsProductId() {
+        return COLUMN_TENTITEMS_PRODUCT_ID;
     }
 
-    public static String getColumnItensdetendaUserId() {
-        return COLUMN_ITENSDETENDA_USER_ID;
+    public static String getColumnTentitemsUserId() {
+        return COLUMN_TENTITEMS_USER_ID;
     }
-
+    //----------------------------------------------------------------------------//
     public static String getTableUserLoggedName() {
-    return TABLE_USER_LOGGED_NAME;
-}
+        return TABLE_USER_LOGGED_NAME;
+    }
 
     public static String getColumnUserLoggedId() {
-    return COLUMN_USER_LOGGED_ID;
-}
+        return COLUMN_USER_LOGGED_ID;
+    }
+    //----------------------------------------------------------------------------//
+    public static String getColumnProductName() {
+        return COLUMN_PRODUCT_NAME;
+    }
 
-    public static String getColumnUserName() {
-    return COLUMN_USER_NAME;
-}
+    public static String getTableProductName() {
+        return TABLE_PRODUCT_NAME;
+    }
 
+    public static String getColumnProductId() {
+        return COLUMN_PRODUCT_ID;
+    }
+    //----------------------------------------------------------------------------//
     public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
@@ -105,6 +119,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL(ComandosSql.sqlCreateUserTable());
         db.execSQL(ComandosSql.sqlCreateItensdetendaTable());
         db.execSQL(ComandosSql.sqlCreateUsuarioLogadoTable());
+        db.execSQL(ComandosSql.sqlCreateProductTable());
     }
 
     @Override
@@ -112,6 +127,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL(ComandosSql.sqlDropTableUsuario());
         db.execSQL(ComandosSql.sqlDropTableUsuarioLogado());
         db.execSQL(ComandosSql.sqlDropTableItensDeTenda());
+        db.execSQL(ComandosSql.sqlDropTableProduct());
         this.onCreate(db);
     }
 }
