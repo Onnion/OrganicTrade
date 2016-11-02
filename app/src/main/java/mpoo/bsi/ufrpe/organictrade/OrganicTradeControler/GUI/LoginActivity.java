@@ -30,7 +30,7 @@ public class LoginActivity extends AppCompatActivity {
 
         if(UsuarioNegocio.verificacaoLogin(userString,passString)){
             if(crud.buscarELogarUsuario(userString,passString)){
-                Toast.makeText(Session.getContext(),"Ola "+Session.getUserAtual().getNome(), Toast.LENGTH_LONG).show();
+                Toast.makeText(Session.getContext(),"Ola "+Session.getUserAtual().getName(), Toast.LENGTH_LONG).show();
                 Intent j = new Intent(Session.getContext(), UsuarioActivity.class);
                 startActivity(j);
                 finish();

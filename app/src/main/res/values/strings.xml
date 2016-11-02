@@ -1,19 +1,36 @@
 <resources>
     <string name="app_name">OrganicTrade</string>
+
     <string name="btnLogin">Entrar</string>
-    <string name="user">Login</string>
-    <string name="pass">Senha</string>
+
+    <string name="userTeste">Login</string>
+
+    <string name="password">Senha</string>
+
     <string name="cadastradocomsucesso">Cadastrado com sucesso </string>
+
     <string name="senhasnaoconferem">Senhas não conferem</string>
+
     <string name="cadastrar">Cadastrar</string>
+
     <string name="repeatPass">Repeat Password</string>
+
     <string name="name">Nome</string>
+
     <string name="btnCadastrarProduto">Cadastrar Produto</string>
+
     <string name="btnMeusProdutos">Meus Produtos</string>
+
     <string name="nomeInvalido">Nome inválido</string>
+
     <string name="senhaInvalida">Senha inválida</string>
+
     <string name="loginInvalido">Login inválido</string>
+
     <string name="emailInvalido">Email inválido</string>
+
     <string name="loginsenhaInvalido">Login ou senha inválidos</string>
+
     <string name="loginemailInvalido">Login ou email já cadastrados</string>
+
 </resources>

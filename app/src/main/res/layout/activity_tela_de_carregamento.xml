@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_tela_de_carregamento"
+    android:id_user="@+id_user/activity_tela_de_carregamento"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.GUI.TelaDeCarregamentoActivity">
@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:srcCompat="@drawable/image_logo_oragnic_trade"
-        android:id="@+id/imageView3"
+        android:id_user="@+id_user/imageView3"
         android:layout_marginTop="20dp"
         android:layout_marginBottom="286dp"
         android:layout_alignParentLeft="true"

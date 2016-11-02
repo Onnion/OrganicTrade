@@ -7,29 +7,30 @@ import android.database.sqlite.SQLiteDatabase;
 import mpoo.bsi.ufrpe.organictrade.Infra.Persistencia.ComandosSql;
 import mpoo.bsi.ufrpe.organictrade.Infra.Persistencia.DatabaseHelper;
 import mpoo.bsi.ufrpe.organictrade.Infra.Session;
-import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Dominio.Usuario;
+import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Dominio.User;
 
 public class UsuarioPersistencia {
     private SQLiteDatabase db;
     private DatabaseHelper banco = Session.getDbAtual();
 
-    public Usuario criarUsuario(Cursor cursor) {
-        Usuario usuario = new Usuario();
-        usuario.setId(cursor.getString(0));
-        usuario.setUname(cursor.getString(1));
-        usuario.setPass(cursor.getString(2));
-        usuario.setEmail(cursor.getString(3));
-        usuario.setNome(cursor.getString(4));
-        return usuario;
+    public User criarUsuario(Cursor cursor) {
+        User user = new User();
+        user.setId_user(cursor.getString(0));
+        user.setUserName(cursor.getString(1));
+        user.setPassword(cursor.getString(2));
+        user.setEmail(cursor.getString(3));
+        user.setName(cursor.getString(4));
+        user.setPhone(cursor.getString(5));
+        return user;
     }
 
     public boolean buscarELogarUsuario(String username, String senha) {
         db = banco.getReadableDatabase();
         Cursor cursor = db.rawQuery(ComandosSql.sqlUsuarioApartirDoLoginESenha(), new String[]{username,senha});
         if(cursor.moveToFirst()) {
-            Usuario usuario = criarUsuario(cursor);
-            logarUsuario(usuario);
-            Session.setUserAtual(usuario);
+            User user = criarUsuario(cursor);
+            logarUsuario(user);
+            Session.setUserAtual(user);
             cursor.close();
             db.close();
             return true;
@@ -39,23 +40,23 @@ public class UsuarioPersistencia {
         return false;
     }
 
-    public void inserirUsuario(Usuario user){
+    public void inserirUsuario(User user){
         db = banco.getWritableDatabase();
         ContentValues valoresUsuario = new ContentValues();
-        valoresUsuario.put(DatabaseHelper.getColumnUserId(),user.getId());
-        valoresUsuario.put(DatabaseHelper.getColumnUserName(), user.getUname());
-        valoresUsuario.put(DatabaseHelper.getColumnUserPass(), user.getPass());
+        valoresUsuario.put(DatabaseHelper.getColumnUserId(),user.getId_user());
+        valoresUsuario.put(DatabaseHelper.getColumnUserUsername(), user.getUserName());
+        valoresUsuario.put(DatabaseHelper.getColumnUserPassword(), user.getPassword());
         valoresUsuario.put(DatabaseHelper.getColumnUserEmail(), user.getEmail());
-        valoresUsuario.put(DatabaseHelper.getColumnUserNome(), user.getNome());
+        valoresUsuario.put(DatabaseHelper.getColumnUserName(), user.getName());
         db.insert(DatabaseHelper.getTableUserName(), null, valoresUsuario);
         db.close();
     }
 
-    public void logarUsuario(Usuario user){
+    public void logarUsuario(User user){
         db = banco.getWritableDatabase();
         ContentValues valoresUsuario = new ContentValues();
-        valoresUsuario.put(DatabaseHelper.getColumnUserLogadoId(),user.getId());
-        db.insert(DatabaseHelper.getTableUserLogadoName(), null, valoresUsuario);
+        valoresUsuario.put(DatabaseHelper.getColumnUserLoggedId(),user.getId_user());
+        db.insert(DatabaseHelper.getTableUserLoggedName(), null, valoresUsuario);
         db.close();
     }
 
@@ -74,7 +75,7 @@ public class UsuarioPersistencia {
 
     public void deslogarUsuario(){
         db = banco.getReadableDatabase();
-        Cursor cursor = db.rawQuery(ComandosSql.sqlDeslogarUsuario(), new String[]{Session.getUserAtual().getId()});
+        Cursor cursor = db.rawQuery(ComandosSql.sqlDeslogarUsuario(), new String[]{Session.getUserAtual().getId_user()});
         if(cursor.moveToFirst()) {
             Session.setUserAtual(null);
             db.execSQL(ComandosSql.sqlLimparTabela());
@@ -87,8 +88,8 @@ public class UsuarioPersistencia {
         if(cursor.moveToFirst()){
             Cursor usuario = db.rawQuery(ComandosSql.sqlUsuarioApartirDoId(), new String[]{cursor.getString(0)});
             if (usuario.moveToFirst()){
-                Usuario usuarioLogado = criarUsuario(usuario);
-                Session.setUserAtual(usuarioLogado);
+                User userLogado = criarUsuario(usuario);
+                Session.setUserAtual(userLogado);
             }
         }
     }

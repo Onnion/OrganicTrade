@@ -14,21 +14,21 @@ import mpoo.bsi.ufrpe.organictrade.R;
 
 public class ItemGridAdapter extends BaseAdapter{
     private Context context;
-    private List<ItensDeTenda> itensDeTenda = null;
+    private List<TentItems> tentItems = null;
 
-    public ItemGridAdapter(List<ItensDeTenda> itensDeTenda) {
-        this.itensDeTenda = itensDeTenda;
+    public ItemGridAdapter(List<TentItems> tentItems) {
+        this.tentItems = tentItems;
         this.context = Session.getContext();
     }
 
     @Override
     public int getCount() {
-        return itensDeTenda.size();
+        return tentItems.size();
     }
 
     @Override
     public Object getItem(int position) {
-        return itensDeTenda.get(position);
+        return tentItems.get(position);
     }
 
     @Override
@@ -38,7 +38,7 @@ public class ItemGridAdapter extends BaseAdapter{
 
     @Override
     public View getView(int position, View view, ViewGroup parent) {
-        ItensDeTenda itenDeTenda = itensDeTenda.get(position);
+        TentItems itenDeTenda = tentItems.get(position);
 
         if(view == null)
             view = LayoutInflater.from(context).inflate(R.layout.item_listview_adapter, null);

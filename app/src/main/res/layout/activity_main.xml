@@ -11,11 +11,11 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:text="@string/cadastrar"
-    android:id="@+id/mainBtnToCadastro"
+    android:id_user="@+id_user/mainBtnToCadastro"
     android:onClick="toCadastro"
     android:layout_alignParentBottom="true"
-    android:layout_alignLeft="@+id/mainBtnEntrar"
-    android:layout_alignStart="@+id/mainBtnEntrar"
+    android:layout_alignLeft="@+id_user/mainBtnEntrar"
+    android:layout_alignStart="@+id_user/mainBtnEntrar"
     android:layout_marginBottom="18dp" />
 
     <Button
@@ -24,18 +24,18 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:text="@string/btnLogin"
-    android:id="@+id/mainBtnEntrar"
+    android:id_user="@+id_user/mainBtnEntrar"
     android:onClick="logar"
-    android:layout_above="@+id/mainBtnToCadastro"
+    android:layout_above="@+id_user/mainBtnToCadastro"
     android:layout_centerHorizontal="true"
     android:layout_marginBottom="33dp" />
 
     <EditText
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
-    android:id="@+id/mainEdUsername"
+    android:id_user="@+id_user/mainEdUsername"
     android:layout_marginBottom="74dp"
-    android:layout_above="@+id/mainBtnEntrar"
+    android:layout_above="@+id_user/mainBtnEntrar"
     android:layout_alignParentLeft="true"
     android:layout_alignParentStart="true"
     android:hint="Login" />
@@ -43,9 +43,9 @@
     <EditText
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
-    android:id="@+id/mainEtPassword"
+    android:id_user="@+id_user/mainEtPassword"
     android:inputType="textPassword"
-    android:layout_above="@+id/mainBtnEntrar"
+    android:layout_above="@+id_user/mainBtnEntrar"
     android:layout_alignParentLeft="true"
     android:layout_alignParentStart="true"
     android:layout_marginBottom="14dp"
@@ -55,9 +55,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:srcCompat="@drawable/image_logo_oragnic_trade"
-        android:id="@+id/imageView"
-
-        android:layout_above="@+id/mainEdUsername"
+        android:id_user="@+id_user/imageView"
+        android:layout_above="@+id_user/mainEdUsername"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginBottom="10dp"

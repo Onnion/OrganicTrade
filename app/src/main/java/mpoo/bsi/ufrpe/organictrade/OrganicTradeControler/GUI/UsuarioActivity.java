@@ -10,10 +10,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 import java.util.List;
 import mpoo.bsi.ufrpe.organictrade.Infra.Session;
-import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Dominio.ItensDeTenda;
-import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Dominio.Tenda;
+import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Dominio.TentItems;
+import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Dominio.Tent;
 import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Dominio.ItemListAdapter;
-import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Dominio.Usuario;
+import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Dominio.User;
 import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Persistencia.TendaPersistencia;
 import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Persistencia.UsuarioPersistencia;
 import mpoo.bsi.ufrpe.organictrade.R;
@@ -27,7 +27,7 @@ public class UsuarioActivity extends AppCompatActivity {
         Session.setContext(getBaseContext());
         TextView text = (TextView)findViewById(R.id.usuarioTextName);
 
-        String[] nome = Session.getUserAtual().getNome().split(" ");
+        String[] nome = Session.getUserAtual().getName().split(" ");
         text.setText(nome[0]);
 
         //-----------------------------------PopularLisView------------------------------------//
@@ -37,15 +37,15 @@ public class UsuarioActivity extends AppCompatActivity {
         listaDeItens.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-                ItensDeTenda item = (ItensDeTenda)listaDeItens.getAdapter().getItem(position);
+                TentItems item = (TentItems)listaDeItens.getAdapter().getItem(position);
                 Toast.makeText(Session.getContext(),item.getNomeProduto(), Toast.LENGTH_LONG).show();
                 return false;
             }
         });
         //-------------------------------------------------------------------------------//
         TendaPersistencia tendaPersistencia = new TendaPersistencia();
-        Tenda tenda = tendaPersistencia.retornarTendaDoUsuario();
-        List<ItensDeTenda> tendaFinal = tenda.getItensDeTendas();
+        Tent tent = tendaPersistencia.retornarTendaDoUsuario();
+        List<TentItems> tendaFinal = tent.getTent();
         //---------------------------------------------------------------------------------//
         ItemListAdapter adapter = new ItemListAdapter(tendaFinal);
         listaDeItens.setAdapter(adapter);
@@ -73,7 +73,7 @@ public class UsuarioActivity extends AppCompatActivity {
     public void sair(View v){
         UsuarioPersistencia crud = new UsuarioPersistencia();
         crud.deslogarUsuario();
-        Session.setUserAtual(new Usuario());
+        Session.setUserAtual(new User());
         Intent p = new Intent(Session.getContext(),LoginActivity.class);
         startActivity(p);
 

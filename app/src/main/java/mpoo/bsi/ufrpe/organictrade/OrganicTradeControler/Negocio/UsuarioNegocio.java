@@ -24,7 +24,7 @@ public class UsuarioNegocio {
     private static boolean usuarioNaoCadastrado(String username) {
         String sql =
                 "SELECT * FROM " + DatabaseHelper.getTableUserName() + " WHERE "
-                        + DatabaseHelper.getColumnUserName() + "=?;";
+                        + DatabaseHelper.getColumnUserUsername() + "=?;";
         db = banco.getReadableDatabase();
         Cursor cursor = db.rawQuery(sql, new String[]{username});
         if (cursor.moveToFirst()) {

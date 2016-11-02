@@ -8,7 +8,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 import mpoo.bsi.ufrpe.organictrade.Infra.Persistencia.DatabaseHelper;
 import mpoo.bsi.ufrpe.organictrade.Infra.Session;
-import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Dominio.Usuario;
+import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Dominio.User;
 import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Negocio.UsuarioNegocio;
 import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Persistencia.UsuarioPersistencia;
 import mpoo.bsi.ufrpe.organictrade.R;
@@ -44,11 +44,11 @@ public class CadastroUsuarioActivity extends AppCompatActivity {
             Toast.makeText(CadastroUsuarioActivity.this,getText(R.string.senhasnaoconferem), Toast.LENGTH_LONG).show();
         }else{
             if(UsuarioNegocio.verificacaoCadastro(userString,passString,rpassString,remail,nomeString)) {
-                Usuario usuario = new Usuario();
-                usuario.setUname(userString);
-                usuario.setPass(passString);
+                User usuario = new User();
+                usuario.setUserName(userString);
+                usuario.setPassword(passString);
                 usuario.setEmail(remail);
-                usuario.setNome(nomeString);
+                usuario.setName(nomeString);
 
                 crud.inserirUsuario(usuario);
 

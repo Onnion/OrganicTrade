@@ -9,19 +9,21 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final int DATABASE_VERSION = 19;
     private static final String DATABASE_NAME = "organicTrade.db";
 
-    //Usuario
+    //User
     private static final String TABLE_USER_NAME = "usuario";
     private static final String COLUMN_USER_ID = "user_id";
-    private static final String COLUMN_USER_NAME = "user_name";
-    private static final String COLUMN_USER_PASS = "user_pass";
+    private static final String COLUMN_USER_USERNAME = "user_name";
+    private static final String COLUMN_USER_PASSWORD = "user_password";
     private static final String COLUMN_USER_EMAIL = "user_email";
-    private static final String COLUMN_USER_NOME = "user_nome";
+
+    private static final String COLUMN_USER_NAME = "user_nome";
+    private static final String COLUMN_USER_PHONE = "user_nome";
 
     //UsuarioLogado
-    private static final String TABLE_USER_LOGADO_NAME = "usuario_logado";
-    private static final String COLUMN_USER_LOGADO_ID = "user_id";
+    private static final String TABLE_USER_LOGGED_NAME = "usuario_logado";
+    private static final String COLUMN_USER_LOGGED_ID = "user_id";
 
-    //ItensDeTenda
+    //TentItems
     private static final String TABLE_ITENSDETENDA_NAME = "itensdetenda";
     private static final String COLUMN_ITENSDETENDA_ID = "itensdetenda_id";
     private static final String COLUMN_ITENSDETENDA_QUANTIDADE = "itensdetenda_quantidade";
@@ -41,17 +43,22 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return COLUMN_USER_ID;
     }
 
-    public static String getColumnUserName() {
-        return COLUMN_USER_NAME;
+    public static String getColumnUserUsername() {
+        return COLUMN_USER_USERNAME;
     }
 
-    public static String getColumnUserPass() {
-        return COLUMN_USER_PASS;
+    public static String getColumnUserPassword() {
+        return COLUMN_USER_PASSWORD;
     }
 
     public static String getColumnUserEmail() {
         return COLUMN_USER_EMAIL;
     }
+
+    public static String getColumnUserPhone() {
+        return COLUMN_USER_PHONE;
+    }
+
 
     public static String getTableItensdetendaName() {
         return TABLE_ITENSDETENDA_NAME;
@@ -77,16 +84,16 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return COLUMN_ITENSDETENDA_USER_ID;
     }
 
-    public static String getTableUserLogadoName() {
-    return TABLE_USER_LOGADO_NAME;
+    public static String getTableUserLoggedName() {
+    return TABLE_USER_LOGGED_NAME;
 }
 
-    public static String getColumnUserLogadoId() {
-    return COLUMN_USER_LOGADO_ID;
+    public static String getColumnUserLoggedId() {
+    return COLUMN_USER_LOGGED_ID;
 }
 
-    public static String getColumnUserNome() {
-    return COLUMN_USER_NOME;
+    public static String getColumnUserName() {
+    return COLUMN_USER_NAME;
 }
 
     public DatabaseHelper(Context context) {

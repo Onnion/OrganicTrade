@@ -2,22 +2,22 @@ package mpoo.bsi.ufrpe.organictrade.Infra;
 
 import android.content.Context;
 import mpoo.bsi.ufrpe.organictrade.Infra.Persistencia.DatabaseHelper;
-import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Dominio.Usuario;
+import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Dominio.User;
 
 public class Session {
     private static DatabaseHelper dbAtual;
-    private static Usuario userAtual;
+    private static User userAtual;
     private static Context context;
 
     public static DatabaseHelper getDbAtual() {
         return dbAtual;
     }
 
-    public static Usuario getUserAtual() {
+    public static User getUserAtual() {
         return userAtual;
     }
 
-    public static void setUserAtual(Usuario userAtual) {
+    public static void setUserAtual(User userAtual) {
         Session.userAtual = userAtual;
     }
 

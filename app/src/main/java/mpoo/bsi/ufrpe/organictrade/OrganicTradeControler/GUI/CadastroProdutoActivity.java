@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.EditText;
 import mpoo.bsi.ufrpe.organictrade.Infra.Persistencia.DatabaseHelper;
 import mpoo.bsi.ufrpe.organictrade.Infra.Session;
-import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Dominio.ItensDeTenda;
+import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Dominio.TentItems;
 import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Persistencia.ItensDeTendaPersistencia;
 import mpoo.bsi.ufrpe.organictrade.R;
 
@@ -36,13 +36,13 @@ public class CadastroProdutoActivity extends AppCompatActivity {
 
         //validação
 
-        ItensDeTenda itensDeTenda = new ItensDeTenda();
-        itensDeTenda.setNomeProduto(nomeProduroString);
-        itensDeTenda.setQuantidadeAtual(quantidadetring);
-        itensDeTenda.setValor(priceString);
-        itensDeTenda.setUsurio_id(Session.getUserAtual().getId());
+        TentItems tentItems = new TentItems();
+        tentItems.setNomeProduto(nomeProduroString);
+        tentItems.setQuantidadeAtual(quantidadetring);
+        tentItems.setValor(priceString);
+        tentItems.setUsurio_id(Session.getUserAtual().getId_user());
 
-        crud.inserirItensDeTenda(itensDeTenda);
+        crud.inserirItensDeTenda(tentItems);
 
         Intent i = new Intent(Session.getContext(), UsuarioActivity.class);
         startActivity(i);

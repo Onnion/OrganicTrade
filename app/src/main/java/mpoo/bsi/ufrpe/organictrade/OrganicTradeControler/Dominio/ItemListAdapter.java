@@ -10,20 +10,20 @@ import java.util.List;
 import mpoo.bsi.ufrpe.organictrade.Infra.Session;
 import mpoo.bsi.ufrpe.organictrade.R;
 
-public class ItemListAdapter extends ArrayAdapter<ItensDeTenda> {
+public class ItemListAdapter extends ArrayAdapter<TentItems> {
 
     private Context context;
-    private List<ItensDeTenda> itensDeTenda = null;
+    private List<TentItems> tentItems = null;
 
-    public ItemListAdapter(List<ItensDeTenda> itensDeTenda) {
-        super(Session.getContext(),0, itensDeTenda);
-        this.itensDeTenda = itensDeTenda;
+    public ItemListAdapter(List<TentItems> tentItems) {
+        super(Session.getContext(),0, tentItems);
+        this.tentItems = tentItems;
         this.context = Session.getContext();
     }
 
     @Override
     public View getView(int position, View view, ViewGroup parent) {
-        ItensDeTenda itenDeTenda = itensDeTenda.get(position);
+        TentItems itenDeTenda = tentItems.get(position);
 
         if(view == null)
             view = LayoutInflater.from(context).inflate(R.layout.item_listview_adapter, null);

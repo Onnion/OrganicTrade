@@ -13,14 +13,14 @@
         android:orientation="vertical" >
 
         <TextView
-            android:id="@+id/itemTxtNome"
+            android:id_user="@+id_user/itemTxtNome"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAlignment="center"
             android:textSize="32sp" />
 
         <TextView
-            android:id="@+id/itemTxtPrice"
+            android:id_user="@+id_user/itemTxtPrice"
             android:textAlignment="center"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
