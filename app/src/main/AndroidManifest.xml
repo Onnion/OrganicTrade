@@ -13,14 +13,16 @@
         <activity android:name=".OrganicTradeControler.GUI.UserActivity" />
         <activity android:name=".OrganicTradeControler.GUI.RegisterTentItemActivity" />
         <activity android:name=".OrganicTradeControler.GUI.LoadingActivity">
+
+        </activity>
+        <activity android:name=".OrganicTradeControler.GUI.SearchProductsActivity"></activity>
+        <activity android:name=".OrganicTradeControler.GUI.ContactActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".OrganicTradeControler.GUI.SearchProductsActivity"></activity>
-        <activity android:name=".OrganicTradeControler.GUI.ContactActivity"></activity>
     </application>
 
 </manifest>
