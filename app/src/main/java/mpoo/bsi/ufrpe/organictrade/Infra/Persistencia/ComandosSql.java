@@ -21,9 +21,9 @@ public class ComandosSql {
                         + DatabaseHelper.getColumnTentitemsAmount() +" text not null , "
                         + DatabaseHelper.getColumnTentitemsPrice() + " text not null , "
                         + DatabaseHelper.getColumnTentitemsProductId()+ " integer , "
-                        + "foreign key ( "+DatabaseHelper.getColumnTentitemsProductId()+" ) references "+DatabaseHelper.getTableProductName()+" ( "+DatabaseHelper.getColumnProductId()+" ) , "
-                        + DatabaseHelper.getColumnTentitemsUserId()+" integer , "
-                        + "foreign key ( "+DatabaseHelper.getColumnTentitemsUserId()+" ) references "+DatabaseHelper.getTableUserName()+" ( "+DatabaseHelper.getColumnUserId()+" )"
+                        + DatabaseHelper.getColumnTentitemsUserId()+ " integer , "
+                        + "foreign key ( "+DatabaseHelper.getColumnTentitemsProductId()+" ) references "+DatabaseHelper.getTableProductName()+" ("+DatabaseHelper.getColumnProductId()+") , "
+                        + "foreign key ( "+DatabaseHelper.getColumnTentitemsUserId()+" ) references "+DatabaseHelper.getTableUserName()+" ("+DatabaseHelper.getColumnUserId()+")"
                         + ");";
         return(sqlCreateItensdetendaTable);
 

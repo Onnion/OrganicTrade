@@ -17,7 +17,7 @@ public class TentItemsPersistence {
         tentItems.setIntensdetenda_id(cursor.getString(0));
         tentItems.setQuantidadeAtual(cursor.getString(1));
         tentItems.setValor(cursor.getString(2));
-        tentItems.setNomeProduto(cursor.getString(3));
+        tentItems.setProdutoId(cursor.getString(3));
         tentItems.setUsurio_id(cursor.getString(4));
         return tentItems;
     }
@@ -28,8 +28,8 @@ public class TentItemsPersistence {
         valoresItensDeTenda.put(DatabaseHelper.getColumnTentitemsId(), tentItems.getIntensdetenda_id());
         valoresItensDeTenda.put(DatabaseHelper.getColumnTentitemsAmount(), tentItems.getQuantidadeAtual());
         valoresItensDeTenda.put(DatabaseHelper.getColumnTentitemsPrice(), tentItems.getValor());
-        valoresItensDeTenda.put(DatabaseHelper.getColumnProductName(), tentItems.getNomeProduto());
         valoresItensDeTenda.put(DatabaseHelper.getColumnTentitemsUserId(),Session.getUserAtual().getId_user());
+        valoresItensDeTenda.put(DatabaseHelper.getColumnTentitemsProductId(),tentItems.getProdutoId());
         db.insert(DatabaseHelper.getTableTentitemsName(), null, valoresItensDeTenda);
         db.close();
     }

@@ -5,7 +5,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class DatabaseHelper extends SQLiteOpenHelper {
 
     //
-    private static final int DATABASE_VERSION = 19;
+    private static final int DATABASE_VERSION = 20;
     private static final String DATABASE_NAME = "organicTrade.db";
 
     //User
@@ -15,7 +15,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String COLUMN_USER_PASSWORD = "user_password";
     private static final String COLUMN_USER_EMAIL = "user_email";
     private static final String COLUMN_USER_NAME = "user_nome";
-    private static final String COLUMN_USER_PHONE = "user_nome";
+    private static final String COLUMN_USER_PHONE = "user_phone";
 
     //UserLogged
     private static final String TABLE_USER_LOGGED_NAME = "user_logged";

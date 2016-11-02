@@ -32,7 +32,7 @@ public class SearchProductsActivity extends AppCompatActivity {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
                 TentItems item = (TentItems)listaDeItens.getAdapter().getItem(position);
-                Toast.makeText(Session.getContext(),item.getNomeProduto(), Toast.LENGTH_LONG).show();
+                Toast.makeText(Session.getContext(),item.getProdutoId(), Toast.LENGTH_LONG).show();
                 return false;
             }
         });
