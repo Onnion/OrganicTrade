@@ -3,15 +3,6 @@
 
     <item
         is-multidex="true"
-        jar="C:\Users\marci\AndroidStudioProjects\OrganicTrade\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.3.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="1b8e03daaa43fb0a4cd57e378167c2fd70454c1e">
-        <dex dex="C:\Users\marci\AndroidStudioProjects\OrganicTrade\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-appcompat-v7-23.3.0_a45c00d65f6ae83a45cb707c8da52246bec9d734\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="C:\Users\marci\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\23.3.0\support-annotations-23.3.0.jar"
         jumboMode="true"
         optimize="true"
@@ -21,12 +12,12 @@
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\marci\AndroidStudioProjects\OrganicTrade\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\23.3.0\jars\classes.jar"
+        jar="C:\Users\marci\AndroidStudioProjects\OrganicTrade\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.3.0\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="23.0.3"
-        sha1="23be6993826b8fd88bbc8d14928bb3b8960d3d4e">
-        <dex dex="C:\Users\marci\AndroidStudioProjects\OrganicTrade\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-animated-vector-drawable-23.3.0_2099c1d0464a31014a226dfa0c1ffa61100cd038\classes.dex" />
+        sha1="1b8e03daaa43fb0a4cd57e378167c2fd70454c1e">
+        <dex dex="C:\Users\marci\AndroidStudioProjects\OrganicTrade\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-appcompat-v7-23.3.0_a45c00d65f6ae83a45cb707c8da52246bec9d734\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -34,8 +25,17 @@
         jumboMode="true"
         optimize="true"
         revision="23.0.3"
-        sha1="0236dfb703e59ec5710c5427f1d361cf8a1b6213">
+        sha1="02625915cbd12f080e80c5baa7a303761c30b6aa">
         <dex dex="C:\Users\marci\AndroidStudioProjects\OrganicTrade\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_8b25faf5a4e0f8da3cc688441d4b203bd487317f\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\marci\AndroidStudioProjects\OrganicTrade\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\23.3.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="23be6993826b8fd88bbc8d14928bb3b8960d3d4e">
+        <dex dex="C:\Users\marci\AndroidStudioProjects\OrganicTrade\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-animated-vector-drawable-23.3.0_2099c1d0464a31014a226dfa0c1ffa61100cd038\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -61,7 +61,7 @@
         jumboMode="true"
         optimize="true"
         revision="23.0.3"
-        sha1="83c029dfd29ca3eb6d65768397edb7a0ea8f4ece">
+        sha1="2f5c58728c6a273bd44d5564b64259c93a1d9cbe">
         <dex dex="C:\Users\marci\AndroidStudioProjects\OrganicTrade\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_1bdeea90e750a86f8f54fc83fb6c079b59868297\classes.dex" />
     </item>
     <item
