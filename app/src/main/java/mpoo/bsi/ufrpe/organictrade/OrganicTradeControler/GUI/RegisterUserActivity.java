@@ -9,7 +9,7 @@ import android.widget.Toast;
 import mpoo.bsi.ufrpe.organictrade.Infra.Persistencia.DatabaseHelper;
 import mpoo.bsi.ufrpe.organictrade.Infra.Session;
 import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Dominio.User;
-import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Negocio.userNegocio;
+import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Negocio.UserNegocio;
 import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Persistencia.UserPersistence;
 import mpoo.bsi.ufrpe.organictrade.R;
 
@@ -43,7 +43,7 @@ public class RegisterUserActivity extends AppCompatActivity {
         if (!passString.equals(rpassString)){
             Toast.makeText(RegisterUserActivity.this,getText(R.string.tstPasswordDontMatch), Toast.LENGTH_LONG).show();
         }else{
-            if(userNegocio.verificacaoCadastro(userString,passString,rpassString,remail,nomeString)) {
+            if(UserNegocio.verificacaoCadastro(userString,passString,rpassString,remail,nomeString)) {
                 User usuario = new User();
                 usuario.setUserName(userString);
                 usuario.setPassword(passString);

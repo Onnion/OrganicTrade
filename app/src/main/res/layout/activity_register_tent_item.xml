@@ -28,11 +28,11 @@
         android:layout_height="wrap_content"
         />
 
-    <Spinner
-        android:id="@+id/rtiSpiProductType"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        />
+    <!--<Spinner-->
+        <!--android:id="@+id/rtiSpiProductType"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--/>-->
 
     <EditText
         android:id="@+id/rtiEdtProductUnity"
@@ -44,6 +44,13 @@
     <EditText
         android:id="@+id/rtiEdtProductAmount"
         android:hint="Quantidade"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+
+    <EditText
+        android:id="@+id/rtiEdtProductPrice"
+        android:hint="Valor"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         />

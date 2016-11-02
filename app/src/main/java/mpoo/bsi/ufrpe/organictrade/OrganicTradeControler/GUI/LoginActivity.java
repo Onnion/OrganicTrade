@@ -6,7 +6,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 import mpoo.bsi.ufrpe.organictrade.Infra.Session;
-import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Negocio.userNegocio;
+import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Negocio.UserNegocio;
 import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Persistencia.UserPersistence;
 import mpoo.bsi.ufrpe.organictrade.R;
 
@@ -28,7 +28,7 @@ public class LoginActivity extends AppCompatActivity {
         String userString = user.getText().toString();
         String passString = pass.getText().toString();
 
-        if(userNegocio.verificacaoLogin(userString,passString)){
+        if(UserNegocio.verificacaoLogin(userString,passString)){
             if(crud.buscarELogarUsuario(userString,passString)){
                 Toast.makeText(Session.getContext(),"Ola "+Session.getUserAtual().getName(), Toast.LENGTH_LONG).show();
                 Intent j = new Intent(Session.getContext(), UserActivity.class);
