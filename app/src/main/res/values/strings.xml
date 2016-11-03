@@ -13,6 +13,7 @@
     <string name="hntPassword">Senha</string>
     <string name="hntPasswordConfirmation">Confirme a senha</string>
     <string name="hntPhone">Celular</string>
+    <string name="hntSearch">Pesquisar</string>
 
     <string name="tstInvalidEmail">Email inválido</string>
     <string name="tstInvalidPassword">Senha inválida</string>
