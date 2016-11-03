@@ -14,6 +14,11 @@ public class ProductPersistence {
     private DatabaseHelper banco = Session.getDbAtual();
     private final String[] nameProducts = {"Tomate","Banana","Maçã"};
 
+
+    public String[] getNameProducts(){
+        return nameProducts;
+    }
+
     public int getId() {
         return id;
     }
@@ -25,7 +30,6 @@ public class ProductPersistence {
     public Product createProduct(String string) {
         Product product = new Product();
         product.setId_product(Integer.toString(getId()));
-        setId(getId()+1);
         product.setProduct_name(string);
         return product;
     }
