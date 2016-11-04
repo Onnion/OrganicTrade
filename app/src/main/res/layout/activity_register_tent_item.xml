@@ -8,13 +8,20 @@
     android:orientation="vertical"
     tools:context="mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.GUI.RegisterTentItemActivity">
 
-    <TextView
-        android:text="Cadastrar Item de Tenda"
-        android:textSize="30dp"
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_margin="10dp"
+        android:background="@drawable/shadow_teste"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="match_parent">
+        <TextView
+            android:textAlignment="center"
+            android:text="Cadastrar Item de Tenda"
+            android:textSize="30sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
-    <!--<ImageView-->
+        <!--<ImageView-->
         <!--android:id="@+id/rtiImgProduct-->
         <!--android:src=""-->
         <!--android:layout_width=""-->
@@ -22,56 +29,60 @@
         <!--android:scaleType="centerCrop" />-->
 
 
-    <Spinner
-        android:id="@+id/registerTentItemSpiProductName"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        />
+        <Spinner
+            android:id="@+id/registerTentItemSpiProductName"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            />
 
-    <!--<Spinner-->
+        <!--<Spinner-->
         <!--android:id="@+id/registerTentItemSpiProductType"-->
         <!--android:layout_width="match_parent"-->
         <!--android:layout_height="wrap_content"-->
         <!--/>-->
+        <!--Transformar em Spinner-->
 
-    <!--Transformar em Spinner-->
-    <EditText
-        android:id="@+id/registerTentItemEdtProductUnity"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:hint="Unidade"
-        />
+        <EditText
+            android:id="@+id/registerTentItemEdtProductUnity"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:hint="Unidade"
+            android:inputType="number"
+            />
 
-    <EditText
-        android:id="@+id/registerTentItemEdtProductAmount"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:hint="Quantidade"
-        />
+        <EditText
+            android:id="@+id/registerTentItemEdtProductAmount"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:hint="Quantidade"
+            android:inputType="number"
+            />
 
-    <EditText
-        android:id="@+id/registerTentItemEdtProductPrice"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:hint="Valor"
-        />
+        <EditText
+            android:id="@+id/registerTentItemEdtProductPrice"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:hint="Valor"
+            android:inputType="number"
+            />
 
-    <Button
-        android:id="@+id/registerTentItemBtnRegister"
-        android:text="@string/btnRegister"
-        android:background="@color/verdeParaTudo"
-        android:textColor="#ffff"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="0"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
-        android:layout_marginTop="83dp"
-        android:onClick="cadastrarProduto"
-        />
+        <Button
+            android:id="@+id/registerTentItemBtnRegister"
+            android:text="@string/btnRegister"
+            android:background="@color/verdeParaTudo"
+            android:textColor="#ffff"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:layout_marginTop="83dp"
+            android:onClick="cadastrarProduto"
+            />
+    </LinearLayout>
 
 </LinearLayout>

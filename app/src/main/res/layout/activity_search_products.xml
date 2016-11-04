@@ -17,19 +17,10 @@
         />
 
     <ListView
-        android:id="@+id/listview"
+        android:id="@+id/searchProductsListViewSearch"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         >
 
     </ListView>
-
-    <!--<GridView-->
-        <!--android:id="@+id/searchProductsGridItens"-->
-        <!--android:numColumns="auto_fit"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="0dp"-->
-        <!--android:layout_weight="1"-->
-        <!--/>-->
-
 </LinearLayout>

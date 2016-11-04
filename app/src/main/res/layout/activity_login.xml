@@ -42,6 +42,8 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:hint="@string/hntLogin"
+        android:maxLines="1"
+        android:inputType="text"
         />
 
     <EditText
@@ -54,6 +56,7 @@
         android:layout_alignParentStart="true"
         android:layout_marginBottom="14dp"
         android:hint="@string/hntPassword"
+        android:maxLines="1"
         />
 
     <ImageView

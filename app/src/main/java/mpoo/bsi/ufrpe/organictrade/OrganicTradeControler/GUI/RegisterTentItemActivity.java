@@ -46,6 +46,13 @@ public class RegisterTentItemActivity extends AppCompatActivity {
         EditText price = (EditText) findViewById(R.id.registerTentItemEdtProductPrice);
 
         String nameProductString = nameProduct.getSelectedItem().toString();
+
+
+
+
+
+
+
         String unidadeString = unidade.getText().toString();
         String quantidadeString = quantidade.getText().toString();
         String priceString = price.getText().toString();
@@ -63,6 +70,5 @@ public class RegisterTentItemActivity extends AppCompatActivity {
 
         Intent i = new Intent(Session.getContext(), UserActivity.class);
         startActivity(i);
-
     }
 }
