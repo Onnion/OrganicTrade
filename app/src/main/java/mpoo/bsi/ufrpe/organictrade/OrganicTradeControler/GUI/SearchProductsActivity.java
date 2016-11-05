@@ -1,39 +1,39 @@
 package mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.GUI;
 
+import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
-import java.util.ArrayList;
-import java.util.Arrays;
+import android.widget.Toast;
+import java.util.List;
 import mpoo.bsi.ufrpe.organictrade.Infra.Persistencia.DatabaseHelper;
 import mpoo.bsi.ufrpe.organictrade.Infra.Session;
+import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Dominio.ItemListAdapter;
+import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Dominio.Tent;
+import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Dominio.TentItems;
+import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Persistencia.ProductPersistence;
+import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Persistencia.TentPersistence;
+import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Persistencia.UserPersistence;
 import mpoo.bsi.ufrpe.organictrade.R;
 
 public class SearchProductsActivity extends AppCompatActivity {
     private SQLiteDatabase db;
     private DatabaseHelper banco = Session.getDbAtual();
-//    @Override
-//    protected void onCreate(Bundle savedInstanceState) {
-//        super.onCreate(savedInstanceState);
-//        setContentView(R.layout.activity_search_products);
-//        listaDeItens.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
-//            @Override
-//            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-//                TentItems item = (TentItems0)listaDeItens.getAdapter().getItem(position);
-//                Toast.makeText(Session.getContext(),item.getProdutoId(), Toast.LENGTH_LONG).show();
-//                return false;
-//            }
-//        });
-    String[] names;
-    ArrayList<String> listItems;
+    private ProductPersistence productPersistence = new ProductPersistence();
+    List<TentItems> listItems;
     ArrayAdapter<String> adapter;
     ListView listView;
     EditText editText;
+    UserPersistence userPersistence = new UserPersistence();
+    Intent p = new Intent(Session.getContext(),ContactActivity.class);
+
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,6 +41,16 @@ public class SearchProductsActivity extends AppCompatActivity {
         Session.setContext(getBaseContext());
 
         listView=(ListView)findViewById(R.id.searchProductsListViewSearch);
+        listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                TentItems item = (TentItems)listView.getAdapter().getItem(position);
+                Session.setItemSelected(item);
+                Session.setContactSelected(userPersistence.buscarApartirDoId(item.getUsurio_id()));
+                startActivity(p);
+                return false;
+                }
+            });
         editText=(EditText)findViewById(R.id.searchProductsEdtSearch);
         initList();
         editText.addTextChangedListener(new TextWatcher() {
@@ -65,8 +75,8 @@ public class SearchProductsActivity extends AppCompatActivity {
     }
 
     public void searchItem(String textToSearch){
-        for(String name: names){
-            if(!name.contains(textToSearch)){
+        for(TentItems name: listItems){
+            if(!productPersistence.nameProductById(name.getProdutoId()).contains(textToSearch)){
                 listItems.remove(name);
             }
         }
@@ -74,22 +84,10 @@ public class SearchProductsActivity extends AppCompatActivity {
     }
 
     public void initList(){
-        //busca no banco
-        //        final GridView listaDeItens = (GridView) findViewById(R.id.searchProductsGridItens);
-        //-------------------------------------------------------------------------------//
-//        TentPersistence tentPersistence = new TentPersistence();
-//        Tent tent = tentPersistence.retornarTendaDosUsuarios();
-//        List<TentItems> tendaFinal = tent.getTent();
-//        //---------------------------------------------------------------------------------//
-//        ItemListAdapter adapter = new ItemListAdapter(tendaFinal);
-//        listaDeItens.setAdapter(adapter);
-//        //-------------------------------------------------------------------------------------//
-        names =new String[]{"Banana","Manga","Uva","Maçã"};
-        //
-        listItems=new ArrayList<>(Arrays.asList(names));
-        adapter=new ArrayAdapter<String>(this,
-                R.layout.list_item, R.id.listItemTextName, listItems);
+        TentPersistence tentPersistence = new TentPersistence();
+        Tent tent = tentPersistence.retornarTendaDosUsuarios();
+        listItems = tent.getTent();
+        ItemListAdapter adapter = new ItemListAdapter(listItems);
         listView.setAdapter(adapter);
-
     }
 }

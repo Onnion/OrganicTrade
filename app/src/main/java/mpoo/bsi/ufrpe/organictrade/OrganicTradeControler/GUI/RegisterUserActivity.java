@@ -33,12 +33,14 @@ public class RegisterUserActivity extends AppCompatActivity {
         EditText pass = (EditText)findViewById((R.id.registerUserEdtPassword));
         EditText rpass = (EditText)findViewById(R.id.registerUserEdtRepeatPassword);
         EditText email = (EditText)findViewById(R.id.registerUserEdtEmail);
+        EditText phone = (EditText)findViewById(R.id.registerUserEdtPhone);
 
         String nomeString = nome.getText().toString();
         String userString = user.getText().toString();
         String passString = pass.getText().toString();
         String rpassString = rpass.getText().toString();
         String remail = email.getText().toString();
+        String phoneString = phone.getText().toString();
 
         if (!passString.equals(rpassString)){
             Toast.makeText(RegisterUserActivity.this,getText(R.string.tstPasswordDontMatch), Toast.LENGTH_LONG).show();
@@ -49,8 +51,9 @@ public class RegisterUserActivity extends AppCompatActivity {
                 usuario.setPassword(passString);
                 usuario.setEmail(remail);
                 usuario.setName(nomeString);
+                usuario.setPhone(phoneString);
 
-                crud.inserirUsuario(usuario);
+                crud.RegisterUser(usuario);
 
                 Intent i = new Intent(Session.getContext(),LoginActivity.class);
                 startActivity(i);

@@ -43,7 +43,7 @@
         jumboMode="true"
         optimize="true"
         revision="23.0.3"
-        sha1="21c9ed8251dd24ed9f05f04b5099c31952d5d3f7">
+        sha1="462d6770a190abda5f474b416db8b90b3172c5d9">
         <dex dex="C:\Users\marci\AndroidStudioProjects\OrganicTrade\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_8b25faf5a4e0f8da3cc688441d4b203bd487317f\classes.dex" />
     </item>
     <item
@@ -61,7 +61,7 @@
         jumboMode="true"
         optimize="true"
         revision="23.0.3"
-        sha1="62339a23208c04a7b1adaec843c4ddf6bdca6878">
+        sha1="69e93086525fa38028395169ee766c39ee705de4">
         <dex dex="C:\Users\marci\AndroidStudioProjects\OrganicTrade\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_1bdeea90e750a86f8f54fc83fb6c079b59868297\classes.dex" />
     </item>
     <item

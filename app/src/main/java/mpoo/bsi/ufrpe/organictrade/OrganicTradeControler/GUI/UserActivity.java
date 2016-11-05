@@ -4,7 +4,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -51,7 +53,7 @@ public class UserActivity extends AppCompatActivity {
         listaDeItens.setAdapter(adapter);
         //-------------------------------------------------------------------------------------//
 
-        ImageButton addBtn = (ImageButton) findViewById(R.id.usuarioImgButnToCadastro);
+        ImageView addBtn = (ImageView) findViewById(R.id.userImgBtnToCadastro);
         addBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -60,7 +62,7 @@ public class UserActivity extends AppCompatActivity {
             }
         });
 
-        ImageButton searchBtn =(ImageButton) findViewById(R.id.userImgBtnToSearch);
+        Button searchBtn =(Button) findViewById(R.id.userImgBtnToSearch);
         searchBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -76,6 +78,7 @@ public class UserActivity extends AppCompatActivity {
         Session.setUserAtual(new User());
         Intent p = new Intent(Session.getContext(),LoginActivity.class);
         startActivity(p);
+        finish();
 
     }
 }

@@ -25,6 +25,7 @@ public class TentPersistence {
         }
         return tent;
     }
+
     public Tent retornarTendaDosUsuarios(){
         Tent tent = new Tent();
         TentItemsPersistence crud = new TentItemsPersistence();

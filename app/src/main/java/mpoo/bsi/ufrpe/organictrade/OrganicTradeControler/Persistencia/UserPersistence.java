@@ -3,6 +3,8 @@ package mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Persistencia;
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.widget.Toast;
+
 import mpoo.bsi.ufrpe.organictrade.Infra.Persistencia.ComandosSql;
 import mpoo.bsi.ufrpe.organictrade.Infra.Persistencia.DatabaseHelper;
 import mpoo.bsi.ufrpe.organictrade.Infra.Session;
@@ -39,7 +41,7 @@ public class UserPersistence {
         return false;
     }
 
-    public void inserirUsuario(User user){
+    public void RegisterUser(User user){
         db = banco.getWritableDatabase();
         ContentValues valoresUsuario = new ContentValues();
         valoresUsuario.put(DatabaseHelper.getColumnUserId(),user.getId_user());
@@ -47,6 +49,7 @@ public class UserPersistence {
         valoresUsuario.put(DatabaseHelper.getColumnUserPassword(), user.getPassword());
         valoresUsuario.put(DatabaseHelper.getColumnUserEmail(), user.getEmail());
         valoresUsuario.put(DatabaseHelper.getColumnUserName(), user.getName());
+        valoresUsuario.put(DatabaseHelper.getColumnUserPhone(),user.getPhone());
         db.insert(DatabaseHelper.getTableUserName(), null, valoresUsuario);
         db.close();
     }
@@ -91,5 +94,13 @@ public class UserPersistence {
                 Session.setUserAtual(userLogado);
             }
         }
+    }
+
+    public User buscarApartirDoId(String id){
+        db = banco.getReadableDatabase();
+        Cursor cursor = db.rawQuery(ComandosSql.sqlUsuarioApartirDoId(),new String[]{id});
+        if(cursor.moveToFirst()){
+            return criarUsuario(cursor);
+        }else return null;
     }
 }

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="mpoo.bsi.ufrpe.organictrade">
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/icone_logo_organic_trade"
@@ -11,19 +10,14 @@
         <activity android:name=".OrganicTradeControler.GUI.LoginActivity" />
         <activity android:name=".OrganicTradeControler.GUI.RegisterUserActivity" />
         <activity android:name=".OrganicTradeControler.GUI.UserActivity" />
-        <activity android:name=".OrganicTradeControler.GUI.RegisterTentItemActivity" >
-        </activity>>
+        <activity android:name=".OrganicTradeControler.GUI.RegisterTentItemActivity" ></activity>
         <activity android:name=".OrganicTradeControler.GUI.LoadingActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity android:name=".OrganicTradeControler.GUI.SearchProductsActivity"></activity>
-        <activity android:name=".OrganicTradeControler.GUI.ContactActivity">
-
-        </activity>
+        <activity android:name=".OrganicTradeControler.GUI.ContactActivity"></activity>
     </application>
-
 </manifest>

@@ -1,109 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<LinearLayout
+    android:orientation="vertical"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.GUI.UserActivity">
-
-    <ListView
-        android:id="@+id/usuarioListViewList"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_marginTop="160dp"
-        android:layout_below="@+id/userTextName"
-        />
-
-    <SurfaceView
-        android:id="@+id/surfaceView"
-        android:background="@color/accent300"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignBottom="@+id/logout"
-        android:layout_alignTop="@+id/usuarioImgButnToCadastro"
-        />
-
-    <ImageButton
-        android:id="@+id/usuarioImgButnToCadastro"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="102dp"
-        android:layout_below="@+id/userTextName"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginLeft="31dp"
-        android:layout_marginStart="31dp"
-        android:visibility="visible"
-        app:srcCompat="@android:drawable/ic_input_add"
-        />
-
-    <SurfaceView
-        android:id="@+id/colorTeste"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
         android:background="@color/verdeParaTudo"
+        android:layout_weight="0.3">
+        <TextView
+            android:id="@+id/userTextName"
+            android:textSize="50sp"
+            android:textStyle="bold"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:textColor="#ffffff"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Marcio"
+            />
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_above="@+id/surfaceView"
-        android:longClickable="false"
-        />
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        android:background="@color/accent300"
+        android:layout_weight="0.1">
+        <ImageView
+            android:id="@+id/userImgBtnToCadastro"
+            android:src="@mipmap/ic_add"
+            android:layout_width="0dp"
+            android:clickable="true"
+            android:visibility="visible"
+            android:layout_weight="1"
+            android:layout_height="match_parent"/>
+        <ImageView
+            android:id="@+id/userImgBtnToEdit"
+            android:layout_width="0dp"
+            android:visibility="visible"
+            android:clickable="true"
+            android:src="@mipmap/ic_edit"
+            android:layout_weight="1"
+            android:layout_height="match_parent" />
+        <ImageView
+            android:id="@+id/userImgBtnToSearch"
+            android:layout_width="0dp"
+            android:visibility="visible"
+            android:clickable="true"
+            android:src="@mipmap/ic_search"
+            android:layout_weight="1"
+            android:layout_height="match_parent" />
+        <ImageView
+            android:clickable="true"
+            android:src="@mipmap/ic_logout"
+            android:id="@+id/logout"
+            android:layout_width="0dp"
+            android:onClick="sair"
+            android:visibility="visible"
+            android:layout_weight="1"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:id="@+id/action"
+        android:layout_weight="1">
+        <ListView
+            android:id="@+id/usuarioListViewList"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            />
 
-    <ImageView
-        android:id="@+id/userImgUser"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="26dp"
-        android:layout_above="@+id/surfaceView"
-        android:layout_alignTop="@+id/userTextName"
-        android:layout_toLeftOf="@+id/logout"
-        android:layout_alignLeft="@+id/usuarioImgButnToCadastro"
-        android:layout_alignStart="@+id/usuarioImgButnToCadastro"
-        app:srcCompat="@android:drawable/sym_def_app_icon"
-        />
-
-    <Button
-        android:id="@+id/logout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="sair"
-        android:layout_alignBottom="@+id/usuarioImgButnToCadastro"
-        android:layout_alignRight="@+id/userTextName"
-        android:layout_alignEnd="@+id/userTextName"
-        android:layout_marginRight="38dp"
-        android:layout_marginEnd="38dp"
-        android:text="@string/btnLogOut"
-        />
-
-    <ImageButton
-        android:id="@+id/userImgBtnToSearch"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/surfaceView"
-        android:layout_toRightOf="@+id/usuarioImgButnToCadastro"
-        android:layout_marginLeft="33dp"
-        android:layout_marginStart="33dp"
-        android:layout_below="@+id/colorTeste"
-        app:srcCompat="@android:drawable/ic_search_category_default"
-        />
-
-    <TextView
-        android:id="@+id/userTextName"
-        android:textSize="27sp"
-        android:textColor="#ffffff"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
-        android:layout_marginRight="47dp"
-        android:layout_marginEnd="47dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:text="@string/hntName"
-        />
+    </LinearLayout>
 
 
-</RelativeLayout>
+</LinearLayout>

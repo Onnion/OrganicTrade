@@ -1,4 +1,7 @@
 package mpoo.bsi.ufrpe.organictrade.Infra.Persistencia;
+
+import java.util.StringTokenizer;
+
 public class ComandosSql {
 
     public static String sqlCreateUserTable(){
@@ -45,6 +48,39 @@ public class ComandosSql {
                         + DatabaseHelper.getColumnProductName()+" text"
                         + ");";
         return(sqlCreateProductTable);
+    }
+
+    public static String sqlDropTableUsuarioLogado(){
+        String sqlDropTableUsuarioLogado = "DROP TABLE IF EXISTS " + DatabaseHelper.getTableUserLoggedName();
+        return (sqlDropTableUsuarioLogado);
+    }
+
+    public static String sqlDropTableUsuario() {
+        String sqlDropTableUsuario = "DROP TABLE IF EXISTS " + DatabaseHelper.getTableUserName();
+        return(sqlDropTableUsuario);
+    }
+
+    public static String sqlDropTableItensDeTenda() {
+        String sqlDropTableItensDeTenda = "DROP TABLE IF EXISTS " + DatabaseHelper.getTableTentitemsName();
+        return (sqlDropTableItensDeTenda);
+    }
+
+    public static String sqlDropTableProduct() {
+        String sqlDropTableProduct = "DROP TABLE IF EXISTS " + DatabaseHelper.getTableProductName();
+        return (sqlDropTableProduct);
+    }
+
+    public static String sqlProductIdByName(){
+        String sqlProductIdByName=
+                "SELECT * FROM "+DatabaseHelper.getTableProductName() +" WHERE "
+                        +DatabaseHelper.getColumnProductName() +" =?;";
+        return (sqlProductIdByName);
+    }
+
+    public static String productTableIsEmpty(){
+        String productTableIsEmpty=
+                "SELECT * FROM "+DatabaseHelper.getTableProductName()+";";
+        return (productTableIsEmpty);
     }
 
     public static String sqlUsuarioQueTemOItem(){
@@ -100,23 +136,10 @@ public class ComandosSql {
         return (sqlDeslogarUsuario);
     }
 
-    public static String sqlDropTableUsuarioLogado(){
-        String sqlDropTableUsuarioLogado = "DROP TABLE IF EXISTS " + DatabaseHelper.getTableUserLoggedName();
-        return (sqlDropTableUsuarioLogado);
-    }
-
-    public static String sqlDropTableUsuario() {
-        String sqlDropTableUsuario = "DROP TABLE IF EXISTS " + DatabaseHelper.getTableUserName();
-        return(sqlDropTableUsuario);
-    }
-
-    public static String sqlDropTableItensDeTenda() {
-        String sqlDropTableItensDeTenda = "DROP TABLE IF EXISTS " + DatabaseHelper.getTableTentitemsName();
-        return (sqlDropTableItensDeTenda);
-    }
-
-    public static String sqlDropTableProduct() {
-        String sqlDropTableProduct = "DROP TABLE IF EXISTS " + DatabaseHelper.getTableProductName();
-        return (sqlDropTableProduct);
+    public static String sqlProductNameById() {
+        String sqlProductNameById=
+                "SELECT * FROM "+DatabaseHelper.getTableProductName() +" WHERE "
+                        +DatabaseHelper.getColumnProductId() +" =?;";
+        return (sqlProductNameById);
     }
 }

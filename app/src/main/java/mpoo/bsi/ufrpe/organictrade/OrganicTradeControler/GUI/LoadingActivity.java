@@ -1,9 +1,15 @@
 package mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.GUI;
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Handler;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.widget.Toast;
+
+import mpoo.bsi.ufrpe.organictrade.Infra.Persistencia.DatabaseHelper;
 import mpoo.bsi.ufrpe.organictrade.Infra.Session;
+import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Persistencia.ProductPersistence;
 import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Persistencia.UserPersistence;
 import mpoo.bsi.ufrpe.organictrade.R;
 
@@ -13,14 +19,16 @@ public class LoadingActivity extends AppCompatActivity{
         setContentView(R.layout.activity_loading);
         Session.setContext(getBaseContext());
         Session session = new Session();
-
         Handler handler = new Handler();
+        ProductPersistence productPersistence = new ProductPersistence();
+        //--------------------------------------------------------------//
+
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                UserPersistence crud = new UserPersistence();
-                if(crud.usuarioLogado()){
-                    crud.buscarApartirDoUsuarioLogado();
+                UserPersistence userPersistence = new UserPersistence();
+                if(userPersistence.usuarioLogado()){
+                    userPersistence.buscarApartirDoUsuarioLogado();
                     Intent j = new Intent(Session.getContext(), UserActivity.class);
                     startActivity(j);
                     finish();

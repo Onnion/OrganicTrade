@@ -1,11 +1,14 @@
 package mpoo.bsi.ufrpe.organictrade.Infra.Persistencia;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-public class DatabaseHelper extends SQLiteOpenHelper {
 
+import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Persistencia.ProductPersistence;
+
+public class DatabaseHelper extends SQLiteOpenHelper {
     //
-    private static final int DATABASE_VERSION = 20;
+    private static final int DATABASE_VERSION = 22;
     private static final String DATABASE_NAME = "organicTrade.db";
 
     //User
@@ -110,6 +113,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return COLUMN_PRODUCT_ID;
     }
     //----------------------------------------------------------------------------//
+
     public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
