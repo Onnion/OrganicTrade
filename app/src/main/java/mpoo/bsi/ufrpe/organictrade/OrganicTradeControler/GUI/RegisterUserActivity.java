@@ -16,6 +16,7 @@ import mpoo.bsi.ufrpe.organictrade.R;
 public class RegisterUserActivity extends AppCompatActivity {
     private SQLiteDatabase db;
     private DatabaseHelper banco = Session.getDbAtual();
+    private UserNegocio userNegocio = new UserNegocio();
 
     //
     @Override
@@ -45,7 +46,7 @@ public class RegisterUserActivity extends AppCompatActivity {
         if (!passString.equals(rpassString)){
             Toast.makeText(RegisterUserActivity.this,getText(R.string.tstPasswordDontMatch), Toast.LENGTH_LONG).show();
         }else{
-            if(UserNegocio.verificacaoCadastro(userString,passString,rpassString,remail,nomeString)) {
+            if(userNegocio.registerOK(email,user,nome,pass,phone,rpass)){
                 User usuario = new User();
                 usuario.setUserName(userString);
                 usuario.setPassword(passString);

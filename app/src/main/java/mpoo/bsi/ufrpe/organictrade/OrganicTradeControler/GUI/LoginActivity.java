@@ -11,6 +11,7 @@ import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Persistencia.UserPersis
 import mpoo.bsi.ufrpe.organictrade.R;
 
 public class LoginActivity extends AppCompatActivity {
+    private UserNegocio userNegocio = new UserNegocio();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,7 +29,7 @@ public class LoginActivity extends AppCompatActivity {
         String userString = user.getText().toString();
         String passString = pass.getText().toString();
 
-        if(UserNegocio.verificacaoLogin(userString,passString)){
+        if(userNegocio.loginOK(user,pass)){
             if(crud.buscarELogarUsuario(userString,passString)){
                 Toast.makeText(Session.getContext(),"Ola "+Session.getUserAtual().getName(), Toast.LENGTH_LONG).show();
                 Intent j = new Intent(Session.getContext(), UserActivity.class);

@@ -62,7 +62,7 @@ public class UserActivity extends AppCompatActivity {
             }
         });
 
-        Button searchBtn =(Button) findViewById(R.id.userImgBtnToSearch);
+        ImageView searchBtn =(ImageView) findViewById(R.id.userImgBtnToSearch);
         searchBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -70,15 +70,17 @@ public class UserActivity extends AppCompatActivity {
                 startActivity(p);
             }
         });
-    }
-
-    public void sair(View v){
-        UserPersistence crud = new UserPersistence();
-        crud.deslogarUsuario();
-        Session.setUserAtual(new User());
-        Intent p = new Intent(Session.getContext(),LoginActivity.class);
-        startActivity(p);
-        finish();
-
+        ImageView logoutBtn =(ImageView) findViewById(R.id.userImgBtnLogout);
+        searchBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                UserPersistence crud = new UserPersistence();
+                crud.deslogarUsuario();
+                Session.setUserAtual(new User());
+                Intent p = new Intent(Session.getContext(),LoginActivity.class);
+                startActivity(p);
+                finish();
+            }
+        });
     }
 }
