@@ -8,7 +8,7 @@ public class ComandosSql {
         String sqlCreateUserTable =
                 "CREATE TABLE " +DatabaseHelper.getTableUserName()+ "( "
                         + DatabaseHelper.getColumnUserId()+" integer primary key autoincrement not null , "
-                        + DatabaseHelper.getColumnUserUsername() + " text unique not null , "
+                        + DatabaseHelper.getColumnUserUsername() + " text unique not null ,"
                         + DatabaseHelper.getColumnUserPassword() + " text not null , "
                         + DatabaseHelper.getColumnUserEmail() + " text unique not null , "
                         + DatabaseHelper.getColumnUserName() + " text , "
@@ -103,6 +103,13 @@ public class ComandosSql {
                         +DatabaseHelper.getColumnUserUsername() +" =? AND "
                         +DatabaseHelper.getColumnUserPassword() + " =?;";
         return (sqlUsuarioApartirDoLoginESenha);
+    }
+
+    public static String sqlUsuarioApartirDoLogin(){
+        String sqlUsuarioApartirDoLogin =
+                "SELECT * FROM "+DatabaseHelper.getTableUserName() +" WHERE "
+                        +DatabaseHelper.getColumnUserUsername() +" =?;";
+        return (sqlUsuarioApartirDoLogin);
     }
 
     public static String sqlUsuarioApartirDoId(){

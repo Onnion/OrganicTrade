@@ -24,5 +24,6 @@
     <string name="tstPasswordDontMatch">Senhas não conferem</string>
     <string name="tstRepeatPassword">Repeat Password</string>
     <string name="tstSuccessfullyRegistered">Cadastrado com sucesso </string>
+    <string name="tstUnavaliableLogin">Login indisponível</string>
 
 </resources>

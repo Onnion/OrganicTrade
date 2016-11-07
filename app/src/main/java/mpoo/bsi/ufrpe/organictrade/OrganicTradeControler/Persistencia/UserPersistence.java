@@ -9,6 +9,7 @@ import mpoo.bsi.ufrpe.organictrade.Infra.Persistencia.ComandosSql;
 import mpoo.bsi.ufrpe.organictrade.Infra.Persistencia.DatabaseHelper;
 import mpoo.bsi.ufrpe.organictrade.Infra.Session;
 import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Dominio.User;
+import mpoo.bsi.ufrpe.organictrade.R;
 
 public class UserPersistence {
     private SQLiteDatabase db;
@@ -75,6 +76,20 @@ public class UserPersistence {
         return false;
     }
 
+    public boolean usuarioNaoCadastrado(String login) {
+        db = banco.getReadableDatabase();
+        Cursor cursor = db.rawQuery(ComandosSql.sqlUsuarioApartirDoLogin(),new String[]{login});
+        if (cursor.moveToFirst()) {
+            cursor.close();
+            db.close();
+            return false;
+        }
+        cursor.close();
+        Toast toast = Toast.makeText(Session.getContext(),R.string.tstUnavaliableLogin,Toast.LENGTH_LONG);
+        toast.show();
+        db.close();
+        return true;
+    }
     public void deslogarUsuario(){
         db = banco.getReadableDatabase();
         Cursor cursor = db.rawQuery(ComandosSql.sqlDeslogarUsuario(), new String[]{Session.getUserAtual().getId_user()});

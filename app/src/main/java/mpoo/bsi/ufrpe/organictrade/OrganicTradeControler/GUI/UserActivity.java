@@ -21,6 +21,22 @@ import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Persistencia.UserPersis
 import mpoo.bsi.ufrpe.organictrade.R;
 
 public class UserActivity extends AppCompatActivity {
+    private long lastBackPressTime = 0;
+    private Toast toast;
+
+    @Override
+    public void onBackPressed() {
+        if (this.lastBackPressTime < System.currentTimeMillis() - 4000) {
+            toast = Toast.makeText(this, "Pressione o Botão Voltar novamente para fechar o Aplicativo.", Toast.LENGTH_LONG);
+            toast.show();
+            this.lastBackPressTime = System.currentTimeMillis();
+        } else {
+            if (toast != null) {
+                toast.cancel();
+            }
+            super.onBackPressed();
+        }
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,10 +44,8 @@ public class UserActivity extends AppCompatActivity {
         setContentView(R.layout.activity_user);
         Session.setContext(getBaseContext());
         TextView text = (TextView)findViewById(R.id.userTextName);
-
         String[] nome = Session.getUserAtual().getName().split(" ");
         text.setText(nome[0]);
-
         //-----------------------------------PopularLisView------------------------------------//
         //--------------------------------------Instacias------------------------------------//
         //------------------------------OnClickLisView------------------------------------//
@@ -71,7 +85,7 @@ public class UserActivity extends AppCompatActivity {
             }
         });
         ImageView logoutBtn =(ImageView) findViewById(R.id.userImgBtnLogout);
-        searchBtn.setOnClickListener(new View.OnClickListener() {
+        logoutBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 UserPersistence crud = new UserPersistence();

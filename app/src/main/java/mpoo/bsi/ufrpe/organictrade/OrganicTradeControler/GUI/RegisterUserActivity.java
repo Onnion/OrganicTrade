@@ -28,34 +28,29 @@ public class RegisterUserActivity extends AppCompatActivity {
 
     public void cadastrarUsuario(View v){
         UserPersistence crud = new UserPersistence();
-
         EditText nome = (EditText)findViewById(R.id.registerUserEdtName);
         EditText user = (EditText)findViewById(R.id.registerUserEdtLogin);
         EditText pass = (EditText)findViewById((R.id.registerUserEdtPassword));
         EditText rpass = (EditText)findViewById(R.id.registerUserEdtRepeatPassword);
         EditText email = (EditText)findViewById(R.id.registerUserEdtEmail);
         EditText phone = (EditText)findViewById(R.id.registerUserEdtPhone);
-
         String nomeString = nome.getText().toString();
         String userString = user.getText().toString();
         String passString = pass.getText().toString();
         String rpassString = rpass.getText().toString();
         String remail = email.getText().toString();
         String phoneString = phone.getText().toString();
-
         if (!passString.equals(rpassString)){
             Toast.makeText(RegisterUserActivity.this,getText(R.string.tstPasswordDontMatch), Toast.LENGTH_LONG).show();
         }else{
-            if(userNegocio.registerOK(email,user,nome,pass,phone,rpass)){
+            if(crud.usuarioNaoCadastrado(userString) && userNegocio.registerOK(email,user,nome,pass,phone,rpass)){
                 User usuario = new User();
                 usuario.setUserName(userString);
                 usuario.setPassword(passString);
                 usuario.setEmail(remail);
                 usuario.setName(nomeString);
                 usuario.setPhone(phoneString);
-
                 crud.RegisterUser(usuario);
-
                 Intent i = new Intent(Session.getContext(),LoginActivity.class);
                 startActivity(i);
             }
