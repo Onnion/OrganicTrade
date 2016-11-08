@@ -8,10 +8,8 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.Toast;
 import java.util.List;
 import mpoo.bsi.ufrpe.organictrade.Infra.Persistencia.DatabaseHelper;
 import mpoo.bsi.ufrpe.organictrade.Infra.Session;
@@ -28,7 +26,7 @@ public class SearchProductsActivity extends AppCompatActivity {
     private DatabaseHelper banco = Session.getDbAtual();
     private ProductPersistence productPersistence = new ProductPersistence();
     List<TentItems> listItems;
-    ArrayAdapter<String> adapter;
+    ItemListAdapter adapter;
     ListView listView;
     EditText editText;
     UserPersistence userPersistence = new UserPersistence();
@@ -75,9 +73,9 @@ public class SearchProductsActivity extends AppCompatActivity {
     }
 
     public void searchItem(String textToSearch){
-        for(TentItems name: listItems){
-            if(!productPersistence.nameProductById(name.getProdutoId()).contains(textToSearch)){
-                listItems.remove(name);
+        for(int i = 0; i < listItems.size(); i++){
+            if(!productPersistence.nameProductById(listItems.get(i).getProdutoId()).contains(textToSearch)){
+                listItems.remove(listItems.get(i));
             }
         }
         adapter.notifyDataSetChanged();
@@ -87,7 +85,7 @@ public class SearchProductsActivity extends AppCompatActivity {
         TentPersistence tentPersistence = new TentPersistence();
         Tent tent = tentPersistence.retornarTendaDosUsuarios();
         listItems = tent.getTent();
-        ItemListAdapter adapter = new ItemListAdapter(listItems);
+        adapter = new ItemListAdapter(listItems);
         listView.setAdapter(adapter);
     }
 }

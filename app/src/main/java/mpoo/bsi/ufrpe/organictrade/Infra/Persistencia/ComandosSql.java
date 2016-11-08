@@ -50,6 +50,14 @@ public class ComandosSql {
         return(sqlCreateProductTable);
     }
 
+    public static String sqlCreateSearchTable(){
+        String sqlCreateSearchTable =
+                "CREATE VIRTUAL TABLE " + DatabaseHelper.getTableSearchName() +
+                        " USING fts3 (" + DatabaseHelper.getColumnSearchProductName() + " text"
+                        + ");";
+        return (sqlCreateSearchTable);
+    }
+
     public static String sqlDropTableUsuarioLogado(){
         String sqlDropTableUsuarioLogado = "DROP TABLE IF EXISTS " + DatabaseHelper.getTableUserLoggedName();
         return (sqlDropTableUsuarioLogado);

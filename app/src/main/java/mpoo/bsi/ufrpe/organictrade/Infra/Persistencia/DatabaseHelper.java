@@ -37,6 +37,18 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String COLUMN_PRODUCT_ID = "product_id";
     private static final String COLUMN_PRODUCT_NAME = "product_name";
 
+    //Test Search
+    private static final String TABLE_SEARCH_NAME = "teste_search";
+    private static final String COLUMN_SEARCH_PRODUCT_NAME = "product_name";
+
+    public static String getColumnSearchProductName() {
+        return COLUMN_SEARCH_PRODUCT_NAME;
+    }
+
+    public static String getTableSearchName() {
+        return TABLE_SEARCH_NAME;
+    }
+
     //
     private SQLiteDatabase db;
 
