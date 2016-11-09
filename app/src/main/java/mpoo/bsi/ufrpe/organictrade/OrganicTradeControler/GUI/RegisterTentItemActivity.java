@@ -27,6 +27,11 @@ public class RegisterTentItemActivity extends AppCompatActivity {
     private ProductPersistence productPersistence = new ProductPersistence();
 
     @Override
+    public void onBackPressed() {
+        finish();
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_tent_item);

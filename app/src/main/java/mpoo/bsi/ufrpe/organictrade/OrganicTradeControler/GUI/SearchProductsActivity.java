@@ -32,6 +32,10 @@ public class SearchProductsActivity extends AppCompatActivity {
     UserPersistence userPersistence = new UserPersistence();
     Intent p = new Intent(Session.getContext(),ContactActivity.class);
 
+    @Override
+    public void onBackPressed() {
+        finish();
+    }
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

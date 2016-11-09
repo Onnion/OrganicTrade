@@ -18,7 +18,11 @@ public class RegisterUserActivity extends AppCompatActivity {
     private DatabaseHelper banco = Session.getDbAtual();
     private UserNegocio userNegocio = new UserNegocio();
 
-    //
+    @Override
+    public void onBackPressed() {
+        finish();
+    }
+        //
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

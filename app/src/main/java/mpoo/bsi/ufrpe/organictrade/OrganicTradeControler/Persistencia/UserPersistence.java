@@ -83,12 +83,13 @@ public class UserPersistence {
             cursor.close();
             db.close();
             return false;
+        }else {
+            cursor.close();
+            Toast toast = Toast.makeText(Session.getContext(), R.string.tstUnavaliableLogin, Toast.LENGTH_LONG);
+            toast.show();
+            db.close();
+            return true;
         }
-        cursor.close();
-        Toast toast = Toast.makeText(Session.getContext(),R.string.tstUnavaliableLogin,Toast.LENGTH_LONG);
-        toast.show();
-        db.close();
-        return true;
     }
     public void deslogarUsuario(){
         db = banco.getReadableDatabase();
