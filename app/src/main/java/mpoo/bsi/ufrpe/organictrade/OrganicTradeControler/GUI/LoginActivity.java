@@ -11,7 +11,10 @@ import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Persistencia.UserPersis
 import mpoo.bsi.ufrpe.organictrade.R;
 
 public class LoginActivity extends AppCompatActivity {
+    private long lastBackPressTime = 0;
+    private Toast toast;
     private UserNegocio userNegocio = new UserNegocio();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,6 +22,19 @@ public class LoginActivity extends AppCompatActivity {
         Session.setContext(getBaseContext());
     }
 
+    @Override
+    public void onBackPressed() {
+        if (this.lastBackPressTime < System.currentTimeMillis() - 4000) {
+            toast = Toast.makeText(this, "Pressione o Botão Voltar novamente para fechar o Aplicativo.", Toast.LENGTH_LONG);
+            toast.show();
+            this.lastBackPressTime = System.currentTimeMillis();
+        } else {
+            if (toast != null) {
+                toast.cancel();
+            }
+            super.onBackPressed();
+        }
+    }
     public void logar(View v){
 
         UserPersistence crud =  new UserPersistence();
