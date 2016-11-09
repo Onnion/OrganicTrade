@@ -123,11 +123,11 @@ public class UserNegocio{
             tc_valid = false;
         }
         if(sc_email.length() == 0 || (!emailInvalido(sc_email))){
-            registerUserEdtEmail.setError("Please Enter with a valid pass");
+            registerUserEdtEmail.setError("Please Enter with a valid email");
             tc_valid = false;
         }
         if(sc_phone.length() == 0 || (!phoneInvalido(sc_phone))){
-            registerUserEdtPhone.setError("xx 0 00000000 - xx 00000000");
+            registerUserEdtPhone.setError("xx 9 99999999 - xx 99999999");
             tc_valid = false;
         }
         return tc_valid;

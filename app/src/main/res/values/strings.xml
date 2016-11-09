@@ -26,4 +26,5 @@
     <string name="tstSuccessfullyRegistered">Cadastrado com sucesso </string>
     <string name="tstUnavaliableLogin">Login indisponível</string>
 
+    <string name="txtNewItem">Novo item</string>
 </resources>

@@ -34,9 +34,9 @@
         />
 
     <EditText
+        android:id="@+id/loginEdtLogin"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/loginEdtLogin"
         android:layout_marginBottom="74dp"
         android:layout_above="@+id/mainBtnEntrar"
         android:layout_alignParentLeft="true"

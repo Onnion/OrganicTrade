@@ -50,6 +50,7 @@
                 android:layout_height="0dp"
                 android:layout_weight="0.3">
                 <ImageView
+                    android:layout_margin="10dp"
                     android:layout_width="47dp"
                     android:layout_height="44dp"
                     app:srcCompat="@drawable/ic_shopping_basket_black_48dp"
@@ -59,6 +60,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
                     <TextView
+                        android:gravity="center"
                         android:id="@+id/contatTextProductName"
                         android:text="banana"
                         android:textAlignment="center"
@@ -66,6 +68,7 @@
                         android:layout_height="0dp"
                         android:layout_weight="1"/>
                     <TextView
+                        android:gravity="center"
                         android:text="2 unidades"
                         android:textAlignment="center"
                         android:id="@+id/contatTextProductAmount"
@@ -73,6 +76,7 @@
                         android:layout_height="0dp"
                         android:layout_weight="1"/>
                     <TextView
+                        android:gravity="center"
                         android:id="@+id/contatTextProductPrice"
                         android:text="10 reais"
                         android:textAlignment="center"
@@ -92,6 +96,7 @@
                 android:layout_weight="0.3"
                 >
                 <ImageView
+                    android:layout_margin="10dp"
                     android:layout_width="47dp"
                     android:layout_height="44dp"
                     app:srcCompat="@drawable/ic_phone_black_48dp"
@@ -115,6 +120,7 @@
                 android:layout_weight="0.3">
 
                 <ImageView
+                    android:layout_margin="10dp"
                     android:layout_width="47dp"
                     android:layout_height="44dp"
                     app:srcCompat="@drawable/ic_location_on_black_48dp"
