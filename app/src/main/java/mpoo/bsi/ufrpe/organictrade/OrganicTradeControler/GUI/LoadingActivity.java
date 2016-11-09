@@ -1,13 +1,9 @@
 package mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.GUI;
 import android.content.Intent;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Handler;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.Toast;
-
-import mpoo.bsi.ufrpe.organictrade.Infra.Persistencia.DatabaseHelper;
 import mpoo.bsi.ufrpe.organictrade.Infra.Session;
 import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Persistencia.ProductPersistence;
 import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Persistencia.UserPersistence;
@@ -22,7 +18,6 @@ public class LoadingActivity extends AppCompatActivity{
         Handler handler = new Handler();
         ProductPersistence productPersistence = new ProductPersistence();
         //--------------------------------------------------------------//
-
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {

@@ -8,7 +8,7 @@ import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Persistencia.ProductPer
 
 public class DatabaseHelper extends SQLiteOpenHelper {
     //
-    private static final int DATABASE_VERSION = 22;
+    private static final int DATABASE_VERSION = 23;
     private static final String DATABASE_NAME = "organicTrade.db";
 
     //User
@@ -19,6 +19,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String COLUMN_USER_EMAIL = "user_email";
     private static final String COLUMN_USER_NAME = "user_nome";
     private static final String COLUMN_USER_PHONE = "user_phone";
+    private static final String COLUMN_USER_ADRESS = "user_adress";
 
     //UserLogged
     private static final String TABLE_USER_LOGGED_NAME = "user_logged";
@@ -75,6 +76,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     public static String getColumnUserPhone() {
         return COLUMN_USER_PHONE;
+    }
+
+    public static String getColumnUserAdress() {
+        return COLUMN_USER_ADRESS;
     }
 
     public static String getColumnUserName() {

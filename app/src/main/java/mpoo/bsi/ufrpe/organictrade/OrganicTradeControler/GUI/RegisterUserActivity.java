@@ -17,6 +17,7 @@ public class RegisterUserActivity extends AppCompatActivity {
     private SQLiteDatabase db;
     private DatabaseHelper banco = Session.getDbAtual();
     private UserNegocio userNegocio = new UserNegocio();
+    UserLocation userLocation;
 
     @Override
     public void onBackPressed() {
@@ -28,6 +29,7 @@ public class RegisterUserActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_user);
         Session.setContext(getBaseContext());
+        userLocation = new UserLocation();
     }
 
     public void cadastrarUsuario(View v){
@@ -45,7 +47,7 @@ public class RegisterUserActivity extends AppCompatActivity {
         String remail = email.getText().toString();
         String phoneString = phone.getText().toString();
         if (!passString.equals(rpassString)){
-            Toast.makeText(RegisterUserActivity.this,getText(R.string.tstPasswordDontMatch), Toast.LENGTH_LONG).show();
+            Toast.makeText(Session.getContext(),getText(R.string.tstPasswordDontMatch), Toast.LENGTH_LONG).show();
         }else{
             if(crud.usuarioNaoCadastrado(userString) && userNegocio.registerOK(email,user,nome,pass,phone,rpass)){
                 User usuario = new User();
@@ -54,6 +56,8 @@ public class RegisterUserActivity extends AppCompatActivity {
                 usuario.setEmail(remail);
                 usuario.setName(nomeString);
                 usuario.setPhone(phoneString);
+                usuario.setAdress(userLocation.getAdress());
+                //
                 crud.RegisterUser(usuario);
                 Intent i = new Intent(Session.getContext(),LoginActivity.class);
                 startActivity(i);

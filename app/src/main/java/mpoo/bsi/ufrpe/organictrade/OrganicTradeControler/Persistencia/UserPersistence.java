@@ -23,6 +23,7 @@ public class UserPersistence {
         user.setEmail(cursor.getString(3));
         user.setName(cursor.getString(4));
         user.setPhone(cursor.getString(5));
+        user.setAdress(cursor.getString(6));
         return user;
     }
 
@@ -51,6 +52,7 @@ public class UserPersistence {
         valoresUsuario.put(DatabaseHelper.getColumnUserEmail(), user.getEmail());
         valoresUsuario.put(DatabaseHelper.getColumnUserName(), user.getName());
         valoresUsuario.put(DatabaseHelper.getColumnUserPhone(),user.getPhone());
+        valoresUsuario.put(DatabaseHelper.getColumnUserAdress(),user.getAdress());
         db.insert(DatabaseHelper.getTableUserName(), null, valoresUsuario);
         db.close();
     }
@@ -80,13 +82,13 @@ public class UserPersistence {
         db = banco.getReadableDatabase();
         Cursor cursor = db.rawQuery(ComandosSql.sqlUsuarioApartirDoLogin(),new String[]{login});
         if (cursor.moveToFirst()) {
+            Toast toast = Toast.makeText(Session.getContext(), R.string.tstUnavaliableLogin, Toast.LENGTH_LONG);
+            toast.show();
             cursor.close();
             db.close();
             return false;
         }else {
             cursor.close();
-            Toast toast = Toast.makeText(Session.getContext(), R.string.tstUnavaliableLogin, Toast.LENGTH_LONG);
-            toast.show();
             db.close();
             return true;
         }

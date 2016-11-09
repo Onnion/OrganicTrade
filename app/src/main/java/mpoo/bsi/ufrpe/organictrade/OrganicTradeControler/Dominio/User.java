@@ -8,6 +8,15 @@ public class User {
     private String email;
     private String name;
     private String phone;
+    private String adress;
+
+    public String getAdress() {
+        return adress;
+    }
+
+    public void setAdress(String adress) {
+        this.adress = adress;
+    }
 
     public String getPhone() {
         return phone;
