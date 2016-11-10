@@ -12,6 +12,15 @@
     </item>
     <item
         is-multidex="true"
+        jar="C:\Users\marci\AndroidStudioProjects\OrganicTrade\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-clearcut\9.8.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="ee5304fd374e0b4ebf6b42d4037fbfb2c5336511">
+        <dex dex="C:\Users\marci\AndroidStudioProjects\OrganicTrade\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-clearcut-9.8.0_6a421da97ec3390510251c9849eca5f8cfb1282b\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="C:\Users\marci\AndroidStudioProjects\OrganicTrade\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-drive\9.8.0\jars\classes.jar"
         jumboMode="true"
         optimize="true"
@@ -30,6 +39,24 @@
     </item>
     <item
         is-multidex="true"
+        jar="C:\Users\marci\AndroidStudioProjects\OrganicTrade\app\build\intermediates\exploded-aar\com.google.firebase\firebase-common\9.8.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="c61641e333fa88da21758bab8cc28ee16604b05f">
+        <dex dex="C:\Users\marci\AndroidStudioProjects\OrganicTrade\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-common-9.8.0_9ff9d74b6e766d6f58dcf4330a77b656d1e291c7\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\marci\AndroidStudioProjects\OrganicTrade\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-auth\9.8.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="ca851be26ff89f5b32cc222cee98139fb3fac830">
+        <dex dex="C:\Users\marci\AndroidStudioProjects\OrganicTrade\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-auth-9.8.0_15c0da925205686a9241e16c7e60bac37970c255\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="C:\Users\marci\AndroidStudioProjects\OrganicTrade\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-tasks\9.8.0\jars\classes.jar"
         jumboMode="true"
         optimize="true"
@@ -45,6 +72,15 @@
         revision="23.0.3"
         sha1="e3234cd25e23069abd48ecd2117bc0e8011bf45a">
         <dex dex="C:\Users\marci\AndroidStudioProjects\OrganicTrade\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-appindexing-9.8.0_0725be3516b834d46f2d1755ac0c1a25f4f7c8b7\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\marci\AndroidStudioProjects\OrganicTrade\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-games\9.8.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="fbb3885c40e431cd2b0dc69c0cab2bf6d5da7b43">
+        <dex dex="C:\Users\marci\AndroidStudioProjects\OrganicTrade\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-games-9.8.0_188b930c68e82e9636bc541fcb4f24e892e40ed6\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -75,219 +111,21 @@
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\marci\AndroidStudioProjects\OrganicTrade\app\build\intermediates\exploded-aar\com.android.support\mediarouter-v7\24.0.0\jars\libs\internal_impl-24.0.0.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="b6763651ec29b4c95e7bbe63fc393ffcc8c4c2c5">
-        <dex dex="C:\Users\marci\AndroidStudioProjects\OrganicTrade\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.0.0_fa9ba1dd41b9bde351a6755db1df662badad1eeb\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\marci\AndroidStudioProjects\OrganicTrade\app\build\intermediates\exploded-aar\com.google.firebase\firebase-auth-module\9.8.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="3f8f779a22cbb4c4d0759467a4f1011bb5252970">
-        <dex dex="C:\Users\marci\AndroidStudioProjects\OrganicTrade\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-auth-module-9.8.0_04bddfa4be9a1c63ab6b19bab2731b76324abaa9\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\marci\AndroidStudioProjects\OrganicTrade\app\build\intermediates\exploded-aar\com.google.firebase\firebase-analytics-impl\9.8.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="190a642ba16d1421296a4d794606279b80039c59">
-        <dex dex="C:\Users\marci\AndroidStudioProjects\OrganicTrade\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-analytics-impl-9.8.0_dce1cf1f5f6ccdfb61a3efb579336ffd83b8cc5f\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\marci\AndroidStudioProjects\OrganicTrade\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-panorama\9.8.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="2d3035050a075484cbf2e33f1ce1f779bae4d451">
-        <dex dex="C:\Users\marci\AndroidStudioProjects\OrganicTrade\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-panorama-9.8.0_ab49dcabbe8ee3de2293d3fd9d9205656cb3abdd\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\marci\AndroidStudioProjects\OrganicTrade\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-location\9.8.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="04bbbddf868aa02dd33f9e90d8f5d908c360f638">
-        <dex dex="C:\Users\marci\AndroidStudioProjects\OrganicTrade\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-location-9.8.0_fb95d6d5d2b13a5ea06826684f53bcd8090a3819\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\marci\AndroidStudioProjects\OrganicTrade\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-tagmanager\9.8.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="a972970c8beddb69c198f61f3fc55f0606a7dfe3">
-        <dex dex="C:\Users\marci\AndroidStudioProjects\OrganicTrade\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-tagmanager-9.8.0_8447a0566facc2f5b3df09ed5cc06e141e8e2a8a\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\marci\AndroidStudioProjects\OrganicTrade\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\9.8.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="9f6d236bac26d02b410e4ee186ba517ace5ee661">
-        <dex dex="C:\Users\marci\AndroidStudioProjects\OrganicTrade\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-basement-9.8.0_148e802021d7ba83a12d1aad2a3bbe364f038f52\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\marci\AndroidStudioProjects\OrganicTrade\app\build\intermediates\exploded-aar\com.google.firebase\firebase-config\9.8.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="289cad663c288ce965463cb9ece8b35cc7de0fac">
-        <dex dex="C:\Users\marci\AndroidStudioProjects\OrganicTrade\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-config-9.8.0_0297e97da3405687a5bca58a17f825c134e909c6\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\marci\AndroidStudioProjects\OrganicTrade\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-ads-lite\9.8.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="e9b2cfdfd59b03643f1e240668275378b96615a8">
-        <dex dex="C:\Users\marci\AndroidStudioProjects\OrganicTrade\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-ads-lite-9.8.0_7957f4d046442d241164d475adc8212e35facdfe\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\marci\AndroidStudioProjects\OrganicTrade\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-places\9.8.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="679251204de40ace98776a6f4e3a649c27e3d89f">
-        <dex dex="C:\Users\marci\AndroidStudioProjects\OrganicTrade\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-places-9.8.0_54d2248fce576023a621cf0451e8b5f1e9c6d042\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\marci\AndroidStudioProjects\OrganicTrade\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-analytics\9.8.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="16afe57c1d7f8165d107c7806ce7b0c71de87159">
-        <dex dex="C:\Users\marci\AndroidStudioProjects\OrganicTrade\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-analytics-9.8.0_62674ee125a69862c9a4d537319f31c6e525c618\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\marci\AndroidStudioProjects\OrganicTrade\app\build\intermediates\exploded-aar\com.google.firebase\firebase-database-connection\9.8.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="5f47ede9561595584dca71104baa0fecb36dda87">
-        <dex dex="C:\Users\marci\AndroidStudioProjects\OrganicTrade\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-database-connection-9.8.0_bc8260e9dae52099be5c58af23dd9099dbd26cb6\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\marci\AndroidStudioProjects\OrganicTrade\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\24.0.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="3bd97cfefd783e9de1dd1c30574a6adb44b4409b">
-        <dex dex="C:\Users\marci\AndroidStudioProjects\OrganicTrade\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-vector-drawable-24.0.0_4617f3b1b3d08ec61458e3822f845928ccf79c87\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\marci\AndroidStudioProjects\OrganicTrade\app\build\intermediates\exploded-aar\com.google.firebase\firebase-storage\9.8.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="7fd91ec2730fdaa82906aad32a3f3d3e574bae56">
-        <dex dex="C:\Users\marci\AndroidStudioProjects\OrganicTrade\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-storage-9.8.0_899f05c58162abd0b0d9fe2a5f6cf99b7b923b77\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\marci\AndroidStudioProjects\OrganicTrade\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-instantapps\9.8.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="00d358528c5a8731a6e19bca910cbb3fd755ee31">
-        <dex dex="C:\Users\marci\AndroidStudioProjects\OrganicTrade\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-instantapps-9.8.0_f28d1027c26013cd9bbf699830aced03afbf0472\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\marci\AndroidStudioProjects\OrganicTrade\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="c932df0c1faee380801c08f529f166f569db876f">
-        <dex dex="C:\Users\marci\AndroidStudioProjects\OrganicTrade\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_8b25faf5a4e0f8da3cc688441d4b203bd487317f\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\marci\AndroidStudioProjects\OrganicTrade\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-analytics-impl\9.8.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="50e35ae101a679c4c8ef3dda075b1df9d5d947d9">
-        <dex dex="C:\Users\marci\AndroidStudioProjects\OrganicTrade\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-analytics-impl-9.8.0_5fbdc7146bbdbbee260d7e311fa74277463c91b8\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\marci\AndroidStudioProjects\OrganicTrade\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-auth-base\9.8.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="a1ed98e01bd58976d80c062fd0ea2968a1ff68a1">
-        <dex dex="C:\Users\marci\AndroidStudioProjects\OrganicTrade\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-auth-base-9.8.0_134225e10e179e8279f754234c51e59b830beb23\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\marci\AndroidStudioProjects\OrganicTrade\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-ads\9.8.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="f2d240dd085626f03f759c41d628a0c8b63e491f">
-        <dex dex="C:\Users\marci\AndroidStudioProjects\OrganicTrade\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-ads-9.8.0_d6a812cabd31134cab4621e0dc11d5096758d5c8\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\marci\AndroidStudioProjects\OrganicTrade\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-clearcut\9.8.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="ee5304fd374e0b4ebf6b42d4037fbfb2c5336511">
-        <dex dex="C:\Users\marci\AndroidStudioProjects\OrganicTrade\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-clearcut-9.8.0_6a421da97ec3390510251c9849eca5f8cfb1282b\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\marci\AndroidStudioProjects\OrganicTrade\app\build\intermediates\exploded-aar\com.google.firebase\firebase-common\9.8.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="c61641e333fa88da21758bab8cc28ee16604b05f">
-        <dex dex="C:\Users\marci\AndroidStudioProjects\OrganicTrade\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-common-9.8.0_9ff9d74b6e766d6f58dcf4330a77b656d1e291c7\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\marci\AndroidStudioProjects\OrganicTrade\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-auth\9.8.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="ca851be26ff89f5b32cc222cee98139fb3fac830">
-        <dex dex="C:\Users\marci\AndroidStudioProjects\OrganicTrade\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-auth-9.8.0_15c0da925205686a9241e16c7e60bac37970c255\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\marci\AndroidStudioProjects\OrganicTrade\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-games\9.8.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="fbb3885c40e431cd2b0dc69c0cab2bf6d5da7b43">
-        <dex dex="C:\Users\marci\AndroidStudioProjects\OrganicTrade\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-games-9.8.0_188b930c68e82e9636bc541fcb4f24e892e40ed6\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="C:\Users\marci\AndroidStudioProjects\OrganicTrade\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-wallet\9.8.0\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="23.0.3"
         sha1="910c013c511f752c4bbe24c5f492f669f4a3ccc0">
         <dex dex="C:\Users\marci\AndroidStudioProjects\OrganicTrade\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-wallet-9.8.0_686cc984ac74b06128b89d88607c871a3b5a932b\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\marci\AndroidStudioProjects\OrganicTrade\app\build\intermediates\exploded-aar\com.android.support\mediarouter-v7\24.0.0\jars\libs\internal_impl-24.0.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="b6763651ec29b4c95e7bbe63fc393ffcc8c4c2c5">
+        <dex dex="C:\Users\marci\AndroidStudioProjects\OrganicTrade\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.0.0_fa9ba1dd41b9bde351a6755db1df662badad1eeb\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -327,6 +165,15 @@
     </item>
     <item
         is-multidex="true"
+        jar="C:\Users\marci\AndroidStudioProjects\OrganicTrade\app\build\intermediates\exploded-aar\com.google.firebase\firebase-auth-module\9.8.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="3f8f779a22cbb4c4d0759467a4f1011bb5252970">
+        <dex dex="C:\Users\marci\AndroidStudioProjects\OrganicTrade\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-auth-module-9.8.0_04bddfa4be9a1c63ab6b19bab2731b76324abaa9\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="C:\Users\marci\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\24.0.0\support-annotations-24.0.0.jar"
         jumboMode="true"
         optimize="true"
@@ -342,6 +189,15 @@
         revision="23.0.3"
         sha1="055eed08c9cff50cac0db69c74c4d9ff7aef3d84">
         <dex dex="C:\Users\marci\AndroidStudioProjects\OrganicTrade\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-cast-framework-9.8.0_4dcb042aa2810a0a74fece0e9ec4abcf991840fb\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\marci\AndroidStudioProjects\OrganicTrade\app\build\intermediates\exploded-aar\com.google.firebase\firebase-analytics-impl\9.8.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="190a642ba16d1421296a4d794606279b80039c59">
+        <dex dex="C:\Users\marci\AndroidStudioProjects\OrganicTrade\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-analytics-impl-9.8.0_dce1cf1f5f6ccdfb61a3efb579336ffd83b8cc5f\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -426,6 +282,24 @@
     </item>
     <item
         is-multidex="true"
+        jar="C:\Users\marci\AndroidStudioProjects\OrganicTrade\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-panorama\9.8.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="2d3035050a075484cbf2e33f1ce1f779bae4d451">
+        <dex dex="C:\Users\marci\AndroidStudioProjects\OrganicTrade\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-panorama-9.8.0_ab49dcabbe8ee3de2293d3fd9d9205656cb3abdd\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\marci\AndroidStudioProjects\OrganicTrade\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-location\9.8.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="04bbbddf868aa02dd33f9e90d8f5d908c360f638">
+        <dex dex="C:\Users\marci\AndroidStudioProjects\OrganicTrade\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-location-9.8.0_fb95d6d5d2b13a5ea06826684f53bcd8090a3819\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="C:\Users\marci\AndroidStudioProjects\OrganicTrade\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.0.0\jars\classes.jar"
         jumboMode="true"
         optimize="true"
@@ -462,6 +336,24 @@
     </item>
     <item
         is-multidex="true"
+        jar="C:\Users\marci\AndroidStudioProjects\OrganicTrade\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-tagmanager\9.8.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="a972970c8beddb69c198f61f3fc55f0606a7dfe3">
+        <dex dex="C:\Users\marci\AndroidStudioProjects\OrganicTrade\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-tagmanager-9.8.0_8447a0566facc2f5b3df09ed5cc06e141e8e2a8a\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\marci\AndroidStudioProjects\OrganicTrade\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\9.8.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="9f6d236bac26d02b410e4ee186ba517ace5ee661">
+        <dex dex="C:\Users\marci\AndroidStudioProjects\OrganicTrade\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-basement-9.8.0_148e802021d7ba83a12d1aad2a3bbe364f038f52\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="C:\Users\marci\AndroidStudioProjects\OrganicTrade\app\build\intermediates\exploded-aar\com.android.support\palette-v7\24.0.0\jars\classes.jar"
         jumboMode="true"
         optimize="true"
@@ -489,6 +381,42 @@
     </item>
     <item
         is-multidex="true"
+        jar="C:\Users\marci\AndroidStudioProjects\OrganicTrade\app\build\intermediates\exploded-aar\com.google.firebase\firebase-config\9.8.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="289cad663c288ce965463cb9ece8b35cc7de0fac">
+        <dex dex="C:\Users\marci\AndroidStudioProjects\OrganicTrade\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-config-9.8.0_0297e97da3405687a5bca58a17f825c134e909c6\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\marci\AndroidStudioProjects\OrganicTrade\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-ads-lite\9.8.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="e9b2cfdfd59b03643f1e240668275378b96615a8">
+        <dex dex="C:\Users\marci\AndroidStudioProjects\OrganicTrade\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-ads-lite-9.8.0_7957f4d046442d241164d475adc8212e35facdfe\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\marci\AndroidStudioProjects\OrganicTrade\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-places\9.8.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="679251204de40ace98776a6f4e3a649c27e3d89f">
+        <dex dex="C:\Users\marci\AndroidStudioProjects\OrganicTrade\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-places-9.8.0_54d2248fce576023a621cf0451e8b5f1e9c6d042\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\marci\AndroidStudioProjects\OrganicTrade\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-analytics\9.8.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="16afe57c1d7f8165d107c7806ce7b0c71de87159">
+        <dex dex="C:\Users\marci\AndroidStudioProjects\OrganicTrade\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-analytics-9.8.0_62674ee125a69862c9a4d537319f31c6e525c618\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="C:\Users\marci\AndroidStudioProjects\OrganicTrade\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\24.0.0\jars\classes.jar"
         jumboMode="true"
         optimize="true"
@@ -498,12 +426,75 @@
     </item>
     <item
         is-multidex="true"
+        jar="C:\Users\marci\AndroidStudioProjects\OrganicTrade\app\build\intermediates\exploded-aar\com.google.firebase\firebase-database-connection\9.8.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="5f47ede9561595584dca71104baa0fecb36dda87">
+        <dex dex="C:\Users\marci\AndroidStudioProjects\OrganicTrade\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-database-connection-9.8.0_bc8260e9dae52099be5c58af23dd9099dbd26cb6\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="C:\Users\marci\AndroidStudioProjects\OrganicTrade\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-wearable\9.8.0\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="23.0.3"
         sha1="0b8e087da59c0b062c33f49a335e59f907086da2">
         <dex dex="C:\Users\marci\AndroidStudioProjects\OrganicTrade\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-wearable-9.8.0_be048d6f62818bbbd5d28c520250f6644d0f81a5\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\marci\AndroidStudioProjects\OrganicTrade\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\24.0.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="3bd97cfefd783e9de1dd1c30574a6adb44b4409b">
+        <dex dex="C:\Users\marci\AndroidStudioProjects\OrganicTrade\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-vector-drawable-24.0.0_4617f3b1b3d08ec61458e3822f845928ccf79c87\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\marci\AndroidStudioProjects\OrganicTrade\app\build\intermediates\exploded-aar\com.google.firebase\firebase-storage\9.8.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="7fd91ec2730fdaa82906aad32a3f3d3e574bae56">
+        <dex dex="C:\Users\marci\AndroidStudioProjects\OrganicTrade\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-storage-9.8.0_899f05c58162abd0b0d9fe2a5f6cf99b7b923b77\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\marci\AndroidStudioProjects\OrganicTrade\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-instantapps\9.8.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="00d358528c5a8731a6e19bca910cbb3fd755ee31">
+        <dex dex="C:\Users\marci\AndroidStudioProjects\OrganicTrade\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-instantapps-9.8.0_f28d1027c26013cd9bbf699830aced03afbf0472\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\marci\AndroidStudioProjects\OrganicTrade\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="24f5a673eff917a7a8c4c3f26ce1e607eeb237b9">
+        <dex dex="C:\Users\marci\AndroidStudioProjects\OrganicTrade\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_8b25faf5a4e0f8da3cc688441d4b203bd487317f\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\marci\AndroidStudioProjects\OrganicTrade\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-analytics-impl\9.8.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="50e35ae101a679c4c8ef3dda075b1df9d5d947d9">
+        <dex dex="C:\Users\marci\AndroidStudioProjects\OrganicTrade\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-analytics-impl-9.8.0_5fbdc7146bbdbbee260d7e311fa74277463c91b8\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\marci\AndroidStudioProjects\OrganicTrade\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-auth-base\9.8.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="a1ed98e01bd58976d80c062fd0ea2968a1ff68a1">
+        <dex dex="C:\Users\marci\AndroidStudioProjects\OrganicTrade\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-auth-base-9.8.0_134225e10e179e8279f754234c51e59b830beb23\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -522,6 +513,15 @@
         revision="23.0.3"
         sha1="99d2b37e3f9f8e77cdbd0f5ee470d841ef2b1177">
         <dex dex="C:\Users\marci\AndroidStudioProjects\OrganicTrade\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_1bdeea90e750a86f8f54fc83fb6c079b59868297\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\marci\AndroidStudioProjects\OrganicTrade\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-ads\9.8.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="f2d240dd085626f03f759c41d628a0c8b63e491f">
+        <dex dex="C:\Users\marci\AndroidStudioProjects\OrganicTrade\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-ads-9.8.0_d6a812cabd31134cab4621e0dc11d5096758d5c8\classes.dex" />
     </item>
     <item
         is-multidex="true"

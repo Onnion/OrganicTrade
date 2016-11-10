@@ -9,6 +9,7 @@ import android.widget.Toast;
 import mpoo.bsi.ufrpe.organictrade.Infra.Persistencia.DatabaseHelper;
 import mpoo.bsi.ufrpe.organictrade.Infra.Session;
 import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Dominio.User;
+import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Dominio.UserLocation;
 import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Negocio.UserNegocio;
 import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Persistencia.UserPersistence;
 import mpoo.bsi.ufrpe.organictrade.R;
@@ -57,7 +58,6 @@ public class RegisterUserActivity extends AppCompatActivity {
                 usuario.setName(nomeString);
                 usuario.setPhone(phoneString);
                 usuario.setAdress(userLocation.getAdress());
-                //
                 crud.RegisterUser(usuario);
                 Intent i = new Intent(Session.getContext(),LoginActivity.class);
                 startActivity(i);
