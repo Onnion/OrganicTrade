@@ -45,7 +45,7 @@ public class SearchProductsActivity extends AppCompatActivity {
         listView=(ListView)findViewById(R.id.searchProductsListViewSearch);
         listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
-            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id){
                 TentItems item = (TentItems)listView.getAdapter().getItem(position);
                 Session.setItemSelected(item);
                 Session.setContactSelected(userPersistence.buscarApartirDoId(item.getUsurio_id()));

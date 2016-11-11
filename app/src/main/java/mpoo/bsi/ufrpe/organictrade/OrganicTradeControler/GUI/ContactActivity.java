@@ -10,6 +10,7 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
@@ -53,9 +54,11 @@ public class ContactActivity extends FragmentActivity implements OnMapReadyCallb
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
         String[] locationContactSelected = contatSelected.getAdress().split(",");
-        Log.i("LOG",locationContactSelected[0]+"--"+locationContactSelected[1]);
+        String[] locationUser = Session.getUserAtual().getAdress().split(",");
         LatLng tentContactSelected = new LatLng(parseDouble(locationContactSelected[0]),parseDouble(locationContactSelected[1]));
+        LatLng tentUser = new LatLng(parseDouble(locationUser[0]),parseDouble(locationUser[1]));
         mMap.addMarker(new MarkerOptions().position(tentContactSelected).title("Tenda de "+contatSelected.getName()));
+        mMap.addMarker(new MarkerOptions().position(tentUser).title("Minha tenda").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE)));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(tentContactSelected));
         mMap.setMinZoomPreference(13);
 

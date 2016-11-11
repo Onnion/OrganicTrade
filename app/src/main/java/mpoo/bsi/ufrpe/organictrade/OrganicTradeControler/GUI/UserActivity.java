@@ -1,7 +1,11 @@
 package mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.GUI;
 import android.content.Intent;
+import android.graphics.Rect;
+import android.media.Image;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Gravity;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ImageView;
@@ -44,28 +48,32 @@ public class UserActivity extends AppCompatActivity {
         TextView text = (TextView)findViewById(R.id.userTextName);
         String[] nome = Session.getUserAtual().getName().split(" ");
         text.setText(nome[0]);
+
         //-----------------------------------PopularLisView------------------------------------//
-        //--------------------------------------Instacias------------------------------------//
-        //------------------------------OnClickLisView------------------------------------//
         final ListView listaDeItens = (ListView) findViewById(R.id.usuarioListViewList);
         listaDeItens.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
                 TentItems item = (TentItems)listaDeItens.getAdapter().getItem(position);
-                Toast.makeText(Session.getContext(),item.getProdutoId(), Toast.LENGTH_LONG).show();
+                //editar
                 return false;
             }
         });
-        //-------------------------------------------------------------------------------//
         TentPersistence tentPersistence = new TentPersistence();
         Tent tent = tentPersistence.retornarTendaDoUsuario();
         List<TentItems> tendaFinal = tent.getTent();
-        //---------------------------------------------------------------------------------//
         ItemListAdapter adapter = new ItemListAdapter(tendaFinal);
         listaDeItens.setAdapter(adapter);
         //-------------------------------------------------------------------------------------//
 
         ImageView addBtn = (ImageView) findViewById(R.id.userImgBtnToCadastro);
+        addBtn.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                displayToastAboveButton(v,R.string.txtNewItem);
+                return false;
+            }
+        });
         addBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -75,6 +83,13 @@ public class UserActivity extends AppCompatActivity {
         });
 
         ImageView searchBtn =(ImageView) findViewById(R.id.userImgBtnToSearch);
+        searchBtn.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                displayToastAboveButton(v,R.string.txtSearch);
+                return false;
+            }
+        });
         searchBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -83,6 +98,13 @@ public class UserActivity extends AppCompatActivity {
             }
         });
         ImageView logoutBtn =(ImageView) findViewById(R.id.userImgBtnLogout);
+        logoutBtn.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                displayToastAboveButton(v,R.string.txtLogout);
+                return false;
+            }
+        });
         logoutBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -94,5 +116,50 @@ public class UserActivity extends AppCompatActivity {
                 finish();
             }
         });
+    }
+
+    private void displayToastAboveButton(View v, int messageId)
+    {
+        int xOffset = 0;
+        int yOffset = 0;
+        Rect gvr = new Rect();
+
+        View parent = (View) v.getParent();
+        int parentHeight = parent.getHeight();
+
+        if (v.getGlobalVisibleRect(gvr))
+        {
+            View root = v.getRootView();
+
+            int halfWidth = root.getRight() / 2;
+            int halfHeight = root.getBottom() / 2;
+
+            int parentCenterX = ((gvr.right - gvr.left) / 2) + gvr.left;
+
+            int parentCenterY = ((gvr.bottom - gvr.top) / 2) + gvr.top;
+
+            if (parentCenterY <= halfHeight)
+            {
+                yOffset = -(halfHeight - parentCenterY) - parentHeight;
+            }
+            else
+            {
+                yOffset = (parentCenterY - halfHeight) - parentHeight;
+            }
+
+            if (parentCenterX < halfWidth)
+            {
+                xOffset = -(halfWidth - parentCenterX);
+            }
+
+            if (parentCenterX >= halfWidth)
+            {
+                xOffset = parentCenterX - halfWidth;
+            }
+        }
+
+        Toast toast = Toast.makeText(Session.getContext(), messageId, Toast.LENGTH_SHORT);
+        toast.setGravity(Gravity.CENTER, xOffset, yOffset);
+        toast.show();
     }
 }

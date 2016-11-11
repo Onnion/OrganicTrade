@@ -26,6 +26,9 @@
     <string name="tstSuccessfullyRegistered">Cadastrado com sucesso </string>
     <string name="tstUnavaliableLogin">Login indisponível</string>
 
+    <string name="txtSearch">Procurar item</string>
+    <string name="txtLogout">Sair</string>
+    <string name="txtEditarPerfil">Editar perfil</string>
     <string name="txtNewItem">Novo item</string>
     <string name="title_activity_maps">Map</string>
 </resources>

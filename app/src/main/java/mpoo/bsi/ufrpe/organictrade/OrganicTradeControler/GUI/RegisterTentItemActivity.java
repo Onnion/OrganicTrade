@@ -52,8 +52,6 @@ public class RegisterTentItemActivity extends AppCompatActivity {
         EditText price = (EditText) findViewById(R.id.registerTentItemEdtProductPrice);
 
         String idProductString = productPersistence.idProductByName(nameProduct.getSelectedItem().toString());
-        Toast.makeText(Session.getContext(),productPersistence.idProductByName(nameProduct.getSelectedItem().toString()), Toast.LENGTH_LONG).show();
-
         String unidadeString = unidade.getText().toString();
         String quantidadeString = quantidade.getText().toString();
         String priceString = price.getText().toString();
