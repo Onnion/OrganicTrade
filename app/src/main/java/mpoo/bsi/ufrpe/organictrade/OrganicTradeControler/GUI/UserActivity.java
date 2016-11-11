@@ -48,7 +48,6 @@ public class UserActivity extends AppCompatActivity {
         TextView text = (TextView)findViewById(R.id.userTextName);
         String[] nome = Session.getUserAtual().getName().split(" ");
         text.setText(nome[0]);
-
         //-----------------------------------PopularLisView------------------------------------//
         final ListView listaDeItens = (ListView) findViewById(R.id.usuarioListViewList);
         listaDeItens.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
@@ -66,7 +65,8 @@ public class UserActivity extends AppCompatActivity {
         listaDeItens.setAdapter(adapter);
         //-------------------------------------------------------------------------------------//
 
-        ImageView addBtn = (ImageView) findViewById(R.id.userImgBtnToCadastro);
+        final ImageView addBtn = (ImageView) findViewById(R.id.userImgBtnToCadastro);
+        addBtn.setImageResource(R.mipmap.ic_add);
         addBtn.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
@@ -74,15 +74,23 @@ public class UserActivity extends AppCompatActivity {
                 return false;
             }
         });
+        addBtn.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                addBtn.setImageResource(R.mipmap.ic_addonclick);
+                return false;
+            }
+        });
         addBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent p = new Intent(Session.getContext(),RegisterTentItemActivity.class);
+                addBtn.setImageResource(R.mipmap.ic_add);
                 startActivity(p);
             }
         });
 
-        ImageView searchBtn =(ImageView) findViewById(R.id.userImgBtnToSearch);
+        final ImageView searchBtn =(ImageView) findViewById(R.id.userImgBtnToSearch);
         searchBtn.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
