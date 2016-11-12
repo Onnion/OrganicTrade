@@ -43,7 +43,7 @@ public class ContactActivity extends FragmentActivity implements OnMapReadyCallb
         phone.setText(contatSelected.getPhone());
         productName.setText(productPersistence.nameProductById(itemSelected.getProdutoId()));
         productAmount.setText(itemSelected.getQuantidadeAtual());
-        productPrice.setText("R$ "+itemSelected.getValor()+",00");
+        productPrice.setText("R$ "+itemSelected.getValor());
     }
 
     @Override

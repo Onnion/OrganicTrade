@@ -42,14 +42,6 @@
             android:layout_weight="1"
             />
 
-        <Spinner
-            android:id="@+id/registerTentItemEdtProductUnity"
-            android:layout_margin="10dp"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-        />
-
         <EditText
             android:id="@+id/registerTentItemEdtProductAmount"
             android:layout_margin="10dp"
@@ -60,6 +52,14 @@
             android:inputType="number"
             />
 
+        <Spinner
+            android:id="@+id/registerTentItemEdtProductUnity"
+            android:layout_margin="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+        />
+
         <EditText
             android:id="@+id/registerTentItemEdtProductPrice"
             android:layout_margin="10dp"
@@ -67,7 +67,7 @@
             android:layout_height="0dp"
             android:layout_weight="1"
             android:hint="Valor"
-            android:inputType="number"
+            android:inputType="numberDecimal"
             />
 
     </LinearLayout>
