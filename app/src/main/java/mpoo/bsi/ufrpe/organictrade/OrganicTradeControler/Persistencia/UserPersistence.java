@@ -85,6 +85,8 @@ public class UserPersistence {
             Toast toast = Toast.makeText(Session.getContext(), R.string.tstUnavaliableLogin, Toast.LENGTH_LONG);
             toast.show();
             cursor.close();
+            Toast toast2 = Toast.makeText(Session.getContext(), R.string.tstUnavaliableLogin, Toast.LENGTH_LONG);
+            toast2.show();
             db.close();
             return false;
         }else {
