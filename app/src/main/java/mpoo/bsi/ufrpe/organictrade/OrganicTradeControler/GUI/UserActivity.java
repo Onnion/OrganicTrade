@@ -89,8 +89,18 @@ public class UserActivity extends AppCompatActivity {
                 startActivity(p);
             }
         });
+        //-------------------------------------------------------------------------------------//
 
         final ImageView searchBtn =(ImageView) findViewById(R.id.userImgBtnToSearch);
+        searchBtn.setImageResource(R.mipmap.ic_search);
+
+        searchBtn.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                searchBtn.setImageResource(R.mipmap.ic_searchonclick);
+                return false;
+            }
+        });
         searchBtn.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
@@ -102,10 +112,23 @@ public class UserActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent p = new Intent(Session.getContext(),SearchProductsActivity.class);
+                searchBtn.setImageResource(R.mipmap.ic_search);
                 startActivity(p);
+
             }
         });
-        ImageView logoutBtn =(ImageView) findViewById(R.id.userImgBtnLogout);
+        //-------------------------------------------------------------------------------------//
+
+        final ImageView logoutBtn =(ImageView) findViewById(R.id.userImgBtnLogout);
+        logoutBtn.setImageResource(R.mipmap.ic_logout);
+
+        logoutBtn.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                logoutBtn.setImageResource(R.mipmap.ic_logoutonclick);
+                return false;
+            }
+        });
         logoutBtn.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
@@ -120,6 +143,7 @@ public class UserActivity extends AppCompatActivity {
                 crud.deslogarUsuario();
                 Session.setUserAtual(new User());
                 Intent p = new Intent(Session.getContext(),LoginActivity.class);
+                logoutBtn.setImageResource(R.mipmap.ic_logout);
                 startActivity(p);
                 finish();
             }

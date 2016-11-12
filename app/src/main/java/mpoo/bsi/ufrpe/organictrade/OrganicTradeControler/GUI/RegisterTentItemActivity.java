@@ -59,6 +59,7 @@ public class RegisterTentItemActivity extends AppCompatActivity {
         //validação
 
         TentItems tentItems = new TentItems();
+
         tentItems.setProdutoId(unidadeString);
         tentItems.setQuantidadeAtual(quantidadeString);
         tentItems.setValor(priceString);
