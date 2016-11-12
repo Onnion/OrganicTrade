@@ -3,48 +3,12 @@
 
     <item
         is-multidex="true"
-        jar="/home/neresb/Documents/OrganicTrade/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-games/9.8.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="fbb3885c40e431cd2b0dc69c0cab2bf6d5da7b43">
-        <dex dex="/home/neresb/Documents/OrganicTrade/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-games-9.8.0_a1368418460370a21b52917376911d63334ea357/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/neresb/Documents/OrganicTrade/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-appinvite/9.8.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="e56f31b23ddb067f95f01255295167db7c798612">
-        <dex dex="/home/neresb/Documents/OrganicTrade/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-appinvite-9.8.0_9694501ceec0ebc10aa2241b7973a3b5bc1f65cb/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/neresb/Documents/OrganicTrade/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-instantapps/9.8.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="00d358528c5a8731a6e19bca910cbb3fd755ee31">
-        <dex dex="/home/neresb/Documents/OrganicTrade/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-instantapps-9.8.0_adb27bb9692f7247a90e00a5af414cccc8e16988/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="/home/neresb/Documents/OrganicTrade/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-fitness/9.8.0/jars/classes.jar"
         jumboMode="true"
         optimize="true"
         revision="23.0.3"
         sha1="a7a04d6b7c01e569a285fa627cf64f5b05295906">
         <dex dex="/home/neresb/Documents/OrganicTrade/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-fitness-9.8.0_9a075ca717287e5a3afb8eb46a8b3b73155d72ec/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/neresb/Documents/OrganicTrade/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-gass/9.8.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="363a20f1d25336e827dd24020f2ecdc42d62638f">
-        <dex dex="/home/neresb/Documents/OrganicTrade/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-gass-9.8.0_5db0698f81b60330646dd256bfab455a98060b00/classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -61,35 +25,8 @@
         jumboMode="true"
         optimize="true"
         revision="23.0.3"
-        sha1="42709a1116e90c2419abe766c4f38de74c40e6cd">
+        sha1="bb660d5b3734a75dbe07d0cf8ba434077b8d8b6a">
         <dex dex="/home/neresb/Documents/OrganicTrade/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_e5a1ac0394dc21ba5873e52ef516039777a23c57/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/neresb/Documents/OrganicTrade/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-iid/9.8.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="85299bf1924dde0200109a58033c5ef84ecb6991">
-        <dex dex="/home/neresb/Documents/OrganicTrade/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-iid-9.8.0_e0a0884de617fde8c6824b415ad95c502b08ca14/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/neresb/Documents/OrganicTrade/app/build/intermediates/exploded-aar/com.google.firebase/firebase-database/9.8.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="03df48d3713661d66ad024b1e406259a4c26fcac">
-        <dex dex="/home/neresb/Documents/OrganicTrade/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-database-9.8.0_c6061edd8bc4b0d1271a0d268840741282a5684a/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/neresb/Documents/OrganicTrade/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/24.0.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="3bd97cfefd783e9de1dd1c30574a6adb44b4409b">
-        <dex dex="/home/neresb/Documents/OrganicTrade/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-vector-drawable-24.0.0_a803e3888f0a87e432cf1c81b99c9f3cb2ecbb41/classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -120,15 +57,6 @@
     </item>
     <item
         is-multidex="true"
-        jar="/home/neresb/Documents/OrganicTrade/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-identity/9.8.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="cef85cfc7df40e29fbea58844dd4c1e7d0b15542">
-        <dex dex="/home/neresb/Documents/OrganicTrade/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-identity-9.8.0_553458337ccaa24bc1d45a174bbfda0d9871d528/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="/home/neresb/Documents/OrganicTrade/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-places/9.8.0/jars/classes.jar"
         jumboMode="true"
         optimize="true"
@@ -144,15 +72,6 @@
         revision="23.0.3"
         sha1="f2d240dd085626f03f759c41d628a0c8b63e491f">
         <dex dex="/home/neresb/Documents/OrganicTrade/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-ads-9.8.0_bd7adb8f71c9fc8a0b067cc80fa7158c83b7a51e/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/neresb/Documents/OrganicTrade/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-panorama/9.8.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="2d3035050a075484cbf2e33f1ce1f779bae4d451">
-        <dex dex="/home/neresb/Documents/OrganicTrade/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-panorama-9.8.0_ebfc6fef26fa1a630e6d461ee191eaf019de3cad/classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -174,39 +93,12 @@
     </item>
     <item
         is-multidex="true"
-        jar="/home/neresb/Documents/OrganicTrade/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-vision/9.8.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="a30aea7df545072ad3c06f56b2efc13e67222140">
-        <dex dex="/home/neresb/Documents/OrganicTrade/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-vision-9.8.0_785a9c5b29262a262158d0b9d7a7e148cd8002a4/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/neresb/Documents/OrganicTrade/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-nearby/9.8.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="c81df6bd515398ebe45089b0b16c55752a131f6a">
-        <dex dex="/home/neresb/Documents/OrganicTrade/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-nearby-9.8.0_93bccdb5c180248ec07de6264d4dbd6ad794c4b2/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="/home/neresb/Documents/OrganicTrade/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-drive/9.8.0/jars/classes.jar"
         jumboMode="true"
         optimize="true"
         revision="23.0.3"
         sha1="0b53c4b90654b67ee3892a8e2e7b819c083ab7a6">
         <dex dex="/home/neresb/Documents/OrganicTrade/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-drive-9.8.0_d6bb8f5d9ac9409bb32bb5be7353ef0c37d9dd04/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/neresb/Documents/OrganicTrade/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast/9.8.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="74ac7cbcf0de4a88e59612dc3a9e3f9e71acb4ca">
-        <dex dex="/home/neresb/Documents/OrganicTrade/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-cast-9.8.0_b027ab9a2cb134d31869608343a45add05586252/classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -250,17 +142,8 @@
         jumboMode="true"
         optimize="true"
         revision="23.0.3"
-        sha1="4b6d2b36efb2d12bb68c9d661cf13f2f0aaeb25e">
+        sha1="f23b0baf0d0d1423698e5cd4e8a6aa9f23575568">
         <dex dex="/home/neresb/Documents/OrganicTrade/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_470b4e324075d79cb8690bfb4636b1c5c23a5976/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/neresb/Documents/OrganicTrade/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-location/9.8.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="04bbbddf868aa02dd33f9e90d8f5d908c360f638">
-        <dex dex="/home/neresb/Documents/OrganicTrade/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-location-9.8.0_ca859eeb616cb1dda25cf9cdc5b1c25702306006/classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -282,48 +165,12 @@
     </item>
     <item
         is-multidex="true"
-        jar="/home/neresb/Documents/OrganicTrade/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/9.8.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="9f6d236bac26d02b410e4ee186ba517ace5ee661">
-        <dex dex="/home/neresb/Documents/OrganicTrade/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-basement-9.8.0_5654ad53bfdc50896212eeaaa78fef6b08d00b77/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/neresb/Documents/OrganicTrade/app/build/intermediates/exploded-aar/com.android.support/palette-v7/24.0.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="734e80dffea7bd76c18ae256822a124c30d85850">
-        <dex dex="/home/neresb/Documents/OrganicTrade/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-palette-v7-24.0.0_b99f590f367996fbc2e6300dffd8fe4e8912458c/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="/home/neresb/Documents/OrganicTrade/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-gcm/9.8.0/jars/classes.jar"
         jumboMode="true"
         optimize="true"
         revision="23.0.3"
         sha1="9dae58326f6f6a515022468cce56dd04ec3b9fdb">
         <dex dex="/home/neresb/Documents/OrganicTrade/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-gcm-9.8.0_62364f776639d9b4846b8e20a9e211100fc73e64/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/neresb/Documents/OrganicTrade/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-tagmanager-api/9.8.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="266570862e5792ef3c51143a8b8593cf54fac68d">
-        <dex dex="/home/neresb/Documents/OrganicTrade/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-tagmanager-api-9.8.0_4b7e09b6ab708531bd1e2432e1f8f044c569ad83/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/neresb/Documents/OrganicTrade/app/build/intermediates/exploded-aar/com.android.support/support-v4/24.0.0/jars/libs/internal_impl-24.0.0.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="fcaf463e10e69c1923ccf1edeba3b4196d239e00">
-        <dex dex="/home/neresb/Documents/OrganicTrade/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.0.0_241bc56adf08e0040f9b2516f1ec720f446696dc/classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -336,30 +183,12 @@
     </item>
     <item
         is-multidex="true"
-        jar="/home/neresb/Documents/OrganicTrade/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics-impl/9.8.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="190a642ba16d1421296a4d794606279b80039c59">
-        <dex dex="/home/neresb/Documents/OrganicTrade/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-analytics-impl-9.8.0_e5148223f17f45a664d33d67bc9e9f794c48b923/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="/home/neresb/Documents/OrganicTrade/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-safetynet/9.8.0/jars/classes.jar"
         jumboMode="true"
         optimize="true"
         revision="23.0.3"
         sha1="20a3c4e355150c15c13dd58045d43ad0c717d916">
         <dex dex="/home/neresb/Documents/OrganicTrade/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-safetynet-9.8.0_bed443f3a876b9078c0bd97d931663ee171d4aab/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/neresb/Documents/OrganicTrade/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-ads-lite/9.8.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="e9b2cfdfd59b03643f1e240668275378b96615a8">
-        <dex dex="/home/neresb/Documents/OrganicTrade/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-ads-lite-9.8.0_198efc05599cbd4a22186511e1fb1de134c7d7ea/classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -390,21 +219,246 @@
     </item>
     <item
         is-multidex="true"
-        jar="/home/neresb/Documents/OrganicTrade/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-wallet/9.8.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="910c013c511f752c4bbe24c5f492f669f4a3ccc0">
-        <dex dex="/home/neresb/Documents/OrganicTrade/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-wallet-9.8.0_1f97519b06f86955dd055e4b61367eec5af4a72a/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="/home/neresb/Documents/OrganicTrade/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-tagmanager/9.8.0/jars/classes.jar"
         jumboMode="true"
         optimize="true"
         revision="23.0.3"
         sha1="a972970c8beddb69c198f61f3fc55f0606a7dfe3">
         <dex dex="/home/neresb/Documents/OrganicTrade/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-tagmanager-9.8.0_7f6d81d4162c7babaaba0f38ced1e37a4c7655bb/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/neresb/Documents/OrganicTrade/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-auth/9.8.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="ca851be26ff89f5b32cc222cee98139fb3fac830">
+        <dex dex="/home/neresb/Documents/OrganicTrade/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-auth-9.8.0_32e6c908e736cb1a83e2bd239e31c7c1d10e7cc1/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/neresb/Documents/OrganicTrade/app/build/intermediates/exploded-aar/com.android.support/support-v4/24.0.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="2f7e6e2dad1bccaf68a8820820adc6c0d5b96d37">
+        <dex dex="/home/neresb/Documents/OrganicTrade/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-v4-24.0.0_b309e4b80cf3efbfff9b890b8493377d7ddb25ed/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/neresb/Documents/OrganicTrade/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/24.0.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="b327fbe2fad414bc38cf0ce8f7efe1a38f572837">
+        <dex dex="/home/neresb/Documents/OrganicTrade/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-mediarouter-v7-24.0.0_d031cbf3799b1da74967b8ccaa7c9bcb7accce7a/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/neresb/Documents/OrganicTrade/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-wearable/9.8.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="0b8e087da59c0b062c33f49a335e59f907086da2">
+        <dex dex="/home/neresb/Documents/OrganicTrade/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-wearable-9.8.0_7831904300f7cd6e0525101492333066c39e4287/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/neresb/Documents/OrganicTrade/app/build/intermediates/exploded-aar/com.google.firebase/firebase-auth/9.8.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="15e59454416c6341bd3ed2533b585cd340682dd1">
+        <dex dex="/home/neresb/Documents/OrganicTrade/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-auth-9.8.0_7300d3b6bffc247c7d98d4bbf6c0b92512792d5c/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/neresb/Documents/OrganicTrade/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics/9.8.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="9ff04cc3470178a44512624036751a803418c2ca">
+        <dex dex="/home/neresb/Documents/OrganicTrade/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-analytics-9.8.0_702cf70ecfd606b6e04537d5b69ffad96ebbd5eb/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/neresb/Documents/OrganicTrade/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-games/9.8.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="fbb3885c40e431cd2b0dc69c0cab2bf6d5da7b43">
+        <dex dex="/home/neresb/Documents/OrganicTrade/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-games-9.8.0_a1368418460370a21b52917376911d63334ea357/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/neresb/Documents/OrganicTrade/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-appinvite/9.8.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="e56f31b23ddb067f95f01255295167db7c798612">
+        <dex dex="/home/neresb/Documents/OrganicTrade/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-appinvite-9.8.0_9694501ceec0ebc10aa2241b7973a3b5bc1f65cb/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/neresb/Documents/OrganicTrade/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-instantapps/9.8.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="00d358528c5a8731a6e19bca910cbb3fd755ee31">
+        <dex dex="/home/neresb/Documents/OrganicTrade/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-instantapps-9.8.0_adb27bb9692f7247a90e00a5af414cccc8e16988/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/neresb/Documents/OrganicTrade/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-gass/9.8.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="363a20f1d25336e827dd24020f2ecdc42d62638f">
+        <dex dex="/home/neresb/Documents/OrganicTrade/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-gass-9.8.0_5db0698f81b60330646dd256bfab455a98060b00/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/neresb/Documents/OrganicTrade/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-iid/9.8.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="85299bf1924dde0200109a58033c5ef84ecb6991">
+        <dex dex="/home/neresb/Documents/OrganicTrade/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-iid-9.8.0_e0a0884de617fde8c6824b415ad95c502b08ca14/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/neresb/Documents/OrganicTrade/app/build/intermediates/exploded-aar/com.google.firebase/firebase-database/9.8.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="03df48d3713661d66ad024b1e406259a4c26fcac">
+        <dex dex="/home/neresb/Documents/OrganicTrade/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-database-9.8.0_c6061edd8bc4b0d1271a0d268840741282a5684a/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/neresb/Documents/OrganicTrade/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/24.0.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="3bd97cfefd783e9de1dd1c30574a6adb44b4409b">
+        <dex dex="/home/neresb/Documents/OrganicTrade/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-vector-drawable-24.0.0_a803e3888f0a87e432cf1c81b99c9f3cb2ecbb41/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/neresb/Documents/OrganicTrade/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-identity/9.8.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="cef85cfc7df40e29fbea58844dd4c1e7d0b15542">
+        <dex dex="/home/neresb/Documents/OrganicTrade/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-identity-9.8.0_553458337ccaa24bc1d45a174bbfda0d9871d528/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/neresb/Documents/OrganicTrade/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-panorama/9.8.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="2d3035050a075484cbf2e33f1ce1f779bae4d451">
+        <dex dex="/home/neresb/Documents/OrganicTrade/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-panorama-9.8.0_ebfc6fef26fa1a630e6d461ee191eaf019de3cad/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/neresb/Documents/OrganicTrade/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-vision/9.8.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="a30aea7df545072ad3c06f56b2efc13e67222140">
+        <dex dex="/home/neresb/Documents/OrganicTrade/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-vision-9.8.0_785a9c5b29262a262158d0b9d7a7e148cd8002a4/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/neresb/Documents/OrganicTrade/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-nearby/9.8.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="c81df6bd515398ebe45089b0b16c55752a131f6a">
+        <dex dex="/home/neresb/Documents/OrganicTrade/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-nearby-9.8.0_93bccdb5c180248ec07de6264d4dbd6ad794c4b2/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/neresb/Documents/OrganicTrade/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast/9.8.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="74ac7cbcf0de4a88e59612dc3a9e3f9e71acb4ca">
+        <dex dex="/home/neresb/Documents/OrganicTrade/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-cast-9.8.0_b027ab9a2cb134d31869608343a45add05586252/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/neresb/Documents/OrganicTrade/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-location/9.8.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="04bbbddf868aa02dd33f9e90d8f5d908c360f638">
+        <dex dex="/home/neresb/Documents/OrganicTrade/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-location-9.8.0_ca859eeb616cb1dda25cf9cdc5b1c25702306006/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/neresb/Documents/OrganicTrade/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/9.8.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="9f6d236bac26d02b410e4ee186ba517ace5ee661">
+        <dex dex="/home/neresb/Documents/OrganicTrade/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-basement-9.8.0_5654ad53bfdc50896212eeaaa78fef6b08d00b77/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/neresb/Documents/OrganicTrade/app/build/intermediates/exploded-aar/com.android.support/palette-v7/24.0.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="734e80dffea7bd76c18ae256822a124c30d85850">
+        <dex dex="/home/neresb/Documents/OrganicTrade/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-palette-v7-24.0.0_b99f590f367996fbc2e6300dffd8fe4e8912458c/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/neresb/Documents/OrganicTrade/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-tagmanager-api/9.8.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="266570862e5792ef3c51143a8b8593cf54fac68d">
+        <dex dex="/home/neresb/Documents/OrganicTrade/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-tagmanager-api-9.8.0_4b7e09b6ab708531bd1e2432e1f8f044c569ad83/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/neresb/Documents/OrganicTrade/app/build/intermediates/exploded-aar/com.android.support/support-v4/24.0.0/jars/libs/internal_impl-24.0.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="fcaf463e10e69c1923ccf1edeba3b4196d239e00">
+        <dex dex="/home/neresb/Documents/OrganicTrade/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.0.0_241bc56adf08e0040f9b2516f1ec720f446696dc/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/neresb/Documents/OrganicTrade/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics-impl/9.8.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="190a642ba16d1421296a4d794606279b80039c59">
+        <dex dex="/home/neresb/Documents/OrganicTrade/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-analytics-impl-9.8.0_e5148223f17f45a664d33d67bc9e9f794c48b923/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/neresb/Documents/OrganicTrade/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-ads-lite/9.8.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="e9b2cfdfd59b03643f1e240668275378b96615a8">
+        <dex dex="/home/neresb/Documents/OrganicTrade/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-ads-lite-9.8.0_198efc05599cbd4a22186511e1fb1de134c7d7ea/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/neresb/Documents/OrganicTrade/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-wallet/9.8.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="910c013c511f752c4bbe24c5f492f669f4a3ccc0">
+        <dex dex="/home/neresb/Documents/OrganicTrade/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-wallet-9.8.0_1f97519b06f86955dd055e4b61367eec5af4a72a/classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -435,39 +489,12 @@
     </item>
     <item
         is-multidex="true"
-        jar="/home/neresb/Documents/OrganicTrade/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-auth/9.8.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="ca851be26ff89f5b32cc222cee98139fb3fac830">
-        <dex dex="/home/neresb/Documents/OrganicTrade/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-auth-9.8.0_32e6c908e736cb1a83e2bd239e31c7c1d10e7cc1/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/neresb/Documents/OrganicTrade/app/build/intermediates/exploded-aar/com.android.support/support-v4/24.0.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="2f7e6e2dad1bccaf68a8820820adc6c0d5b96d37">
-        <dex dex="/home/neresb/Documents/OrganicTrade/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-v4-24.0.0_b309e4b80cf3efbfff9b890b8493377d7ddb25ed/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="/home/neresb/Documents/OrganicTrade/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-appindexing/9.8.0/jars/classes.jar"
         jumboMode="true"
         optimize="true"
         revision="23.0.3"
         sha1="e3234cd25e23069abd48ecd2117bc0e8011bf45a">
         <dex dex="/home/neresb/Documents/OrganicTrade/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-appindexing-9.8.0_f89fa6d98d0d1d972cc94f1b3784f7e949ace261/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/neresb/Documents/OrganicTrade/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/24.0.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="b327fbe2fad414bc38cf0ce8f7efe1a38f572837">
-        <dex dex="/home/neresb/Documents/OrganicTrade/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-mediarouter-v7-24.0.0_d031cbf3799b1da74967b8ccaa7c9bcb7accce7a/classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -480,39 +507,12 @@
     </item>
     <item
         is-multidex="true"
-        jar="/home/neresb/Documents/OrganicTrade/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-wearable/9.8.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="0b8e087da59c0b062c33f49a335e59f907086da2">
-        <dex dex="/home/neresb/Documents/OrganicTrade/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-wearable-9.8.0_7831904300f7cd6e0525101492333066c39e4287/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/neresb/Documents/OrganicTrade/app/build/intermediates/exploded-aar/com.google.firebase/firebase-auth/9.8.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="15e59454416c6341bd3ed2533b585cd340682dd1">
-        <dex dex="/home/neresb/Documents/OrganicTrade/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-auth-9.8.0_7300d3b6bffc247c7d98d4bbf6c0b92512792d5c/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="/home/neresb/Documents/OrganicTrade/app/build/intermediates/exploded-aar/com.google.firebase/firebase-common/9.8.0/jars/classes.jar"
         jumboMode="true"
         optimize="true"
         revision="23.0.3"
         sha1="c61641e333fa88da21758bab8cc28ee16604b05f">
         <dex dex="/home/neresb/Documents/OrganicTrade/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-common-9.8.0_5cf46ec7e8f66f3c7e48886f94891dd4be3afb82/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/neresb/Documents/OrganicTrade/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics/9.8.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="9ff04cc3470178a44512624036751a803418c2ca">
-        <dex dex="/home/neresb/Documents/OrganicTrade/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-analytics-9.8.0_702cf70ecfd606b6e04537d5b69ffad96ebbd5eb/classes.dex" />
     </item>
     <item
         is-multidex="true"

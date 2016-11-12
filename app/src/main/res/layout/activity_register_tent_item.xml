@@ -42,23 +42,13 @@
             android:layout_weight="1"
             />
 
-        //Trocar Unidade EditText por Spinner
-        <!--<Spinner-->
-        <!--android:id="@+id/registerTentItemSpiProductType"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--/>-->
-        <!--Transformar em Spinner-->
-
-        <EditText
+        <Spinner
             android:id="@+id/registerTentItemEdtProductUnity"
             android:layout_margin="10dp"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:hint="Unidade"
-            android:inputType="number"
-            />
+        />
 
         <EditText
             android:id="@+id/registerTentItemEdtProductAmount"

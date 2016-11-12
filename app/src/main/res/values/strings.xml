@@ -30,5 +30,10 @@
     <string name="txtLogout">Sair</string>
     <string name="txtEditarPerfil">Editar perfil</string>
     <string name="txtNewItem">Novo item</string>
+    <string-array name="SpnItems">
+        <item>g</item>
+        <item>Kg</item>
+        <item>Und.</item>
+    </string-array>
     <string name="title_activity_maps">Map</string>
 </resources>

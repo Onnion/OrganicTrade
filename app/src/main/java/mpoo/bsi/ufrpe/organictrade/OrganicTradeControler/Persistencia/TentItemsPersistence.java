@@ -14,11 +14,14 @@ public class TentItemsPersistence {
 
     public TentItems criarItensDeTenda(Cursor cursor){
         TentItems tentItems = new TentItems();
+
         tentItems.setIntensdetenda_id(cursor.getString(0));
         tentItems.setQuantidadeAtual(cursor.getString(1));
         tentItems.setValor(cursor.getString(2));
-        tentItems.setProdutoId(cursor.getString(3));
-        tentItems.setUsurio_id(cursor.getString(4));
+        tentItems.setUnity(cursor.getString(3));
+        tentItems.setProdutoId(cursor.getString(4));
+        tentItems.setUsurio_id(cursor.getString(5));
+
         return tentItems;
     }
 
@@ -28,6 +31,7 @@ public class TentItemsPersistence {
         valoresItensDeTenda.put(DatabaseHelper.getColumnTentitemsId(), tentItems.getIntensdetenda_id());
         valoresItensDeTenda.put(DatabaseHelper.getColumnTentitemsAmount(), tentItems.getQuantidadeAtual());
         valoresItensDeTenda.put(DatabaseHelper.getColumnTentitemsPrice(), tentItems.getValor());
+        valoresItensDeTenda.put(DatabaseHelper.getColumnTentitemsUnity(), tentItems.getUnity());
         valoresItensDeTenda.put(DatabaseHelper.getColumnTentitemsUserId(),Session.getUserAtual().getId_user());
         valoresItensDeTenda.put(DatabaseHelper.getColumnTentitemsProductId(),tentItems.getProdutoId());
         db.insert(DatabaseHelper.getTableTentitemsName(), null, valoresItensDeTenda);

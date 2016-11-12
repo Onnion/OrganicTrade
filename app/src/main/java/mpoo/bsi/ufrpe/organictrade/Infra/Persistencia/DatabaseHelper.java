@@ -8,7 +8,7 @@ import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Persistencia.ProductPer
 
 public class DatabaseHelper extends SQLiteOpenHelper {
     //
-    private static final int DATABASE_VERSION = 23;
+    private static final int DATABASE_VERSION = 25;
     private static final String DATABASE_NAME = "organicTrade.db";
 
     //User
@@ -26,12 +26,17 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String COLUMN_USER_LOGGED_ID = "user_id";
 
     //TentItems
-    private static final String TABLE_TENTITEMS_NAME = "tentitems";
-    private static final String COLUMN_TENTITEMS_ID = "tentitems_id";
-    private static final String COLUMN_TENTITEMS_AMOUNT = "tentitems_amout";
+    private static final String COLUMN_TENTITEMS_ID = "tentiterms_id";
+    private static final String TABLE_TENTITEMS_NAME = "tentitems_name";
+    private static final String COLUMN_TENTITEMS_AMOUNT = "tentitems_amount";
     private static final String COLUMN_TENTITEMS_PRICE = "tentitems_price";
+    private static final String COLUMN_TENTITEMS_UNITY = "tentitems_unity";
     private static final String COLUMN_TENTITEMS_PRODUCT_ID = "product_id";
     private static final String COLUMN_TENTITEMS_USER_ID = "user_id";
+
+    public static String getColumnTentitemsUnity() {
+        return COLUMN_TENTITEMS_UNITY;
+    }
 
     //Products
     private static final String TABLE_PRODUCT_NAME = "product";

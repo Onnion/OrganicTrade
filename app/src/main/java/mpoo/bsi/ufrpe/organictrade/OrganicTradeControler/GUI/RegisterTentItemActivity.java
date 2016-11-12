@@ -24,6 +24,7 @@ public class RegisterTentItemActivity extends AppCompatActivity {
     private SQLiteDatabase db;
     private DatabaseHelper banco = Session.getDbAtual();
     private Spinner nameProduct;
+    private Spinner unityProduct;
     private ProductPersistence productPersistence = new ProductPersistence();
 
     @Override
@@ -42,28 +43,29 @@ public class RegisterTentItemActivity extends AppCompatActivity {
         nameProduct = (Spinner) findViewById(R.id.registerTentItemSpiProductName);
         nameProduct.setAdapter(adapter);
         //-------------------------------------------------------------//
+        unityProduct = (Spinner) findViewById(R.id.registerTentItemEdtProductUnity);
+        ArrayAdapter<CharSequence> adapter1 = ArrayAdapter.createFromResource(
+                this, R.array.SpnItems, android.R.layout.simple_spinner_dropdown_item);
+        unityProduct.setAdapter(adapter1);
     }
 
     public void cadastrarProduto(View v) {
         TentItemsPersistence crud = new TentItemsPersistence();
 
-        EditText unidade = (EditText) findViewById(R.id.registerTentItemEdtProductUnity);
         EditText quantidade = (EditText) findViewById((R.id.registerTentItemEdtProductAmount));
         EditText price = (EditText) findViewById(R.id.registerTentItemEdtProductPrice);
-
         String idProductString = productPersistence.idProductByName(nameProduct.getSelectedItem().toString());
-        String unidadeString = unidade.getText().toString();
+        String unidadeString = productPersistence.idProductByName(nameProduct.getSelectedItem().toString());
         String quantidadeString = quantidade.getText().toString();
         String priceString = price.getText().toString();
 
         //validação
 
         TentItems tentItems = new TentItems();
-
-        tentItems.setProdutoId(unidadeString);
+        tentItems.setProdutoId(idProductString);
         tentItems.setQuantidadeAtual(quantidadeString);
         tentItems.setValor(priceString);
-        tentItems.setProdutoId(idProductString);
+        tentItems.setUnity(unidadeString);
         tentItems.setUsurio_id(Session.getUserAtual().getId_user());
         crud.inserirItensDeTenda(tentItems);
         Intent i = new Intent(Session.getContext(), UserActivity.class);

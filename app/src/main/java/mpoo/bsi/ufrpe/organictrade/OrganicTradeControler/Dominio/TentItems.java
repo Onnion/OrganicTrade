@@ -8,6 +8,16 @@ public class TentItems {
     private String produtoId;
     private String usurio_id;
 
+    public String getUnity() {
+        return unity;
+    }
+
+    public void setUnity(String unity) {
+        this.unity = unity;
+    }
+
+    private String unity;
+
     public String getUsurio_id() {
         return usurio_id;
     }

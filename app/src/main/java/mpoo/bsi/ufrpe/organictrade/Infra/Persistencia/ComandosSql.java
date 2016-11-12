@@ -24,6 +24,7 @@ public class ComandosSql {
                         + DatabaseHelper.getColumnTentitemsId()+" integer primary key autoincrement not null , "
                         + DatabaseHelper.getColumnTentitemsAmount() +" text not null , "
                         + DatabaseHelper.getColumnTentitemsPrice() + " text not null , "
+                        + DatabaseHelper.getColumnTentitemsUnity() + " text no null , "
                         + DatabaseHelper.getColumnTentitemsProductId()+ " integer , "
                         + DatabaseHelper.getColumnTentitemsUserId()+ " integer , "
                         + "foreign key ( "+DatabaseHelper.getColumnTentitemsProductId()+" ) references "+DatabaseHelper.getTableProductName()+" ("+DatabaseHelper.getColumnProductId()+") , "
