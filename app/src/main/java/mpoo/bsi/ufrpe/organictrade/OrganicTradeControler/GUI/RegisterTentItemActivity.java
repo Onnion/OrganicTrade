@@ -60,6 +60,12 @@ public class RegisterTentItemActivity extends AppCompatActivity {
         String priceString = price.getText().toString();
 
         //validação
+        if (priceString.contains(".")){
+            priceString = priceString.replace(".", ",");
+        }
+        else {
+            priceString = priceString + ",00";
+        }
 
         TentItems tentItems = new TentItems();
         tentItems.setProdutoId(idProductString);

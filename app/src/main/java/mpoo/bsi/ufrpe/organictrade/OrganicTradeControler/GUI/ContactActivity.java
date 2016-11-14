@@ -19,7 +19,7 @@ import mpoo.bsi.ufrpe.organictrade.R;
 import static java.lang.Double.parseDouble;
 
 public class ContactActivity extends FragmentActivity implements OnMapReadyCallback {
-    private User contatSelected = Session.getContactSelected();
+    private User contactSelected = Session.getContactSelected();
     private TentItems itemSelected = Session.getItemSelected();
     private ProductPersistence productPersistence = new ProductPersistence();
     private GoogleMap mMap;
@@ -39,21 +39,21 @@ public class ContactActivity extends FragmentActivity implements OnMapReadyCallb
         TextView productAmount = (TextView)findViewById(R.id.contatTextProductAmount);
         TextView productPrice = (TextView)findViewById(R.id.contatTextProductPrice);
 
-        name.setText(contatSelected.getName());
-        phone.setText(contatSelected.getPhone());
+        name.setText(contactSelected.getName());
+        phone.setText(contactSelected.getPhone());
         productName.setText(productPersistence.nameProductById(itemSelected.getProdutoId()));
         productAmount.setText(itemSelected.getQuantidadeAtual());
-        productPrice.setText("R$ "+itemSelected.getValor());
+        productPrice.setText("R$ "+ itemSelected.getValor());
     }
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
-        String[] locationContactSelected = contatSelected.getAdress().split(",");
+        String[] locationContactSelected = contactSelected.getAdress().split(",");
         String[] locationUser = Session.getUserAtual().getAdress().split(",");
         LatLng tentContactSelected = new LatLng(parseDouble(locationContactSelected[0]),parseDouble(locationContactSelected[1]));
         LatLng tentUser = new LatLng(parseDouble(locationUser[0]),parseDouble(locationUser[1]));
-        mMap.addMarker(new MarkerOptions().position(tentContactSelected).title("Tenda de "+contatSelected.getName()));
+        mMap.addMarker(new MarkerOptions().position(tentContactSelected).title("Tenda de "+ contactSelected.getName()));
         mMap.addMarker(new MarkerOptions().position(tentUser).title("Minha tenda").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE)));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(tentContactSelected));
         mMap.setMinZoomPreference(13);
