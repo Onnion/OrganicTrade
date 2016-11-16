@@ -1,6 +1,6 @@
 package mpoo.bsi.ufrpe.organictrade.Infra.Persistencia;
 
-import java.util.StringTokenizer;
+import mpoo.bsi.ufrpe.organictrade.Infra.Session;
 
 public class ComandosSql {
 
@@ -158,5 +158,16 @@ public class ComandosSql {
                 "SELECT * FROM "+DatabaseHelper.getTableProductName() +" WHERE "
                         +DatabaseHelper.getColumnProductId() +" =?;";
         return (sqlProductNameById);
+    }
+
+    public static String sqlEditUser(){
+        String sqlEditUser =  "UPDATE "+DatabaseHelper.getTableUserName()+" SET "
+                +DatabaseHelper.getColumnUserName()+" =? , "
+                +DatabaseHelper.getColumnUserUsername()+" =? , "
+                +DatabaseHelper.getColumnUserPassword()+" =? , "
+                +DatabaseHelper.getColumnUserEmail()+" =? , "
+                +DatabaseHelper.getColumnUserPhone()+" =? "
+                +" WHERE "+DatabaseHelper.getColumnUserId()+" =?;";
+        return sqlEditUser;
     }
 }

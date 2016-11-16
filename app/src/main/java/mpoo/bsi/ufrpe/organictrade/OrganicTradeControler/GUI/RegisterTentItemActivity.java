@@ -76,5 +76,6 @@ public class RegisterTentItemActivity extends AppCompatActivity {
         crud.inserirItensDeTenda(tentItems);
         Intent i = new Intent(Session.getContext(), UserActivity.class);
         startActivity(i);
+        finish();
     }
 }

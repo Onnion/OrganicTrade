@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.GUI.EditUserActivity">
+
+    <LinearLayout
+        android:layout_margin="10dp"
+        android:background="@drawable/shadow_101322"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+        <EditText
+            android:id="@+id/editUserEdtName"
+            android:layout_margin="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:hint="@string/hntName"
+            android:inputType="text"
+            />
+
+        <EditText
+            android:id="@+id/editUserEdtLogin"
+            android:layout_margin="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:hint="@string/hntLogin"
+            android:inputType="text"
+            />
+
+        <EditText
+            android:id="@+id/editUserEdtPassword"
+            android:layout_margin="10dp"
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:inputType="textPassword"
+            android:hint="@string/hntPassword"
+            />
+
+        <EditText
+            android:id="@+id/editUserEdtEmail"
+            android:layout_margin="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:inputType="textEmailAddress"
+            android:ems="10"
+            android:hint="@string/hntEmail"
+            />
+
+        <EditText
+            android:id="@+id/editUserEdtPhone"
+            android:layout_margin="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:inputType="text|phone"
+            android:ems="10"
+            android:hint="@string/hntPhone"
+            />
+    </LinearLayout>
+    <Button
+        android:id="@+id/editUserBtnedit"
+        android:background="@color/verdeParaTudo"
+        android:textColor="#ffff"
+        android:text="@string/btnSalvar"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0"
+        android:onClick="cadastrarUsuario"
+        />
+
+</LinearLayout>

@@ -95,6 +95,7 @@ public class UserPersistence {
             return true;
         }
     }
+
     public void deslogarUsuario(){
         db = banco.getReadableDatabase();
         Cursor cursor = db.rawQuery(ComandosSql.sqlDeslogarUsuario(), new String[]{Session.getUserAtual().getId_user()});
@@ -122,5 +123,21 @@ public class UserPersistence {
         if(cursor.moveToFirst()){
             return criarUsuario(cursor);
         }else return null;
+    }
+
+    public void editarUsuario(User usuario){
+        db = banco.getReadableDatabase();
+        String where = DatabaseHelper.getColumnUserId()+" = "+Session.getUserAtual().getId_user();
+        ContentValues valoresUsuarioEditado = new ContentValues();
+        valoresUsuarioEditado.put(DatabaseHelper.getColumnUserName(),usuario.getName());
+        valoresUsuarioEditado.put(DatabaseHelper.getColumnUserUsername(),usuario.getUserName());
+        valoresUsuarioEditado.put(DatabaseHelper.getColumnUserPassword(),usuario.getPassword());
+        valoresUsuarioEditado.put(DatabaseHelper.getColumnUserEmail(),usuario.getEmail());
+        valoresUsuarioEditado.put(DatabaseHelper.getColumnUserPhone(),usuario.getPhone());
+        db.update(DatabaseHelper.getTableUserName(),valoresUsuarioEditado,where,null);
+        db.close();
+        Session.setUserAtual(usuario);
+
+
     }
 }

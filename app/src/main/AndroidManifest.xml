@@ -43,7 +43,8 @@
         </activity>
         <activity android:name=".OrganicTradeControler.GUI.SearchProductsActivity" />
         <activity android:name=".OrganicTradeControler.GUI.ContactActivity" />
-        <activity android:name=".OrganicTradeControler.GUI.ImgActivity"></activity>
+        <activity android:name=".OrganicTradeControler.GUI.ImgActivity" />
+        <activity android:name=".OrganicTradeControler.GUI.EditUserActivity"></activity>
     </application>
 
 </manifest>

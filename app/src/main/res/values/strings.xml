@@ -36,4 +36,5 @@
         <item>Und.</item>
     </string-array>
     <string name="title_activity_maps">Map</string>
+    <string name="btnSalvar">Salvar</string>
 </resources>

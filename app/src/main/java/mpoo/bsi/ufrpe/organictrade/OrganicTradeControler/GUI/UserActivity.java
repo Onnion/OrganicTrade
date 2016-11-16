@@ -111,6 +111,32 @@ public class UserActivity extends AppCompatActivity {
             }
         });
         //-------------------------------------------------------------------------------------//
+        final ImageView editBtn = (ImageView)findViewById(R.id.userImgBtnToEdit);
+        editBtn.setImageResource(R.mipmap.ic_edit);
+        editBtn.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                editBtn.setImageResource(R.mipmap.ic_editonclick);
+                return false;
+            }
+        });
+        editBtn.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                displayToastAboveButton(v,R.string.txtSearch);
+                return false;
+            }
+        });
+        editBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent p = new Intent(Session.getContext(),EditUserActivity.class);
+                editBtn.setImageResource(R.mipmap.ic_edit);
+                startActivity(p);
+
+            }
+        });
+        //-------------------------------------------------------------------------------------//
 
         final ImageView searchBtn =(ImageView) findViewById(R.id.userImgBtnToSearch);
         searchBtn.setImageResource(R.mipmap.ic_search);
