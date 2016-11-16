@@ -84,7 +84,6 @@
       <sourceFolder url="file://$MODULE_DIR$/src/androidTest/shaders" isTestSource="true" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/assets" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/blame" />
-      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/builds" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/classes" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/dependency-cache" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.android.support.test.espresso/espresso-core/2.2.2/jars" />
@@ -148,6 +147,7 @@
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.google.firebase/firebase-messaging/9.8.0/jars" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.google.firebase/firebase-storage-common/9.8.0/jars" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.google.firebase/firebase-storage/9.8.0/jars" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/de.hdodenhof/circleimageview/2.1.0/jars" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/incremental" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/incremental-classes" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/incremental-runtime-classes" />
@@ -157,7 +157,6 @@
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/instant-run-support" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/jniLibs" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/manifests" />
-      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/pre-dexed" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/reload-dex" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/res" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/restart-dex" />
@@ -198,6 +197,7 @@
     <orderEntry type="library" exported="" name="play-services-cast-framework-9.8.0" level="project" />
     <orderEntry type="library" exported="" name="play-services-cast-9.8.0" level="project" />
     <orderEntry type="library" exported="" name="appcompat-v7-24.0.0" level="project" />
+    <orderEntry type="library" exported="" name="circleimageview-2.1.0" level="project" />
     <orderEntry type="library" exported="" name="play-services-gass-9.8.0" level="project" />
     <orderEntry type="library" exported="" name="play-services-tasks-9.8.0" level="project" />
     <orderEntry type="library" exported="" name="play-services-awareness-9.8.0" level="project" />
@@ -224,6 +224,7 @@
     <orderEntry type="library" exported="" name="play-services-iid-9.8.0" level="project" />
     <orderEntry type="library" exported="" name="play-services-9.8.0" level="project" />
     <orderEntry type="library" exported="" scope="TEST" name="rules-0.5" level="project" />
+    <orderEntry type="library" exported="" name="gradle-wrapper" level="project" />
     <orderEntry type="library" exported="" name="play-services-auth-base-9.8.0" level="project" />
     <orderEntry type="library" exported="" scope="TEST" name="javax.inject-1" level="project" />
     <orderEntry type="library" exported="" name="firebase-auth-common-9.8.0" level="project" />
@@ -240,5 +241,6 @@
     <orderEntry type="library" exported="" name="play-services-places-9.8.0" level="project" />
     <orderEntry type="library" exported="" name="mediarouter-v7-24.0.0" level="project" />
     <orderEntry type="library" exported="" name="firebase-crash-9.8.0" level="project" />
+    <orderEntry type="library" exported="" name="android-android-23" level="project" />
   </component>
 </module>
