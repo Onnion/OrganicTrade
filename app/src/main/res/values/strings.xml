@@ -6,6 +6,7 @@
     <string name="btnMyTent">Meus Produtos</string>
     <string name="btnRegister">Cadastrar</string>
     <string name="btnRegisterProduct">Cadastrar Produto</string>
+    <string name="btnSalvar">Salvar</string>
 
     <string name="hntEmail">Email</string>
     <string name="hntLogin">Login</string>
@@ -15,7 +16,7 @@
     <string name="hntPhone">Celular</string>
     <string name="hntSearch">Pesquisar</string>
 
-    <string name="tstInvalidEmail">Email inválido</string>
+    <string name="tstInvalidEmail">Por favor, entre com um nome válido.</string>
     <string name="tstInvalidPassword">Senha inválida</string>
     <string name="tstInvalidLogin">Login inválido</string>
     <string name="tstInvalidName">Nome inválido</string>
@@ -25,16 +26,20 @@
     <string name="tstRepeatPassword">Repeat Password</string>
     <string name="tstSuccessfullyRegistered">Cadastrado com sucesso </string>
     <string name="tstUnavaliableLogin">Login indisponível</string>
+    <string name="tstInvalidValue">Valor inválido</string>
+    <string name="tstNotDecimal">Não é decimal</string>
 
+    <string name="txtMoney">R$</string>
     <string name="txtSearch">Procurar item</string>
     <string name="txtLogout">Sair</string>
     <string name="txtEditarPerfil">Editar perfil</string>
     <string name="txtNewItem">Novo item</string>
+    <string name="title_activity_maps">Map</string>
+
     <string-array name="SpnItems">
         <item>g</item>
         <item>Kg</item>
         <item>Und.</item>
     </string-array>
-    <string name="title_activity_maps">Map</string>
-    <string name="btnSalvar">Salvar</string>
+
 </resources>

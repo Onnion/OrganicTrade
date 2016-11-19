@@ -3,7 +3,7 @@ import android.content.Intent;
 import android.os.Handler;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.widget.Toast;
+
 import mpoo.bsi.ufrpe.organictrade.Infra.Session;
 import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Persistencia.ProductPersistence;
 import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Persistencia.UserPersistence;
@@ -22,8 +22,8 @@ public class LoadingActivity extends AppCompatActivity{
             @Override
             public void run() {
                 UserPersistence userPersistence = new UserPersistence();
-                if(userPersistence.usuarioLogado()){
-                    userPersistence.buscarApartirDoUsuarioLogado();
+                if(userPersistence.userLogged()){
+                    userPersistence.searchFromUserLogged();
                     Intent j = new Intent(Session.getContext(), UserActivity.class);
                     startActivity(j);
                     finish();

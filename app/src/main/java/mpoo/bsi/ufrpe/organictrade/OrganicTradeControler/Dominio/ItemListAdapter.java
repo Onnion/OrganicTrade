@@ -1,6 +1,5 @@
 package mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Dominio;
 import android.content.Context;
-import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,7 +8,6 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 import java.util.List;
 
-import mpoo.bsi.ufrpe.organictrade.Infra.Persistencia.ComandosSql;
 import mpoo.bsi.ufrpe.organictrade.Infra.Persistencia.DatabaseHelper;
 import mpoo.bsi.ufrpe.organictrade.Infra.Session;
 import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Persistencia.ProductPersistence;
@@ -36,10 +34,10 @@ public class ItemListAdapter extends ArrayAdapter<TentItems> {
             view = LayoutInflater.from(context).inflate(R.layout.item_listview_adapter, null);
 
         TextView textoNomeProduto = (TextView) view.findViewById(R.id.itemTxtNome);
-        textoNomeProduto.setText(productPersistence.nameProductById(itenDeTenda.getProdutoId()));
+        textoNomeProduto.setText(productPersistence.nameProductById(itenDeTenda.getProductId()));
 
         TextView textoPriceProduto = (TextView)view.findViewById(R.id.itemTxtPrice);
-        textoPriceProduto.setText(itenDeTenda.getValor());
+        textoPriceProduto.setText(itenDeTenda.getValue());
 
         return view;
     }

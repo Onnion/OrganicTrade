@@ -1,7 +1,5 @@
 package mpoo.bsi.ufrpe.organictrade.Infra.Persistencia;
 
-import mpoo.bsi.ufrpe.organictrade.Infra.Session;
-
 public class ComandosSql {
 
     public static String sqlCreateUserTable(){
@@ -18,8 +16,8 @@ public class ComandosSql {
         return(sqlCreateUserTable);
     }
 
-    public static String sqlCreateItensdetendaTable(){
-        String sqlCreateItensdetendaTable =
+    public static String sqlCreateTentItemsTable(){
+        String sqlCreateTentItemsTable =
                 "CREATE TABLE "+ DatabaseHelper.getTableTentitemsName() + "( "
                         + DatabaseHelper.getColumnTentitemsId()+" integer primary key autoincrement not null , "
                         + DatabaseHelper.getColumnTentitemsAmount() +" text not null , "
@@ -30,17 +28,17 @@ public class ComandosSql {
                         + "foreign key ( "+DatabaseHelper.getColumnTentitemsProductId()+" ) references "+DatabaseHelper.getTableProductName()+" ("+DatabaseHelper.getColumnProductId()+") , "
                         + "foreign key ( "+DatabaseHelper.getColumnTentitemsUserId()+" ) references "+DatabaseHelper.getTableUserName()+" ("+DatabaseHelper.getColumnUserId()+")"
                         + ");";
-        return(sqlCreateItensdetendaTable);
+        return(sqlCreateTentItemsTable);
 
     }
 
-    public static String sqlCreateUsuarioLogadoTable(){
-        String sqlCreateUsuarioLogadoTable =
+    public static String sqlCreateUserLoggedTable(){
+        String sqlCreateUserLoggedTable =
                 "CREATE TABLE "+ DatabaseHelper.getTableUserLoggedName() + "( "
                         + DatabaseHelper.getColumnUserLoggedId()+" integer , "
                         + "foreign key ( "+DatabaseHelper.getColumnUserLoggedId()+" ) references "+DatabaseHelper.getTableUserName()+" ( "+DatabaseHelper.getColumnUserId()+" )"
                         + ");";
-        return(sqlCreateUsuarioLogadoTable);
+        return(sqlCreateUserLoggedTable);
     }
 
     public static String sqlCreateProductTable(){
@@ -93,64 +91,64 @@ public class ComandosSql {
         return (productTableIsEmpty);
     }
 
-    public static String sqlUsuarioQueTemOItem(){
-        String sqlUsuarioQueTemOItem =
+    public static String sqlItemFromUser(){
+        String sqlItemFromUser =
                 "SELECT * FROM " + DatabaseHelper.getTableTentitemsName() + " WHERE "
                         + DatabaseHelper.getColumnTentitemsUserId() + " =?;";
-        return (sqlUsuarioQueTemOItem);
+        return (sqlItemFromUser);
     }
 
-    public static String sqlTodosOsItens(){
-        String sqlUTodosOsItens =
+    public static String sqlAllItems(){
+        String sqlAllItems =
                 "SELECT * FROM " + DatabaseHelper.getTableTentitemsName() + " WHERE NOT "
                         + DatabaseHelper.getColumnTentitemsUserId() + " =?;";
-        return (sqlUTodosOsItens);
+        return (sqlAllItems);
     }
 
-    public static String sqlUsuarioApartirDoLoginESenha(){
-        String sqlUsuarioApartirDoLoginESenha =
+    public static String sqlUserFromLoginAndPass(){
+        String sqlUserFromLoginAndPass =
                 "SELECT * FROM "+DatabaseHelper.getTableUserName() +" WHERE "
                         +DatabaseHelper.getColumnUserUsername() +" =? AND "
                         +DatabaseHelper.getColumnUserPassword() + " =?;";
-        return (sqlUsuarioApartirDoLoginESenha);
+        return (sqlUserFromLoginAndPass);
     }
 
-    public static String sqlUsuarioApartirDoLogin(){
-        String sqlUsuarioApartirDoLogin =
+    public static String sqlUserFromLogin(){
+        String sqlUserFromLogin =
                 "SELECT * FROM "+DatabaseHelper.getTableUserName() +" WHERE "
                         +DatabaseHelper.getColumnUserUsername() +" =?;";
-        return (sqlUsuarioApartirDoLogin);
+        return (sqlUserFromLogin);
     }
 
-    public static String sqlUsuarioApartirDoId(){
-        String sqlUsuarioApartirDoId=
+    public static String sqlUserFromId(){
+        String sqlUserFromId =
                 "SELECT * FROM "+DatabaseHelper.getTableUserName() +" WHERE "
                         +DatabaseHelper.getColumnUserId() +" =?;";
-        return (sqlUsuarioApartirDoId);
+        return (sqlUserFromId);
     }
 
     public static String sqlLimparTabela(){
-        String sqlLimparTabela = "DELETE FROM " + DatabaseHelper.getTableUserLoggedName();
-        return (sqlLimparTabela);
+        String sqlClearDisplay = "DELETE FROM " + DatabaseHelper.getTableUserLoggedName();
+        return (sqlClearDisplay);
     }
 
-    public static String sqlBuscarNoBancoDeUsuarioLogado(){
-        String sqlUsuarioApartirDoBancoUsuarioLogado =
+    public static String sqlSearchInBaseFromLoggedUser(){
+        String sqlSearchInBaseFromLoggedUser =
                 "SELECT "+ DatabaseHelper.getColumnUserLoggedId()+" FROM "+DatabaseHelper.getTableUserLoggedName() +";";
-        return (sqlUsuarioApartirDoBancoUsuarioLogado);
+        return (sqlSearchInBaseFromLoggedUser);
     }
 
-    public static String sqlUsuarioLogado(){
-        String sqlUsuarioLogado =
+    public static String sqlUserLogged(){
+        String sqlUserLogged =
                 "SELECT * FROM " + DatabaseHelper.getTableUserLoggedName()+";";
-        return (sqlUsuarioLogado);
+        return (sqlUserLogged);
     }
 
-    public static String sqlDeslogarUsuario(){
-        String sqlDeslogarUsuario =
+    public static String sqlUserLogoff(){
+        String sqlUserLogoff =
                 "SELECT * FROM "+DatabaseHelper.getTableUserLoggedName() +" WHERE "
                         +DatabaseHelper.getColumnUserLoggedId()+" =?;";
-        return (sqlDeslogarUsuario);
+        return (sqlUserLogoff);
     }
 
     public static String sqlProductNameById() {

@@ -12,29 +12,29 @@ public class TentItemsPersistence {
     private SQLiteDatabase db;
     private DatabaseHelper banco = Session.getDbAtual();
 
-    public TentItems criarItensDeTenda(Cursor cursor){
+    public TentItems createTentItems(Cursor cursor){
         TentItems tentItems = new TentItems();
 
-        tentItems.setIntensdetenda_id(cursor.getString(0));
-        tentItems.setQuantidadeAtual(cursor.getString(1));
-        tentItems.setValor(cursor.getString(2));
+        tentItems.setTentItems_id(cursor.getString(0));
+        tentItems.setCurrentAmount(cursor.getString(1));
+        tentItems.setValue(cursor.getString(2));
         tentItems.setUnity(cursor.getString(3));
-        tentItems.setProdutoId(cursor.getString(4));
-        tentItems.setUsurio_id(cursor.getString(5));
+        tentItems.setProductId(cursor.getString(4));
+        tentItems.setUser_id(cursor.getString(5));
 
         return tentItems;
     }
 
-    public void inserirItensDeTenda(TentItems tentItems){
+    public void insertTentItems(TentItems tentItems){
         db = banco.getWritableDatabase();
-        ContentValues valoresItensDeTenda = new ContentValues();
-        valoresItensDeTenda.put(DatabaseHelper.getColumnTentitemsId(), tentItems.getIntensdetenda_id());
-        valoresItensDeTenda.put(DatabaseHelper.getColumnTentitemsAmount(), tentItems.getQuantidadeAtual());
-        valoresItensDeTenda.put(DatabaseHelper.getColumnTentitemsPrice(), tentItems.getValor());
-        valoresItensDeTenda.put(DatabaseHelper.getColumnTentitemsUnity(), tentItems.getUnity());
-        valoresItensDeTenda.put(DatabaseHelper.getColumnTentitemsUserId(),Session.getUserAtual().getId_user());
-        valoresItensDeTenda.put(DatabaseHelper.getColumnTentitemsProductId(),tentItems.getProdutoId());
-        db.insert(DatabaseHelper.getTableTentitemsName(), null, valoresItensDeTenda);
+        ContentValues tentItemsValues = new ContentValues();
+        tentItemsValues.put(DatabaseHelper.getColumnTentitemsId(), tentItems.getTentItems_id());
+        tentItemsValues.put(DatabaseHelper.getColumnTentitemsAmount(), tentItems.getCurrentAmount());
+        tentItemsValues.put(DatabaseHelper.getColumnTentitemsPrice(), tentItems.getValue());
+        tentItemsValues.put(DatabaseHelper.getColumnTentitemsUnity(), tentItems.getUnity());
+        tentItemsValues.put(DatabaseHelper.getColumnTentitemsUserId(),Session.getCurrentUser().getId_user());
+        tentItemsValues.put(DatabaseHelper.getColumnTentitemsProductId(),tentItems.getProductId());
+        db.insert(DatabaseHelper.getTableTentitemsName(), null, tentItemsValues);
         db.close();
     }
 }

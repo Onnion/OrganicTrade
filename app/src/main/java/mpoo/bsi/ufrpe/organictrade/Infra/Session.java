@@ -7,7 +7,7 @@ import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Dominio.User;
 
 public class Session {
     private static DatabaseHelper dbAtual;
-    private static User userAtual;
+    private static User currentUser;
     private static User contactSelected;
     private static TentItems itemSelected;
     private static Context context;
@@ -16,12 +16,12 @@ public class Session {
         return dbAtual;
     }
 
-    public static User getUserAtual() {
-        return userAtual;
+    public static User getCurrentUser() {
+        return currentUser;
     }
 
-    public static void setUserAtual(User userAtual) {
-        Session.userAtual = userAtual;
+    public static void setCurrentUser(User currentUser) {
+        Session.currentUser = currentUser;
     }
 
     public static Context getContext() {

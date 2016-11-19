@@ -50,7 +50,7 @@ public class RegisterUserActivity extends AppCompatActivity {
         if (!passString.equals(rpassString)){
             Toast.makeText(Session.getContext(),getText(R.string.tstPasswordDontMatch), Toast.LENGTH_LONG).show();
         }else{
-            if(crud.usuarioNaoCadastrado(userString) && userNegocio.registerOK(email,user,nome,pass,phone,rpass)){
+            if(crud.userNotRegistered(userString) && userNegocio.registerOK(email,user,nome,pass,phone,rpass)){
                 User usuario = new User();
                 usuario.setUserName(userString);
                 usuario.setPassword(passString);

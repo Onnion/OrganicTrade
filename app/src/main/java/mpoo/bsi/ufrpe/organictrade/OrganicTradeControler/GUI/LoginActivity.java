@@ -46,7 +46,7 @@ public class LoginActivity extends AppCompatActivity {
         String passString = pass.getText().toString();
 
         if(userNegocio.loginOK(user,pass)){
-            if(crud.buscarELogarUsuario(userString,passString)){
+            if(crud.searchAndLoginUser(userString,passString)){
                 Intent j = new Intent(Session.getContext(), UserActivity.class);
                 startActivity(j);
                 finish();

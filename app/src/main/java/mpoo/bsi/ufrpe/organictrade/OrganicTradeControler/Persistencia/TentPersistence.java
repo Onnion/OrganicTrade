@@ -16,10 +16,10 @@ public class TentPersistence {
         Tent tent = new Tent();
         TentItemsPersistence crud = new TentItemsPersistence();
         db = banco.getReadableDatabase();
-        Cursor cursor = db.rawQuery(ComandosSql.sqlUsuarioQueTemOItem(), new String[]{Session.getUserAtual().getId_user()});
+        Cursor cursor = db.rawQuery(ComandosSql.sqlItemFromUser(), new String[]{Session.getCurrentUser().getId_user()});
         if(cursor.moveToFirst()){
             do{
-                TentItems tentItems = crud.criarItensDeTenda(cursor);
+                TentItems tentItems = crud.createTentItems(cursor);
                 tent.setTent(tentItems);
             }while(cursor.moveToNext());
         }
@@ -30,10 +30,10 @@ public class TentPersistence {
         Tent tent = new Tent();
         TentItemsPersistence crud = new TentItemsPersistence();
         db = banco.getReadableDatabase();
-        Cursor cursor = db.rawQuery(ComandosSql.sqlTodosOsItens(), new String[]{Session.getUserAtual().getId_user()});
+        Cursor cursor = db.rawQuery(ComandosSql.sqlAllItems(), new String[]{Session.getCurrentUser().getId_user()});
         if(cursor.moveToFirst()){
             do{
-                TentItems tentItems = crud.criarItensDeTenda(cursor);
+                TentItems tentItems = crud.createTentItems(cursor);
                 tent.setTent(tentItems);
             }while(cursor.moveToNext());
         }

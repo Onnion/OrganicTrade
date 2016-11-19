@@ -56,7 +56,7 @@ public class SearchProductsActivity extends AppCompatActivity {
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id){
                 TentItems item = (TentItems)listView.getAdapter().getItem(position);
                 Session.setItemSelected(item);
-                Session.setContactSelected(userPersistence.buscarApartirDoId(item.getUsurio_id()));
+                Session.setContactSelected(userPersistence.searchFromId(item.getUser_id()));
                 startActivity(p);
                 return false;
                 }
@@ -86,7 +86,7 @@ public class SearchProductsActivity extends AppCompatActivity {
 
     public void searchItem(String textToSearch){
         for(int i = 0; i < listItems.size(); i++){
-            if(!productPersistence.nameProductById(listItems.get(i).getProdutoId()).contains(textToSearch)){
+            if(!productPersistence.nameProductById(listItems.get(i).getProductId()).contains(textToSearch)){
                 listItems.remove(listItems.get(i));
             }
         }

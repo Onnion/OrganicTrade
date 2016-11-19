@@ -5,8 +5,8 @@ public class Product {
         return product_name;
     }
 
-    public void setProduct_name(String pproduct_name) {
-        this.product_name = pproduct_name;
+    public void setProduct_name(String product_name) {
+        this.product_name = product_name;
     }
 
     public String getId_product() {

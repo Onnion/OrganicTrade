@@ -25,24 +25,24 @@ public class EditUserActivity extends AppCompatActivity {
         final EditText email = (EditText)findViewById(R.id.editUserEdtEmail);
         final EditText number = (EditText)findViewById(R.id.editUserEdtPhone);
 
-        name.setText(Session.getUserAtual().getName());
-        pass.setText(Session.getUserAtual().getPassword());
-        email.setText(Session.getUserAtual().getEmail());
-        number.setText(Session.getUserAtual().getPhone());
+        name.setText(Session.getCurrentUser().getName());
+        pass.setText(Session.getCurrentUser().getPassword());
+        email.setText(Session.getCurrentUser().getEmail());
+        number.setText(Session.getCurrentUser().getPhone());
 
-        Button salvar = (Button)findViewById(R.id.editUserBtnedit);
-        salvar.setOnClickListener(new View.OnClickListener() {
+        Button save = (Button)findViewById(R.id.editUserBtnedit);
+        save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 User user = new User();
-                user.setUserName(Session.getUserAtual().getUserName());
+                user.setUserName(Session.getCurrentUser().getUserName());
                 user.setName(name.getText().toString());
                 user.setPassword(pass.getText().toString());
                 user.setEmail(email.getText().toString());
                 user.setPhone(number.getText().toString());
 
                 UserPersistence userPersistence = new UserPersistence();
-                userPersistence.editarUsuario(user);
+                userPersistence.userEdit(user);
 
                 Intent i = new Intent(Session.getContext(), UserActivity.class);
                 startActivity(i);

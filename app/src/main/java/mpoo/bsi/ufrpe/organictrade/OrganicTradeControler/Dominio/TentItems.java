@@ -2,11 +2,11 @@ package mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Dominio;
 
 public class TentItems {
 
-    private String intensdetenda_id;
-    private String valor;
-    private String quantidadeAtual;
-    private String produtoId;
-    private String usurio_id;
+    private String tentItems_id;
+    private String value;
+    private String currentAmount;
+    private String productId;
+    private String user_id;
 
     public String getUnity() {
         return unity;
@@ -18,44 +18,44 @@ public class TentItems {
 
     private String unity;
 
-    public String getUsurio_id() {
-        return usurio_id;
+    public String getUser_id() {
+        return user_id;
     }
 
-    public void setUsurio_id(String usurio_id) {
-        this.usurio_id = usurio_id;
+    public void setUser_id(String user_id) {
+        this.user_id = user_id;
     }
 
-    public String getProdutoId() {
-        return produtoId;
+    public String getProductId() {
+        return productId;
     }
 
-    public void setProdutoId(String produtoId) {
-        this.produtoId = produtoId;
+    public void setProductId(String productId) {
+        this.productId = productId;
     }
 
-    public String getIntensdetenda_id() {
-        return intensdetenda_id;
+    public String getTentItems_id() {
+        return tentItems_id;
     }
 
-    public void setIntensdetenda_id(String intensdetenda_id) {
-        this.intensdetenda_id = intensdetenda_id;
+    public void setTentItems_id(String tentItems_id) {
+        this.tentItems_id = tentItems_id;
     }
 
-    public String getValor() {
-        return valor;
+    public String getValue() {
+        return value;
     }
 
-    public void setValor(String valor) {
-        this.valor = valor;
+    public void setValue(String valor) {
+        this.value = valor;
     }
 
-    public String getQuantidadeAtual() {
-        return quantidadeAtual;
+    public String getCurrentAmount() {
+        return currentAmount;
     }
 
-    public void setQuantidadeAtual(String quantidadeAtual) {
-        this.quantidadeAtual = quantidadeAtual;
+    public void setCurrentAmount(String currentAmount) {
+        this.currentAmount = currentAmount;
     }
 
 

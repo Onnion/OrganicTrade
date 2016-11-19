@@ -41,16 +41,16 @@ public class ContactActivity extends FragmentActivity implements OnMapReadyCallb
 
         name.setText(contactSelected.getName());
         phone.setText(contactSelected.getPhone());
-        productName.setText(productPersistence.nameProductById(itemSelected.getProdutoId()));
-        productAmount.setText(itemSelected.getQuantidadeAtual());
-        productPrice.setText("R$ "+ itemSelected.getValor());
+        productName.setText(productPersistence.nameProductById(itemSelected.getProductId()));
+        productAmount.setText(itemSelected.getCurrentAmount());
+        productPrice.setText(new StringBuilder().append("R$ ").append(itemSelected.getValue()).toString());
     }
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
         String[] locationContactSelected = contactSelected.getAdress().split(",");
-        String[] locationUser = Session.getUserAtual().getAdress().split(",");
+        String[] locationUser = Session.getCurrentUser().getAdress().split(",");
         LatLng tentContactSelected = new LatLng(parseDouble(locationContactSelected[0]),parseDouble(locationContactSelected[1]));
         LatLng tentUser = new LatLng(parseDouble(locationUser[0]),parseDouble(locationUser[1]));
         mMap.addMarker(new MarkerOptions().position(tentContactSelected).title("Tenda de "+ contactSelected.getName()));

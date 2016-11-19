@@ -3,7 +3,6 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.BitmapFactory;
 import android.graphics.Rect;
-import android.media.Image;
 import android.net.Uri;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
@@ -67,7 +66,7 @@ public class UserActivity extends AppCompatActivity {
         setContentView(R.layout.activity_user);
         Session.setContext(getBaseContext());
         TextView text = (TextView)findViewById(R.id.userTextName);
-        String[] nome = Session.getUserAtual().getName().split(" ");
+        String[] nome = Session.getCurrentUser().getName().split(" ");
         text.setText(nome[0]);
         //-----------------------------------PopularLisView------------------------------------//
         final ListView listaDeItens = (ListView) findViewById(R.id.usuarioListViewList);
@@ -188,8 +187,8 @@ public class UserActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 UserPersistence crud = new UserPersistence();
-                crud.deslogarUsuario();
-                Session.setUserAtual(new User());
+                crud.userLogoff();
+                Session.setCurrentUser(new User());
                 Intent p = new Intent(Session.getContext(),LoginActivity.class);
                 logoutBtn.setImageResource(R.mipmap.ic_logout);
                 startActivity(p);

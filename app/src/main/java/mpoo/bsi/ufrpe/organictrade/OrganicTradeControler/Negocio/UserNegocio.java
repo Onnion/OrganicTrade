@@ -23,7 +23,7 @@ public class UserNegocio{
         sl_pass = loginEdtPass.getText().toString();
     }
 
-    public void initializeCadastro(EditText registerUserEdtEmail, EditText registerUserEdtLogin, EditText registerUserEdtName, EditText registerUserEdtPass, EditText registerUserEdtPhone, EditText registerUserEdtRpass){
+    public void initializeRegister(EditText registerUserEdtEmail, EditText registerUserEdtLogin, EditText registerUserEdtName, EditText registerUserEdtPass, EditText registerUserEdtPhone, EditText registerUserEdtRpass){
         this.registerUserEdtEmail = registerUserEdtEmail;
         this.registerUserEdtLogin = registerUserEdtLogin;
         this.registerUserEdtName = registerUserEdtName;
@@ -40,7 +40,7 @@ public class UserNegocio{
 
     public boolean loginOK(EditText login, EditText pass){
         initializeLogin(login,pass);
-        if (!validate_login()){
+        if (!loginValidate()){
             return false;
         }
         else{
@@ -49,8 +49,8 @@ public class UserNegocio{
     }
 
     public boolean registerOK(EditText email, EditText login, EditText name, EditText pass, EditText phone, EditText rpass ){
-        initializeCadastro(email,login,name,pass,phone,rpass);
-        if (!validate_register()){
+        initializeRegister(email,login,name,pass,phone,rpass);
+        if (!validateRegister()){
             return false;
         }
         else{
@@ -58,7 +58,7 @@ public class UserNegocio{
         }
     }
 
-    private static boolean emailInvalido(String email) {
+    private static boolean invalidEmail(String email) {
         Matcher matcher = VALID_EMAIL_ADDRESS_REGEX.matcher(email);
         if( matcher.find()){
             return true;
@@ -67,7 +67,7 @@ public class UserNegocio{
         }
     }
 
-    private static boolean nameInvalido(String name){
+    private static boolean invalidName(String name){
         Matcher matcher = NAME_VERIFICATION_CHARACTERS.matcher(name);
         if (matcher.find()){
             return true;
@@ -76,7 +76,7 @@ public class UserNegocio{
         }
     }
 
-    private static boolean passInvalido(String pass){
+    private static boolean invalidPass(String pass){
         Matcher matcher = PASS_VERIFICATION_CHARACTERS.matcher(pass);
         if (matcher.find()){
             return true;
@@ -85,7 +85,7 @@ public class UserNegocio{
         }
     }
 
-    private static boolean loginInvalido(String login){
+    private static boolean validLogin(String login){
         Matcher matcher = LOGIN_VERIFICATION_CHARACTERS.matcher(login);
         if (matcher.find()){
             return true;
@@ -94,7 +94,7 @@ public class UserNegocio{
         }
     }
 
-    private static boolean phoneInvalido(String phone){
+    private static boolean invalidPhone(String phone){
         Matcher matcher = PHONE_VERIFICATION_CHARACTERS.matcher(phone);
         if (matcher.find()){
             return true;
@@ -104,36 +104,36 @@ public class UserNegocio{
         }
     }
 
-    public boolean validate_register(){
+    public boolean validateRegister(){
         boolean tc_valid = true;
-        if(sc_name.isEmpty() || sc_name.length() < 4 ||(!nameInvalido(sc_name))){
+        if(sc_name.isEmpty() || sc_name.length() < 4 ||(!invalidName(sc_name))){
             registerUserEdtName.setError("Please Enter with a valid name");
             tc_valid = false;
         }
-        if(sc_login.length() == 0 || sc_login.length() < 4 || sc_rpass.length() > 16 || (!loginInvalido(sc_login))){
+        if(sc_login.length() == 0 || sc_login.length() < 4 || sc_rpass.length() > 16 || (!validLogin(sc_login))){
             registerUserEdtLogin.setError("Please Enter with a valid login");
             tc_valid = false;
         }
-        if(sc_pass.length()  == 0|| sc_pass.length() < 6 || sc_rpass.length() > 16 || (!passInvalido(sc_pass))){
+        if(sc_pass.length()  == 0|| sc_pass.length() < 6 || sc_rpass.length() > 16 || (!invalidPass(sc_pass))){
             registerUserEdtPass.setError("Please Enter with a valid pass");
             tc_valid = false;
         }
-        if(sc_rpass.length() == 0 || sc_rpass.length() < 6 || sc_rpass.length() > 16 || (!passInvalido(sc_rpass))){
+        if(sc_rpass.length() == 0 || sc_rpass.length() < 6 || sc_rpass.length() > 16 || (!invalidPass(sc_rpass))){
             registerUserEdtRpass.setError("Please Enter with a valid pass");
             tc_valid = false;
         }
-        if(sc_email.length() == 0 || (!emailInvalido(sc_email))){
+        if(sc_email.length() == 0 || (!invalidEmail(sc_email))){
             registerUserEdtEmail.setError("Please Enter with a valid email");
             tc_valid = false;
         }
-        if(sc_phone.length() == 0 || (!phoneInvalido(sc_phone))){
+        if(sc_phone.length() == 0 || (!invalidPhone(sc_phone))){
             registerUserEdtPhone.setError("xx 9 99999999 - xx 99999999");
             tc_valid = false;
         }
         return tc_valid;
     }
 
-    public boolean validate_login(){
+    public boolean loginValidate(){
         boolean tl_valid = true;
         if(sl_login.length() == 0 || sl_login.length() < 4 ){
             loginEdtLogin.setError("Please Enter with a valid login");
@@ -145,5 +145,4 @@ public class UserNegocio{
         }
         return tl_valid;
     }
-
 }

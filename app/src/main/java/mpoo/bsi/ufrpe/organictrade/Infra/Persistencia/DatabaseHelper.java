@@ -1,10 +1,7 @@
 package mpoo.bsi.ufrpe.organictrade.Infra.Persistencia;
 import android.content.Context;
-import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-
-import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Persistencia.ProductPersistence;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
     //
@@ -143,8 +140,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(ComandosSql.sqlCreateUserTable());
-        db.execSQL(ComandosSql.sqlCreateItensdetendaTable());
-        db.execSQL(ComandosSql.sqlCreateUsuarioLogadoTable());
+        db.execSQL(ComandosSql.sqlCreateTentItemsTable());
+        db.execSQL(ComandosSql.sqlCreateUserLoggedTable());
         db.execSQL(ComandosSql.sqlCreateProductTable());
     }
 

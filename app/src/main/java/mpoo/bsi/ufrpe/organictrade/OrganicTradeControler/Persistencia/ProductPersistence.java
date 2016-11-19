@@ -2,15 +2,11 @@ package mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Persistencia;
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.widget.Toast;
-
-import java.util.List;
 
 import mpoo.bsi.ufrpe.organictrade.Infra.Persistencia.ComandosSql;
 import mpoo.bsi.ufrpe.organictrade.Infra.Persistencia.DatabaseHelper;
 import mpoo.bsi.ufrpe.organictrade.Infra.Session;
 import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Dominio.Product;
-import mpoo.bsi.ufrpe.organictrade.R;
 
 public class ProductPersistence {
     private int id = 0;
@@ -57,9 +53,9 @@ public class ProductPersistence {
         productTableIsEmpty();
     }
 
-    public String idProductByName(String nomeDoProduto){
+    public String idProductByName(String productName){
         db = banco.getReadableDatabase();
-        Cursor cursor = db.rawQuery(ComandosSql.sqlProductIdByName(),new String[]{nomeDoProduto});
+        Cursor cursor = db.rawQuery(ComandosSql.sqlProductIdByName(),new String[]{productName});
         if(cursor.moveToFirst()){return cursor.getString(0);}
         else{return "";}
     }

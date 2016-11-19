@@ -27,13 +27,13 @@ public class UserPersistence {
         return user;
     }
 
-    public boolean buscarELogarUsuario(String username, String senha) {
+    public boolean searchAndLoginUser(String username, String senha) {
         db = banco.getReadableDatabase();
-        Cursor cursor = db.rawQuery(ComandosSql.sqlUsuarioApartirDoLoginESenha(), new String[]{username,senha});
+        Cursor cursor = db.rawQuery(ComandosSql.sqlUserFromLoginAndPass(), new String[]{username,senha});
         if(cursor.moveToFirst()) {
             User user = criarUsuario(cursor);
-            logarUsuario(user);
-            Session.setUserAtual(user);
+            userLogin(user);
+            Session.setCurrentUser(user);
             cursor.close();
             db.close();
             return true;
@@ -45,29 +45,29 @@ public class UserPersistence {
 
     public void RegisterUser(User user){
         db = banco.getWritableDatabase();
-        ContentValues valoresUsuario = new ContentValues();
-        valoresUsuario.put(DatabaseHelper.getColumnUserId(),user.getId_user());
-        valoresUsuario.put(DatabaseHelper.getColumnUserUsername(), user.getUserName());
-        valoresUsuario.put(DatabaseHelper.getColumnUserPassword(), user.getPassword());
-        valoresUsuario.put(DatabaseHelper.getColumnUserEmail(), user.getEmail());
-        valoresUsuario.put(DatabaseHelper.getColumnUserName(), user.getName());
-        valoresUsuario.put(DatabaseHelper.getColumnUserPhone(),user.getPhone());
-        valoresUsuario.put(DatabaseHelper.getColumnUserAdress(),user.getAdress());
-        db.insert(DatabaseHelper.getTableUserName(), null, valoresUsuario);
+        ContentValues userValues = new ContentValues();
+        userValues.put(DatabaseHelper.getColumnUserId(),user.getId_user());
+        userValues.put(DatabaseHelper.getColumnUserUsername(), user.getUserName());
+        userValues.put(DatabaseHelper.getColumnUserPassword(), user.getPassword());
+        userValues.put(DatabaseHelper.getColumnUserEmail(), user.getEmail());
+        userValues.put(DatabaseHelper.getColumnUserName(), user.getName());
+        userValues.put(DatabaseHelper.getColumnUserPhone(),user.getPhone());
+        userValues.put(DatabaseHelper.getColumnUserAdress(),user.getAdress());
+        db.insert(DatabaseHelper.getTableUserName(), null, userValues);
         db.close();
     }
 
-    public void logarUsuario(User user){
+    public void userLogin(User user){
         db = banco.getWritableDatabase();
-        ContentValues valoresUsuario = new ContentValues();
-        valoresUsuario.put(DatabaseHelper.getColumnUserLoggedId(),user.getId_user());
-        db.insert(DatabaseHelper.getTableUserLoggedName(), null, valoresUsuario);
+        ContentValues userValues = new ContentValues();
+        userValues.put(DatabaseHelper.getColumnUserLoggedId(),user.getId_user());
+        db.insert(DatabaseHelper.getTableUserLoggedName(), null, userValues);
         db.close();
     }
 
-    public boolean usuarioLogado() {
+    public boolean userLogged() {
         db = banco.getReadableDatabase();
-        Cursor cursor = db.rawQuery(ComandosSql.sqlUsuarioLogado(),null);
+        Cursor cursor = db.rawQuery(ComandosSql.sqlUserLogged(),null);
         if (cursor.moveToFirst()) {
             cursor.close();
             db.close();
@@ -78,9 +78,9 @@ public class UserPersistence {
         return false;
     }
 
-    public boolean usuarioNaoCadastrado(String login) {
+    public boolean userNotRegistered(String login) {
         db = banco.getReadableDatabase();
-        Cursor cursor = db.rawQuery(ComandosSql.sqlUsuarioApartirDoLogin(),new String[]{login});
+        Cursor cursor = db.rawQuery(ComandosSql.sqlUserFromLogin(),new String[]{login});
         if (cursor.moveToFirst()) {
             Toast toast = Toast.makeText(Session.getContext(), R.string.tstUnavaliableLogin, Toast.LENGTH_LONG);
             toast.show();
@@ -96,46 +96,46 @@ public class UserPersistence {
         }
     }
 
-    public void deslogarUsuario(){
+    public void userLogoff(){
         db = banco.getReadableDatabase();
-        Cursor cursor = db.rawQuery(ComandosSql.sqlDeslogarUsuario(), new String[]{Session.getUserAtual().getId_user()});
+        Cursor cursor = db.rawQuery(ComandosSql.sqlUserLogoff(), new String[]{Session.getCurrentUser().getId_user()});
         if(cursor.moveToFirst()) {
-            Session.setUserAtual(null);
+            Session.setCurrentUser(null);
             db.execSQL(ComandosSql.sqlLimparTabela());
         }
     }
 
-    public void buscarApartirDoUsuarioLogado(){
+    public void searchFromUserLogged(){
         db = banco.getReadableDatabase();
-        Cursor cursor = db.rawQuery(ComandosSql.sqlBuscarNoBancoDeUsuarioLogado(), null);
+        Cursor cursor = db.rawQuery(ComandosSql.sqlSearchInBaseFromLoggedUser(), null);
         if(cursor.moveToFirst()){
-            Cursor usuario = db.rawQuery(ComandosSql.sqlUsuarioApartirDoId(), new String[]{cursor.getString(0)});
-            if (usuario.moveToFirst()){
-                User userLogado = criarUsuario(usuario);
-                Session.setUserAtual(userLogado);
+            Cursor user = db.rawQuery(ComandosSql.sqlUserFromId(), new String[]{cursor.getString(0)});
+            if (user.moveToFirst()){
+                User userLogged = criarUsuario(user);
+                Session.setCurrentUser(userLogged);
             }
         }
     }
 
-    public User buscarApartirDoId(String id){
+    public User searchFromId(String id){
         db = banco.getReadableDatabase();
-        Cursor cursor = db.rawQuery(ComandosSql.sqlUsuarioApartirDoId(),new String[]{id});
+        Cursor cursor = db.rawQuery(ComandosSql.sqlUserFromId(),new String[]{id});
         if(cursor.moveToFirst()){
             return criarUsuario(cursor);
         }else return null;
     }
 
-    public void editarUsuario(User usuario){
+    public void userEdit(User user){
         db = banco.getWritableDatabase();
-        String where = DatabaseHelper.getColumnUserId()+" = "+Session.getUserAtual().getId_user();
-        ContentValues valoresUsuarioEditado = new ContentValues();
-        valoresUsuarioEditado.put(DatabaseHelper.getColumnUserName(),usuario.getName());
-        valoresUsuarioEditado.put(DatabaseHelper.getColumnUserPassword(),usuario.getPassword());
-        valoresUsuarioEditado.put(DatabaseHelper.getColumnUserEmail(),usuario.getEmail());
-        valoresUsuarioEditado.put(DatabaseHelper.getColumnUserPhone(),usuario.getPhone());
-        db.update(DatabaseHelper.getTableUserName(),valoresUsuarioEditado,where,null);
+        String where = DatabaseHelper.getColumnUserId()+" = "+Session.getCurrentUser().getId_user();
+        ContentValues userEditedValues = new ContentValues();
+        userEditedValues.put(DatabaseHelper.getColumnUserName(), user.getName());
+        userEditedValues.put(DatabaseHelper.getColumnUserPassword(), user.getPassword());
+        userEditedValues.put(DatabaseHelper.getColumnUserEmail(), user.getEmail());
+        userEditedValues.put(DatabaseHelper.getColumnUserPhone(), user.getPhone());
+        db.update(DatabaseHelper.getTableUserName(), userEditedValues,where,null);
         db.close();
-        deslogarUsuario();
-        buscarELogarUsuario(usuario.getUserName(),usuario.getPassword());
+        userLogoff();
+        searchAndLoginUser(user.getUserName(), user.getPassword());
     }
 }
