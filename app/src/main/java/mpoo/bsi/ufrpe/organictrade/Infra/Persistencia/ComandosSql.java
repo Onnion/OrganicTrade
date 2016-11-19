@@ -159,15 +159,4 @@ public class ComandosSql {
                         +DatabaseHelper.getColumnProductId() +" =?;";
         return (sqlProductNameById);
     }
-
-    public static String sqlEditUser(){
-        String sqlEditUser =  "UPDATE "+DatabaseHelper.getTableUserName()+" SET "
-                +DatabaseHelper.getColumnUserName()+" =? , "
-                +DatabaseHelper.getColumnUserUsername()+" =? , "
-                +DatabaseHelper.getColumnUserPassword()+" =? , "
-                +DatabaseHelper.getColumnUserEmail()+" =? , "
-                +DatabaseHelper.getColumnUserPhone()+" =? "
-                +" WHERE "+DatabaseHelper.getColumnUserId()+" =?;";
-        return sqlEditUser;
-    }
 }

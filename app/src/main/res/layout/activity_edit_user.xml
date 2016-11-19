@@ -25,16 +25,6 @@
             />
 
         <EditText
-            android:id="@+id/editUserEdtLogin"
-            android:layout_margin="10dp"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:hint="@string/hntLogin"
-            android:inputType="text"
-            />
-
-        <EditText
             android:id="@+id/editUserEdtPassword"
             android:layout_margin="10dp"
             android:layout_width="fill_parent"

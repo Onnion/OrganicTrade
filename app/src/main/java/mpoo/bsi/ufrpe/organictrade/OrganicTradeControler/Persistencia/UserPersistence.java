@@ -126,18 +126,16 @@ public class UserPersistence {
     }
 
     public void editarUsuario(User usuario){
-        db = banco.getReadableDatabase();
+        db = banco.getWritableDatabase();
         String where = DatabaseHelper.getColumnUserId()+" = "+Session.getUserAtual().getId_user();
         ContentValues valoresUsuarioEditado = new ContentValues();
         valoresUsuarioEditado.put(DatabaseHelper.getColumnUserName(),usuario.getName());
-        valoresUsuarioEditado.put(DatabaseHelper.getColumnUserUsername(),usuario.getUserName());
         valoresUsuarioEditado.put(DatabaseHelper.getColumnUserPassword(),usuario.getPassword());
         valoresUsuarioEditado.put(DatabaseHelper.getColumnUserEmail(),usuario.getEmail());
         valoresUsuarioEditado.put(DatabaseHelper.getColumnUserPhone(),usuario.getPhone());
         db.update(DatabaseHelper.getTableUserName(),valoresUsuarioEditado,where,null);
         db.close();
-        Session.setUserAtual(usuario);
-
-
+        deslogarUsuario();
+        buscarELogarUsuario(usuario.getUserName(),usuario.getPassword());
     }
 }
