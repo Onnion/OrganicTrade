@@ -25,6 +25,12 @@ public class TentItemsPersistence {
         return tentItems;
     }
 
+    public void deleteTentItems(String id){
+        db = banco.getReadableDatabase();
+        String where = DatabaseHelper.getColumnTentitemsId()+"=?;";
+        db.delete(DatabaseHelper.getTableTentitemsName(),where,new String[]{id});
+    }
+
     public void insertTentItems(TentItems tentItems){
         db = banco.getWritableDatabase();
         ContentValues tentItemsValues = new ContentValues();

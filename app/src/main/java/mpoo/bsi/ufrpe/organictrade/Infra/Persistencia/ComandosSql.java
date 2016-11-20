@@ -1,5 +1,7 @@
 package mpoo.bsi.ufrpe.organictrade.Infra.Persistencia;
 
+import mpoo.bsi.ufrpe.organictrade.Infra.Session;
+
 public class ComandosSql {
 
     public static String sqlCreateUserTable(){

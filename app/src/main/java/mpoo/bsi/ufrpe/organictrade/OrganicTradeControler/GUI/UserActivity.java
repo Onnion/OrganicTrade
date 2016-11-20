@@ -7,7 +7,10 @@ import android.net.Uri;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.ContextMenu;
 import android.view.Gravity;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AdapterView;
@@ -21,6 +24,7 @@ import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Dominio.TentItems;
 import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Dominio.Tent;
 import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Dominio.ItemListAdapter;
 import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Dominio.User;
+import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Persistencia.TentItemsPersistence;
 import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Persistencia.TentPersistence;
 import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Persistencia.UserPersistence;
 import mpoo.bsi.ufrpe.organictrade.R;
@@ -29,6 +33,36 @@ public class UserActivity extends AppCompatActivity {
     private long lastBackPressTime = 0;
     private static int RESULT_LOAD_IMAGE = 1;
     private Toast toast;
+    private List<TentItems> tendaFinal;
+    private ListView listaDeItens;
+    private ItemListAdapter adapter;
+    private TentItems itemSelected;
+    private TentItemsPersistence tentItemsPersistence = new TentItemsPersistence();
+
+    @Override
+    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
+        super.onCreateContextMenu(menu, v, menuInfo);
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.context_menu, menu);
+    }
+
+    @Override
+    public boolean onContextItemSelected(MenuItem item) {
+        AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
+        switch (item.getItemId()) {
+            case R.id.deletar:
+                itemSelected =(TentItems)listaDeItens.getAdapter().getItem(info.position);
+                tentItemsPersistence.deleteTentItems(itemSelected.getTentItems_id());
+                tendaFinal.remove(info.position);
+                adapter.notifyDataSetChanged();
+                return true;
+            case R.id.editar:
+                Toast.makeText(Session.getContext(),"Editou",Toast.LENGTH_SHORT);
+                return true;
+            default:
+                return super.onContextItemSelected(item);
+        }
+    }
 
     @Override
     public void onBackPressed() {
@@ -69,20 +103,13 @@ public class UserActivity extends AppCompatActivity {
         String[] nome = Session.getCurrentUser().getName().split(" ");
         text.setText(nome[0]);
         //-----------------------------------PopularLisView------------------------------------//
-        final ListView listaDeItens = (ListView) findViewById(R.id.usuarioListViewList);
-        listaDeItens.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
-            @Override
-            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-                TentItems item = (TentItems)listaDeItens.getAdapter().getItem(position);
-                //editar
-                return false;
-            }
-        });
+        listaDeItens = (ListView) findViewById(R.id.usuarioListViewList);
         TentPersistence tentPersistence = new TentPersistence();
         Tent tent = tentPersistence.retornarTendaDoUsuario();
-        List<TentItems> tendaFinal = tent.getTent();
-        ItemListAdapter adapter = new ItemListAdapter(tendaFinal);
+        tendaFinal = tent.getTent();
+        adapter = new ItemListAdapter(tendaFinal);
         listaDeItens.setAdapter(adapter);
+        registerForContextMenu(listaDeItens);
         //-------------------------------------------------------------------------------------//
 
         final ImageView addBtn = (ImageView) findViewById(R.id.userImgBtnToCadastro);

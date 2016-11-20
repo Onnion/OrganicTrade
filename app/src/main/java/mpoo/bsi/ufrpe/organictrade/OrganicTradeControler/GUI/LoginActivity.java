@@ -35,6 +35,7 @@ public class LoginActivity extends AppCompatActivity {
             super.onBackPressed();
         }
     }
+
     public void logar(View v){
 
         UserPersistence crud =  new UserPersistence();

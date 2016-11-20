@@ -38,6 +38,17 @@ public class UserNegocio{
         sc_phone = registerUserEdtPhone.getText().toString();
     }
 
+    public void initializeEdit(EditText Name, EditText Pass, EditText Email, EditText Phone){
+        this.registerUserEdtName = Name;
+        this.registerUserEdtPass = Pass;
+        this.registerUserEdtEmail = Email;
+        this.registerUserEdtPhone = Phone;
+        sc_name = registerUserEdtName.getText().toString();
+        sc_pass = registerUserEdtPass.getText().toString();
+        sc_email = registerUserEdtEmail.getText().toString();
+        sc_phone = registerUserEdtPhone.getText().toString();
+    }
+
     public boolean loginOK(EditText login, EditText pass){
         initializeLogin(login,pass);
         if (!loginValidate()){
@@ -51,6 +62,16 @@ public class UserNegocio{
     public boolean registerOK(EditText email, EditText login, EditText name, EditText pass, EditText phone, EditText rpass ){
         initializeRegister(email,login,name,pass,phone,rpass);
         if (!validateRegister()){
+            return false;
+        }
+        else{
+            return true;
+        }
+    }
+
+    public boolean editOk(EditText name,EditText pass, EditText email, EditText phone){
+        initializeEdit(name,pass,email,phone);
+        if (!editValidate()){
             return false;
         }
         else{
@@ -144,5 +165,26 @@ public class UserNegocio{
             tl_valid = false;
         }
         return tl_valid;
+    }
+
+    public boolean editValidate(){
+        boolean tc_valid = true;
+        if(sc_name.isEmpty() || sc_name.length() < 4 ||(!invalidName(sc_name))){
+            registerUserEdtName.setError("Please Enter with a valid name");
+            tc_valid = false;
+        }
+        if(sc_pass.length()  == 0|| sc_pass.length() < 6 || sc_pass.length() > 16 || (!invalidPass(sc_pass))){
+            registerUserEdtPass.setError("Please Enter with a valid pass");
+            tc_valid = false;
+        }
+        if(sc_email.length() == 0 || (!invalidEmail(sc_email))){
+            registerUserEdtEmail.setError("Please Enter with a valid email");
+            tc_valid = false;
+        }
+        if(sc_phone.length() == 0 || (!invalidPhone(sc_phone))){
+            registerUserEdtPhone.setError("xx 9 99999999 - xx 99999999");
+            tc_valid = false;
+        }
+        return tc_valid;
     }
 }

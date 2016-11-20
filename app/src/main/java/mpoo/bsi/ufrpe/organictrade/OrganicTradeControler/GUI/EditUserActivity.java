@@ -9,11 +9,12 @@ import android.widget.EditText;
 
 import mpoo.bsi.ufrpe.organictrade.Infra.Session;
 import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Dominio.User;
+import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Negocio.UserNegocio;
 import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Persistencia.UserPersistence;
 import mpoo.bsi.ufrpe.organictrade.R;
 
 public class EditUserActivity extends AppCompatActivity {
-
+    private UserNegocio userNegocio = new UserNegocio();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,22 +31,24 @@ public class EditUserActivity extends AppCompatActivity {
         email.setText(Session.getCurrentUser().getEmail());
         number.setText(Session.getCurrentUser().getPhone());
 
-        Button save = (Button)findViewById(R.id.editUserBtnedit);
-        save.setOnClickListener(new View.OnClickListener() {
+        Button salvar = (Button)findViewById(R.id.editUserBtnedit);
+        salvar.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                User user = new User();
-                user.setUserName(Session.getCurrentUser().getUserName());
-                user.setName(name.getText().toString());
-                user.setPassword(pass.getText().toString());
-                user.setEmail(email.getText().toString());
-                user.setPhone(number.getText().toString());
+                public void onClick(View v) {
+                if(userNegocio.editOk(name,pass,email,number)) {
+                    User user = new User();
+                    user.setUserName(Session.getCurrentUser().getUserName());
+                    user.setName(name.getText().toString());
+                    user.setPassword(pass.getText().toString());
+                    user.setEmail(email.getText().toString());
+                    user.setPhone(number.getText().toString());
 
-                UserPersistence userPersistence = new UserPersistence();
-                userPersistence.userEdit(user);
+                    UserPersistence userPersistence = new UserPersistence();
+                    userPersistence.userEdit(user);
 
-                Intent i = new Intent(Session.getContext(), UserActivity.class);
-                startActivity(i);
+                    Intent i = new Intent(Session.getContext(), UserActivity.class);
+                    startActivity(i);
+                }
             }
         });
     }
