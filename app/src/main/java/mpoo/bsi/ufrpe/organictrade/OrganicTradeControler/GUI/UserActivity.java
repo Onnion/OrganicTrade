@@ -38,6 +38,10 @@ public class UserActivity extends AppCompatActivity {
     private ItemListAdapter adapter;
     private TentItems itemSelected;
     private TentItemsPersistence tentItemsPersistence = new TentItemsPersistence();
+    private UserPersistence crud = new UserPersistence();
+    private String imageUser;
+    private ImageView imageView;
+
 
     @Override
     public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
@@ -89,8 +93,11 @@ public class UserActivity extends AppCompatActivity {
             int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
             String picturePath = cursor.getString(columnIndex);
             cursor.close();
-            ImageView imageView = (ImageView) findViewById(R.id.profilePicture);
-            imageView.setImageBitmap(BitmapFactory.decodeFile(picturePath));
+            crud.setImageUser(picturePath);
+            Session.getCurrentUser().setImage(picturePath);
+            imageUser = Session.getCurrentUser().getImage();
+            imageView = (ImageView) findViewById(R.id.profilePicture);
+            imageView.setImageBitmap(BitmapFactory.decodeFile(imageUser));
         }
     }
 
@@ -102,6 +109,10 @@ public class UserActivity extends AppCompatActivity {
         TextView text = (TextView)findViewById(R.id.userTextName);
         String[] nome = Session.getCurrentUser().getName().split(" ");
         text.setText(nome[0]);
+        imageView = (ImageView) findViewById(R.id.profilePicture);
+        imageUser = Session.getCurrentUser().getImage();
+        if (!imageUser.equals("0")){
+            imageView.setImageBitmap(BitmapFactory.decodeFile(imageUser));}
         //-----------------------------------PopularLisView------------------------------------//
         listaDeItens = (ListView) findViewById(R.id.usuarioListViewList);
         TentPersistence tentPersistence = new TentPersistence();
@@ -213,7 +224,6 @@ public class UserActivity extends AppCompatActivity {
         logoutBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                UserPersistence crud = new UserPersistence();
                 crud.userLogoff();
                 Session.setCurrentUser(new User());
                 Intent p = new Intent(Session.getContext(),LoginActivity.class);

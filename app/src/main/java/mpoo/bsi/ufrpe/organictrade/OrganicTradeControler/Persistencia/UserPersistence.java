@@ -24,6 +24,7 @@ public class UserPersistence {
         user.setName(cursor.getString(4));
         user.setPhone(cursor.getString(5));
         user.setAdress(cursor.getString(6));
+        user.setImage(cursor.getString(7));
         return user;
     }
 
@@ -38,9 +39,22 @@ public class UserPersistence {
             db.close();
             return true;
         }
+        Toast.makeText(Session.getContext(),"dey merda",Toast.LENGTH_LONG).show();
         cursor.close();
         db.close();
         return false;
+    }
+
+    public String getImageUser(){
+        db = banco.getReadableDatabase();
+        Cursor cursor = db.rawQuery(ComandosSql.sqlUserFromId(), new String[]{Session.getCurrentUser().getId_user()});
+        User user = criarUsuario(cursor);
+        if (user.getImage().equals("")){
+            return "";
+        }
+        else{
+            return user.getImage();
+        }
     }
 
     public void RegisterUser(User user){
@@ -53,6 +67,7 @@ public class UserPersistence {
         userValues.put(DatabaseHelper.getColumnUserName(), user.getName());
         userValues.put(DatabaseHelper.getColumnUserPhone(),user.getPhone());
         userValues.put(DatabaseHelper.getColumnUserAdress(),user.getAdress());
+        userValues.put(DatabaseHelper.getColumnUserImg(), user.getImage());
         db.insert(DatabaseHelper.getTableUserName(), null, userValues);
         db.close();
     }
@@ -137,5 +152,14 @@ public class UserPersistence {
         db.close();
         userLogoff();
         searchAndLoginUser(user.getUserName(), user.getPassword());
+    }
+
+    public void setImageUser(String img){
+        db = banco.getWritableDatabase();
+        String where = DatabaseHelper.getColumnUserId()+" = "+Session.getCurrentUser().getId_user();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(DatabaseHelper.getColumnUserImg(), img);
+        db.update(DatabaseHelper.getTableUserName(),contentValues, where, null);
+        db.close();
     }
 }

@@ -13,7 +13,8 @@ public class ComandosSql {
                         + DatabaseHelper.getColumnUserEmail() + " text unique not null , "
                         + DatabaseHelper.getColumnUserName() + " text , "
                         + DatabaseHelper.getColumnUserPhone() + " text , "
-                        + DatabaseHelper.getColumnUserAdress() + " text"
+                        + DatabaseHelper.getColumnUserAdress() + " text , "
+                        + DatabaseHelper.getColumnUserImg() + " text"
                         + ");";
         return(sqlCreateUserTable);
     }

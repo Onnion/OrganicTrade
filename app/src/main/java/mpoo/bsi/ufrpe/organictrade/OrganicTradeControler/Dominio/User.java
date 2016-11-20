@@ -9,6 +9,7 @@ public class User {
     private String name;
     private String phone;
     private String adress;
+    private String image = "0";
 
     public String getAdress() {
         return adress;
@@ -65,4 +66,13 @@ public class User {
     public void setPassword(String password) {
         this.password = password;
     }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
 }
