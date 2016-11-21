@@ -37,13 +37,14 @@
         <activity android:name=".OrganicTradeControler.GUI.LoadingActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity android:name=".OrganicTradeControler.GUI.SearchProductsActivity" />
         <activity android:name=".OrganicTradeControler.GUI.ContactActivity" />
-        <activity android:name=".OrganicTradeControler.GUI.ImgActivity" />
-        <activity android:name=".OrganicTradeControler.GUI.EditUserActivity"></activity>
+        <activity android:name=".OrganicTradeControler.GUI.EditRegisterUserActivity" />
+        <activity android:name=".OrganicTradeControler.GUI.EditRegisterTentItemActivity"></activity>
     </application>
 
 </manifest>

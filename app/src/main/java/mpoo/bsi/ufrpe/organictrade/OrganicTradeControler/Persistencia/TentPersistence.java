@@ -2,12 +2,12 @@ package mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Persistencia;
 
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-
 import mpoo.bsi.ufrpe.organictrade.Infra.Persistencia.ComandosSql;
 import mpoo.bsi.ufrpe.organictrade.Infra.Persistencia.DatabaseHelper;
 import mpoo.bsi.ufrpe.organictrade.Infra.Session;
 import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Dominio.TentItems;
 import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Dominio.Tent;
+
 public class TentPersistence {
     private SQLiteDatabase db;
     private DatabaseHelper banco = Session.getDbAtual();
@@ -39,5 +39,4 @@ public class TentPersistence {
         }
         return tent;
     }
-
 }

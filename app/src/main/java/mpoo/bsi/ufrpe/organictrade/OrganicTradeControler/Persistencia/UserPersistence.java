@@ -39,22 +39,9 @@ public class UserPersistence {
             db.close();
             return true;
         }
-        Toast.makeText(Session.getContext(),"dey merda",Toast.LENGTH_LONG).show();
         cursor.close();
         db.close();
         return false;
-    }
-
-    public String getImageUser(){
-        db = banco.getReadableDatabase();
-        Cursor cursor = db.rawQuery(ComandosSql.sqlUserFromId(), new String[]{Session.getCurrentUser().getId_user()});
-        User user = criarUsuario(cursor);
-        if (user.getImage().equals("")){
-            return "";
-        }
-        else{
-            return user.getImage();
-        }
     }
 
     public void RegisterUser(User user){

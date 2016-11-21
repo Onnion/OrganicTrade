@@ -6,15 +6,20 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-
 import mpoo.bsi.ufrpe.organictrade.Infra.Session;
 import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Dominio.User;
 import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Negocio.UserNegocio;
 import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Persistencia.UserPersistence;
 import mpoo.bsi.ufrpe.organictrade.R;
 
-public class EditUserActivity extends AppCompatActivity {
+public class EditRegisterUserActivity extends AppCompatActivity {
     private UserNegocio userNegocio = new UserNegocio();
+
+    @Override
+    public void onBackPressed() {
+        finish();
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,6 +53,7 @@ public class EditUserActivity extends AppCompatActivity {
 
                     Intent i = new Intent(Session.getContext(), UserActivity.class);
                     startActivity(i);
+                    finish();
                 }
             }
         });

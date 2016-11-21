@@ -41,8 +41,7 @@ public class RegisterTentItemActivity extends AppCompatActivity {
         nameProduct.setAdapter(adapter);
         //-------------------------------------------------------------//
         unityProduct = (Spinner) findViewById(R.id.registerTentItemEdtProductUnity);
-        ArrayAdapter<CharSequence> adapter1 = ArrayAdapter.createFromResource(
-                this, R.array.SpnItems, android.R.layout.simple_spinner_dropdown_item);
+        ArrayAdapter<CharSequence> adapter1 = ArrayAdapter.createFromResource(this, R.array.SpnItems, android.R.layout.simple_spinner_dropdown_item);
         unityProduct.setAdapter(adapter1);
     }
 
@@ -52,7 +51,7 @@ public class RegisterTentItemActivity extends AppCompatActivity {
         EditText amount = (EditText) findViewById((R.id.registerTentItemEdtProductAmount));
         EditText price = (EditText) findViewById(R.id.registerTentItemEdtProductPrice);
         String idProductString = productPersistence.idProductByName(nameProduct.getSelectedItem().toString());
-        String unityString = productPersistence.idProductByName(nameProduct.getSelectedItem().toString());
+        String unityString = unityProduct.getSelectedItem().toString();
         String amountString = amount.getText().toString();
         String priceString = price.getText().toString();
 

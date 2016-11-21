@@ -3,7 +3,6 @@ package mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Persistencia;
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-
 import mpoo.bsi.ufrpe.organictrade.Infra.Persistencia.DatabaseHelper;
 import mpoo.bsi.ufrpe.organictrade.Infra.Session;
 import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Dominio.TentItems;
@@ -41,6 +40,17 @@ public class TentItemsPersistence {
         tentItemsValues.put(DatabaseHelper.getColumnTentitemsUserId(),Session.getCurrentUser().getId_user());
         tentItemsValues.put(DatabaseHelper.getColumnTentitemsProductId(),tentItems.getProductId());
         db.insert(DatabaseHelper.getTableTentitemsName(), null, tentItemsValues);
+        db.close();
+    }
+
+    public void tentItemEdit(TentItems tentItems){
+        db = banco.getWritableDatabase();
+        String where = DatabaseHelper.getColumnTentitemsId()+" = "+Session.getItemSelected().getTentItems_id();
+        ContentValues tentItemsEditedValues = new ContentValues();
+        tentItemsEditedValues.put(DatabaseHelper.getColumnTentitemsAmount(),tentItems.getCurrentAmount());
+        tentItemsEditedValues.put(DatabaseHelper.getColumnTentitemsPrice(),tentItems.getValue());
+        tentItemsEditedValues.put(DatabaseHelper.getColumnTentitemsUnity(), tentItems.getUnity());
+        db.update(DatabaseHelper.getTableTentitemsName(), tentItemsEditedValues,where,null);
         db.close();
     }
 }

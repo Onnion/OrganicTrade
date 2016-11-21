@@ -61,7 +61,11 @@ public class UserActivity extends AppCompatActivity {
                 adapter.notifyDataSetChanged();
                 return true;
             case R.id.editar:
-                Toast.makeText(Session.getContext(),"Editou",Toast.LENGTH_SHORT);
+                itemSelected =(TentItems)listaDeItens.getAdapter().getItem(info.position);
+                Session.setItemSelected(itemSelected);
+                Intent i = new Intent(Session.getContext(), EditRegisterTentItemActivity.class);
+                startActivity(i);
+                finish();
                 return true;
             default:
                 return super.onContextItemSelected(item);
@@ -167,7 +171,7 @@ public class UserActivity extends AppCompatActivity {
         editBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent p = new Intent(Session.getContext(),EditUserActivity.class);
+                Intent p = new Intent(Session.getContext(),EditRegisterUserActivity.class);
                 editBtn.setImageResource(R.mipmap.ic_edit);
                 startActivity(p);
 
