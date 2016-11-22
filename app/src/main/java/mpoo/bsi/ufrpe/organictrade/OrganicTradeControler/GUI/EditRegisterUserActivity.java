@@ -24,7 +24,7 @@ public class EditRegisterUserActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Session.setContext(getBaseContext());
-        setContentView(R.layout.activity_edit_user);
+        setContentView(R.layout.activity_edit_register_user);
 
         final EditText name = (EditText)findViewById(R.id.editUserEdtName);
         final EditText pass = (EditText)findViewById(R.id.editUserEdtPassword);

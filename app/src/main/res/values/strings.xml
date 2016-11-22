@@ -29,10 +29,13 @@
     <string name="tstInvalidValue">Valor inválido</string>
     <string name="tstNotDecimal">Não é decimal</string>
 
+    <string name="txtAmount">Quantidade</string>
     <string name="txtMoney">R$</string>
     <string name="txtSearch">Procurar item</string>
     <string name="txtLogout">Sair</string>
-    <string name="txtEditarPerfil">Editar perfil</string>
+    <string name="txtEditPerfil">Editar perfil</string>
+    <string name="txtEditItem">Editar Item</string>
+    <string name="txtPrice">Preço</string>
     <string name="txtNewItem">Novo item</string>
     <string name="title_activity_maps">Map</string>
 

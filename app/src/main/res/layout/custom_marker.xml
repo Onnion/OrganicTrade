@@ -7,16 +7,12 @@
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:background="@drawable/custom_circle_marker">
-        <LinearLayout
-            android:layout_width="80dp"
-            android:layout_height="80dp">
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/custom_marker"
-                android:layout_width="45dp"
-                android:layout_marginTop="8.5dp"
-                android:layout_marginLeft="17dp"
-                android:layout_height="45dp"
-                android:src="@drawable/no_img_icon"/>
-        </LinearLayout>
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/custom_marker"
+            android:layout_width="45dp"
+            android:layout_marginTop="8.5dp"
+            android:layout_marginStart="17dp"
+            android:layout_height="45dp"
+            android:src="@drawable/no_img_icon"/>
     </LinearLayout>
 </LinearLayout>

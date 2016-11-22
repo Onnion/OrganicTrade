@@ -25,14 +25,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
-        //Imagem do Produto
-        <!--<ImageView-->
-        <!--android:id="@+id/rtiImgProduct-->
-        <!--android:src=""-->
-        <!--android:layout_width=""-->
-        <!--android:layout_height=""-->
-        <!--android:scaleType="centerCrop" />-->
-
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:src="@drawable/no_img_icon"
+            />
 
         <Spinner
             android:id="@+id/registerTentItemSpiProductName"
@@ -55,7 +53,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:hint="Quantidade"
+                android:hint="@string/txtAmount"
                 android:inputType="number"
                 />
 
@@ -87,7 +85,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:hint="Valor"
+                android:hint="@string/txtPrice"
                 android:inputType="numberDecimal"
                 />
         </LinearLayout>

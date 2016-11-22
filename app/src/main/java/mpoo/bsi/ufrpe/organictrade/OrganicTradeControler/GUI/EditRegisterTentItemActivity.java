@@ -27,7 +27,10 @@ public class EditRegisterTentItemActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         Session.setItemSelected(null);
+        Intent i = new Intent(Session.getContext(),UserActivity.class);
+        startActivity(i);
         finish();
+
     }
 
     @Override
@@ -60,6 +63,9 @@ public class EditRegisterTentItemActivity extends AppCompatActivity {
         tentItems.setProductId(Session.getItemSelected().getProductId());
         tentItems.setTentItems_id(Session.getItemSelected().getTentItems_id());
         tentItems.setUser_id(Session.getItemSelected().getUser_id());
+
+
+
 
         tentItems.setUnity(unityProduct.getSelectedItem().toString());
         tentItems.setCurrentAmount(amount.getText().toString());

@@ -6,10 +6,21 @@
     android:layout_margin="5dp"
     android:background="@android:color/white"
     android:orientation="horizontal" >
-
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="2">
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_margin="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/no_img_icon"
+            />
+    </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="120dp"
+        android:layout_weight="1"
         android:orientation="vertical" >
 
         <TextView
@@ -19,11 +30,27 @@
             android:textAlignment="center"
             android:textSize="32sp" />
 
-        <TextView
-            android:id="@+id/itemTxtPrice"
-            android:textAlignment="center"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="16sp" />
+            android:layout_height="wrap_content">
+            <TextView
+                android:text="@string/txtMoney"
+                android:textAlignment="textEnd"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                />
+            <TextView
+                android:text="@string/txtPrice"
+                android:id="@+id/itemTxtPrice"
+                android:textAlignment="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textSize="16sp"
+                />
+        </LinearLayout>
+
     </LinearLayout>
 </LinearLayout>
