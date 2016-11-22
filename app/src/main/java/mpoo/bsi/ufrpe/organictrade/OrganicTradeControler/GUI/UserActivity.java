@@ -164,7 +164,7 @@ public class UserActivity extends AppCompatActivity {
         editBtn.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
-                displayToastAboveButton(v,R.string.txtSearch);
+                displayToastAboveButton(v,R.string.txtEditarPerfil);
                 return false;
             }
         });
