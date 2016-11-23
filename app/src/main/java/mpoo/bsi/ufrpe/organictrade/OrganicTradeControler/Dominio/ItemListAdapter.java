@@ -1,10 +1,12 @@
 package mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Dominio;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.BitmapFactory;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 import java.util.List;
 
@@ -32,6 +34,9 @@ public class ItemListAdapter extends ArrayAdapter<TentItems> {
 
         if(view == null)
             view = LayoutInflater.from(context).inflate(R.layout.item_listview_adapter, null);
+
+        ImageView imageView = (ImageView)view.findViewById(R.id.itemImg);
+        imageView.setImageBitmap(BitmapFactory.decodeFile(itenDeTenda.getImageItem()));
 
         TextView textoNomeProduto = (TextView) view.findViewById(R.id.itemTxtNome);
         textoNomeProduto.setText(productPersistence.nameProductById(itenDeTenda.getProductId()));

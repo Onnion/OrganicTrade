@@ -11,10 +11,11 @@
         android:layout_height="match_parent"
         android:layout_weight="2">
         <de.hdodenhof.circleimageview.CircleImageView
-            android:layout_margin="20dp"
+            android:id="@+id/itemImg"
+            android:layout_margin="10dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:src="@drawable/no_img_icon"
+            android:src="@drawable/icon_item_no_img"
             />
     </LinearLayout>
     <LinearLayout

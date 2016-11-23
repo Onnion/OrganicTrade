@@ -97,6 +97,7 @@ public class UserActivity extends AppCompatActivity {
             int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
             String picturePath = cursor.getString(columnIndex);
             cursor.close();
+
             crud.setImageUser(picturePath);
             Session.getCurrentUser().setImage(picturePath);
             imageUser = Session.getCurrentUser().getImage();
@@ -115,8 +116,11 @@ public class UserActivity extends AppCompatActivity {
         text.setText(nome[0]);
         imageView = (ImageView) findViewById(R.id.profilePicture);
         imageUser = Session.getCurrentUser().getImage();
-        if (!imageUser.equals("0")){
-            imageView.setImageBitmap(BitmapFactory.decodeFile(imageUser));}
+        if (!(imageUser == null)){
+            imageView.setImageBitmap(BitmapFactory.decodeFile(imageUser));
+        }else {
+            imageView.setImageResource(R.drawable.no_img_icon);
+        }
         //-----------------------------------PopularLisView------------------------------------//
         listaDeItens = (ListView) findViewById(R.id.usuarioListViewList);
         TentPersistence tentPersistence = new TentPersistence();

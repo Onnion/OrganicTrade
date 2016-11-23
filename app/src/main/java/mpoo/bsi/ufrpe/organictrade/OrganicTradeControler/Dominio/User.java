@@ -9,7 +9,7 @@ public class User {
     private String name;
     private String phone;
     private String adress;
-    private String image = "0";
+    private String image;
 
     public String getAdress() {
         return adress;
@@ -74,5 +74,4 @@ public class User {
     public void setImage(String image) {
         this.image = image;
     }
-
 }

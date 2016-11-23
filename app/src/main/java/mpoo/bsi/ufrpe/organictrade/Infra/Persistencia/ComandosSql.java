@@ -1,7 +1,5 @@
 package mpoo.bsi.ufrpe.organictrade.Infra.Persistencia;
 
-import mpoo.bsi.ufrpe.organictrade.Infra.Session;
-
 public class ComandosSql {
 
     public static String sqlCreateUserTable(){
@@ -52,14 +50,6 @@ public class ComandosSql {
                         + DatabaseHelper.getColumnProductName()+" text"
                         + ");";
         return(sqlCreateProductTable);
-    }
-
-    public static String sqlCreateSearchTable(){
-        String sqlCreateSearchTable =
-                "CREATE VIRTUAL TABLE " + DatabaseHelper.getTableSearchName() +
-                        " USING fts3 (" + DatabaseHelper.getColumnSearchProductName() + " text"
-                        + ");";
-        return (sqlCreateSearchTable);
     }
 
     public static String sqlDropTableUsuarioLogado(){

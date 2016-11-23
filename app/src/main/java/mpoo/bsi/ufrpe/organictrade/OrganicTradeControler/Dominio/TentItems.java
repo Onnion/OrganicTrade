@@ -7,7 +7,8 @@ public class TentItems {
     private String currentAmount;
     private String productId;
     private String user_id;
-    private String imageItem = "0";
+    private String unity;
+    private String imageItem;
 
     public String getUnity() {
         return unity;
@@ -16,8 +17,6 @@ public class TentItems {
     public void setUnity(String unity) {
         this.unity = unity;
     }
-
-    private String unity;
 
     public String getUser_id() {
         return user_id;
@@ -58,7 +57,6 @@ public class TentItems {
     public void setCurrentAmount(String currentAmount) {
         this.currentAmount = currentAmount;
     }
-
 
     public String getImageItem() {
         return imageItem;

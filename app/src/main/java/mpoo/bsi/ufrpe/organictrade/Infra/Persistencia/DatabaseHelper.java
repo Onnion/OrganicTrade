@@ -33,26 +33,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String COLUMN_TENTITEMS_USER_ID = "user_id";
     private static final String COLUMN_TENTITEMS_IMG = "tentitems_img";
 
-    public static String getColumnTentitemsUnity() {
-        return COLUMN_TENTITEMS_UNITY;
-    }
-
     //Products
     private static final String TABLE_PRODUCT_NAME = "product";
     private static final String COLUMN_PRODUCT_ID = "product_id";
     private static final String COLUMN_PRODUCT_NAME = "product_name";
-
-    //Test Search
-    private static final String TABLE_SEARCH_NAME = "teste_search";
-    private static final String COLUMN_SEARCH_PRODUCT_NAME = "product_name";
-
-    public static String getColumnSearchProductName() {
-        return COLUMN_SEARCH_PRODUCT_NAME;
-    }
-
-    public static String getTableSearchName() {
-        return TABLE_SEARCH_NAME;
-    }
 
     //
     private SQLiteDatabase db;
@@ -119,12 +103,15 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return COLUMN_TENTITEMS_USER_ID;
     }
 
-    //PARA IMAGEM DO TENTITEM
+    public static String getColumnTentitemsUnity() {
+        return COLUMN_TENTITEMS_UNITY;
+    }
 
     public static String getColumnTentitemsImg(){
         return COLUMN_TENTITEMS_IMG;
     }
     //----------------------------------------------------------------------------//
+
     public static String getTableUserLoggedName() {
         return TABLE_USER_LOGGED_NAME;
     }
@@ -133,6 +120,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return COLUMN_USER_LOGGED_ID;
     }
     //----------------------------------------------------------------------------//
+
     public static String getColumnProductName() {
         return COLUMN_PRODUCT_NAME;
     }

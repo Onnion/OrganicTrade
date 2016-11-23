@@ -13,14 +13,13 @@ public class TentItemsPersistence {
 
     public TentItems createTentItems(Cursor cursor){
         TentItems tentItems = new TentItems();
-
         tentItems.setTentItems_id(cursor.getString(0));
         tentItems.setCurrentAmount(cursor.getString(1));
         tentItems.setValue(cursor.getString(2));
         tentItems.setUnity(cursor.getString(3));
         tentItems.setProductId(cursor.getString(4));
         tentItems.setUser_id(cursor.getString(5));
-
+        tentItems.setImageItem(cursor.getString(6));
         return tentItems;
     }
 
@@ -51,24 +50,8 @@ public class TentItemsPersistence {
         tentItemsEditedValues.put(DatabaseHelper.getColumnTentitemsAmount(),tentItems.getCurrentAmount());
         tentItemsEditedValues.put(DatabaseHelper.getColumnTentitemsPrice(),tentItems.getValue());
         tentItemsEditedValues.put(DatabaseHelper.getColumnTentitemsUnity(), tentItems.getUnity());
+        tentItemsEditedValues.put(DatabaseHelper.getColumnTentitemsImg(), tentItems.getImageItem());
         db.update(DatabaseHelper.getTableTentitemsName(), tentItemsEditedValues,where,null);
         db.close();
     }
-
-    public void returnUnity(){
-
-    }
-
-
-    //PARA A IMAGEM DO TENTITEM
-
-    public void setImageTentItem(String img){
-        db = banco.getWritableDatabase();
-        String where = DatabaseHelper.getColumnTentitemsId()+" = "+Session.getItemSelected().getTentItems_id();
-        ContentValues contentValues = new ContentValues();
-        contentValues.put(DatabaseHelper.getColumnTentitemsImg(), img);
-        db.update(DatabaseHelper.getTableTentitemsName(),contentValues, where, null);
-        db.close();
-    }
-
 }

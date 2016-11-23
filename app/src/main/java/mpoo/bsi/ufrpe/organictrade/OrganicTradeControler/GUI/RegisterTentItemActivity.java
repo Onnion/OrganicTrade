@@ -25,10 +25,30 @@ public class RegisterTentItemActivity extends AppCompatActivity {
 
     private SQLiteDatabase db;
     private DatabaseHelper banco = Session.getDbAtual();
+    private TentItems tentItems;
+    private static int RESULT_LOAD_IMAGE = 1;
+    private ImageView imageView;
     private Spinner nameProduct;
     private Spinner unityProduct;
     private ProductPersistence productPersistence = new ProductPersistence();
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == RESULT_LOAD_IMAGE && resultCode == RESULT_OK && null != data) {
+            Uri selectedImage = data.getData();
+            String[] filePathColumn = { MediaStore.Images.Media.DATA };
+            Cursor cursor = getContentResolver().query(selectedImage,filePathColumn, null, null, null);
+            cursor.moveToFirst();
+            int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
+            String picturePath = cursor.getString(columnIndex);
+            cursor.close();
+
+            tentItems.setImageItem(picturePath);
+            imageView = (ImageView) findViewById(R.id.registerTentItemImgProductImg);
+            imageView.setImageBitmap(BitmapFactory.decodeFile(tentItems.getImageItem()));
+        }
+    }
     @Override
     public void onBackPressed() {
         finish();
@@ -36,6 +56,7 @@ public class RegisterTentItemActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        tentItems = new TentItems();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_tent_item);
         Session.setContext(getBaseContext());
@@ -48,11 +69,19 @@ public class RegisterTentItemActivity extends AppCompatActivity {
         unityProduct = (Spinner) findViewById(R.id.registerTentItemEdtProductUnity);
         ArrayAdapter<CharSequence> adapter1 = ArrayAdapter.createFromResource(this, R.array.SpnItems, android.R.layout.simple_spinner_dropdown_item);
         unityProduct.setAdapter(adapter1);
+
+        final ImageView imageView = (ImageView) findViewById(R.id.registerTentItemImgProductImg);
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View arg0) {
+                Intent i = new Intent(Intent.ACTION_PICK,android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                startActivityForResult(i, RESULT_LOAD_IMAGE);
+            }
+        });
     }
 
     public void registerProduct(View v) {
         TentItemsPersistence crud = new TentItemsPersistence();
-
         EditText amount = (EditText) findViewById((R.id.registerTentItemEdtProductAmount));
         EditText price = (EditText) findViewById(R.id.registerTentItemEdtProductPrice);
         String idProductString = productPersistence.idProductByName(nameProduct.getSelectedItem().toString());
@@ -68,7 +97,6 @@ public class RegisterTentItemActivity extends AppCompatActivity {
             priceString = priceString + ",00";
         }
 
-        TentItems tentItems = new TentItems();
         tentItems.setProductId(idProductString);
         tentItems.setCurrentAmount(amountString);
         tentItems.setValue(priceString);
