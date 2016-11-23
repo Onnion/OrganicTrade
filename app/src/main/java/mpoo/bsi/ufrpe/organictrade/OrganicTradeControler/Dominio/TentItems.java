@@ -7,6 +7,7 @@ public class TentItems {
     private String currentAmount;
     private String productId;
     private String user_id;
+    private String imageItem = "0";
 
     public String getUnity() {
         return unity;
@@ -59,4 +60,11 @@ public class TentItems {
     }
 
 
+    public String getImageItem() {
+        return imageItem;
+    }
+
+    public void setImageItem(String imageItem) {
+        this.imageItem = imageItem;
+    }
 }

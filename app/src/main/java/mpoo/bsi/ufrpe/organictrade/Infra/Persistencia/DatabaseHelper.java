@@ -5,7 +5,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
     //
-    private static final int DATABASE_VERSION = 26;
+    private static final int DATABASE_VERSION = 27;
     private static final String DATABASE_NAME = "organicTrade.db";
 
     //User
@@ -31,6 +31,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String COLUMN_TENTITEMS_UNITY = "tentitems_unity";
     private static final String COLUMN_TENTITEMS_PRODUCT_ID = "product_id";
     private static final String COLUMN_TENTITEMS_USER_ID = "user_id";
+    private static final String COLUMN_TENTITEMS_IMG = "tentitems_img";
 
     public static String getColumnTentitemsUnity() {
         return COLUMN_TENTITEMS_UNITY;
@@ -116,6 +117,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     public static String getColumnTentitemsUserId() {
         return COLUMN_TENTITEMS_USER_ID;
+    }
+
+    //PARA IMAGEM DO TENTITEM
+
+    public static String getColumnTentitemsImg(){
+        return COLUMN_TENTITEMS_IMG;
     }
     //----------------------------------------------------------------------------//
     public static String getTableUserLoggedName() {

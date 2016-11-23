@@ -28,6 +28,7 @@ public class ComandosSql {
                         + DatabaseHelper.getColumnTentitemsUnity() + " text no null , "
                         + DatabaseHelper.getColumnTentitemsProductId()+ " integer , "
                         + DatabaseHelper.getColumnTentitemsUserId()+ " integer , "
+                        + DatabaseHelper.getColumnTentitemsImg() + " text , "
                         + "foreign key ( "+DatabaseHelper.getColumnTentitemsProductId()+" ) references "+DatabaseHelper.getTableProductName()+" ("+DatabaseHelper.getColumnProductId()+") , "
                         + "foreign key ( "+DatabaseHelper.getColumnTentitemsUserId()+" ) references "+DatabaseHelper.getTableUserName()+" ("+DatabaseHelper.getColumnUserId()+")"
                         + ");";

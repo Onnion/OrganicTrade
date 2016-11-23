@@ -39,6 +39,7 @@ public class TentItemsPersistence {
         tentItemsValues.put(DatabaseHelper.getColumnTentitemsUnity(), tentItems.getUnity());
         tentItemsValues.put(DatabaseHelper.getColumnTentitemsUserId(),Session.getCurrentUser().getId_user());
         tentItemsValues.put(DatabaseHelper.getColumnTentitemsProductId(),tentItems.getProductId());
+        tentItemsValues.put(DatabaseHelper.getColumnTentitemsImg(),tentItems.getImageItem());
         db.insert(DatabaseHelper.getTableTentitemsName(), null, tentItemsValues);
         db.close();
     }
@@ -57,4 +58,17 @@ public class TentItemsPersistence {
     public void returnUnity(){
 
     }
+
+
+    //PARA A IMAGEM DO TENTITEM
+
+    public void setImageTentItem(String img){
+        db = banco.getWritableDatabase();
+        String where = DatabaseHelper.getColumnTentitemsId()+" = "+Session.getItemSelected().getTentItems_id();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(DatabaseHelper.getColumnTentitemsImg(), img);
+        db.update(DatabaseHelper.getTableTentitemsName(),contentValues, where, null);
+        db.close();
+    }
+
 }
