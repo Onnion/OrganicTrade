@@ -36,7 +36,7 @@ public class UserLocation implements GoogleApiClient.OnConnectionFailedListener,
             String lati = String.valueOf(mLastLocation.getLatitude());
             String longi = String.valueOf(mLastLocation.getLongitude());
             String adressFinal = lati + "," + longi;
-            setAdress(adressFinal);
+            this.setAdress(adressFinal);
         }
     }
 

@@ -3,8 +3,10 @@ import android.content.Intent;
 import android.os.Handler;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.widget.Toast;
 
 import mpoo.bsi.ufrpe.organictrade.Infra.Session;
+import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Dominio.UserLocation;
 import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Persistencia.ProductPersistence;
 import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Persistencia.UserPersistence;
 import mpoo.bsi.ufrpe.organictrade.R;

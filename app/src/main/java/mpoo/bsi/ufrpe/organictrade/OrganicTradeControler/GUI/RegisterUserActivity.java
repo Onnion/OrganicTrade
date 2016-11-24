@@ -18,7 +18,6 @@ import mpoo.bsi.ufrpe.organictrade.R;
 
 public class RegisterUserActivity extends AppCompatActivity {
     private UserNegocio userNegocio = new UserNegocio();
-    private UserLocation userLocation;
     private EditText nome;
     private EditText user;
     private EditText pass;
@@ -32,6 +31,7 @@ public class RegisterUserActivity extends AppCompatActivity {
     private String remail;
     private String phoneString;
     private UserPersistence crud;
+    private UserLocation userLocation;
 
     @Override
     public void onBackPressed() {

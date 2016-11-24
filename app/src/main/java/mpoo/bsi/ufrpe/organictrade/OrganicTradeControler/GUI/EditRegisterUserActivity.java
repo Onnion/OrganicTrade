@@ -54,6 +54,7 @@ public class EditRegisterUserActivity extends AppCompatActivity {
         userToEdit.setPassword(pass.getText().toString());
         userToEdit.setEmail(email.getText().toString());
         userToEdit.setPhone(number.getText().toString());
+        userToEdit.setAdress(Session.getCurrentUser().getAdress());
         UserPersistence userPersistence = new UserPersistence();
         userPersistence.userEdit(userToEdit);
         Intent i = new Intent(Session.getContext(), UserActivity.class);
