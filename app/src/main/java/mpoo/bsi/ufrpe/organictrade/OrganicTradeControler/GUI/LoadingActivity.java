@@ -10,14 +10,18 @@ import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Persistencia.UserPersis
 import mpoo.bsi.ufrpe.organictrade.R;
 
 public class LoadingActivity extends AppCompatActivity{
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_loading);
         Session.setContext(getBaseContext());
-        Session session = new Session();
+        startSession();
+        setDelay();
+    }
+
+    private void setDelay() {
         Handler handler = new Handler();
-        ProductPersistence productPersistence = new ProductPersistence();
-        //--------------------------------------------------------------//
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -33,6 +37,10 @@ public class LoadingActivity extends AppCompatActivity{
                     finish();
                 }
             }
-        }, 5000);
+        }, 3000);
+    }
+
+    private void startSession() {
+        Session session = new Session();
     }
 }

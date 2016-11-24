@@ -39,6 +39,11 @@
     <string name="txtNewItem">Novo item</string>
     <string name="title_activity_maps">Map</string>
 
+    <!--Adicionei para o refectoring-->
+    <string name="myTent">Minha Tenda</string>
+    <string name="tentOf">Tenda de </string>
+    <string name="tstPressAgainToCloseApp">Pressione o Botão Voltar novamente para fechar o Aplicativo</string>
+
     <string-array name="SpnItems">
         <item>g</item>
         <item>Kg</item>
