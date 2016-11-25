@@ -5,10 +5,26 @@ public class TentItems {
     private String tentItems_id;
     private String value;
     private String currentAmount;
-    private String productId;
-    private String user_id;
+    private Product product;
+    private User user;
     private String unity;
     private String imageItem;
+
+    public Product getProduct() {
+        return product;
+    }
+
+    public void setProduct(Product product) {
+        this.product = product;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 
     public String getUnity() {
         return unity;
@@ -16,22 +32,6 @@ public class TentItems {
 
     public void setUnity(String unity) {
         this.unity = unity;
-    }
-
-    public String getUser_id() {
-        return user_id;
-    }
-
-    public void setUser_id(String user_id) {
-        this.user_id = user_id;
-    }
-
-    public String getProductId() {
-        return productId;
-    }
-
-    public void setProductId(String productId) {
-        this.productId = productId;
     }
 
     public String getTentItems_id() {

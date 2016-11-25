@@ -4,14 +4,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Tent {
-    private List<TentItems> tent = new ArrayList<TentItems>();
+    private List<TentItems> tentItems = new ArrayList<TentItems>();
 
-    public List getTent(){
-        return this.tent;
+    public List<TentItems> getTentItems(){
+        return this.tentItems;
     }
 
-    public void setTent(TentItems tentItems){
-        this.tent.add(tentItems);
+    public void addTentItem(TentItems tentItems){
+        this.tentItems.add(tentItems);
     }
 
 }

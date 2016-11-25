@@ -1,4 +1,5 @@
 package mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Dominio;
+
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.BitmapFactory;

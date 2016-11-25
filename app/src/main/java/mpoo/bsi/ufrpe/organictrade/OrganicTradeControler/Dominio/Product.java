@@ -1,6 +1,9 @@
 package mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Dominio;
 
 public class Product {
+    private String product_name;
+    private String id_product;
+
     public String getProduct_name() {
         return product_name;
     }
@@ -17,6 +20,5 @@ public class Product {
         this.id_product = id_product;
     }
 
-    private String product_name;
-    private String id_product;
+
 }

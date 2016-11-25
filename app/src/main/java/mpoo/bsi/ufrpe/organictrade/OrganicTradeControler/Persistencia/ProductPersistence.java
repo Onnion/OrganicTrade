@@ -7,6 +7,7 @@ import mpoo.bsi.ufrpe.organictrade.Infra.Persistencia.ComandosSql;
 import mpoo.bsi.ufrpe.organictrade.Infra.Persistencia.DatabaseHelper;
 import mpoo.bsi.ufrpe.organictrade.Infra.Session;
 import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Dominio.Product;
+import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Dominio.User;
 
 public class ProductPersistence {
     private int id = 0;
@@ -20,17 +21,24 @@ public class ProductPersistence {
 
     public int getId() {
         return id;
-    }
+    }//
 
     public void setId(int i) {
         this.id = i;
-    }
+    }//
 
     public Product createProduct(String string) {
         Product product = new Product();
         product.setId_product(Integer.toString(getId()));
         product.setProduct_name(string);
         setId(getId()+1);
+        return product;
+    }
+
+    private Product createProductBtConsult(Cursor cursor){
+        Product product = new Product();
+        product.setId_product(cursor.getString(0));
+        product.setProduct_name(cursor.getString(1));
         return product;
     }
 
@@ -73,5 +81,15 @@ public class ProductPersistence {
         Cursor cursor = db.rawQuery(ComandosSql.productTableIsEmpty(),null);
         if(!(cursor.moveToFirst())){
             populateProductTable();}
+    }
+
+    public Product getProductByid(String productId) {
+        db = banco.getReadableDatabase();
+        Product product = null;
+        Cursor cursor = db.rawQuery(ComandosSql.sqlProductNameById(),new String[]{productId});
+        if(cursor.moveToFirst()){
+            product = createProductBtConsult(cursor);
+        }
+        return product;
     }
 }

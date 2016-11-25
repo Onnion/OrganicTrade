@@ -119,8 +119,8 @@ public class UserActivity extends AppCompatActivity {
     private void pupulateListView() {
         listOfItems = (ListView) findViewById(R.id.usuarioListViewList);
         TentPersistence tentPersistence = new TentPersistence();
-        Tent tent = tentPersistence.retornarTendaDoUsuario();
-        finalTent = tent.getTent();
+        Tent tent = tentPersistence.getUserTent();
+        finalTent = tent.getTentItems();
         adapter = new ItemListAdapter(finalTent);
         listOfItems.setAdapter(adapter);
         registerForContextMenu(listOfItems);

@@ -101,7 +101,7 @@ public class SearchProductsActivity extends AppCompatActivity {
     public void initList(){
         TentPersistence tentPersistence = new TentPersistence();
         Tent tent = tentPersistence.retornarTendaDosUsuarios();
-        listItems = tent.getTent();
+        listItems = tent.getTentItems();
         adapter = new ItemListAdapter(listItems);
         listView.setAdapter(adapter);
     }

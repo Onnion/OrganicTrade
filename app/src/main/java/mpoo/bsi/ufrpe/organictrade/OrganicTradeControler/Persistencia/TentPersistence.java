@@ -12,31 +12,37 @@ public class TentPersistence {
     private SQLiteDatabase db;
     private DatabaseHelper banco = Session.getDbAtual();
 
-    public Tent retornarTendaDoUsuario(){
-        Tent tent = new Tent();
+    public Tent getUserTent(){
+        Tent tent = null;
         TentItemsPersistence crud = new TentItemsPersistence();
         db = banco.getReadableDatabase();
         Cursor cursor = db.rawQuery(ComandosSql.sqlItemFromUser(), new String[]{Session.getCurrentUser().getId_user()});
         if(cursor.moveToFirst()){
+            tent = new Tent();
             do{
                 TentItems tentItems = crud.createTentItems(cursor);
-                tent.setTent(tentItems);
+                tent.addTentItem(tentItems);
             }while(cursor.moveToNext());
         }
+        cursor.close();
+        db.close();
         return tent;
     }
 
     public Tent retornarTendaDosUsuarios(){
-        Tent tent = new Tent();
+        Tent tent = null;
         TentItemsPersistence crud = new TentItemsPersistence();
         db = banco.getReadableDatabase();
         Cursor cursor = db.rawQuery(ComandosSql.sqlAllItems(), new String[]{Session.getCurrentUser().getId_user()});
         if(cursor.moveToFirst()){
+            tent = new Tent();
             do{
                 TentItems tentItems = crud.createTentItems(cursor);
-                tent.setTent(tentItems);
+                tent.addTentItem(tentItems);
             }while(cursor.moveToNext());
         }
+        cursor.close();
+        db.close();
         return tent;
     }
 }
