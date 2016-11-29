@@ -30,21 +30,23 @@
             android:name="com.google.android.maps.v2.API_KEY"
             android:value="AIzaSyBey3M4DtuXwXb8vE832zWPtf3Mona0ZIY" />
 
-        <activity android:name=".OrganicTradeControler.GUI.LoginActivity" />
-        <activity android:name=".OrganicTradeControler.GUI.RegisterUserActivity" />
-        <activity android:name=".OrganicTradeControler.GUI.UserActivity" />
-        <activity android:name=".OrganicTradeControler.GUI.RegisterTentItemActivity" />
-        <activity android:name=".OrganicTradeControler.GUI.LoadingActivity">
+        <activity android:name=".OrganicTradeControler.User.gui.LoginActivity" />
+        <activity android:name=".OrganicTradeControler.User.gui.RegisterUserActivity" />
+        <activity android:name=".OrganicTradeControler.User.gui.UserActivity" />
+        <activity android:name=".OrganicTradeControler.Item.gui.RegisterTentItemActivity" />
+        <activity android:name=".OrganicTradeControler.User.gui.LoadingActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".OrganicTradeControler.GUI.SearchProductsActivity" />
-        <activity android:name=".OrganicTradeControler.GUI.ContactActivity" />
-        <activity android:name=".OrganicTradeControler.GUI.EditRegisterUserActivity" />
-        <activity android:name=".OrganicTradeControler.GUI.EditRegisterTentItemActivity"></activity>
+        <activity android:name=".OrganicTradeControler.Item.gui.SearchProductsActivity" />
+        <activity android:name=".OrganicTradeControler.User.gui.ContactActivity" />
+        <activity android:name=".OrganicTradeControler.User.gui.EditRegisterUserActivity" />
+        <activity android:name=".OrganicTradeControler.Item.gui.EditRegisterTentItemActivity" />
+        <activity android:name=".OrganicTradeControler.Item.gui.RegisterTentActivity" />
+        <activity android:name=".OrganicTradeControler.Item.gui.TentActivity"></activity>
     </application>
 
 </manifest>

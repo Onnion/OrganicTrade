@@ -5,18 +5,17 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
     //
-    private static final int DATABASE_VERSION = 27;
+    private static final int DATABASE_VERSION = 28;
     private static final String DATABASE_NAME = "organicTrade.db";
 
     //User
-    private static final String TABLE_USER_NAME = "usuario";
+    private static final String TABLE_USER_NAME = "user";
     private static final String COLUMN_USER_ID = "user_id";
     private static final String COLUMN_USER_USERNAME = "user_name";
     private static final String COLUMN_USER_PASSWORD = "user_password";
     private static final String COLUMN_USER_EMAIL = "user_email";
     private static final String COLUMN_USER_NAME = "user_nome";
     private static final String COLUMN_USER_PHONE = "user_phone";
-    private static final String COLUMN_USER_ADRESS = "user_adress";
     private static final String COLUMN_USER_IMG = "user_img";
 
     //UserLogged
@@ -30,13 +29,22 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String COLUMN_TENTITEMS_PRICE = "tentitems_price";
     private static final String COLUMN_TENTITEMS_UNITY = "tentitems_unity";
     private static final String COLUMN_TENTITEMS_PRODUCT_ID = "product_id";
-    private static final String COLUMN_TENTITEMS_USER_ID = "user_id";
+    private static final String COLUMN_TENTITEMS_TENT_ID = "tent_id";
     private static final String COLUMN_TENTITEMS_IMG = "tentitems_img";
 
     //Products
     private static final String TABLE_PRODUCT_NAME = "product";
     private static final String COLUMN_PRODUCT_ID = "product_id";
     private static final String COLUMN_PRODUCT_NAME = "product_name";
+
+    //Tent
+    private static final String TABLE_TENT_NAME = "tent";
+    private static final String COLUMN_TENT_ID ="tent_id";
+    private static final String COLUMN_TENT_LAGI = "tent_lagi";
+    private static final String COLUMN_TENT_LONGI = "tent_longi";
+    private static final String COLUMN_TENT_USER_ID = "user_id";
+    private static final String COLUMN_TENT_NAME = "tent_name";
+    private static final String COLUMN_TENT_IMG = "tent_img";
 
     //
     private SQLiteDatabase db;
@@ -64,10 +72,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     public static String getColumnUserPhone() {
         return COLUMN_USER_PHONE;
-    }
-
-    public static String getColumnUserAdress() {
-        return COLUMN_USER_ADRESS;
     }
 
     public static String getColumnUserName() {
@@ -99,8 +103,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return COLUMN_TENTITEMS_PRODUCT_ID;
     }
 
-    public static String getColumnTentitemsUserId() {
-        return COLUMN_TENTITEMS_USER_ID;
+    public static String getColumnTentitemsTentId() {
+        return COLUMN_TENTITEMS_TENT_ID;
     }
 
     public static String getColumnTentitemsUnity() {
@@ -134,6 +138,35 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
     //----------------------------------------------------------------------------//
 
+    public static String getTableTentName() {
+        return TABLE_TENT_NAME;
+    }
+
+    public static String getColumnTentId() {
+        return COLUMN_TENT_ID;
+    }
+
+    public static String getColumnTentLagi() {
+        return COLUMN_TENT_LAGI;
+    }
+
+    public static String getColumnTentLongi() {
+        return COLUMN_TENT_LONGI;
+    }
+
+    public static String getColumnTentUserId() {
+        return COLUMN_TENT_USER_ID;
+    }
+
+    public static String getColumnTentName() {
+        return COLUMN_TENT_NAME;
+    }
+
+    public static String getColumnTentImg() {
+        return COLUMN_TENT_IMG;
+    }
+    //----------------------------------------------------------------------------//
+
     public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
@@ -144,6 +177,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL(ComandosSql.sqlCreateTentItemsTable());
         db.execSQL(ComandosSql.sqlCreateUserLoggedTable());
         db.execSQL(ComandosSql.sqlCreateProductTable());
+        db.execSQL(ComandosSql.sqlCreateTentTable());
     }
 
     @Override
@@ -152,6 +186,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL(ComandosSql.sqlDropTableUsuarioLogado());
         db.execSQL(ComandosSql.sqlDropTableItensDeTenda());
         db.execSQL(ComandosSql.sqlDropTableProduct());
+        db.execSQL(ComandosSql.sqlDropTableTent());
         this.onCreate(db);
     }
 }

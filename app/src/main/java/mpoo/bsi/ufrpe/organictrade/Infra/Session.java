@@ -2,15 +2,25 @@ package mpoo.bsi.ufrpe.organictrade.Infra;
 
 import android.content.Context;
 import mpoo.bsi.ufrpe.organictrade.Infra.Persistencia.DatabaseHelper;
-import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Dominio.TentItems;
-import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Dominio.User;
+import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Item.dominio.Tent;
+import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Item.dominio.TentItems;
+import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.User.dominio.User;
 
 public class Session {
     private static DatabaseHelper dbAtual;
     private static User currentUser;
     private static User contactSelected;
     private static TentItems itemSelected;
+    private static Tent tentSelected;
     private static Context context;
+
+    public static Tent getTentSelected() {
+        return tentSelected;
+    }
+
+    public static void setTentSelected(Tent tentSelected) {
+        Session.tentSelected = tentSelected;
+    }
 
     public static DatabaseHelper getDbAtual() {
         return dbAtual;
@@ -47,7 +57,6 @@ public class Session {
     public static void setItemSelected(TentItems itemSelected) {
         Session.itemSelected = itemSelected;
     }
-
 
     public Session(){
         DatabaseHelper db = new DatabaseHelper(Session.getContext());

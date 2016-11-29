@@ -11,7 +11,6 @@ public class ComandosSql {
                         + DatabaseHelper.getColumnUserEmail() + " text unique not null , "
                         + DatabaseHelper.getColumnUserName() + " text , "
                         + DatabaseHelper.getColumnUserPhone() + " text , "
-                        + DatabaseHelper.getColumnUserAdress() + " text , "
                         + DatabaseHelper.getColumnUserImg() + " text"
                         + ");";
         return(sqlCreateUserTable);
@@ -25,10 +24,10 @@ public class ComandosSql {
                         + DatabaseHelper.getColumnTentitemsPrice() + " text not null , "
                         + DatabaseHelper.getColumnTentitemsUnity() + " text no null , "
                         + DatabaseHelper.getColumnTentitemsProductId()+ " integer , "
-                        + DatabaseHelper.getColumnTentitemsUserId()+ " integer , "
+                        + DatabaseHelper.getColumnTentitemsTentId()+ " integer , "
                         + DatabaseHelper.getColumnTentitemsImg() + " text , "
                         + "foreign key ( "+DatabaseHelper.getColumnTentitemsProductId()+" ) references "+DatabaseHelper.getTableProductName()+" ("+DatabaseHelper.getColumnProductId()+") , "
-                        + "foreign key ( "+DatabaseHelper.getColumnTentitemsUserId()+" ) references "+DatabaseHelper.getTableUserName()+" ("+DatabaseHelper.getColumnUserId()+")"
+                        + "foreign key ( "+DatabaseHelper.getColumnTentitemsTentId()+" ) references "+DatabaseHelper.getTableTentName()+" ("+DatabaseHelper.getColumnTentId()+")"
                         + ");";
         return(sqlCreateTentItemsTable);
 
@@ -52,6 +51,20 @@ public class ComandosSql {
         return(sqlCreateProductTable);
     }
 
+    public static String sqlCreateTentTable() {
+        String sqlCreateTentTable =
+                "CREATE TABLE "+ DatabaseHelper.getTableTentName() + "( "
+                        + DatabaseHelper.getColumnTentId()+" integer primary key autoincrement not null , "
+                        + DatabaseHelper.getColumnTentLongi()+" text , "
+                        + DatabaseHelper.getColumnTentLagi()+ " text , "
+                        + DatabaseHelper.getColumnTentUserId()+" text , "
+                        + DatabaseHelper.getColumnTentName()+" text , "
+                        + DatabaseHelper.getColumnTentImg()+" text , "
+                        + "foreign key ( "+DatabaseHelper.getColumnTentUserId()+" ) references "+DatabaseHelper.getTableUserName()+" ("+DatabaseHelper.getColumnUserId()+")"
+                        + ");";
+        return(sqlCreateTentTable);
+    }
+
     public static String sqlDropTableUsuarioLogado(){
         String sqlDropTableUsuarioLogado = "DROP TABLE IF EXISTS " + DatabaseHelper.getTableUserLoggedName();
         return (sqlDropTableUsuarioLogado);
@@ -60,6 +73,11 @@ public class ComandosSql {
     public static String sqlDropTableUsuario() {
         String sqlDropTableUsuario = "DROP TABLE IF EXISTS " + DatabaseHelper.getTableUserName();
         return(sqlDropTableUsuario);
+    }
+
+    public static String sqlDropTableTent() {
+        String sqlDropTableTent = "DROP TABLE IF EXISTS " + DatabaseHelper.getTableTentName();
+        return(sqlDropTableTent);
     }
 
     public static String sqlDropTableItensDeTenda() {
@@ -85,17 +103,20 @@ public class ComandosSql {
         return (productTableIsEmpty);
     }
 
-    public static String sqlItemFromUser(){
+    public static String sqlTentFromUser(){
         String sqlItemFromUser =
-                "SELECT * FROM " + DatabaseHelper.getTableTentitemsName() + " WHERE "
-                        + DatabaseHelper.getColumnTentitemsUserId() + " =?;";
+                "SELECT * FROM " + DatabaseHelper.getTableTentName()
+                        + " WHERE "
+                        + DatabaseHelper.getColumnTentUserId()
+                        + " =?;";
+        ;
         return (sqlItemFromUser);
     }
 
     public static String sqlAllItems(){
         String sqlAllItems =
                 "SELECT * FROM " + DatabaseHelper.getTableTentitemsName() + " WHERE NOT "
-                        + DatabaseHelper.getColumnTentitemsUserId() + " =?;";
+                        + DatabaseHelper.getColumnTentitemsTentId() + " =?;";
         return (sqlAllItems);
     }
 
@@ -150,5 +171,12 @@ public class ComandosSql {
                 "SELECT * FROM "+DatabaseHelper.getTableProductName() +" WHERE "
                         +DatabaseHelper.getColumnProductId() +" =?;";
         return (sqlProductNameById);
+    }
+
+    public static String sqlAllItemsOfTent(){
+        String sqlAllItemsOfTent =
+                "SELECT * FROM "+DatabaseHelper.getTableTentitemsName() +" WHERE "
+                        +DatabaseHelper.getColumnTentitemsTentId()+" =?;";
+        return (sqlAllItemsOfTent);
     }
 }
