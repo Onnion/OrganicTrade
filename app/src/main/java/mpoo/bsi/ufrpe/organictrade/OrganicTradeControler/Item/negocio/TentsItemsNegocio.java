@@ -1,4 +1,4 @@
-package mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Item.negocio;
+package mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.item.negocio;
 import android.widget.Toast;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;

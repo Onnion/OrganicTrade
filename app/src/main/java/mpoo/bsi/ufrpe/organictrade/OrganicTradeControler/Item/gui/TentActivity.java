@@ -1,4 +1,4 @@
-package mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Item.gui;
+package mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.item.gui;
 
 import android.content.Intent;
 import android.graphics.Rect;
@@ -18,8 +18,8 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 import mpoo.bsi.ufrpe.organictrade.Infra.Session;
-import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Item.dominio.TentItems;
-import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Item.persistencia.TentItemsPersistence;
+import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.item.dominio.TentItems;
+import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.item.persistencia.TentItemsPersistence;
 import mpoo.bsi.ufrpe.organictrade.R;
 
 public class TentActivity extends AppCompatActivity {

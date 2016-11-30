@@ -1,18 +1,17 @@
-package mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Item.persistencia;
+package mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.item.persistencia;
 
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 
 import mpoo.bsi.ufrpe.organictrade.Infra.Persistencia.ComandosSql;
 import mpoo.bsi.ufrpe.organictrade.Infra.Persistencia.DatabaseHelper;
 import mpoo.bsi.ufrpe.organictrade.Infra.Session;
-import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Item.dominio.Product;
-import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Item.dominio.Tent;
-import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Item.dominio.TentItems;
+import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.item.dominio.Product;
+import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.item.dominio.Tent;
+import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.item.dominio.TentItems;
 
 public class TentItemsPersistence {
     private SQLiteDatabase db;//
@@ -31,11 +30,11 @@ public class TentItemsPersistence {
         product = productPersistence.getProductByid(productId);
         tentItems.setProduct(product);
 
-//        String tentId = cursor.getString(5);
-//        TentPersistence tentPersistence = new TentPersistence();
-//        Tent tent;
-//        tent = tentPersistence.getTent(tentId);
-//        tentItems.setTent(tent);
+        String tentId = cursor.getString(5);
+        TentPersistence tentPersistence = new TentPersistence();
+        Tent tent;
+        tent = tentPersistence.getTent(tentId);
+        tentItems.setTent(tent);
         //--------------------------------------------------------------//
         tentItems.setImageItem(cursor.getString(6));
         return tentItems;
@@ -63,7 +62,7 @@ public class TentItemsPersistence {
         tentItemsValues.put(DatabaseHelper.getColumnTentitemsPrice(), tentItems.getValue());
         tentItemsValues.put(DatabaseHelper.getColumnTentitemsUnity(), tentItems.getUnity());
         tentItemsValues.put(DatabaseHelper.getColumnTentitemsTentId(),tentItems.getTent().getTentId());
-        tentItemsValues.put(DatabaseHelper.getColumnTentitemsProductId(),tentItems.getProduct().getId_product());
+        tentItemsValues.put(DatabaseHelper.getColumnTentitemsProductId(),tentItems.getProduct().getProdutoId());
         tentItemsValues.put(DatabaseHelper.getColumnTentitemsImg(),tentItems.getImageItem());
         db.insert(DatabaseHelper.getTableTentitemsName(), null, tentItemsValues);
         db.close();

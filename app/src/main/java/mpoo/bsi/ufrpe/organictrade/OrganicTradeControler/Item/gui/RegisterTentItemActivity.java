@@ -1,4 +1,4 @@
-package mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Item.gui;
+package mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.item.gui;
 
 import android.content.Intent;
 import android.database.Cursor;
@@ -15,12 +15,9 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 
 import mpoo.bsi.ufrpe.organictrade.Infra.Session;
-import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Item.dominio.Product;
-import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Item.dominio.TentItems;
-import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Item.persistencia.ProductPersistence;
-import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Item.persistencia.TentItemsPersistence;
-import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Item.persistencia.TentPersistence;
-import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.User.gui.UserActivity;
+import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.item.dominio.TentItems;
+import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.item.persistencia.ProductPersistence;
+import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.item.persistencia.TentItemsPersistence;
 import mpoo.bsi.ufrpe.organictrade.R;
 
 public class RegisterTentItemActivity extends AppCompatActivity {

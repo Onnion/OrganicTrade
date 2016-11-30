@@ -1,8 +1,8 @@
-package mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.User.dominio;
+package mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.user.dominio;
 
 public class User {
 
-    private String id_user;
+    private String userId;
     private String userName;
     private String password;
     private String email;
@@ -35,11 +35,11 @@ public class User {
     }
 
     public String getId_user() {
-        return id_user;
+        return userId;
     }
 
     public void setId_user(String id_user) {
-        this.id_user = id_user;
+        this.userId = id_user;
     }
 
     public String getUserName() {

@@ -1,4 +1,4 @@
-package mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.User.gui;
+package mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.user.gui;
 
 import android.content.Intent;
 import android.database.Cursor;
@@ -21,15 +21,15 @@ import android.widget.TextView;
 import android.widget.Toast;
 import java.util.ArrayList;
 import mpoo.bsi.ufrpe.organictrade.Infra.Session;
-import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Item.dominio.Tent;
-import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Item.gui.RegisterTentActivity;
-import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Item.gui.TentActivity;
-import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Item.gui.TentListAdapter;
-import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Item.persistencia.TentItemsPersistence;
-import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.User.dominio.User;
-import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Item.gui.SearchProductsActivity;
-import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Item.persistencia.TentPersistence;
-import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.User.persistencia.UserPersistence;
+import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.item.dominio.Tent;
+import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.item.gui.RegisterTentActivity;
+import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.item.gui.TentActivity;
+import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.item.gui.TentListAdapter;
+import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.item.persistencia.TentItemsPersistence;
+import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.user.dominio.User;
+import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.item.gui.SearchProductsActivity;
+import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.item.persistencia.TentPersistence;
+import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.user.persistencia.UserPersistence;
 import mpoo.bsi.ufrpe.organictrade.R;
 
 public class UserActivity extends AppCompatActivity {
@@ -121,7 +121,7 @@ public class UserActivity extends AppCompatActivity {
     private void pupulateListView() {
         listOfTents = (ListView) findViewById(R.id.usuarioListViewList);
         TentPersistence tentPersistence = new TentPersistence();
-        finalTent = tentPersistence.getTent(Session.getCurrentUser().getId_user());
+        finalTent = tentPersistence.getTentOfUser(Session.getCurrentUser().getId_user());
         adapter = new TentListAdapter(finalTent);
         listOfTents.setAdapter(adapter);
         registerForContextMenu(listOfTents);

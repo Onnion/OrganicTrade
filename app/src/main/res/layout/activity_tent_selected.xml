@@ -5,38 +5,46 @@
     android:id="@+id/activity_contact"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.User.gui.ContactActivity"
-    android:weightSum="1">
+    tools:context="mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.user.gui.ContactActivity">
 
-    <LinearLayout
+    <RelativeLayout
+        android:id="@+id/contactImgTent"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="0.2"
-        android:background="@color/verdeParaTudo"
-        android:weightSum="1">
+        android:layout_weight="0.5"
+        >
 
-        <TextView
-            android:textSize="50sp"
-            android:textAlignment="center"
-            android:textColor="#ffff"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/contatTextName" />
+        <LinearLayout
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:clickable="true"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true">
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_gravity=""
+                android:id="@+id/contactImgUser"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/no_img_icon"
+                />
 
-    </LinearLayout>
+
+        </LinearLayout>
+    </RelativeLayout>
 
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="0.8"
+        android:layout_weight="1"
         android:background="#ffff">
 
         <LinearLayout
             android:orientation="vertical"
             android:background="@drawable/shadow_101322"
-            android:layout_margin="10dp"
+            android:layout_margin="5dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
@@ -44,7 +52,8 @@
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="0.3">
+                android:layout_weight="0.18">
+
                 <ImageView
                     android:id="@+id/contactImgMarket"
                     android:src="@mipmap/ic_market"
@@ -53,6 +62,7 @@
                     android:layout_width="47dp"
                     android:layout_height="44dp"
                     android:visibility="visible" />
+
                 <LinearLayout
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
@@ -93,7 +103,7 @@
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="0.3"
+                android:layout_weight="0.18"
                 >
                 <ImageView
                     android:id="@+id/contactImgPhone"
@@ -122,7 +132,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1">
-
                 <fragment
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -133,5 +142,4 @@
 
         </LinearLayout>
     </LinearLayout>
-
 </LinearLayout>

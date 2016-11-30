@@ -1,4 +1,4 @@
-package mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Item.gui;
+package mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.item.gui;
 
 import android.content.Context;
 import android.graphics.BitmapFactory;
@@ -9,10 +9,9 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 import java.util.List;
-
 import mpoo.bsi.ufrpe.organictrade.Infra.Session;
-import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Item.dominio.TentItems;
-import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Item.persistencia.ProductPersistence;
+import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.item.dominio.TentItems;
+import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.item.persistencia.ProductPersistence;
 import mpoo.bsi.ufrpe.organictrade.R;
 
 public class ItemListAdapter extends ArrayAdapter<TentItems> {
@@ -37,7 +36,7 @@ public class ItemListAdapter extends ArrayAdapter<TentItems> {
         imageView.setImageBitmap(BitmapFactory.decodeFile(itenDeTenda.getImageItem()));
 
         TextView textoNomeProduto = (TextView) view.findViewById(R.id.itemTxtNome);
-        textoNomeProduto.setText(productPersistence.nameProductById(itenDeTenda.getProduct().getId_product()));
+        textoNomeProduto.setText(productPersistence.nameProductById(itenDeTenda.getProduct().getProdutoId()));
 
         TextView textoPriceProduto = (TextView)view.findViewById(R.id.itemTxtPrice);
         textoPriceProduto.setText(itenDeTenda.getValue());

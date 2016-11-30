@@ -1,4 +1,4 @@
-package mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Item.persistencia;
+package mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.item.persistencia;
 
 import android.content.ContentValues;
 import android.database.Cursor;
@@ -10,9 +10,8 @@ import java.util.ArrayList;
 import mpoo.bsi.ufrpe.organictrade.Infra.Persistencia.ComandosSql;
 import mpoo.bsi.ufrpe.organictrade.Infra.Persistencia.DatabaseHelper;
 import mpoo.bsi.ufrpe.organictrade.Infra.Session;
-import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Item.dominio.Tent;
-import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Item.dominio.TentItems;
-import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.User.persistencia.UserPersistence;
+import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.item.dominio.Tent;
+import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.user.persistencia.UserPersistence;
 
 public class TentPersistence {
     private SQLiteDatabase db;
@@ -30,23 +29,30 @@ public class TentPersistence {
         return tent;
     }
 
-    public ArrayList<Tent> getTent(String userId){
+    public ArrayList<Tent> getTentOfUser(String userId){
         ArrayList<Tent> tents = new ArrayList<>();
         db = banco.getReadableDatabase();
         Cursor cursorLocal = db.rawQuery(ComandosSql.sqlTentFromUser(),new String[]{userId});
         if(cursorLocal.moveToFirst()){
-            Toast.makeText(Session.getContext(),"foi",Toast.LENGTH_LONG).show();
             do{
                 Tent tent = createTent(cursorLocal);
                 tents.add(tent);
             }while (cursorLocal.moveToNext());
-        }else{
-            Toast.makeText(Session.getContext(),"nao foi",Toast.LENGTH_LONG).show();
-
         }
         cursorLocal.close();
         db.close();
         return tents;
+    }
+    public Tent getTent(String tentId){
+        Tent tent = null;
+        db = banco.getReadableDatabase();
+        Cursor cursor = db.rawQuery(ComandosSql.sqlTentById(),new String[]{tentId});
+        if(cursor.moveToFirst()){
+            tent = createTent(cursor);
+        }
+        cursor.close();
+        db.close();
+        return tent;
     }
 
     public void registerTent(Tent tent){
@@ -67,21 +73,5 @@ public class TentPersistence {
         db.delete(DatabaseHelper.getTableTentName(),where,new String[]{id});
     }
 
-//    public List<TentItems> retornarTendaDosUsuarios(){
-//        List<TentItems> tent;
-//        TentItemsPersistence crud = new TentItemsPersistence();
-//        db = banco.getReadableDatabase();
-//        Cursor cursor = db.rawQuery(ComandosSql.sqlAllItems(), new String[]{Session.getCurrentUser().getId_user()});
-//        if(cursor.moveToFirst()){
-//            Toast.makeText(Session.getContext(),"foi",Toast.LENGTH_LONG).show();
-//            tent = List<TentItems>;
-//            do{
-//                TentItems tentItems = crud.createTentItems(cursor);
-//                tent.addTentItem(tentItems);
-//            }while(cursor.moveToNext());
-//        }
-//        cursor.close();
-//        db.close();
-//        return tent;
-//    }
+
 }

@@ -1,4 +1,4 @@
-package mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Item.gui;
+package mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.item.gui;
 import android.location.Location;
 import android.support.annotation.NonNull;
 import android.os.Bundle;
@@ -8,7 +8,7 @@ import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.location.LocationServices;
 import mpoo.bsi.ufrpe.organictrade.Infra.Session;
 
-public class TentLocation implements GoogleApiClient.OnConnectionFailedListener,GoogleApiClient.ConnectionCallbacks {
+public class Locality implements GoogleApiClient.OnConnectionFailedListener,GoogleApiClient.ConnectionCallbacks {
 
     private Location mLastLocation;
     private GoogleApiClient mGoogleApiClient;
@@ -42,7 +42,7 @@ public class TentLocation implements GoogleApiClient.OnConnectionFailedListener,
                 .build();
     }
 
-    public TentLocation() {
+    public Locality() {
         callConnection();
         mGoogleApiClient.connect();
     }

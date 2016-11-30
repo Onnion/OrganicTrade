@@ -1,4 +1,4 @@
-package mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Item.dominio;
+package mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.item.dominio;
 public class TentItems {
 
     private String tentItems_id;

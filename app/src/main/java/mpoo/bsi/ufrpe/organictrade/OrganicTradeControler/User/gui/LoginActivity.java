@@ -1,4 +1,4 @@
-package mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.User.gui;
+package mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.user.gui;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -7,9 +7,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 import mpoo.bsi.ufrpe.organictrade.Infra.Session;
-import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.User.negocio.Md5;
-import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.User.negocio.UserNegocio;
-import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.User.persistencia.UserPersistence;
+import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.user.negocio.Md5;
+import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.user.negocio.UserNegocio;
+import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.user.persistencia.UserPersistence;
+
 import mpoo.bsi.ufrpe.organictrade.R;
 
 public class LoginActivity extends AppCompatActivity {

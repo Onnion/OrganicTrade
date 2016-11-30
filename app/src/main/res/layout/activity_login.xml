@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.User.gui.LoginActivity">
+    tools:context="mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.user.gui.LoginActivity">
 
     <Button
         android:id="@+id/loginBtnToCadastro"

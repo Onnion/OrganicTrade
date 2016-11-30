@@ -2,9 +2,9 @@ package mpoo.bsi.ufrpe.organictrade.Infra;
 
 import android.content.Context;
 import mpoo.bsi.ufrpe.organictrade.Infra.Persistencia.DatabaseHelper;
-import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Item.dominio.Tent;
-import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Item.dominio.TentItems;
-import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.User.dominio.User;
+import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.item.dominio.Tent;
+import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.item.dominio.TentItems;
+import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.user.dominio.User;
 
 public class Session {
     private static DatabaseHelper dbAtual;

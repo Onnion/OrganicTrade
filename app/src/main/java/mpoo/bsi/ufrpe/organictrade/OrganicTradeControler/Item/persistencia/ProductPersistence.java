@@ -1,4 +1,4 @@
-package mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Item.persistencia;
+package mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.item.persistencia;
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -6,7 +6,7 @@ import android.database.sqlite.SQLiteDatabase;
 import mpoo.bsi.ufrpe.organictrade.Infra.Persistencia.ComandosSql;
 import mpoo.bsi.ufrpe.organictrade.Infra.Persistencia.DatabaseHelper;
 import mpoo.bsi.ufrpe.organictrade.Infra.Session;
-import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Item.dominio.Product;
+import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.item.dominio.Product;
 
 public class ProductPersistence {
     private int id = 0;
@@ -28,7 +28,7 @@ public class ProductPersistence {
 
     public Product createProduct(String string) {
         Product product = new Product();
-        product.setId_product(Integer.toString(getId()));
+        product.setProdutoId(Integer.toString(getId()));
         product.setProduct_name(string);
         setId(getId()+1);
         return product;
@@ -36,7 +36,7 @@ public class ProductPersistence {
 
     private Product createProductBtConsult(Cursor cursor){
         Product product = new Product();
-        product.setId_product(cursor.getString(0));
+        product.setProdutoId(cursor.getString(0));
         product.setProduct_name(cursor.getString(1));
         return product;
     }
@@ -44,7 +44,7 @@ public class ProductPersistence {
     public void registerProduct(Product product){
         db = banco.getWritableDatabase();
         ContentValues valuesProduct = new ContentValues();
-        valuesProduct.put(DatabaseHelper.getColumnProductId(),product.getId_product());
+        valuesProduct.put(DatabaseHelper.getColumnProductId(),product.getProdutoId());
         valuesProduct.put(DatabaseHelper.getColumnProductName(), product.getProduct_name());
         db.insert(DatabaseHelper.getTableProductName(), null, valuesProduct);
         db.close();

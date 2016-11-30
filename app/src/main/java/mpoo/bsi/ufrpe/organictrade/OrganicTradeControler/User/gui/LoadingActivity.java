@@ -1,11 +1,11 @@
-package mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.User.gui;
+package mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.user.gui;
 import android.content.Intent;
 import android.os.Handler;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
 import mpoo.bsi.ufrpe.organictrade.Infra.Session;
-import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.User.persistencia.UserPersistence;
+import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.user.persistencia.UserPersistence;
 import mpoo.bsi.ufrpe.organictrade.R;
 
 public class LoadingActivity extends AppCompatActivity{

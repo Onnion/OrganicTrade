@@ -1,6 +1,6 @@
-package mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Item.dominio;
+package mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.item.dominio;
 
-import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.User.dominio.User;
+import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.user.dominio.User;
 
 public class Tent {
     private String tentId;

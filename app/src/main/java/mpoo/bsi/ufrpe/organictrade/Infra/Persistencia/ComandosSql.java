@@ -181,4 +181,11 @@ public class ComandosSql {
                         +DatabaseHelper.getColumnTentitemsTentId()+" =?;";
         return (sqlAllItemsOfTent);
     }
+
+    public static String sqlTentById(){
+        String sqlTentById =
+                "SELECT * FROM "+DatabaseHelper.getTableTentName() +" WHERE "
+                        +DatabaseHelper.getColumnTentId()+" =?;";
+        return (sqlTentById);
+    }
 }

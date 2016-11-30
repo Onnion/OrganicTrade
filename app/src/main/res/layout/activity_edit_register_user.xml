@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.User.gui.EditRegisterUserActivity">
+    tools:context="mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.user.gui.EditRegisterUserActivity">
 
     <LinearLayout
         android:layout_margin="10dp"

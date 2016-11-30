@@ -1,4 +1,4 @@
-package mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Item.gui;
+package mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.item.gui;
 
 import android.content.Intent;
 import android.database.Cursor;
@@ -13,13 +13,13 @@ import android.widget.EditText;
 import android.widget.ImageView;
 
 import mpoo.bsi.ufrpe.organictrade.Infra.Session;
-import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Item.dominio.Tent;
-import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Item.persistencia.TentPersistence;
-import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.User.gui.UserActivity;
+import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.item.dominio.Tent;
+import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.item.persistencia.TentPersistence;
+import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.user.gui.UserActivity;
 import mpoo.bsi.ufrpe.organictrade.R;
 
 public class RegisterTentActivity extends AppCompatActivity {
-    private TentLocation tentLocation;
+    private Locality tentLocality;
     private static int RESULT_LOAD_IMAGE = 1;
     private Tent tent;
     private String nameStr;
@@ -55,7 +55,7 @@ public class RegisterTentActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_tent);
-        tentLocation = new TentLocation();
+        tentLocality = new Locality();
         tent = new Tent();
         Session.setContext(getBaseContext());
         //------------------------------------------------//
@@ -74,8 +74,8 @@ public class RegisterTentActivity extends AppCompatActivity {
             public void onClick(View v) {
                 TentPersistence tentPersistence = new TentPersistence();
                 loadValuesToRegister();
-                tent.setLongi(tentLocation.getLongi());
-                tent.setLagi(tentLocation.getLagi());
+                tent.setLongi(tentLocality.getLongi());
+                tent.setLagi(tentLocality.getLagi());
                 tent.setName(nameStr);
                 tent.setUser(Session.getCurrentUser());
                 tentPersistence.registerTent(tent);

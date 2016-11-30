@@ -1,4 +1,4 @@
-package mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.User.gui;
+package mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.user.gui;
 
 import android.content.Context;
 import android.content.Intent;
@@ -7,12 +7,15 @@ import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
+import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -22,42 +25,41 @@ import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import mpoo.bsi.ufrpe.organictrade.Infra.Session;
-import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Item.dominio.TentItems;
-import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.User.dominio.User;
-import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Item.gui.SearchProductsActivity;
-import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Item.persistencia.ProductPersistence;
+import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.item.dominio.Tent;
+import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.item.dominio.TentItems;
+import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.item.gui.Locality;
+import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.user.dominio.User;
+import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.item.gui.SearchProductsActivity;
+import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.item.persistencia.ProductPersistence;
 import mpoo.bsi.ufrpe.organictrade.R;
 
 import static java.lang.Double.parseDouble;
 
 public class ContactActivity extends FragmentActivity implements OnMapReadyCallback {
+    private Tent tentSelected = Session.getTentSelected();
     private User contactSelected = Session.getContactSelected();
     private TentItems itemSelected = Session.getItemSelected();
     private ProductPersistence productPersistence = new ProductPersistence();
     private GoogleMap mMap;
-    private LatLng locationContactSelected;
-    private LatLng locationCurrentUser;
+    private LatLng locationTentSelected;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_contact);
+        setContentView(R.layout.activity_tent_selected);
         Session.setContext(getBaseContext());
-        loadMapFragment();
         loadContactOfTentItemSelected();
+        loadMapFragment();
+
     }
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
-//        mMap = googleMap;
-//        String[] stringLocationContactSelected = contactSelected.getAdress().split(",");
-//        String[] StringLocationUser = Session.getCurrentUser().getAdress().split(",");
-//        locationContactSelected = new LatLng(parseDouble(stringLocationContactSelected[0]),parseDouble(stringLocationContactSelected[1]));
-//        locationCurrentUser = new LatLng(parseDouble(StringLocationUser[0]),parseDouble(StringLocationUser[1]));
-//        loadLocationContactSelect();
-//        loadLocationCurrentUser();
-//        mMap.moveCamera(CameraUpdateFactory.newLatLng(locationContactSelected));
-//        mMap.setMinZoomPreference(13);
+        mMap = googleMap;
+        locationTentSelected = new LatLng(parseDouble(tentSelected.getLagi()),parseDouble(tentSelected.getLongi()));
+        loadLocationContactSelect();
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(locationTentSelected));
+        mMap.setMinZoomPreference(13);
     }
 
     @Override
@@ -86,30 +88,15 @@ public class ContactActivity extends FragmentActivity implements OnMapReadyCallb
         return returnedBitmap;
     }
 
-    private void loadLocationCurrentUser() {
-        if(Session.getCurrentUser().getImage() == null){
-            mMap.addMarker(new MarkerOptions()
-                    .position(locationCurrentUser)
-                    .title(getString(R.string.myTent))
-                    .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE)));
-
-        }else {
-            mMap.addMarker(new MarkerOptions()
-                    .position(locationCurrentUser)
-                    .title(getString(R.string.myTent))
-                    .icon(BitmapDescriptorFactory.fromBitmap(getMarkerBitmapFromImageUser(Session.getCurrentUser()))));
-        }
-    }
-
     private void loadLocationContactSelect() {
         if(Session.getContactSelected().getImage() == null){
             mMap.addMarker(new MarkerOptions()
-                    .position(locationContactSelected)
-                    .title(R.string.tentOf + contactSelected.getName()));
+                    .position(locationTentSelected)
+                    .title(getText(R.string.tentOf) +" "+ contactSelected.getName()));
         }else {
             mMap.addMarker(new MarkerOptions()
-                    .position(locationContactSelected)
-                    .title(R.string.tentOf + contactSelected.getName())
+                    .position(locationTentSelected)
+                    .title(getText(R.string.tentOf) +" "+ contactSelected.getName())
                     .icon(BitmapDescriptorFactory.fromBitmap(getMarkerBitmapFromImageUser(Session.getContactSelected())))
 
             );
@@ -117,15 +104,17 @@ public class ContactActivity extends FragmentActivity implements OnMapReadyCallb
     }
 
     private void loadContactOfTentItemSelected() {
-        TextView name = (TextView)findViewById(R.id.contatTextName);
+        ImageView imgUser = (ImageView)findViewById(R.id.contactImgUser);
+        RelativeLayout imageTent = (RelativeLayout)findViewById(R.id.contactImgTent);
         TextView phone = (TextView)findViewById(R.id.contatTextPhone);
         TextView productName = (TextView)findViewById(R.id.contatTextProductName);
         TextView productAmount = (TextView)findViewById(R.id.contatTextProductAmount);
         TextView productPrice = (TextView)findViewById(R.id.contatTextProductPrice);
-
-        name.setText(contactSelected.getName());
+        Drawable d = new BitmapDrawable(getResources(),BitmapFactory.decodeFile(tentSelected.getImg()));
+        imageTent.setBackground(d);
+        imgUser.setImageBitmap(BitmapFactory.decodeFile(contactSelected.getImage()));
         phone.setText(contactSelected.getPhone());
-        productName.setText(productPersistence.nameProductById(itemSelected.getProduct().getId_product()));
+        productName.setText(productPersistence.nameProductById(itemSelected.getProduct().getProdutoId()));
         productAmount.setText(itemSelected.getCurrentAmount());
         productPrice.setText(new StringBuilder().append("R$ ").append(itemSelected.getValue()).toString());
     }

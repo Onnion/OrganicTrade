@@ -1,8 +1,8 @@
-package mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Item.dominio;
+package mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.item.dominio;
 
 public class Product {
     private String product_name;
-    private String id_product;
+    private String produtoId;
 
     public String getProduct_name() {
         return product_name;
@@ -12,13 +12,11 @@ public class Product {
         this.product_name = product_name;
     }
 
-    public String getId_product() {
-        return id_product;
+    public String getProdutoId() {
+        return produtoId;
     }
 
-    public void setId_product(String id_product) {
-        this.id_product = id_product;
+    public void setProdutoId(String produtoId) {
+        this.produtoId = produtoId;
     }
-
-
 }

@@ -1,4 +1,4 @@
-package mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.User.persistencia;
+package mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.user.persistencia;
 
 import android.content.ContentValues;
 import android.database.Cursor;
@@ -6,7 +6,7 @@ import android.database.sqlite.SQLiteDatabase;
 import mpoo.bsi.ufrpe.organictrade.Infra.Persistencia.ComandosSql;
 import mpoo.bsi.ufrpe.organictrade.Infra.Persistencia.DatabaseHelper;
 import mpoo.bsi.ufrpe.organictrade.Infra.Session;
-import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.User.dominio.User;
+import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.user.dominio.User;
 
 public class UserPersistence {
     private SQLiteDatabase db;

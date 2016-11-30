@@ -1,4 +1,4 @@
-package mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Item.gui;
+package mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.item.gui;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -12,17 +12,14 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import mpoo.bsi.ufrpe.organictrade.Infra.Session;
-import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Item.dominio.Tent;
-import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Item.dominio.TentItems;
-import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Item.persistencia.ProductPersistence;
-import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Item.persistencia.TentItemsPersistence;
-import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Item.persistencia.TentPersistence;
-import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.User.persistencia.UserPersistence;
-import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.User.gui.ContactActivity;
-import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.User.gui.UserActivity;
+import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.item.dominio.TentItems;
+import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.item.persistencia.ProductPersistence;
+import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.item.persistencia.TentItemsPersistence;
+import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.user.gui.ContactActivity;
+import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.user.persistencia.UserPersistence;
+import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.user.gui.UserActivity;
 import mpoo.bsi.ufrpe.organictrade.R;
 
 public class SearchProductsActivity extends AppCompatActivity {
@@ -84,6 +81,7 @@ public class SearchProductsActivity extends AppCompatActivity {
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id){
                 TentItems item = (TentItems)listView.getAdapter().getItem(position);
                 Session.setItemSelected(item);
+                Session.setTentSelected(item.getTent());
                 Session.setContactSelected(userPersistence.searchFromId(item.getTent().getUser().getId_user()));
                 Intent p = new Intent(Session.getContext(),ContactActivity.class);
                 startActivity(p);
@@ -94,7 +92,7 @@ public class SearchProductsActivity extends AppCompatActivity {
 
     public void searchItem(String textToSearch){
         for(int i = 0; i < listTent.size(); i++){
-            if(!productPersistence.nameProductById(listTent.get(i).getProduct().getId_product()).contains(textToSearch)){
+            if(!productPersistence.nameProductById(listTent.get(i).getProduct().getProdutoId()).contains(textToSearch)){
                 listTent.remove(listTent.get(i));
             }
         }

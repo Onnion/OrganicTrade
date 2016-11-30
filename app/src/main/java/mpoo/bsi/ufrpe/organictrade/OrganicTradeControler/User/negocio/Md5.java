@@ -1,4 +1,4 @@
-package mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.User.negocio;
+package mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.user.negocio;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
