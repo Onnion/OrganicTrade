@@ -5,33 +5,40 @@
     android:id="@+id/activity_contact"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.user.gui.ContactActivity">
+    tools:context="mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.user.gui.TentSelectedActivity">
 
     <RelativeLayout
         android:id="@+id/contactImgTent"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="0.5"
-        >
+        android:background="@color/accent300"
+        android:layout_weight="0.5">
+    </RelativeLayout>
+    <ImageView
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="-50dp"
+        android:layout_marginBottom="-30dp"
+        android:adjustViewBounds="true"
+        android:layout_gravity=""
+        android:id="@+id/contactImgUser"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/no_img_icon" />
+    <RelativeLayout
+        android:id="@+id/layoutBottom"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.2">
 
-        <LinearLayout
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:clickable="true"
-            android:layout_alignParentBottom="true"
+        <RatingBar
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/ratingBar"
+            android:layout_marginRight="20dp"
+            android:layout_marginEnd="20dp"
             android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true">
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:layout_gravity=""
-                android:id="@+id/contactImgUser"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:src="@drawable/no_img_icon"
-                />
-
-
-        </LinearLayout>
+            android:layout_alignParentEnd="true" />
     </RelativeLayout>
 
     <LinearLayout

@@ -13,6 +13,7 @@
         android:layout_height="0dp"
         android:background="@color/verdeParaTudo"
         android:layout_weight="0.3">
+
         <de.hdodenhof.circleimageview.CircleImageView
             android:layout_margin="10dp"
             android:layout_width="0dp"
@@ -22,6 +23,7 @@
             android:layout_gravity="center"
             android:id="@+id/tentImgTentImg"
             android:clickable="true" />
+
         <TextView
             android:id="@+id/tentTextTentName"
             android:textSize="50sp"

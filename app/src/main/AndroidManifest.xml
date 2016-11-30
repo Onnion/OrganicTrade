@@ -42,7 +42,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".OrganicTradeControler.item.gui.SearchProductsActivity" />
-        <activity android:name=".OrganicTradeControler.user.gui.ContactActivity" />
+        <activity android:name=".OrganicTradeControler.user.gui.TentSelectedActivity" />
         <activity android:name=".OrganicTradeControler.user.gui.EditRegisterUserActivity" />
         <activity android:name=".OrganicTradeControler.item.gui.EditRegisterTentItemActivity" />
         <activity android:name=".OrganicTradeControler.item.gui.RegisterTentActivity" />
