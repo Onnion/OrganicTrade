@@ -18,6 +18,7 @@ import mpoo.bsi.ufrpe.organictrade.Infra.Session;
 import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Item.dominio.Tent;
 import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Item.dominio.TentItems;
 import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Item.persistencia.ProductPersistence;
+import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Item.persistencia.TentItemsPersistence;
 import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Item.persistencia.TentPersistence;
 import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.User.persistencia.UserPersistence;
 import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.User.gui.ContactActivity;
@@ -26,8 +27,8 @@ import mpoo.bsi.ufrpe.organictrade.R;
 
 public class SearchProductsActivity extends AppCompatActivity {
     private ProductPersistence productPersistence = new ProductPersistence();
-    ArrayList<Tent> listTent;
-    TentListAdapter adapter;
+    ArrayList<TentItems> listTent;
+    ItemListAdapter adapter;
     ListView listView;
     EditText editText;
     UserPersistence userPersistence = new UserPersistence();
@@ -93,7 +94,7 @@ public class SearchProductsActivity extends AppCompatActivity {
 
     public void searchItem(String textToSearch){
         for(int i = 0; i < listTent.size(); i++){
-            if(!listTent.get(i).getName().contains(textToSearch)){
+            if(!productPersistence.nameProductById(listTent.get(i).getProduct().getId_product()).contains(textToSearch)){
                 listTent.remove(listTent.get(i));
             }
         }
@@ -101,9 +102,9 @@ public class SearchProductsActivity extends AppCompatActivity {
     }
 
     public void initTentList(){
-        TentPersistence tentPersistence = new TentPersistence();
-        listTent = tentPersistence.getTents(Session.getCurrentUser().getId_user());
-        adapter = new TentListAdapter(listTent);
+        TentItemsPersistence tentItemsPersistence = new TentItemsPersistence();
+        listTent = tentItemsPersistence.getAllItems(Session.getCurrentUser().getId_user());
+        adapter = new ItemListAdapter(listTent);
         listView.setAdapter(adapter);
     }
 }

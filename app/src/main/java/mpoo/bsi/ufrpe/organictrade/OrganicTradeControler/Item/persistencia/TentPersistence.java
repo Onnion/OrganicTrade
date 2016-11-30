@@ -11,6 +11,7 @@ import mpoo.bsi.ufrpe.organictrade.Infra.Persistencia.ComandosSql;
 import mpoo.bsi.ufrpe.organictrade.Infra.Persistencia.DatabaseHelper;
 import mpoo.bsi.ufrpe.organictrade.Infra.Session;
 import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Item.dominio.Tent;
+import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Item.dominio.TentItems;
 import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.User.persistencia.UserPersistence;
 
 public class TentPersistence {
@@ -28,7 +29,6 @@ public class TentPersistence {
         tent.setImg(cursor.getString(5));
         return tent;
     }
-
 
     public ArrayList<Tent> getTent(String userId){
         ArrayList<Tent> tents = new ArrayList<>();
@@ -59,21 +59,6 @@ public class TentPersistence {
         contentValues.put(DatabaseHelper.getColumnTentName(),tent.getName());
         db.insert(DatabaseHelper.getTableTentName(),null,contentValues);
         db.close();
-    }
-
-    public ArrayList<Tent> getTents(String userId){
-        ArrayList<Tent> tents = new ArrayList<>();
-        db = banco.getReadableDatabase();
-        Cursor cursor = db.rawQuery(ComandosSql.sqlAllItems(), new String[]{userId});
-        if(cursor.moveToFirst()){
-            do{
-                Tent tent = createTent(cursor);
-                tents.add(tent);
-            }while (cursor.moveToNext());
-        }
-        cursor.close();
-        db.close();
-        return tents;
     }
 
     public void deleteTent(String id){

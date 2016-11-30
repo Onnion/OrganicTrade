@@ -20,7 +20,6 @@ import java.util.ArrayList;
 import mpoo.bsi.ufrpe.organictrade.Infra.Session;
 import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Item.dominio.TentItems;
 import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Item.persistencia.TentItemsPersistence;
-import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.Item.persistencia.TentPersistence;
 import mpoo.bsi.ufrpe.organictrade.R;
 
 public class TentActivity extends AppCompatActivity {
@@ -55,7 +54,7 @@ public class TentActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         Session.setTentSelected(null);
-       finish();
+        finish();
     }
 
     @Override
@@ -70,7 +69,7 @@ public class TentActivity extends AppCompatActivity {
     private void pupulateListView() {
         listOfItems = (ListView) findViewById(R.id.tentListTentItems);
         TentItemsPersistence tentItemsPersistence = new TentItemsPersistence();
-        finalTent = tentItemsPersistence.getItems(Session.getTentSelected().getTentId());
+        finalTent = tentItemsPersistence.getItemsOfTent(Session.getTentSelected().getTentId());
         adapter = new ItemListAdapter(finalTent);
         listOfItems.setAdapter(adapter);
         registerForContextMenu(listOfItems);

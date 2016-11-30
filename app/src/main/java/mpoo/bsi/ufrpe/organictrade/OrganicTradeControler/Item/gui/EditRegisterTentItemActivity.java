@@ -75,7 +75,7 @@ public class EditRegisterTentItemActivity extends AppCompatActivity {
         tentItemsToEdit.setImageItem(picturePath);
         TentItemsPersistence tentItemsPersistence = new TentItemsPersistence();
         tentItemsPersistence.tentItemEdit(tentItemsToEdit);
-        Intent i = new Intent(Session.getContext(), UserActivity.class);
+        Intent i = new Intent(Session.getContext(),TentActivity.class);
         startActivity(i);
         finish();
     }

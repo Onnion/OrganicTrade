@@ -113,13 +113,6 @@ public class ComandosSql {
         return (sqlItemFromUser);
     }
 
-    public static String sqlAllItems(){
-        String sqlAllItems =
-                "SELECT * FROM " + DatabaseHelper.getTableTentitemsName() + " WHERE NOT "
-                        + DatabaseHelper.getColumnTentitemsTentId() + " =?;";
-        return (sqlAllItems);
-    }
-
     public static String sqlUserFromLoginAndPass(){
         String sqlUserFromLoginAndPass =
                 "SELECT * FROM "+DatabaseHelper.getTableUserName() +" WHERE "
@@ -171,6 +164,15 @@ public class ComandosSql {
                 "SELECT * FROM "+DatabaseHelper.getTableProductName() +" WHERE "
                         +DatabaseHelper.getColumnProductId() +" =?;";
         return (sqlProductNameById);
+    }
+
+    public static String sqlAllItems(){
+        String sqlAllItems =
+                "SELECT * FROM "+DatabaseHelper.getTableTentitemsName() +" WHERE "
+                        +DatabaseHelper.getColumnTentitemsTentId()
+                        +" IN ( SELECT "+DatabaseHelper.getColumnTentId()+" FROM "+DatabaseHelper.getTableTentName()+" WHERE NOT "
+                        +DatabaseHelper.getColumnTentUserId()+" = ?);";
+        return (sqlAllItems);
     }
 
     public static String sqlAllItemsOfTent(){

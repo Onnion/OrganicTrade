@@ -112,7 +112,6 @@ public class RegisterTentItemActivity extends AppCompatActivity {
     public void registerProduct() {
         loadValuesToRegister();
         TentItemsPersistence crud = new TentItemsPersistence();
-        TentPersistence tentPersistence = new TentPersistence();
         tentItems.setProduct(productPersistence.getProductByid(idProductString));
         tentItems.setCurrentAmount(amountString);
         tentItems.setValue(priceString);

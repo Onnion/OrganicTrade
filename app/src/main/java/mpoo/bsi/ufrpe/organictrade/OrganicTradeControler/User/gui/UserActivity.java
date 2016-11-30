@@ -147,7 +147,6 @@ public class UserActivity extends AppCompatActivity {
         Session.setTentSelected(tentSelected);
         Intent i = new Intent(Session.getContext(),TentActivity.class);
         startActivity(i);
-        finish();
     }
 
     private void setNameUser() {

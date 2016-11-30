@@ -81,10 +81,27 @@ public class TentItemsPersistence {
         db.close();
     }
 
-    public ArrayList<TentItems> getItems(String tentId ){
+    public ArrayList<TentItems> getItemsOfTent(String tentId ){
         ArrayList<TentItems> tentItems = new ArrayList<>();
         db = banco.getReadableDatabase();
         Cursor cursor = db.rawQuery(ComandosSql.sqlAllItemsOfTent(),new String[]{tentId});
+        if(cursor.moveToFirst()){
+            do{
+                TentItems tentItem = createTentItems(cursor);
+                tentItems.add(tentItem);
+            }while (cursor.moveToNext());
+        }
+        cursor.close();
+        db.close();
+        return tentItems;
+    }
+
+    public ArrayList<TentItems> getAllItems(String userId){
+        ArrayList<TentItems> tentItems = new ArrayList<>();
+        db = banco.getReadableDatabase();
+
+        Cursor cursor = db.rawQuery(ComandosSql.sqlAllItems(),new String[]{userId});
+
         if(cursor.moveToFirst()){
             do{
                 TentItems tentItem = createTentItems(cursor);
