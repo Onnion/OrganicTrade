@@ -15,21 +15,27 @@
         android:background="@color/accent300"
         android:layout_weight="0.5">
     </RelativeLayout>
-    <ImageView
-        android:layout_marginLeft="10dp"
+    <LinearLayout
+        android:layout_marginStart="10dp"
         android:layout_marginTop="-50dp"
-        android:layout_marginBottom="-30dp"
+        android:layout_marginBottom="-50dp"
         android:adjustViewBounds="true"
-        android:layout_gravity=""
-        android:id="@+id/contactImgUser"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:src="@drawable/no_img_icon" />
+        android:orientation="vertical">
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/no_img_icon"
+            android:id="@+id/contactImgUser"
+            />
+    </LinearLayout>
+
     <RelativeLayout
         android:id="@+id/layoutBottom"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="0.2">
+        android:layout_weight="0.15">
 
         <RatingBar
             android:layout_width="wrap_content"

@@ -17,7 +17,7 @@ import mpoo.bsi.ufrpe.organictrade.Infra.Session;
 import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.item.dominio.TentItems;
 import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.item.persistencia.ProductPersistence;
 import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.item.persistencia.TentItemsPersistence;
-import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.user.gui.ContactActivity;
+import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.user.gui.TentSelectedActivity;
 import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.user.persistencia.UserPersistence;
 import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.user.gui.UserActivity;
 import mpoo.bsi.ufrpe.organictrade.R;
@@ -83,7 +83,7 @@ public class SearchProductsActivity extends AppCompatActivity {
                 Session.setItemSelected(item);
                 Session.setTentSelected(item.getTent());
                 Session.setContactSelected(userPersistence.searchFromId(item.getTent().getUser().getId_user()));
-                Intent p = new Intent(Session.getContext(),ContactActivity.class);
+                Intent p = new Intent(Session.getContext(),TentSelectedActivity.class);
                 startActivity(p);
                 return false;
             }
