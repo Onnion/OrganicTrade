@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 import mpoo.bsi.ufrpe.organictrade.Infra.Session;
 import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.User.dominio.User;
+import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.User.negocio.Md5;
 import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.User.negocio.UserNegocio;
 import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.User.persistencia.UserPersistence;
 import mpoo.bsi.ufrpe.organictrade.R;
@@ -72,7 +73,7 @@ public class RegisterUserActivity extends AppCompatActivity {
     private void registerUser() {
         User usuario = new User();
         usuario.setUserName(userString);
-        usuario.setPassword(passString);
+        usuario.setPassword(Md5.encrypt(passString));
         usuario.setEmail(remail);
         usuario.setName(nomeString);
         usuario.setPhone(phoneString);
