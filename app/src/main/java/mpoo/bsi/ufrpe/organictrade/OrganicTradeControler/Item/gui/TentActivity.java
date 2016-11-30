@@ -1,6 +1,7 @@
 package mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.item.gui;
 
 import android.content.Intent;
+import android.graphics.BitmapFactory;
 import android.graphics.Rect;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -13,6 +14,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -63,10 +65,10 @@ public class TentActivity extends AppCompatActivity {
         setContentView(R.layout.activity_tent);
         Session.setContext(getBaseContext());
         loadAddBtn();
-        pupulateListView();
+        loadTentAtributes();
     }
 
-    private void pupulateListView() {
+    private void populateListView() {
         listOfItems = (ListView) findViewById(R.id.tentListTentItems);
         TentItemsPersistence tentItemsPersistence = new TentItemsPersistence();
         finalTent = tentItemsPersistence.getItemsOfTent(Session.getTentSelected().getTentId());
@@ -96,6 +98,7 @@ public class TentActivity extends AppCompatActivity {
                 Intent p = new Intent(Session.getContext(),RegisterTentItemActivity.class);
                 addBtn.setImageResource(R.mipmap.ic_add);
                 startActivity(p);
+                finish();
             }
         });
     }
@@ -103,6 +106,25 @@ public class TentActivity extends AppCompatActivity {
     private void initializeAddBtn() {
         addBtn = (ImageView) findViewById(R.id.tentImgRegisterTentItem);
         addBtn.setImageResource(R.mipmap.ic_add);
+    }
+
+    private void loadTentName(){
+        TextView textView = (TextView)findViewById(R.id.tentTextTentName);
+        textView.setText(Session.getTentSelected().getName());
+    }
+
+    private  void loadTentAtributes(){
+        loadTentName();
+        loadImgTent();
+        populateListView();
+    }
+    private void loadImgTent(){
+        ImageView imgTent = (ImageView)findViewById(R.id.tentImgTentImg);
+        if (Session.getTentSelected().getImg() == null){
+            imgTent.setImageResource(R.drawable.icon_tent_no_img);
+        }else{
+            imgTent.setImageBitmap(BitmapFactory.decodeFile(Session.getTentSelected().getImg()));
+        }
     }
 
     private void loadAddBtn() {

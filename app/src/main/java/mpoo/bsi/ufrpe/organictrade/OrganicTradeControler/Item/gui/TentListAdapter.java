@@ -30,12 +30,17 @@ public class TentListAdapter extends ArrayAdapter<Tent> {
 
         if (view == null)
             view = LayoutInflater.from(context).inflate(R.layout.tent_listview_adapter, null);
-
-        ImageView imageView = (ImageView) view.findViewById(R.id.tentImg);
-        imageView.setImageBitmap(BitmapFactory.decodeFile(tenda.getImg()));
-
+        loadImg(tenda,view);
         TextView textoNomeTent = (TextView) view.findViewById(R.id.tentTxtNome);
         textoNomeTent.setText(tenda.getName());
         return view;
+    }
+    private void loadImg(Tent tent,View view){
+        ImageView imageView = (ImageView) view.findViewById(R.id.tentImg);
+        if (tent.getImg() == null){
+            imageView.setImageResource(R.drawable.icon_tent_no_img);
+        }else{
+            imageView.setImageBitmap(BitmapFactory.decodeFile(tent.getImg()));
+        }
     }
 }

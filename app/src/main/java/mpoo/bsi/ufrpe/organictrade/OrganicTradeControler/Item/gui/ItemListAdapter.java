@@ -31,16 +31,22 @@ public class ItemListAdapter extends ArrayAdapter<TentItems> {
 
         if(view == null)
             view = LayoutInflater.from(context).inflate(R.layout.item_listview_adapter, null);
-
-        ImageView imageView = (ImageView)view.findViewById(R.id.itemImg);
-        imageView.setImageBitmap(BitmapFactory.decodeFile(itenDeTenda.getImageItem()));
+        loadImg(itenDeTenda,view);
 
         TextView textoNomeProduto = (TextView) view.findViewById(R.id.itemTxtNome);
         textoNomeProduto.setText(productPersistence.nameProductById(itenDeTenda.getProduct().getProdutoId()));
-
         TextView textoPriceProduto = (TextView)view.findViewById(R.id.itemTxtPrice);
         textoPriceProduto.setText(itenDeTenda.getValue());
 
         return view;
+    }
+
+    private void loadImg(TentItems item,View view){
+        ImageView imageView = (ImageView) view.findViewById(R.id.itemImg);
+        if (item.getImageItem() == null){
+            imageView.setImageResource(R.drawable.icon_item_no_img);
+        }else{
+            imageView.setImageBitmap(BitmapFactory.decodeFile(item.getImageItem()));
+        }
     }
 }

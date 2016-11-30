@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context="mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.item.gui.TentActivity">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:orientation="horizontal"
@@ -22,11 +23,17 @@
             android:id="@+id/tentImgTentImg"
             android:clickable="true" />
         <TextView
+            android:id="@+id/tentTextTentName"
+            android:textSize="50sp"
+            android:textStyle="bold"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:textColor="#ffffff"
             android:layout_width="0dp"
             android:layout_weight="1"
-            android:id="@+id/tentTextTentName"
             android:layout_height="match_parent" />
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -43,11 +50,8 @@
         <ImageView
             android:layout_width="0dp"
             android:layout_weight="1"
+            android:src="@mipmap/ic_edit"
             android:layout_height="match_parent" />
-
-
-
-
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
