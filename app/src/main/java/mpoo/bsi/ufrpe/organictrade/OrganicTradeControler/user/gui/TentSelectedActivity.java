@@ -104,20 +104,41 @@ public class TentSelectedActivity extends FragmentActivity implements OnMapReady
     }
 
     private void loadContactOfTentItemSelected() {
-        ImageView imgUser = (ImageView)findViewById(R.id.contactImgUser);
-        RelativeLayout imageTent = (RelativeLayout)findViewById(R.id.contactImgTent);
         TextView phone = (TextView)findViewById(R.id.contatTextPhone);
         TextView productName = (TextView)findViewById(R.id.contatTextProductName);
         TextView productAmount = (TextView)findViewById(R.id.contatTextProductAmount);
         TextView productPrice = (TextView)findViewById(R.id.contatTextProductPrice);
-        Drawable d = new BitmapDrawable(getResources(),BitmapFactory.decodeFile(tentSelected.getImg()));
-        imageTent.setBackground(d);
-        imgUser.setImageBitmap(BitmapFactory.decodeFile(contactSelected.getImage()));
+
+        loadImgUser();
+        loadImgTent();
+
+
         phone.setText(contactSelected.getPhone());
         productName.setText(productPersistence.nameProductById(itemSelected.getProduct().getProdutoId()));
         productAmount.setText(itemSelected.getCurrentAmount());
         productPrice.setText(new StringBuilder().append("R$ ").append(itemSelected.getValue()).toString());
     }
+
+    private void loadImgTent() {
+        RelativeLayout imageTent = (RelativeLayout)findViewById(R.id.contactImgTent);
+        if (!(tentSelected.getImg() == null)){
+            Drawable d = new BitmapDrawable(getResources(),BitmapFactory.decodeFile(tentSelected.getImg()));
+            imageTent.setBackground(d);
+        }else {
+            imageTent.setBackgroundResource(R.drawable.icon_tent_no_img);
+        }
+    }
+
+
+    private void loadImgUser() {
+        ImageView imageView = (ImageView) findViewById(R.id.contactImgUser);
+        if (!(contactSelected.getImage() == null)){
+            imageView.setImageBitmap(BitmapFactory.decodeFile(contactSelected.getImage()));
+        }else {
+            imageView.setImageResource(R.drawable.no_img_icon);
+        }
+    }
+
 
     private void loadMapFragment() {
         SupportMapFragment mapFragment = (SupportMapFragment)getSupportFragmentManager().findFragmentById(R.id.fragmenttest);
