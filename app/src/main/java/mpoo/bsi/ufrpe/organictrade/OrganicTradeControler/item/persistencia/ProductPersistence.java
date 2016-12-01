@@ -3,6 +3,8 @@ import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
+import java.util.ArrayList;
+
 import mpoo.bsi.ufrpe.organictrade.Infra.persistencia.ComandosSql;
 import mpoo.bsi.ufrpe.organictrade.Infra.persistencia.DatabaseHelper;
 import mpoo.bsi.ufrpe.organictrade.Infra.Session;
@@ -90,5 +92,16 @@ public class ProductPersistence {
             product = createProductBtConsult(cursor);
         }
         return product;
+    }
+
+    public ArrayList<Product> getAllProducts(){
+        ArrayList<Product> products = new ArrayList<>();
+        db=banco.getReadableDatabase();
+        Cursor cursor = db.rawQuery(ComandosSql.sqlAllProducts(),null);
+        if(cursor.moveToFirst())
+            do{
+                products.add(createProductBtConsult(cursor));
+            }while (cursor.moveToNext());
+        return products;
     }
 }

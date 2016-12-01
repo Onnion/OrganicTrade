@@ -67,9 +67,18 @@ public class TentActivity extends AppCompatActivity {
         loadAddBtn();
         loadTentAtributes();
     }
+    private void setFunctionItemOfListView() {
+        listOfItems.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Toast.makeText(Session.getContext(), "Mantenha o item pressionado para mais detalhes", Toast.LENGTH_LONG).show();
+            }
+        });
+    }
 
     private void populateListView() {
         listOfItems = (ListView) findViewById(R.id.tentListTentItems);
+        setFunctionItemOfListView();
         TentItemsPersistence tentItemsPersistence = new TentItemsPersistence();
         finalTent = tentItemsPersistence.getItemsOfTent(Session.getTentSelected().getTentId());
         adapter = new ItemListAdapter(finalTent);

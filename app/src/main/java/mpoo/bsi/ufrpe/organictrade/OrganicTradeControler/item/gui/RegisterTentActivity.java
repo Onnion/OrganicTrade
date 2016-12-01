@@ -1,4 +1,5 @@
 package mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.item.gui;
+
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -84,6 +85,14 @@ public class RegisterTentActivity extends FragmentActivity implements OnMapReady
     }
 
     private void setMarkerFunction() {
+        mMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
+            @Override
+            public boolean onMarkerClick(Marker marker) {
+                Toast.makeText(Session.getContext(),"Mantenha precionado para selecionar o local de sua tenda",Toast.LENGTH_LONG).show();
+                return false;
+            }
+        });
+
         mMap.setOnMarkerDragListener(new GoogleMap.OnMarkerDragListener() {
             @Override
             public void onMarkerDragStart(Marker marker) {
@@ -166,11 +175,11 @@ public class RegisterTentActivity extends FragmentActivity implements OnMapReady
 
     private void loadLocationContactSelect() {
         if(Session.getCurrentUser().getImage() == null){
-            Marker perth = mMap.addMarker(new MarkerOptions()
+            mMap.addMarker(new MarkerOptions()
                     .position(locationTent)
                     .draggable(true));
         }else {
-            Marker perth = mMap.addMarker(new MarkerOptions()
+            mMap.addMarker(new MarkerOptions()
                     .position(locationTent)
                     .draggable(true)
                     .icon(BitmapDescriptorFactory.fromBitmap(getMarkerBitmapFromImageUser(Session.getCurrentUser())))

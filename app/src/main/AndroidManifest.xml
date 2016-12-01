@@ -46,7 +46,8 @@
         <activity android:name=".OrganicTradeControler.user.gui.EditRegisterUserActivity" />
         <activity android:name=".OrganicTradeControler.item.gui.EditRegisterTentItemActivity" />
         <activity android:name=".OrganicTradeControler.item.gui.RegisterTentActivity" />
-        <activity android:name=".OrganicTradeControler.item.gui.TentActivity"></activity>
+        <activity android:name=".OrganicTradeControler.item.gui.TentActivity" />
+        <activity android:name=".OrganicTradeControler.item.gui.FavoritesActivity"></activity>
     </application>
 
 </manifest>

@@ -43,6 +43,7 @@
     <string name="myTent">Minha Tenda</string>
     <string name="tentOf">Tenda de </string>
     <string name="tstPressAgainToCloseApp">Pressione o Botão Voltar novamente para fechar o Aplicativo</string>
+    <string name="favoritos">Favoritos</string>
 
     <string-array name="SpnItems">
         <item>g</item>

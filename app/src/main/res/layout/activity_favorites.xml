@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_favorites"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.item.gui.FavoritesActivity">
+    <LinearLayout
+    android:layout_margin="5dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+        <GridView
+            android:numColumns="2"
+            android:id="@+id/favoritesListViewListProduct"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        </GridView>
+</LinearLayout>
+</LinearLayout>

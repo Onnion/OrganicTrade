@@ -115,12 +115,11 @@ public class TentSelectedActivity extends FragmentActivity implements OnMapReady
     }
 
     private void loadImgTent() {
-        RelativeLayout imageTent = (RelativeLayout)findViewById(R.id.contactImgTent);
+        ImageView imageTent = (ImageView)findViewById(R.id.contactImgTent);
         if (!(tentSelected.getImg() == null)){
-            Drawable d = new BitmapDrawable(getResources(),BitmapFactory.decodeFile(tentSelected.getImg()));
-            imageTent.setBackground(d);
+            imageTent.setImageBitmap(BitmapFactory.decodeFile(tentSelected.getImg()));
         }else {
-            imageTent.setBackgroundResource(R.drawable.icon_tent_no_img);
+            imageTent.setImageResource(R.drawable.icon_tent_no_img);
         }
     }
 

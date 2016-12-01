@@ -1,4 +1,5 @@
 package mpoo.bsi.ufrpe.organictrade.Infra.persistencia;
+
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;

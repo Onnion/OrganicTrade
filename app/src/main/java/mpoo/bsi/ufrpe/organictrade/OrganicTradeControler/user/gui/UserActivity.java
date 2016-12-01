@@ -22,6 +22,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import mpoo.bsi.ufrpe.organictrade.Infra.Session;
 import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.item.dominio.Tent;
+import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.item.gui.FavoritesActivity;
 import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.item.gui.RegisterTentActivity;
 import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.item.gui.TentActivity;
 import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.item.gui.TentListAdapter;
@@ -43,6 +44,7 @@ public class UserActivity extends AppCompatActivity {
     private UserPersistence crud = new UserPersistence();
     private String imageUser;
     private ImageView imageView;
+    private ImageView favoriteBtn;
     private ImageView addBtn;
     private ImageView editBtn;
     private ImageView searchBtn;
@@ -112,25 +114,11 @@ public class UserActivity extends AppCompatActivity {
         loadImgUser();
         pupulateListView();
         loadAddBtn();
+        loadFavoriteBtn();
         loadEditBtn();
         loadSearchBtn();
         loadLogoutBtn();
         setFunctionImgUser();
-    }
-
-    private void pupulateListView() {
-        listOfTents = (ListView) findViewById(R.id.usuarioListViewList);
-        TentPersistence tentPersistence = new TentPersistence();
-        finalTent = tentPersistence.getTentOfUser(Session.getCurrentUser().getId_user());
-        adapter = new TentListAdapter(finalTent);
-        listOfTents.setAdapter(adapter);
-        registerForContextMenu(listOfTents);
-    }
-
-    private void changeImgUser() {
-        imageUser = Session.getCurrentUser().getImage();
-        imageView = (ImageView) findViewById(R.id.profilePicture);
-        imageView.setImageBitmap(BitmapFactory.decodeFile(imageUser));
     }
 
     private void delete(AdapterView.AdapterContextMenuInfo info ) {
@@ -147,6 +135,75 @@ public class UserActivity extends AppCompatActivity {
         Session.setTentSelected(tentSelected);
         Intent i = new Intent(Session.getContext(),TentActivity.class);
         startActivity(i);
+    }
+
+    private void displayToastAboveButton(View v, int messageId) {
+        int xOffset = 0;
+        int yOffset = 0;
+        Rect gvr = new Rect();
+
+        View parent = (View) v.getParent();
+        int parentHeight = parent.getHeight();
+
+        if (v.getGlobalVisibleRect(gvr))
+        {
+            View root = v.getRootView();
+
+            int halfWidth = root.getRight() / 2;
+            int halfHeight = root.getBottom() / 2;
+
+            int parentCenterX = ((gvr.right - gvr.left) / 2) + gvr.left;
+
+            int parentCenterY = ((gvr.bottom - gvr.top) / 2) + gvr.top;
+
+            if (parentCenterY <= halfHeight)
+            {
+                yOffset = -(halfHeight - parentCenterY) - parentHeight;
+            }
+            else
+            {
+                yOffset = (parentCenterY - halfHeight) - parentHeight;
+            }
+
+            if (parentCenterX < halfWidth)
+            {
+                xOffset = -(halfWidth - parentCenterX);
+            }
+
+            if (parentCenterX >= halfWidth)
+            {
+                xOffset = parentCenterX - halfWidth;
+            }
+        }
+
+        Toast toast = Toast.makeText(Session.getContext(), messageId, Toast.LENGTH_SHORT);
+        toast.setGravity(Gravity.CENTER, xOffset, yOffset);
+        toast.show();
+    }
+
+    private void setFunctionTentOfListView() {
+        listOfTents.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Toast.makeText(Session.getContext(), "Mantenha a tenda pressionada para mais detalhes", Toast.LENGTH_LONG).show();
+            }
+        });
+    }
+
+    private void pupulateListView() {
+        listOfTents = (ListView) findViewById(R.id.usuarioListViewList);
+        setFunctionTentOfListView();
+        TentPersistence tentPersistence = new TentPersistence();
+        finalTent = tentPersistence.getTentOfUser(Session.getCurrentUser().getId_user());
+        adapter = new TentListAdapter(finalTent);
+        listOfTents.setAdapter(adapter);
+        registerForContextMenu(listOfTents);
+    }
+
+    private void changeImgUser() {
+        imageUser = Session.getCurrentUser().getImage();
+        imageView = (ImageView) findViewById(R.id.profilePicture);
+        imageView.setImageBitmap(BitmapFactory.decodeFile(imageUser));
     }
 
     private void setNameUser() {
@@ -321,47 +378,38 @@ public class UserActivity extends AppCompatActivity {
         addBtn.setImageResource(R.mipmap.ic_add);
     }
 
-    private void displayToastAboveButton(View v, int messageId) {
-        int xOffset = 0;
-        int yOffset = 0;
-        Rect gvr = new Rect();
+    private void loadFavoriteBtn(){
+        initializeFavoriteBtn();
+        setFuctionFavoriteBtn();
+    }
 
-        View parent = (View) v.getParent();
-        int parentHeight = parent.getHeight();
-
-        if (v.getGlobalVisibleRect(gvr))
-        {
-            View root = v.getRootView();
-
-            int halfWidth = root.getRight() / 2;
-            int halfHeight = root.getBottom() / 2;
-
-            int parentCenterX = ((gvr.right - gvr.left) / 2) + gvr.left;
-
-            int parentCenterY = ((gvr.bottom - gvr.top) / 2) + gvr.top;
-
-            if (parentCenterY <= halfHeight)
-            {
-                yOffset = -(halfHeight - parentCenterY) - parentHeight;
+    private void setFuctionFavoriteBtn(){
+        favoriteBtn.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                displayToastAboveButton(v,R.string.favoritos);
+                return false;
             }
-            else
-            {
-                yOffset = (parentCenterY - halfHeight) - parentHeight;
+        });
+        favoriteBtn.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                favoriteBtn.setImageResource(R.mipmap.ic_favoritebtn);
+                return false;
             }
-
-            if (parentCenterX < halfWidth)
-            {
-                xOffset = -(halfWidth - parentCenterX);
+        });
+        favoriteBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent p = new Intent(Session.getContext(),FavoritesActivity.class);
+                favoriteBtn.setImageResource(R.mipmap.ic_favorite);
+                startActivity(p);
             }
+        });
+    }
 
-            if (parentCenterX >= halfWidth)
-            {
-                xOffset = parentCenterX - halfWidth;
-            }
-        }
-
-        Toast toast = Toast.makeText(Session.getContext(), messageId, Toast.LENGTH_SHORT);
-        toast.setGravity(Gravity.CENTER, xOffset, yOffset);
-        toast.show();
+    private void initializeFavoriteBtn(){
+        favoriteBtn = (ImageView) findViewById(R.id.userImgBtnToFavorites);
+        favoriteBtn.setImageResource(R.mipmap.ic_favorite);
     }
 }
