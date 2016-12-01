@@ -1,7 +1,7 @@
 package mpoo.bsi.ufrpe.organictrade.Infra;
 
 import android.content.Context;
-import mpoo.bsi.ufrpe.organictrade.Infra.Persistencia.DatabaseHelper;
+import mpoo.bsi.ufrpe.organictrade.Infra.persistencia.DatabaseHelper;
 import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.item.dominio.Tent;
 import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.item.dominio.TentItems;
 import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.user.dominio.User;

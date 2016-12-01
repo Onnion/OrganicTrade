@@ -14,7 +14,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -27,7 +26,6 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import mpoo.bsi.ufrpe.organictrade.Infra.Session;
 import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.item.dominio.Tent;
 import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.item.dominio.TentItems;
-import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.item.gui.Locality;
 import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.user.dominio.User;
 import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.item.gui.SearchProductsActivity;
 import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.item.persistencia.ProductPersistence;
@@ -114,7 +112,7 @@ public class TentSelectedActivity extends FragmentActivity implements OnMapReady
 
 
         phone.setText(contactSelected.getPhone());
-        productName.setText(productPersistence.nameProductById(itemSelected.getProduct().getProdutoId()));
+        productName.setText(productPersistence.nameProductById(itemSelected.getProduct().getProductId()));
         productAmount.setText(itemSelected.getCurrentAmount());
         productPrice.setText(new StringBuilder().append("R$ ").append(itemSelected.getValue()).toString());
     }
