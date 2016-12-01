@@ -32,7 +32,7 @@ public class FavoriteListAdapter extends ArrayAdapter<Product>{
 
         loadTextViwes(product,convertView);
         //loadImg(product,convertView);
-        setFunctionFavoriteBtn(convertView);
+        //setFunctionFavoriteBtn(convertView);
 
         return convertView;
     }
@@ -49,13 +49,13 @@ public class FavoriteListAdapter extends ArrayAdapter<Product>{
 //        imageView.setImageBitmap(BitmapFactory.decodeFile(product.getProductImg()));
 //    }
 
-    private void setFunctionFavoriteBtn(View view){
-        final ImageView favorite = (ImageView)view.findViewById(R.id.cardviewImgBtnFavorite);
-        favorite.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                favorite.setImageResource(R.mipmap.ic_favoriteonclick);
-            }
-        });
-    }
+//    private void setFunctionFavoriteBtn(View view){
+//        final ImageView favorite = (ImageView)view.findViewById(R.id.cardviewImgBtnFavorite);
+//        favorite.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                favorite.setImageResource(R.mipmap.ic_favoriteonclick);
+//            }
+//        });
+//    }
 }

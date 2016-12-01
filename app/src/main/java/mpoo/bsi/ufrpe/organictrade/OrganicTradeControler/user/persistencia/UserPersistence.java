@@ -153,7 +153,9 @@ public class UserPersistence {
 
     public void setFavorite(User user, Product product){
         db = banco.getWritableDatabase();
-        //db.insert()
-
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(DatabaseHelper.getColumnUserproductUserId(),user.getId_user());
+        contentValues.put(DatabaseHelper.getColumnUserproductProductId(),product.getProductId());
+        db.insert(DatabaseHelper.getTableUserUserproductName(),null,contentValues);
     }
 }

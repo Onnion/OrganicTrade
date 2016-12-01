@@ -2,8 +2,11 @@ package mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.item.gui;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.GridView;
-import android.widget.ListView;
+import android.widget.ImageView;
+
 import java.util.ArrayList;
 import mpoo.bsi.ufrpe.organictrade.Infra.Session;
 import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.item.dominio.Product;
@@ -20,8 +23,19 @@ public class FavoritesActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         Session.setContext(getBaseContext());
         setContentView(R.layout.activity_favorites);
+        setFunctionFavoriteBtn();
         initTentList();
+    }
 
+    private void setFunctionFavoriteBtn(){
+        listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+//                ImageView imageView= (ImageView)parent.findViewById(R.id.cardviewImgBtnFavorite);
+//                imageView.setImageResource(R.mipmap.ic_favoriteonclick);
+                return false;
+            }
+        });
     }
 
     public void initTentList(){
