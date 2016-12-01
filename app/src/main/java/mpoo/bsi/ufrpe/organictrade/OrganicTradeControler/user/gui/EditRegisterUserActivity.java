@@ -17,7 +17,6 @@ public class EditRegisterUserActivity extends AppCompatActivity {
     private UserNegocio userNegocio = new UserNegocio();
     private User userToEdit = new User();
     private EditText name;
-    private EditText pass;
     private EditText email;
     private EditText number;
 
@@ -40,7 +39,7 @@ public class EditRegisterUserActivity extends AppCompatActivity {
         saveEdition.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(userNegocio.editOk(name,pass,email,number)) {
+                if(userNegocio.editOk(name,email,number)) {
                     editRegisterOfUser();
                 }
             }
@@ -50,7 +49,6 @@ public class EditRegisterUserActivity extends AppCompatActivity {
     private void editRegisterOfUser() {
         userToEdit.setUserName(Session.getCurrentUser().getUserName());
         userToEdit.setName(name.getText().toString());
-        userToEdit.setPassword(Md5.encrypt(pass.getText().toString()));
         userToEdit.setEmail(email.getText().toString());
         userToEdit.setPhone(number.getText().toString());
         UserPersistence userPersistence = new UserPersistence();
@@ -62,11 +60,9 @@ public class EditRegisterUserActivity extends AppCompatActivity {
 
     private void loadValuesOfCurrentUserToEdit() {
         name = (EditText)findViewById(R.id.editUserEdtName);
-        pass = (EditText)findViewById(R.id.editUserEdtPassword);
         email = (EditText)findViewById(R.id.editUserEdtEmail);
         number = (EditText)findViewById(R.id.editUserEdtPhone);
         name.setText(Session.getCurrentUser().getName());
-        pass.setText(Session.getCurrentUser().getPassword());
         email.setText(Session.getCurrentUser().getEmail());
         number.setText(Session.getCurrentUser().getPhone());
     }

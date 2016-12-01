@@ -67,7 +67,7 @@ public class EditRegisterTentItemActivity extends AppCompatActivity {
 
     public void EditRegisterProduct(View v) {
         tentItemsToEdit.setProduct(Session.getItemSelected().getProduct());
-        tentItemsToEdit.setTentItems_id(Session.getItemSelected().getTentItems_id());
+        tentItemsToEdit.setTentItemsId(Session.getItemSelected().getTentItemsId());
         tentItemsToEdit.setTent(Session.getItemSelected().getTent());
         tentItemsToEdit.setUnity(unityProduct.getSelectedItem().toString());
         tentItemsToEdit.setCurrentAmount(amount.getText().toString());

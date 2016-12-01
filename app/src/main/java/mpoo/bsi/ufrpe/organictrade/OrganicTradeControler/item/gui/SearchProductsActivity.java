@@ -17,7 +17,6 @@ import mpoo.bsi.ufrpe.organictrade.Infra.Session;
 import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.item.dominio.TentItems;
 import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.item.persistencia.ProductPersistence;
 import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.item.persistencia.TentItemsPersistence;
-import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.user.gui.TentSelectedActivity;
 import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.user.persistencia.UserPersistence;
 import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.user.gui.UserActivity;
 import mpoo.bsi.ufrpe.organictrade.R;

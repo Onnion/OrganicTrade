@@ -19,7 +19,7 @@ public class TentItemsPersistence {
 
     public TentItems createTentItems(Cursor cursor){
         TentItems tentItems = new TentItems();
-        tentItems.setTentItems_id(cursor.getString(0));
+        tentItems.setTentItemsId(cursor.getString(0));
         tentItems.setCurrentAmount(cursor.getString(1));
         tentItems.setValue(cursor.getString(2));
         tentItems.setUnity(cursor.getString(3));
@@ -57,7 +57,7 @@ public class TentItemsPersistence {
     public void insertTentItems(TentItems tentItems){
         db = banco.getWritableDatabase();
         ContentValues tentItemsValues = new ContentValues();
-        tentItemsValues.put(DatabaseHelper.getColumnTentitemsId(), tentItems.getTentItems_id());
+        tentItemsValues.put(DatabaseHelper.getColumnTentitemsId(), tentItems.getTentItemsId());
         tentItemsValues.put(DatabaseHelper.getColumnTentitemsAmount(), tentItems.getCurrentAmount());
         tentItemsValues.put(DatabaseHelper.getColumnTentitemsPrice(), tentItems.getValue());
         tentItemsValues.put(DatabaseHelper.getColumnTentitemsUnity(), tentItems.getUnity());
@@ -70,7 +70,7 @@ public class TentItemsPersistence {
 
     public void tentItemEdit(TentItems tentItems){
         db = banco.getWritableDatabase();
-        String where = DatabaseHelper.getColumnTentitemsId()+" = "+Session.getItemSelected().getTentItems_id();
+        String where = DatabaseHelper.getColumnTentitemsId()+" = "+Session.getItemSelected().getTentItemsId();
         ContentValues tentItemsEditedValues = new ContentValues();
         tentItemsEditedValues.put(DatabaseHelper.getColumnTentitemsAmount(),tentItems.getCurrentAmount());
         tentItemsEditedValues.put(DatabaseHelper.getColumnTentitemsPrice(),tentItems.getValue());

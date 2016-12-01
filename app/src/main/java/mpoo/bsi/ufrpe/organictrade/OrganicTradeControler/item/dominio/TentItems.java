@@ -1,7 +1,7 @@
 package mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.item.dominio;
 public class TentItems {
 
-    private String tentItems_id;
+    private String tentItemsId;
     private String value;
     private String currentAmount;
     private Product product;
@@ -33,12 +33,12 @@ public class TentItems {
         this.unity = unity;
     }
 
-    public String getTentItems_id() {
-        return tentItems_id;
+    public String getTentItemsId() {
+        return tentItemsId;
     }
 
-    public void setTentItems_id(String tentItems_id) {
-        this.tentItems_id = tentItems_id;
+    public void setTentItemsId(String tentItemsId) {
+        this.tentItemsId = tentItemsId;
     }
 
     public String getValue() {

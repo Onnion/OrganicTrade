@@ -1,4 +1,4 @@
-package mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.user.gui;
+package mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.item.gui;
 
 import android.content.Context;
 import android.content.Intent;
@@ -48,7 +48,6 @@ public class TentSelectedActivity extends FragmentActivity implements OnMapReady
         Session.setContext(getBaseContext());
         loadContactOfTentItemSelected();
         loadMapFragment();
-
     }
 
     @Override
@@ -63,6 +62,8 @@ public class TentSelectedActivity extends FragmentActivity implements OnMapReady
     @Override
     public void onBackPressed() {
         Session.setContactSelected(null);
+        Session.setItemSelected(null);
+        Session.setTentSelected(null);
         Intent i = new Intent(Session.getContext(),SearchProductsActivity.class);
         startActivity(i);
         finish();
@@ -96,7 +97,6 @@ public class TentSelectedActivity extends FragmentActivity implements OnMapReady
                     .position(locationTentSelected)
                     .title(getText(R.string.tentOf) +" "+ contactSelected.getName())
                     .icon(BitmapDescriptorFactory.fromBitmap(getMarkerBitmapFromImageUser(Session.getContactSelected())))
-
             );
         }
     }
@@ -106,11 +106,8 @@ public class TentSelectedActivity extends FragmentActivity implements OnMapReady
         TextView productName = (TextView)findViewById(R.id.contatTextProductName);
         TextView productAmount = (TextView)findViewById(R.id.contatTextProductAmount);
         TextView productPrice = (TextView)findViewById(R.id.contatTextProductPrice);
-
         loadImgUser();
         loadImgTent();
-
-
         phone.setText(contactSelected.getPhone());
         productName.setText(productPersistence.nameProductById(itemSelected.getProduct().getProductId()));
         productAmount.setText(itemSelected.getCurrentAmount());
@@ -127,7 +124,6 @@ public class TentSelectedActivity extends FragmentActivity implements OnMapReady
         }
     }
 
-
     private void loadImgUser() {
         ImageView imageView = (ImageView) findViewById(R.id.contactImgUser);
         if (!(contactSelected.getImage() == null)){
@@ -137,9 +133,8 @@ public class TentSelectedActivity extends FragmentActivity implements OnMapReady
         }
     }
 
-
     private void loadMapFragment() {
-        SupportMapFragment mapFragment = (SupportMapFragment)getSupportFragmentManager().findFragmentById(R.id.fragmenttest);
+        SupportMapFragment mapFragment = (SupportMapFragment)getSupportFragmentManager().findFragmentById(R.id.tentselectedFragMap);
         mapFragment.getMapAsync(this);
     }
 }

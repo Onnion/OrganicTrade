@@ -118,6 +118,7 @@ public class TentActivity extends AppCompatActivity {
         loadImgTent();
         populateListView();
     }
+
     private void loadImgTent(){
         ImageView imgTent = (ImageView)findViewById(R.id.tentImgTentImg);
         if (Session.getTentSelected().getImg() == null){
@@ -135,7 +136,7 @@ public class TentActivity extends AppCompatActivity {
     private void delete(AdapterView.AdapterContextMenuInfo info ) {
         TentItemsPersistence tentItemsPersistence = new TentItemsPersistence();
         itemSelected =(TentItems) listOfItems.getAdapter().getItem(info.position);
-        tentItemsPersistence.deleteTentItems(itemSelected.getTentItems_id());
+        tentItemsPersistence.deleteTentItems(itemSelected.getTentItemsId());
         finalTent.remove(info.position);
         adapter.notifyDataSetChanged();
     }

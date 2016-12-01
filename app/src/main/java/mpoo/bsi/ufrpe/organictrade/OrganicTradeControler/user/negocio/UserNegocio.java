@@ -38,13 +38,11 @@ public class UserNegocio{
         sc_phone = registerUserEdtPhone.getText().toString();
     }
 
-    public void initializeEdit(EditText Name, EditText Pass, EditText Email, EditText Phone){
+    public void initializeEdit(EditText Name, EditText Email, EditText Phone){
         this.registerUserEdtName = Name;
-        this.registerUserEdtPass = Pass;
         this.registerUserEdtEmail = Email;
         this.registerUserEdtPhone = Phone;
         sc_name = registerUserEdtName.getText().toString();
-        sc_pass = registerUserEdtPass.getText().toString();
         sc_email = registerUserEdtEmail.getText().toString();
         sc_phone = registerUserEdtPhone.getText().toString();
     }
@@ -69,8 +67,8 @@ public class UserNegocio{
         }
     }
 
-    public boolean editOk(EditText name,EditText pass, EditText email, EditText phone){
-        initializeEdit(name,pass,email,phone);
+    public boolean editOk(EditText name, EditText email, EditText phone){
+        initializeEdit(name,email,phone);
         if (!editValidate()){
             return false;
         }

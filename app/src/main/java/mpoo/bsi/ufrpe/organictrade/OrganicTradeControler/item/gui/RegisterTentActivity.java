@@ -1,28 +1,44 @@
 package mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.item.gui;
-
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
+import com.google.android.gms.maps.model.MarkerOptions;
+import android.os.Bundle;
+import android.content.Context;
+import android.support.v4.app.FragmentActivity;
+import android.widget.Toast;
 import android.content.Intent;
 import android.database.Cursor;
+import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.provider.MediaStore;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-
 import mpoo.bsi.ufrpe.organictrade.Infra.Session;
 import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.item.dominio.Tent;
 import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.item.persistencia.TentPersistence;
+import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.user.dominio.User;
 import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.user.gui.UserActivity;
 import mpoo.bsi.ufrpe.organictrade.R;
 
-public class RegisterTentActivity extends AppCompatActivity {
-    private Locality tentLocality;
+public class RegisterTentActivity extends FragmentActivity implements OnMapReadyCallback {
     private static int RESULT_LOAD_IMAGE = 1;
     private Tent tent;
     private String nameStr;
+    private GoogleMap mMap;
+    private LatLng locationTent;
 
     @Override
     public void onBackPressed() {
@@ -46,36 +62,77 @@ public class RegisterTentActivity extends AppCompatActivity {
         }
     }
 
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_register_tent);
+        tent = new Tent();
+        loadMapFragment();
+        Session.setContext(getBaseContext());
+        setFunctionImgNoIcon();
+        callRegisterItem();
+    }
+
+    @Override
+    public void onMapReady(GoogleMap googleMap) {
+        mMap = googleMap;
+        locationTent = new LatLng(-8.053889,-34.881111);
+        loadLocationContactSelect();
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(locationTent));
+        mMap.setMinZoomPreference(13);
+
+    }
+
+    private void setMarkerFunction() {
+        mMap.setOnMarkerDragListener(new GoogleMap.OnMarkerDragListener() {
+            @Override
+            public void onMarkerDragStart(Marker marker) {
+                Toast.makeText(Session.getContext(), "Selecione o local de sua tenda " , Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onMarkerDrag(Marker marker) {
+            }
+
+            @Override
+            public void onMarkerDragEnd(Marker marker) {
+                locationTent = marker.getPosition();
+            }
+        });
+    }
+
+    private Bitmap getMarkerBitmapFromImageUser(User user) {
+        View customMarkerView = ((LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE)).inflate(R.layout.custom_marker, null);
+        ImageView markerImageView = (ImageView) customMarkerView.findViewById(R.id.custom_marker);
+        markerImageView.setImageBitmap(BitmapFactory.decodeFile(user.getImage()));
+        customMarkerView.measure(View.MeasureSpec.UNSPECIFIED, View.MeasureSpec.UNSPECIFIED);
+        customMarkerView.layout(0, 0, customMarkerView.getMeasuredWidth(), customMarkerView.getMeasuredHeight());
+        customMarkerView.buildDrawingCache();
+        Bitmap returnedBitmap = Bitmap.createBitmap(customMarkerView.getMeasuredWidth(), customMarkerView.getMeasuredHeight(),
+                Bitmap.Config.ARGB_8888);
+        Canvas canvas = new Canvas(returnedBitmap);
+        canvas.drawColor(Color.WHITE, PorterDuff.Mode.SRC_IN);
+        Drawable drawable = customMarkerView.getBackground();
+        if (drawable != null)
+            drawable.draw(canvas);
+        customMarkerView.draw(canvas);
+        return returnedBitmap;
+    }
+
     private void loadImgTentItem(String str) {
         ImageView imageView = (ImageView) findViewById(R.id.registerTentImgTentImg);
         imageView.setImageBitmap(BitmapFactory.decodeFile(str));
     }
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_register_tent);
-        tentLocality = new Locality();
-        tent = new Tent();
-        Session.setContext(getBaseContext());
-        //------------------------------------------------//
-        ImageView imageView = (ImageView) findViewById(R.id.registerTentImgTentImg);
-        imageView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View arg0) {
-                Intent i = new Intent(Intent.ACTION_PICK,android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-                startActivityForResult(i, RESULT_LOAD_IMAGE);
-            }
-        });
-        //------------------------------------------------//
+    private void callRegisterItem() {
         Button button = (Button)findViewById(R.id.registerTentBtnregister);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 TentPersistence tentPersistence = new TentPersistence();
                 loadValuesToRegister();
-                tent.setLongi(tentLocality.getLongi());
-                tent.setLagi(tentLocality.getLagi());
+                tent.setLongi(Double.toString(locationTent.longitude));
+                tent.setLagi(Double.toString(locationTent.latitude));
                 tent.setName(nameStr);
                 tent.setUser(Session.getCurrentUser());
                 tentPersistence.registerTent(tent);
@@ -85,8 +142,40 @@ public class RegisterTentActivity extends AppCompatActivity {
             }
         });
     }
+
+    private void setFunctionImgNoIcon() {
+        ImageView imageView = (ImageView) findViewById(R.id.registerTentImgTentImg);
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View arg0) {
+                Intent i = new Intent(Intent.ACTION_PICK,android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                startActivityForResult(i, RESULT_LOAD_IMAGE);
+            }
+        });
+    }
+
     private void loadValuesToRegister() {
         EditText name = (EditText) findViewById((R.id.registerTentEdtName));
         nameStr = name.getText().toString();
+    }
+
+    private void loadMapFragment() {
+        SupportMapFragment mapFragment = (SupportMapFragment)getSupportFragmentManager().findFragmentById(R.id.registerFragMap);
+        mapFragment.getMapAsync(this);
+    }
+
+    private void loadLocationContactSelect() {
+        if(Session.getCurrentUser().getImage() == null){
+            Marker perth = mMap.addMarker(new MarkerOptions()
+                    .position(locationTent)
+                    .draggable(true));
+        }else {
+            Marker perth = mMap.addMarker(new MarkerOptions()
+                    .position(locationTent)
+                    .draggable(true)
+                    .icon(BitmapDescriptorFactory.fromBitmap(getMarkerBitmapFromImageUser(Session.getCurrentUser())))
+            );
+        }
+        setMarkerFunction();
     }
 }
