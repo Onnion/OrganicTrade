@@ -6,6 +6,7 @@ import android.database.sqlite.SQLiteDatabase;
 import mpoo.bsi.ufrpe.organictrade.Infra.persistencia.ComandosSql;
 import mpoo.bsi.ufrpe.organictrade.Infra.persistencia.DatabaseHelper;
 import mpoo.bsi.ufrpe.organictrade.Infra.Session;
+import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.item.dominio.Product;
 import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.user.dominio.User;
 
 public class UserPersistence {
@@ -148,5 +149,11 @@ public class UserPersistence {
         contentValues.put(DatabaseHelper.getColumnUserImg(), img);
         db.update(DatabaseHelper.getTableUserName(),contentValues, where, null);
         db.close();
+    }
+
+    public void setFavorite(User user, Product product){
+        db = banco.getWritableDatabase();
+        //db.insert()
+
     }
 }

@@ -19,19 +19,26 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String COLUMN_USER_PHONE = "user_phone";
     private static final String COLUMN_USER_IMG = "user_img";
 
+    //UserInterest
+    private static final String TABLE_USER_USERPRODUCT_NAME = "user_product";
+    private static final String COLUMN_USERPRODUCT_USER_ID = "user_id";
+    private static final String COLUMN_USERPRODUCT_PRODUCT_ID = "product_id";
+
     //UserLogged
     private static final String TABLE_USER_LOGGED_NAME = "user_logged";
     private static final String COLUMN_USER_LOGGED_ID = "user_id";
 
     //TentItems
-    private static final String COLUMN_TENTITEMS_ID = "tentiterms_id";
     private static final String TABLE_TENTITEMS_NAME = "tentitems_name";
+    private static final String COLUMN_TENTITEMS_ID = "tentiterms_id";
     private static final String COLUMN_TENTITEMS_AMOUNT = "tentitems_amount";
     private static final String COLUMN_TENTITEMS_PRICE = "tentitems_price";
     private static final String COLUMN_TENTITEMS_UNITY = "tentitems_unity";
     private static final String COLUMN_TENTITEMS_PRODUCT_ID = "product_id";
     private static final String COLUMN_TENTITEMS_TENT_ID = "tent_id";
     private static final String COLUMN_TENTITEMS_IMG = "tentitems_img";
+    private static final String COLUMN_TENT_NOTE ="tent_note";
+    private static final String COLUMN_TENT_NUMBEROFVOTES ="tent_numberofvotes";
 
     //Products
     private static final String TABLE_PRODUCT_NAME = "product";
@@ -182,6 +189,28 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static String getColumnTentImg() {
         return COLUMN_TENT_IMG;
     }
+
+    public static String getColumnTentNote() {
+        return COLUMN_TENT_NOTE;
+    }
+
+    public static String getColumnTentNumberofvotes() {
+        return COLUMN_TENT_NUMBEROFVOTES;
+    }
+
+    //----------------------------------------------------------------------------//
+
+    public static String getTableUserUserproductName() {
+        return TABLE_USER_USERPRODUCT_NAME;
+    }
+
+    public static String getColumnUserproductUserId() {
+        return COLUMN_USERPRODUCT_USER_ID;
+    }
+
+    public static String getColumnUserproductProductId() {
+        return COLUMN_USERPRODUCT_PRODUCT_ID;
+    }
     //----------------------------------------------------------------------------//
 
     public DatabaseHelper(Context context) {
@@ -195,6 +224,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL(ComandosSql.sqlCreateUserLoggedTable());
         db.execSQL(ComandosSql.sqlCreateProductTable());
         db.execSQL(ComandosSql.sqlCreateTentTable());
+        db.execSQL(ComandosSql.sqlCreateUserProductTable());
     }
 
     @Override
@@ -204,6 +234,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL(ComandosSql.sqlDropTableItensDeTenda());
         db.execSQL(ComandosSql.sqlDropTableProduct());
         db.execSQL(ComandosSql.sqlDropTableTent());
+        db.execSQL(ComandosSql.sqlDropTableUserProduct());
         this.onCreate(db);
     }
 }

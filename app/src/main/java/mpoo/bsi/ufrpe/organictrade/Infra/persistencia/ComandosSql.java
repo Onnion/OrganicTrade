@@ -63,9 +63,22 @@ public class ComandosSql {
                         + DatabaseHelper.getColumnTentUserId()+" text , "
                         + DatabaseHelper.getColumnTentName()+" text , "
                         + DatabaseHelper.getColumnTentImg()+" text , "
+                        + DatabaseHelper.getColumnTentNote()+" text , "
+                        + DatabaseHelper.getColumnTentNumberofvotes()+" text , "
                         + "foreign key ( "+DatabaseHelper.getColumnTentUserId()+" ) references "+DatabaseHelper.getTableUserName()+" ("+DatabaseHelper.getColumnUserId()+")"
                         + ");";
         return(sqlCreateTentTable);
+    }
+
+    public static String sqlCreateUserProductTable(){
+        String sqlCreateUserProductTable =
+                "CREATE TABLE "+ DatabaseHelper.getTableUserUserproductName() + "( "
+                        + DatabaseHelper.getColumnUserproductUserId()+" integer , "
+                        + DatabaseHelper.getColumnUserproductProductId()+" inteer , "
+                        + "foreign key ( "+DatabaseHelper.getColumnUserproductUserId()+" ) references "+DatabaseHelper.getTableUserName()+" ( "+DatabaseHelper.getColumnUserId()+" ) , "
+                        + "foreign key ( "+DatabaseHelper.getColumnUserproductProductId()+" ) references "+DatabaseHelper.getTableProductName()+" ( "+DatabaseHelper.getColumnProductId()+" )"
+                        + ");";
+        return(sqlCreateUserProductTable);
     }
 
     public static String sqlDropTableUsuarioLogado(){
@@ -81,6 +94,11 @@ public class ComandosSql {
     public static String sqlDropTableTent() {
         String sqlDropTableTent = "DROP TABLE IF EXISTS " + DatabaseHelper.getTableTentName();
         return(sqlDropTableTent);
+    }
+
+    public static String sqlDropTableUserProduct() {
+        String sqlDropTableUserProduct = "DROP TABLE IF EXISTS " + DatabaseHelper.getTableUserUserproductName();
+        return(sqlDropTableUserProduct);
     }
 
     public static String sqlDropTableItensDeTenda() {

@@ -25,6 +25,8 @@ public class TentPersistence {
         tent.setUser(userPersistence.searchFromId(cursor.getString(3)));
         tent.setName(cursor.getString(4));
         tent.setImg(cursor.getString(5));
+        tent.setNote(cursor.getString(6));
+        tent.setNumberOfVotes(cursor.getString(7));
         return tent;
     }
 
@@ -62,6 +64,8 @@ public class TentPersistence {
         contentValues.put(DatabaseHelper.getColumnTentUserId(),tent.getUser().getId_user());
         contentValues.put(DatabaseHelper.getColumnTentImg(),tent.getImg());
         contentValues.put(DatabaseHelper.getColumnTentName(),tent.getName());
+        contentValues.put(DatabaseHelper.getColumnTentNote(),tent.getNote());
+        contentValues.put(DatabaseHelper.getColumnTentNumberofvotes(),tent.getNumberOfVotes());
         db.insert(DatabaseHelper.getTableTentName(),null,contentValues);
         db.close();
     }

@@ -9,6 +9,24 @@ public class Tent {
     private String lagi;
     private String name;
     private String img;
+    private String note;
+    private String numberOfVotes;
+
+    public  String getNote() {
+        return note;
+    }
+
+    public void setNote(String note) {
+        this.note = note;
+    }
+
+    public String getNumberOfVotes() {
+        return numberOfVotes;
+    }
+
+    public void setNumberOfVotes(String numberOfVotes) {
+        this.numberOfVotes = numberOfVotes;
+    }
 
     public String getName() {
         return name;

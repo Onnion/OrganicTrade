@@ -3,9 +3,7 @@ package mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.item.persistencia;
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-
 import java.util.ArrayList;
-
 import mpoo.bsi.ufrpe.organictrade.Infra.persistencia.ComandosSql;
 import mpoo.bsi.ufrpe.organictrade.Infra.persistencia.DatabaseHelper;
 import mpoo.bsi.ufrpe.organictrade.Infra.Session;
