@@ -18,10 +18,12 @@ import mpoo.bsi.ufrpe.organictrade.R;
 public class FavoriteListAdapter extends ArrayAdapter<Product>{
     Context context;
     ArrayList<Product> products;
+    ArrayList<Product> selecionados;
 
-    public FavoriteListAdapter(ArrayList<Product> products){
+    public FavoriteListAdapter(ArrayList<Product> products,ArrayList<Product> selecionados){
         super(Session.getContext(), 0, products);
         this.products = products;
+        this.selecionados = selecionados;
         this.context = Session.getContext();
     }
 
@@ -31,6 +33,7 @@ public class FavoriteListAdapter extends ArrayAdapter<Product>{
         if (convertView == null)
             convertView = LayoutInflater.from(context).inflate(R.layout.cardview_adapter, null);
         loadTextViwes(product,convertView);
+
         //loadImg(product,convertView);
         //setFunctionFavoriteBtn(convertView);
         return convertView;
@@ -41,6 +44,8 @@ public class FavoriteListAdapter extends ArrayAdapter<Product>{
 //        productType.setText(product.getProductType());
         TextView productName = (TextView) convertView.findViewById(R.id.productName);
         productName.setText(product.getProductName());
+        CheckBox checkBox = (CheckBox)convertView.findViewById(R.id.productCheckBox);
+        checkBox.setChecked(selecionados.contains(product));
     }
 
 //    private void loadImg(Product product, View view){

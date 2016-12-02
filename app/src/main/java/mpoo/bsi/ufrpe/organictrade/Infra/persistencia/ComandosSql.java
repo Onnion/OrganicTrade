@@ -46,9 +46,9 @@ public class ComandosSql {
         String sqlCreateProductTable =
                 "CREATE TABLE "+ DatabaseHelper.getTableProductName() + "( "
                         + DatabaseHelper.getColumnProductId()+" integer primary key autoincrement not null , "
-                        + DatabaseHelper.getColumnProductName()+" text"
-                        + DatabaseHelper.getColumnProductType()+" text"
-                        + DatabaseHelper.getColumnProductDescription()+" text"
+                        + DatabaseHelper.getColumnProductName()+" text , "
+                        + DatabaseHelper.getColumnProductType()+" text , "
+                        + DatabaseHelper.getColumnProductDescription()+" text , "
                         + DatabaseHelper.getColumnProductImg()+" text"
                         + ");";
         return(sqlCreateProductTable);

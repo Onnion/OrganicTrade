@@ -51,7 +51,7 @@ public class FavoritesActivity extends AppCompatActivity {
         listView = (GridView) findViewById(R.id.favoritesListViewListProduct);
         ProductPersistence productPersistence = new ProductPersistence();
         listProducts = productPersistence.getAllProducts();
-        adapter = new FavoriteListAdapter(listProducts);
+        adapter = new FavoriteListAdapter(listProducts,selecionados);
         listView.setAdapter(adapter);
         setFunctionFavoriteBtn();
 
