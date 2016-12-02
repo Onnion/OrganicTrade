@@ -32,6 +32,7 @@ public class ProductPersistence {
         Product product = new Product();
         product.setProductId(cursor.getString(0));
         product.setProductName(cursor.getString(1));
+        product.setProductType(cursor.getString(2));
         return product;
     }
 
@@ -66,10 +67,13 @@ public class ProductPersistence {
 
     public String nameProductById(String id){
         db = banco.getReadableDatabase();
+        String name = null;
         Cursor cursor = db.rawQuery(ComandosSql.sqlProductNameById(),new String[]{id});
         if(cursor.moveToFirst()){
-            return cursor.getString(1);}
-        else{return "";}
+            name = cursor.getString(1);}
+        cursor.close();
+        db.close();
+        return name;
     }
 
     public void productTableIsEmpty(){
@@ -77,6 +81,8 @@ public class ProductPersistence {
         Cursor cursor = db.rawQuery(ComandosSql.productTableIsEmpty(),null);
         if(!(cursor.moveToFirst())){
             populateProductTable();}
+        cursor.close();
+        db.close();
     }
 
     public Product getProductByid(String productId) {
@@ -86,6 +92,8 @@ public class ProductPersistence {
         if(cursor.moveToFirst()){
             product = createProductBtConsult(cursor);
         }
+        cursor.close();
+        db.close();
         return product;
     }
 
@@ -97,6 +105,8 @@ public class ProductPersistence {
             do{
                 products.add(createProductBtConsult(cursor));
             }while (cursor.moveToNext());
+        cursor.close();
+        db.close();
         return products;
     }
 }
