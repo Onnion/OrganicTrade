@@ -182,6 +182,7 @@ public class UserActivity extends AppCompatActivity {
     }
 
     private void setFunctionTentOfListView() {
+        listOfTents = (ListView) findViewById(R.id.usuarioListViewList);
         listOfTents.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -191,7 +192,6 @@ public class UserActivity extends AppCompatActivity {
     }
 
     private void pupulateListView() {
-        listOfTents = (ListView) findViewById(R.id.usuarioListViewList);
         setFunctionTentOfListView();
         TentPersistence tentPersistence = new TentPersistence();
         finalTent = tentPersistence.getTentOfUser(Session.getCurrentUser().getId_user());

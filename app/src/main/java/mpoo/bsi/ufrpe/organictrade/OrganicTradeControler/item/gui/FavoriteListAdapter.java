@@ -27,32 +27,20 @@ public class FavoriteListAdapter extends ArrayAdapter<Product>{
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        Product product = products.get(position);
+        final Product product = products.get(position);
         if (convertView == null)
             convertView = LayoutInflater.from(context).inflate(R.layout.cardview_adapter, null);
-
         loadTextViwes(product,convertView);
         //loadImg(product,convertView);
         //setFunctionFavoriteBtn(convertView);
-
         return convertView;
     }
 
     private void loadTextViwes(Product product, View convertView){
-        TextView productType = (TextView) convertView.findViewById(R.id.productType);
-        productType.setText(product.getProductType());
+//        TextView productType = (TextView) convertView.findViewById(R.id.productType);
+//        productType.setText(product.getProductType());
         TextView productName = (TextView) convertView.findViewById(R.id.productName);
         productName.setText(product.getProductName());
-    }
-
-    private void setFuncitonCheckBox(View view, ArrayList<String> arrayList){
-        CheckBox checkBox = (CheckBox)view.findViewById(R.id.productCheckBox);
-        if(!checkBox.isChecked()){
-
-        }else{
-
-        }
-
     }
 
 //    private void loadImg(Product product, View view){

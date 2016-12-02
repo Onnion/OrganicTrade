@@ -44,22 +44,6 @@
                     android:id="@+id/productName"
                     android:text="Tomate"/>
             </LinearLayout>
-            <LinearLayout
-                android:paddingTop="8dp"
-                android:paddingBottom="8dp"
-                android:paddingRight="16dp"
-                android:paddingLeft="16dp"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="0.9">
-                <TextView
-                    android:textSize="14sp"
-                    android:text="Fruta"
-                    android:id="@+id/productType"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    />
-            </LinearLayout>
         </LinearLayout>
         <LinearLayout
             android:orientation="horizontal"
@@ -67,6 +51,8 @@
             android:layout_height="0dp"
             android:layout_weight="0.2">
             <CheckBox
+                android:focusable="false"
+                android:clickable="false"
                 android:id="@+id/productCheckBox"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />

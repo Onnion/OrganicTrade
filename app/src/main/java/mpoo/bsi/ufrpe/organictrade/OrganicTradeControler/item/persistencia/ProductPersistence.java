@@ -32,7 +32,6 @@ public class ProductPersistence {
         Product product = new Product();
         product.setProductId(cursor.getString(0));
         product.setProductName(cursor.getString(1));
-        product.setProductType(cursor.getString(2));
         return product;
     }
 

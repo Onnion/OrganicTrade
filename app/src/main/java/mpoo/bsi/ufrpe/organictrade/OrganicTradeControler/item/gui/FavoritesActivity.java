@@ -4,9 +4,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.CheckBox;
 import android.widget.GridView;
-import android.widget.ImageView;
-
 import java.util.ArrayList;
 import mpoo.bsi.ufrpe.organictrade.Infra.Session;
 import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.item.dominio.Product;
@@ -17,6 +16,8 @@ public class FavoritesActivity extends AppCompatActivity {
     private ArrayList<Product> listProducts;
     private FavoriteListAdapter adapter;
     private GridView listView;
+    private ArrayList<Product> selecionados = new ArrayList<>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,12 +27,22 @@ public class FavoritesActivity extends AppCompatActivity {
     }
 
     private void setFunctionFavoriteBtn(){
-        listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+        listView = (GridView) findViewById(R.id.favoritesListViewListProduct);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-//                ImageView imageView= (ImageView)parent.findViewById(R.id.cardviewImgBtnFavorite);
-//                imageView.setImageResource(R.mipmap.ic_favoriteonclick);
-                return false;
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                CheckBox checkBox = (CheckBox)view.findViewById(R.id.productCheckBox);
+                Product product = (Product)listView.getAdapter().getItem(position);
+                if(!selecionados.contains(product)){
+                    selecionados.add(product);
+                }else{
+                    selecionados.remove(product);
+                }
+                if (selecionados.contains(product)){
+                    checkBox.setChecked(true);
+                }else{
+                    checkBox.setChecked(false);
+                }
             }
         });
     }
