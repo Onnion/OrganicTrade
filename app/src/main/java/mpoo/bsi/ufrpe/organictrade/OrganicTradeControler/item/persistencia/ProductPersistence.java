@@ -14,7 +14,9 @@ public class ProductPersistence {
     private int id = 0;
     private SQLiteDatabase db;
     private DatabaseHelper banco = Session.getDbAtual();
-    private final String[] nameProducts = {"Tomate","Banana","Maçã"};
+    private final String[] nameProducts = {"Abacate","Abacaxi","Açaí","Acerola","Ameixa","Amora","Banana","Cajá","Caju","Carambola","Cereja","Coco","Cupuaçu","Damasco","Fruta Pão","Goiaba","Graviola","Jabuticaba","Jaca","Jambo","Laranja","Limão","Lichia","Maçã","Manga","Maracujá","Melância","Melão","Mexerica","Pêra","Pêssego","Pinha","Pinhão","Pitanga","Pitomba","Romã","Sapoti","Tamarindo","Tangerina","Tomate","Toranja","Umbu","Uva","Acelga","Agrião","Alcachofra","Alface","Aspargo","Brócolis","Cebolinha","Coentro","Couve","Espinafre","Hortelã","Manjericão","Mostarda","Rúcula","Salsa","Abóbora","Abobrinha","Alho","Berinjela","Beterraba","Cebola","Cenoura","Chuchu","Couve-flor","Ervilha","Fava","Feijão","Gengibre","Jiló","Milho","Nabo","Pepino","Pimenta","Pimentão","Quiabo","Rabanete","Repolho","Soja","Vagem"};
+    private final String[] products = {"Abacate Fruta","Abacaxi Fruta","Açaí Fruta","Acerola Fruta","Ameixa Fruta","Amora Fruta","Banana Fruta","Cajá Fruta","Caju Fruta","Carambola Fruta","Cereja Fruta","Coco Fruta","Cupuaçu Fruta","Damasco Fruta","Fruta Pão Fruta","Goiaba Fruta","Graviola Fruta","Jabuticaba Fruta","Jaca Fruta","Jambo Fruta","Laranja Fruta","Limão Fruta","Lichia Fruta","Maçã Fruta","Manga Fruta","Maracujá Fruta","Melância Fruta","Melão Fruta","Mexerica Fruta","Pêra Fruta","Pêssego Fruta","Pinha Fruta","Pinhão Fruta","Pitanga Fruta","Pitomba Fruta","Romã Fruta","Sapoti Fruta","Tamarindo Fruta","Tangerina Fruta","Tomate Fruta","Toranja Fruta","Umbu Fruta","Uva Fruta","Acelga Verduras","Agrião Verduras","Alcachofra Verduras","Alface Verduras","Aspargo Verduras","Brócolis Verduras","Cebolinha Verduras","Coentro Verduras","Couve Verduras","Espinafre Verduras","Hortelã Verduras","Manjericão Verduras","Mostarda Verduras","Rúcula Verduras","Salsa Verduras","Abóbora Legumes","Abobrinha Legumes","Alho Legumes","Berinjela Legumes","Beterraba Legumes","Cebola Legumes","Cenoura Legumes","Chuchu Legumes","Couve-flor Legumes","Ervilha Legumes","Fava Legumes","Feijão Legumes","Gengibre Legumes","Jiló Legumes","Milho Legumes","Nabo Legumes","Pepino Legumes","Pimenta Legumes","Pimentão Legumes","Quiabo Legumes","Rabanete Legumes","Repolho Legumes","Soja Legumes","Vagem Legumes"};
+
 
     public String[] getNameProducts(){
         return nameProducts;
@@ -28,10 +30,11 @@ public class ProductPersistence {
         this.id = i;
     }//
 
-    public Product createProduct(String string) {
+    public Product createProduct(String name, String type) {
         Product product = new Product();
         product.setProductId(Integer.toString(getId()));
-        product.setProductName(string);
+        product.setProductName(name);
+        product.setProductType(type);
         setId(getId()+1);
         return product;
     }
@@ -48,13 +51,16 @@ public class ProductPersistence {
         ContentValues valuesProduct = new ContentValues();
         valuesProduct.put(DatabaseHelper.getColumnProductId(),product.getProductId());
         valuesProduct.put(DatabaseHelper.getColumnProductName(), product.getProductName());
+        valuesProduct.put(DatabaseHelper.getColumnProductType(), product.getProductType());
         db.insert(DatabaseHelper.getTableProductName(), null, valuesProduct);
+        db.insert(DatabaseHelper.getColumnProductType(), null, valuesProduct);
         db.close();
     }
 
     public void populateProductTable(){
-        for (String string: nameProducts){
-            registerProduct(createProduct(string));
+        for (String product: products){
+            String[] value = product.split(" ");
+            registerProduct(createProduct(value[0], value[1]));
         }
     }
 
