@@ -66,15 +66,9 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="0.2">
-            <ImageView
-                android:src="@mipmap/ic_favorite"
-                android:background="#f9f9f9"
-                android:visibility="visible"
-                android:clickable="true"
-                android:layout_height="match_parent"
+            <CheckBox
                 android:layout_width="match_parent"
-                android:id="@+id/cardviewImgBtnFavorite"
-                 />
+                android:layout_height="match_parent" />
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>

@@ -11,7 +11,6 @@ import mpoo.bsi.ufrpe.organictrade.Infra.Session;
 import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.item.dominio.Product;
 
 public class ProductPersistence {
-    private int id = 0;
     private SQLiteDatabase db;
     private DatabaseHelper banco = Session.getDbAtual();
     private final String[] nameProducts = {"Abacate","Abacaxi","Açaí","Acerola","Ameixa","Amora","Banana","Cajá","Caju","Carambola","Cereja","Coco","Cupuaçu","Damasco","Fruta Pão","Goiaba","Graviola","Jabuticaba","Jaca","Jambo","Laranja","Limão","Lichia","Maçã","Manga","Maracujá","Melância","Melão","Mexerica","Pêra","Pêssego","Pinha","Pinhão","Pitanga","Pitomba","Romã","Sapoti","Tamarindo","Tangerina","Tomate","Toranja","Umbu","Uva","Acelga","Agrião","Alcachofra","Alface","Aspargo","Brócolis","Cebolinha","Coentro","Couve","Espinafre","Hortelã","Manjericão","Mostarda","Rúcula","Salsa","Abóbora","Abobrinha","Alho","Berinjela","Beterraba","Cebola","Cenoura","Chuchu","Couve-flor","Ervilha","Fava","Feijão","Gengibre","Jiló","Milho","Nabo","Pepino","Pimenta","Pimentão","Quiabo","Rabanete","Repolho","Soja","Vagem"};
@@ -22,20 +21,10 @@ public class ProductPersistence {
         return nameProducts;
     }
 
-    public int getId() {
-        return id;
-    }//
-
-    public void setId(int i) {
-        this.id = i;
-    }//
-
     public Product createProduct(String name, String type) {
         Product product = new Product();
-        product.setProductId(Integer.toString(getId()));
         product.setProductName(name);
         product.setProductType(type);
-        setId(getId()+1);
         return product;
     }
 

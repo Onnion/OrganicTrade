@@ -23,7 +23,6 @@ public class FavoritesActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         Session.setContext(getBaseContext());
         setContentView(R.layout.activity_favorites);
-        setFunctionFavoriteBtn();
         initTentList();
     }
 
@@ -44,5 +43,7 @@ public class FavoritesActivity extends AppCompatActivity {
         listProducts = productPersistence.getAllProducts();
         adapter = new FavoriteListAdapter(listProducts);
         listView.setAdapter(adapter);
+        setFunctionFavoriteBtn();
+
     }
 }

@@ -38,8 +38,8 @@ public class FavoriteListAdapter extends ArrayAdapter<Product>{
     }
 
     private void loadTextViwes(Product product, View convertView){
-//        TextView productType = (TextView) convertView.findViewById(R.id.productType);
-//        productType.setText(product.getProductType());
+        TextView productType = (TextView) convertView.findViewById(R.id.productType);
+        productType.setText(product.getProductType());
         TextView productName = (TextView) convertView.findViewById(R.id.productName);
         productName.setText(product.getProductName());
     }
