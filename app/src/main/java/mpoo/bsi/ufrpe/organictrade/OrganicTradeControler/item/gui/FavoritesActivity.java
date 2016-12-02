@@ -17,7 +17,6 @@ public class FavoritesActivity extends AppCompatActivity {
     private ArrayList<Product> listProducts;
     private FavoriteListAdapter adapter;
     private GridView listView;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

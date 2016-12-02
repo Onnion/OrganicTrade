@@ -40,8 +40,8 @@ public class ProductPersistence {
         ContentValues valuesProduct = new ContentValues();
         valuesProduct.put(DatabaseHelper.getColumnProductId(),product.getProductId());
         valuesProduct.put(DatabaseHelper.getColumnProductName(), product.getProductName());
-        valuesProduct.put(DatabaseHelper.getColumnProductType(), product.getProductType());
         db.insert(DatabaseHelper.getTableProductName(), null, valuesProduct);
+        valuesProduct.put(DatabaseHelper.getColumnProductType(), product.getProductType());
         db.insert(DatabaseHelper.getColumnProductType(), null, valuesProduct);
         db.close();
     }

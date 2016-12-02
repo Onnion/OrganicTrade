@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.CheckBox;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -44,18 +45,18 @@ public class FavoriteListAdapter extends ArrayAdapter<Product>{
         productName.setText(product.getProductName());
     }
 
+    private void setFuncitonCheckBox(View view, ArrayList<String> arrayList){
+        CheckBox checkBox = (CheckBox)view.findViewById(R.id.productCheckBox);
+        if(!checkBox.isChecked()){
+
+        }else{
+
+        }
+
+    }
+
 //    private void loadImg(Product product, View view){
 //        ImageView imageView = (ImageView)view.findViewById(R.id.productImg);
 //        imageView.setImageBitmap(BitmapFactory.decodeFile(product.getProductImg()));
-//    }
-
-//    private void setFunctionFavoriteBtn(View view){
-//        final ImageView favorite = (ImageView)view.findViewById(R.id.cardviewImgBtnFavorite);
-//        favorite.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                favorite.setImageResource(R.mipmap.ic_favoriteonclick);
-//            }
-//        });
 //    }
 }
