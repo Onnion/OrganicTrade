@@ -23,6 +23,7 @@ import java.util.ArrayList;
 import mpoo.bsi.ufrpe.organictrade.Infra.Session;
 import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.item.dominio.Tent;
 import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.item.gui.FavoritesActivity;
+import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.item.gui.RegisterFavoritesActivity;
 import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.item.gui.RegisterTentActivity;
 import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.item.gui.TentActivity;
 import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.item.gui.TentListAdapter;
@@ -238,13 +239,6 @@ public class UserActivity extends AppCompatActivity {
     }
 
     private void setFunctionLogoutBtn() {
-        logoutBtn.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                logoutBtn.setImageResource(R.mipmap.ic_logoutonclick);
-                return false;
-            }
-        });
         logoutBtn.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
@@ -259,7 +253,7 @@ public class UserActivity extends AppCompatActivity {
                 crud.userLogoff();
                 Session.setCurrentUser(new User());
                 Intent p = new Intent(Session.getContext(),LoginActivity.class);
-                logoutBtn.setImageResource(R.mipmap.ic_logout);
+                logoutBtn.setImageResource(R.mipmap.ic_logoutonclick);
                 startActivity(p);
                 finish();
             }
@@ -277,13 +271,7 @@ public class UserActivity extends AppCompatActivity {
     }
 
     private void setFunctionSearchBtn() {
-        searchBtn.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                searchBtn.setImageResource(R.mipmap.ic_searchonclick);
-                return false;
-            }
-        });
+
         searchBtn.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
@@ -295,7 +283,7 @@ public class UserActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent p = new Intent(Session.getContext(),SearchProductsActivity.class);
-                searchBtn.setImageResource(R.mipmap.ic_search);
+                searchBtn.setImageResource(R.mipmap.ic_searchonclick);
                 startActivity(p);
 
             }
@@ -313,13 +301,7 @@ public class UserActivity extends AppCompatActivity {
     }
 
     private void setFunctionEditBtn() {
-        editBtn.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                editBtn.setImageResource(R.mipmap.ic_editonclick);
-                return false;
-            }
-        });
+
         editBtn.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
@@ -331,7 +313,7 @@ public class UserActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent p = new Intent(Session.getContext(),EditRegisterUserActivity.class);
-                editBtn.setImageResource(R.mipmap.ic_edit);
+                editBtn.setImageResource(R.mipmap.ic_editonclick);
                 startActivity(p);
 
             }
@@ -356,18 +338,11 @@ public class UserActivity extends AppCompatActivity {
                 return false;
             }
         });
-        addBtn.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                addBtn.setImageResource(R.mipmap.ic_addonclick);
-                return false;
-            }
-        });
+
         addBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent p = new Intent(Session.getContext(),RegisterTentActivity.class);
-                addBtn.setImageResource(R.mipmap.ic_add);
                 startActivity(p);
             }
         });
@@ -375,7 +350,6 @@ public class UserActivity extends AppCompatActivity {
 
     private void initializeAddBtn() {
         addBtn = (ImageView) findViewById(R.id.userImgBtnToCadastro);
-        addBtn.setImageResource(R.mipmap.ic_add);
     }
 
     private void loadFavoriteBtn(){
@@ -391,18 +365,12 @@ public class UserActivity extends AppCompatActivity {
                 return false;
             }
         });
-        favoriteBtn.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                favoriteBtn.setImageResource(R.mipmap.ic_favoritebtn);
-                return false;
-            }
-        });
+
         favoriteBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                favoriteBtn.setImageResource(R.mipmap.ic_favoriteonclick);
                 Intent p = new Intent(Session.getContext(),FavoritesActivity.class);
-                favoriteBtn.setImageResource(R.mipmap.ic_favorite);
                 startActivity(p);
             }
         });
@@ -410,6 +378,6 @@ public class UserActivity extends AppCompatActivity {
 
     private void initializeFavoriteBtn(){
         favoriteBtn = (ImageView) findViewById(R.id.userImgBtnToFavorites);
-        favoriteBtn.setImageResource(R.mipmap.ic_favorite);
+        favoriteBtn.setImageResource(R.mipmap.ic_favoritebtn);
     }
 }

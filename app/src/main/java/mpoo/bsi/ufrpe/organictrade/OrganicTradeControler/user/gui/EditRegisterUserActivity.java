@@ -22,6 +22,9 @@ public class EditRegisterUserActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
+        Session.setItemSelected(null);
+        Intent i = new Intent(Session.getContext(),UserActivity.class);
+        startActivity(i);
         finish();
     }
 

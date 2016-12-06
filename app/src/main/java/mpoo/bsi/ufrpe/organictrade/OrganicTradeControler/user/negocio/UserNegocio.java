@@ -171,10 +171,6 @@ public class UserNegocio{
             registerUserEdtName.setError("Please Enter with a valid name");
             tc_valid = false;
         }
-        if(sc_pass.length()  == 0|| sc_pass.length() < 6 || sc_pass.length() > 16 || (!invalidPass(sc_pass))){
-            registerUserEdtPass.setError("Please Enter with a valid pass");
-            tc_valid = false;
-        }
         if(sc_email.length() == 0 || (!invalidEmail(sc_email))){
             registerUserEdtEmail.setError("Please Enter with a valid email");
             tc_valid = false;

@@ -25,7 +25,7 @@ public class TentItemsPersistence {
         String productId = cursor.getString(4);
         ProductPersistence productPersistence = new ProductPersistence();
         Product product;
-        product = productPersistence.getProductByid(productId);
+        product = productPersistence.getProductById(productId);
         tentItems.setProduct(product);
 
         String tentId = cursor.getString(5);
@@ -97,7 +97,7 @@ public class TentItemsPersistence {
         ArrayList<TentItems> tentItems = new ArrayList<>();
         db = banco.getReadableDatabase();
 
-        Cursor cursor = db.rawQuery(ComandosSql.sqlAllItems(),new String[]{userId});
+        Cursor cursor = db.rawQuery(ComandosSql.sqlAllItems(),new String[]{userId,userId});
 
         if(cursor.moveToFirst()){
             do{

@@ -6,5 +6,6 @@
     <color name="verdeParaTudo">#009688</color>
     <color name="accent300">#4db6ac</color>
     <color name="write">#ffff</color>
+    <color name="selected">#f9f9</color>
 </resources>
 

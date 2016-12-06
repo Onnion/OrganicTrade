@@ -10,6 +10,7 @@ import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import android.os.Bundle;
 import android.content.Context;
+import android.os.Handler;
 import android.support.v4.app.FragmentActivity;
 import android.widget.Toast;
 import android.content.Intent;
@@ -31,7 +32,9 @@ import mpoo.bsi.ufrpe.organictrade.Infra.Session;
 import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.item.dominio.Tent;
 import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.item.persistencia.TentPersistence;
 import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.user.dominio.User;
+import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.user.gui.LoginActivity;
 import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.user.gui.UserActivity;
+import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.user.persistencia.UserPersistence;
 import mpoo.bsi.ufrpe.organictrade.R;
 
 public class RegisterTentActivity extends FragmentActivity implements OnMapReadyCallback {
@@ -40,9 +43,13 @@ public class RegisterTentActivity extends FragmentActivity implements OnMapReady
     private String nameStr;
     private GoogleMap mMap;
     private LatLng locationTent;
+    private Locality locality = new Locality();
 
     @Override
     public void onBackPressed() {
+        Session.setItemSelected(null);
+        Intent i = new Intent(Session.getContext(),UserActivity.class);
+        startActivity(i);
         finish();
     }
 
@@ -77,11 +84,16 @@ public class RegisterTentActivity extends FragmentActivity implements OnMapReady
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
-        locationTent = new LatLng(-8.053889,-34.881111);
-        loadLocationContactSelect();
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(locationTent));
-        mMap.setMinZoomPreference(13);
-
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                locationTent = new LatLng(Double.parseDouble(locality.getLagi()),Double.parseDouble(locality.getLongi()));
+                loadMarkerLocationContactSelect();
+                mMap.moveCamera(CameraUpdateFactory.newLatLng(locationTent));
+                mMap.setMinZoomPreference(13);
+                }
+        }, 1000);
     }
 
     private void setMarkerFunction() {
@@ -173,7 +185,7 @@ public class RegisterTentActivity extends FragmentActivity implements OnMapReady
         mapFragment.getMapAsync(this);
     }
 
-    private void loadLocationContactSelect() {
+    private void loadMarkerLocationContactSelect() {
         if(Session.getCurrentUser().getImage() == null){
             mMap.addMarker(new MarkerOptions()
                     .position(locationTent)

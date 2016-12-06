@@ -3,10 +3,14 @@ package mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.user.persistencia;
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+
+import java.util.ArrayList;
+
 import mpoo.bsi.ufrpe.organictrade.Infra.persistencia.ComandosSql;
 import mpoo.bsi.ufrpe.organictrade.Infra.persistencia.DatabaseHelper;
 import mpoo.bsi.ufrpe.organictrade.Infra.Session;
 import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.item.dominio.Product;
+import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.item.persistencia.ProductPersistence;
 import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.user.dominio.User;
 
 public class UserPersistence {
@@ -125,7 +129,6 @@ public class UserPersistence {
         cursorLocal1.close();
         db.close();
         return user;
-
     }
 
     public void userEdit(User user){
@@ -151,11 +154,34 @@ public class UserPersistence {
         db.close();
     }
 
-    public void setFavorite(User user, Product product){
+    public void registerFavorites(ArrayList<Product> products){
+        for(Product product: products) {
+             setFavorite(product);
+        }
+    }
+
+    public void setFavorite(Product product){
         db = banco.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
-        contentValues.put(DatabaseHelper.getColumnUserproductUserId(),user.getId_user());
+        contentValues.put(DatabaseHelper.getColumnUserproductUserId(),Session.getCurrentUser().getId_user());
         contentValues.put(DatabaseHelper.getColumnUserproductProductId(),product.getProductId());
-        db.insert(DatabaseHelper.getTableUserUserproductName(),null,contentValues);
+        db.insert(DatabaseHelper.getTableUserproductName(),null,contentValues);
+        db.close();
     }
+
+    public ArrayList<Product> getFavorites(){
+        ArrayList<Product> products = new ArrayList<>();
+        db = banco.getReadableDatabase();
+        Cursor cursor = db.rawQuery(ComandosSql.sqlGetFavorites(),new String[]{Session.getCurrentUser().getId_user()});
+        if(cursor.moveToFirst()){
+            ProductPersistence productPersistence = new ProductPersistence();
+            do {
+                products.add(productPersistence.getProductById(cursor.getString(1)));
+            }while (cursor.moveToNext());
+        }
+        cursor.close();
+        db.close();
+        return products;
+    }
+
 }

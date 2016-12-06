@@ -12,13 +12,15 @@ import mpoo.bsi.ufrpe.organictrade.Infra.Session;
 import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.item.dominio.Product;
 import mpoo.bsi.ufrpe.organictrade.R;
 
-public class FavoriteListAdapter extends ArrayAdapter<Product>{
-    Context context;
-    ArrayList<Product> products;
+public class FavoriteToRegisterListAdapter extends ArrayAdapter<Product>{
+    private Context context;
+    private ArrayList<Product> products;
+    private ArrayList<Product> selecionados;
 
-    public FavoriteListAdapter(ArrayList<Product> products){
+    public FavoriteToRegisterListAdapter(ArrayList<Product> products, ArrayList<Product> selecionados){
         super(Session.getContext(), 0, products);
         this.products = products;
+        this.selecionados = selecionados;
         this.context = Session.getContext();
     }
 
@@ -26,17 +28,20 @@ public class FavoriteListAdapter extends ArrayAdapter<Product>{
     public View getView(int position, View convertView, ViewGroup parent) {
         final Product product = products.get(position);
         if (convertView == null)
-            convertView = LayoutInflater.from(context).inflate(R.layout.favorite_listview_adapter, null);
+            convertView = LayoutInflater.from(context).inflate(R.layout.favorites_to_register_listvew_adapter, null);
         loadTextViwes(product,convertView);
         //loadImg(product,convertView);
+        //setFunctionFavoriteBtn(convertView);
         return convertView;
     }
 
     private void loadTextViwes(Product product, View convertView){
-//        TextView productType = (TextView) convertView.findViewById(R.id.productType);
-//        productType.setText(product.getProductType());
-        TextView productName = (TextView) convertView.findViewById(R.id.productName);
+        TextView productType = (TextView) convertView.findViewById(R.id.registerProductType);
+        productType.setText(product.getProductType());
+        TextView productName = (TextView) convertView.findViewById(R.id.registerProductName);
         productName.setText(product.getProductName());
+        CheckBox checkBox = (CheckBox)convertView.findViewById(R.id.registerProductCheckBox);
+        checkBox.setChecked(selecionados.contains(product));
     }
 
 //    private void loadImg(Product product, View view){

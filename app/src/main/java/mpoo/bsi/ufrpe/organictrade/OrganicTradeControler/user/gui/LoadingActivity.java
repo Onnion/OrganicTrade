@@ -5,6 +5,7 @@ import android.os.Handler;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import mpoo.bsi.ufrpe.organictrade.Infra.Session;
+import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.item.persistencia.ProductPersistence;
 import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.user.persistencia.UserPersistence;
 import mpoo.bsi.ufrpe.organictrade.R;
 
@@ -17,6 +18,7 @@ public class LoadingActivity extends AppCompatActivity{
         Session.setContext(getBaseContext());
         startSession();
         setDelay();
+        ProductPersistence productPersistence = new ProductPersistence();
     }
 
     private void setDelay() {

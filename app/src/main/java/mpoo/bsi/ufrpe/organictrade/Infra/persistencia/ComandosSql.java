@@ -72,7 +72,7 @@ public class ComandosSql {
 
     public static String sqlCreateUserProductTable(){
         String sqlCreateUserProductTable =
-                "CREATE TABLE "+ DatabaseHelper.getTableUserUserproductName() + "( "
+                "CREATE TABLE "+ DatabaseHelper.getTableUserproductName() + "( "
                         + DatabaseHelper.getColumnUserproductUserId()+" integer , "
                         + DatabaseHelper.getColumnUserproductProductId()+" inteer , "
                         + "foreign key ( "+DatabaseHelper.getColumnUserproductUserId()+" ) references "+DatabaseHelper.getTableUserName()+" ( "+DatabaseHelper.getColumnUserId()+" ) , "
@@ -97,7 +97,7 @@ public class ComandosSql {
     }
 
     public static String sqlDropTableUserProduct() {
-        String sqlDropTableUserProduct = "DROP TABLE IF EXISTS " + DatabaseHelper.getTableUserUserproductName();
+        String sqlDropTableUserProduct = "DROP TABLE IF EXISTS " + DatabaseHelper.getTableUserproductName();
         return(sqlDropTableUserProduct);
     }
 
@@ -192,7 +192,10 @@ public class ComandosSql {
                 "SELECT * FROM "+DatabaseHelper.getTableTentitemsName() +" WHERE "
                         +DatabaseHelper.getColumnTentitemsTentId()
                         +" IN ( SELECT "+DatabaseHelper.getColumnTentId()+" FROM "+DatabaseHelper.getTableTentName()+" WHERE NOT "
-                        +DatabaseHelper.getColumnTentUserId()+" = ?);";
+                        +DatabaseHelper.getColumnTentUserId()+" = ?) AND "
+                        +DatabaseHelper.getColumnTentitemsProductId()
+                        +" IN ( SELECT "+DatabaseHelper.getColumnUserproductProductId()+" FROM "+DatabaseHelper.getTableUserproductName()+" WHERE "
+                        +DatabaseHelper.getColumnUserproductUserId()+" = ?);";
         return (sqlAllItems);
     }
 
@@ -210,9 +213,24 @@ public class ComandosSql {
         return (sqlTentById);
     }
 
+
     public static String sqlAllProducts(){
         String sqlAllProducts =
                 "SELECT * FROM "+DatabaseHelper.getTableProductName()+";";
         return (sqlAllProducts);
+    }
+
+    public static String sqlGetFavorites() {
+        String sqlGetFavorites =
+                "SELECT * FROM "+DatabaseHelper.getTableUserproductName()+" WHERE "
+                        +DatabaseHelper.getColumnUserproductUserId()+" =?;";
+        return (sqlGetFavorites);
+    }
+
+    public static String sqlGetProductById() {
+        String sqlGetProductById =
+                "SELECT * FROM "+DatabaseHelper.getTableProductName()+" WHERE "
+                        +DatabaseHelper.getColumnProductId()+" =?;";
+        return (sqlGetProductById);
     }
 }
