@@ -1,18 +1,18 @@
 package mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.item.dominio;
 
 public class Product {
-    private String productId;
+    private int productId;
     private String productName;
     private String productType;
     private String productDescription;
     private String productImg;
 
 
-    public String getProductId() {
+    public int getProductId() {
         return productId;
     }
 
-    public void setProductId(String productId) {
+    public void setProductId(int productId) {
         this.productId = productId;
     }
 

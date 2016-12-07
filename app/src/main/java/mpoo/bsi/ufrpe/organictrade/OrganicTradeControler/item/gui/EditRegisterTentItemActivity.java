@@ -70,8 +70,8 @@ public class EditRegisterTentItemActivity extends AppCompatActivity {
         tentItemsToEdit.setTentItemsId(Session.getItemSelected().getTentItemsId());
         tentItemsToEdit.setTent(Session.getItemSelected().getTent());
         tentItemsToEdit.setUnity(unityProduct.getSelectedItem().toString());
-        tentItemsToEdit.setCurrentAmount(amount.getText().toString());
-        tentItemsToEdit.setValue(price.getText().toString());
+        tentItemsToEdit.setCurrentAmount(Integer.parseInt(amount.getText().toString()));
+        tentItemsToEdit.setValue(Double.parseDouble(price.getText().toString()));
         tentItemsToEdit.setImageItem(picturePath);
         TentItemsPersistence tentItemsPersistence = new TentItemsPersistence();
         tentItemsPersistence.tentItemEdit(tentItemsToEdit);
@@ -84,7 +84,7 @@ public class EditRegisterTentItemActivity extends AppCompatActivity {
         amount = (EditText) findViewById((R.id.editRegisterTentItemEdtProductAmount));
         price = (EditText) findViewById(R.id.editRegisterTentItemEdtProductPrice);
         amount.setText(Session.getItemSelected().getCurrentAmount());
-        price.setText(Session.getItemSelected().getValue());
+        price.setText(Session.getItemSelected().getValue().toString());
     }
 
     private void loadUnitySpinner() {

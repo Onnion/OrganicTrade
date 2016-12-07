@@ -34,7 +34,7 @@ public class ProductPersistence {
 
     public Product createProduct(String name, String type) {
         Product product = new Product();
-        product.setProductId(Integer.toString(getId()));
+        product.setProductId(getId());
         product.setProductName(name);
         product.setProductType(type);
         product.setProductDescription("");
@@ -45,14 +45,13 @@ public class ProductPersistence {
 
     public Product createProductBtConsult(Cursor cursor){
         Product product = new Product();
-        product.setProductId(cursor.getString(0));
+        product.setProductId(cursor.getInt(0));
         product.setProductName(cursor.getString(1));
         product.setProductType(cursor.getString(2));
         product.setProductDescription(cursor.getString(3));
         product.setProductImg(cursor.getString(4));
         return product;
     }
-
 
     public void registerProduct(Product product){
         db = banco.getWritableDatabase();
@@ -84,10 +83,10 @@ public class ProductPersistence {
         else{return "";}
     }
 
-    public String nameProductById(String id){
+    public String nameProductById(int id){
         db = banco.getReadableDatabase();
         String name = null;
-        Cursor cursor = db.rawQuery(ComandosSql.sqlProductNameById(),new String[]{id});
+        Cursor cursor = db.rawQuery(ComandosSql.sqlProductNameById(),new String[]{Integer.toString(id)});
         if(cursor.moveToFirst()){
             name = cursor.getString(1);}
         cursor.close();
@@ -104,10 +103,10 @@ public class ProductPersistence {
         db.close();
     }
 
-    public Product getProductById(String productId) {
+    public Product getProductById(int productId) {
         db = banco.getReadableDatabase();
         Product product = null;
-        Cursor cursor = db.rawQuery(ComandosSql.sqlProductNameById(),new String[]{productId});
+        Cursor cursor = db.rawQuery(ComandosSql.sqlProductNameById(),new String[]{Integer.toString(productId)});
         if(cursor.moveToFirst()){
             product = createProductBtConsult(cursor);
         }

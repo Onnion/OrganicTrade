@@ -36,7 +36,7 @@ public class ItemListAdapter extends ArrayAdapter<TentItems> {
         TextView textoNomeProduto = (TextView) view.findViewById(R.id.itemTxtNome);
         textoNomeProduto.setText(productPersistence.nameProductById(itenDeTenda.getProduct().getProductId()));
         TextView textoPriceProduto = (TextView)view.findViewById(R.id.itemTxtPrice);
-        textoPriceProduto.setText(itenDeTenda.getValue());
+        textoPriceProduto.setText(itenDeTenda.getValue().toString());
 
         return view;
     }

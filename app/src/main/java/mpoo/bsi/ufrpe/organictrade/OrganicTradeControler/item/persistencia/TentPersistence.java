@@ -19,21 +19,21 @@ public class TentPersistence {
     private Tent createTent(Cursor cursor){
         Tent tent = new Tent();
         UserPersistence userPersistence = new UserPersistence();
-        tent.setTentId(cursor.getString(0));
-        tent.setLongi(cursor.getString(1));
-        tent.setLagi(cursor.getString(2));
-        tent.setUser(userPersistence.searchFromId(cursor.getString(3)));
+        tent.setTentId(cursor.getInt(0));
+        tent.setLongi(cursor.getDouble(1));
+        tent.setLagi(cursor.getDouble(2));
+        tent.setUser(userPersistence.searchFromId(cursor.getInt(3)));
         tent.setName(cursor.getString(4));
         tent.setImg(cursor.getString(5));
-        tent.setNote(cursor.getString(6));
-        tent.setNumberOfVotes(cursor.getString(7));
+        tent.setNote(cursor.getInt(6));
+        tent.setNumberOfVotes(cursor.getInt(7));
         return tent;
     }
 
-    public ArrayList<Tent> getTentOfUser(String userId){
+    public ArrayList<Tent> getTentOfUser(int userId){
         ArrayList<Tent> tents = new ArrayList<>();
         db = banco.getReadableDatabase();
-        Cursor cursorLocal = db.rawQuery(ComandosSql.sqlTentFromUser(),new String[]{userId});
+        Cursor cursorLocal = db.rawQuery(ComandosSql.sqlTentFromUser(),new String[]{Integer.toString(userId)});
         if(cursorLocal.moveToFirst()){
             do{
                 Tent tent = createTent(cursorLocal);
@@ -44,10 +44,10 @@ public class TentPersistence {
         db.close();
         return tents;
     }
-    public Tent getTent(String tentId){
+    public Tent getTent(int tentId){
         Tent tent = null;
         db = banco.getReadableDatabase();
-        Cursor cursor = db.rawQuery(ComandosSql.sqlTentById(),new String[]{tentId});
+        Cursor cursor = db.rawQuery(ComandosSql.sqlTentById(),new String[]{Integer.toString(tentId)});
         if(cursor.moveToFirst()){
             tent = createTent(cursor);
         }
@@ -70,10 +70,10 @@ public class TentPersistence {
         db.close();
     }
 
-    public void deleteTent(String id){
+    public void deleteTent(int id){
         db = banco.getReadableDatabase();
         String where = DatabaseHelper.getColumnTentId()+"=?;";
-        db.delete(DatabaseHelper.getTableTentName(),where,new String[]{id});
+        db.delete(DatabaseHelper.getTableTentName(),where,new String[]{Integer.toString(id)});
     }
 
 

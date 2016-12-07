@@ -2,19 +2,19 @@ package mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.user.dominio;
 
 public class User {
 
-    private String userId;
+    private int userId;
     private String userName;
     private String password;
     private String email;
     private String name;
-    private String phone;
+    private Long phone;
     private String image;
 
-    public String getPhone() {
+    public Long getPhone() {
         return phone;
     }
 
-    public void setPhone(String phone) {
+    public void setPhone(Long phone) {
         this.phone = phone;
     }
 
@@ -34,11 +34,11 @@ public class User {
         this.email = email;
     }
 
-    public String getId_user() {
+    public int getId_user() {
         return userId;
     }
 
-    public void setId_user(String id_user) {
+    public void setId_user(int id_user) {
         this.userId = id_user;
     }
 

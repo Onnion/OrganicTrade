@@ -3,28 +3,28 @@ package mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.item.dominio;
 import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.user.dominio.User;
 
 public class Tent {
-    private String tentId;
+    private int tentId;
     private User user;
-    private String longi;
-    private String lagi;
+    private Double longi;
+    private Double lagi;
     private String name;
     private String img;
-    private String note;
-    private String numberOfVotes;
+    private int note;
+    private int numberOfVotes;
 
-    public  String getNote() {
+    public int getNote() {
         return note;
     }
 
-    public void setNote(String note) {
+    public void setNote(int note) {
         this.note = note;
     }
 
-    public String getNumberOfVotes() {
+    public int getNumberOfVotes() {
         return numberOfVotes;
     }
 
-    public void setNumberOfVotes(String numberOfVotes) {
+    public void setNumberOfVotes(int numberOfVotes) {
         this.numberOfVotes = numberOfVotes;
     }
 
@@ -44,19 +44,19 @@ public class Tent {
         this.img = img;
     }
 
-    public String getLagi() {
+    public Double getLagi() {
         return lagi;
     }
 
-    public void setLagi(String lagi) {
+    public void setLagi(Double lagi) {
         this.lagi = lagi;
     }
 
-    public String getLongi() {
+    public Double getLongi() {
         return longi;
     }
 
-    public void setLongi(String longi) {
+    public void setLongi(Double longi) {
         this.longi = longi;
     }
 
@@ -68,11 +68,11 @@ public class Tent {
         this.user = user;
     }
 
-    public String getTentId() {
+    public int getTentId() {
         return tentId;
     }
 
-    public void setTentId(String tentId) {
+    public void setTentId(int tentId) {
         this.tentId = tentId;
     }
 }

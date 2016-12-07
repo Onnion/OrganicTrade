@@ -74,10 +74,10 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(j);
                 finish();
             }else{
-                Toast.makeText(Session.getContext(),getText(R.string.tstInvalidLoginAndPassword) , Toast.LENGTH_LONG).show();
+                Toast.makeText(Session.getContext(),"1" , Toast.LENGTH_LONG).show();
             }
         }else{
-            Toast.makeText(Session.getContext(),getText(R.string.tstInvalidLoginAndPassword) , Toast.LENGTH_LONG).show();
+            Toast.makeText(Session.getContext(),"2" , Toast.LENGTH_LONG).show();
         }
     }
 

@@ -53,7 +53,7 @@ public class EditRegisterUserActivity extends AppCompatActivity {
         userToEdit.setUserName(Session.getCurrentUser().getUserName());
         userToEdit.setName(name.getText().toString());
         userToEdit.setEmail(email.getText().toString());
-        userToEdit.setPhone(number.getText().toString());
+        userToEdit.setPhone(Long.parseLong(number.getText().toString()));
         UserPersistence userPersistence = new UserPersistence();
         userPersistence.userEdit(userToEdit);
         Intent i = new Intent(Session.getContext(), UserActivity.class);
@@ -67,6 +67,6 @@ public class EditRegisterUserActivity extends AppCompatActivity {
         number = (EditText)findViewById(R.id.editUserEdtPhone);
         name.setText(Session.getCurrentUser().getName());
         email.setText(Session.getCurrentUser().getEmail());
-        number.setText(Session.getCurrentUser().getPhone());
+        number.setText(Session.getCurrentUser().getPhone().toString());
     }
 }

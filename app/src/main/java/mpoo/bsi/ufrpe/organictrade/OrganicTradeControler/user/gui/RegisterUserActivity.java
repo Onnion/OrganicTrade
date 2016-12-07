@@ -7,7 +7,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
 import mpoo.bsi.ufrpe.organictrade.Infra.Session;
 import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.user.dominio.User;
 import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.user.negocio.Md5;
@@ -30,6 +29,7 @@ public class RegisterUserActivity extends AppCompatActivity {
     private String remail;
     private String phoneString;
     private UserPersistence crud;
+    
 
     @Override
     public void onBackPressed() {
@@ -76,7 +76,7 @@ public class RegisterUserActivity extends AppCompatActivity {
         usuario.setPassword(Md5.encrypt(passString));
         usuario.setEmail(remail);
         usuario.setName(nomeString);
-        usuario.setPhone(phoneString);
+        usuario.setPhone(Long.parseLong(phoneString));
         crud.RegisterUser(usuario);
     }
 
@@ -92,6 +92,6 @@ public class RegisterUserActivity extends AppCompatActivity {
         passString = pass.getText().toString();
         rpassString = rpass.getText().toString();
         remail = email.getText().toString();
-        phoneString = phone.getText().toString();
+        phoneString = phone.getText().toString().trim();
     }
 }

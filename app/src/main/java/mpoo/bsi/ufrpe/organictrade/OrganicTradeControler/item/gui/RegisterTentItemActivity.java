@@ -109,9 +109,9 @@ public class RegisterTentItemActivity extends AppCompatActivity {
     public void registerProduct() {
         loadValuesToRegister();
         TentItemsPersistence crud = new TentItemsPersistence();
-        tentItems.setProduct(productPersistence.getProductById(idProductString));
-        tentItems.setCurrentAmount(amountString);
-        tentItems.setValue(priceString);
+        tentItems.setProduct(productPersistence.getProductById(Integer.parseInt(idProductString)));
+        tentItems.setCurrentAmount(Integer.parseInt(amountString));
+        tentItems.setValue(Double.parseDouble(priceString));
         tentItems.setUnity(unityString);
         tentItems.setTent(Session.getTentSelected());
         crud.insertTentItems(tentItems);
@@ -132,11 +132,11 @@ public class RegisterTentItemActivity extends AppCompatActivity {
 
     private void formatPrice() {
         //validação
-        if (priceString.contains(".")){
-            priceString = priceString.replace(".", ",");
+        if (priceString.contains(",")){
+            priceString = priceString.replace(",", ".");
         }
         else {
-            priceString = priceString + ",00";
+            priceString = priceString + ".00";
         }
 
     }

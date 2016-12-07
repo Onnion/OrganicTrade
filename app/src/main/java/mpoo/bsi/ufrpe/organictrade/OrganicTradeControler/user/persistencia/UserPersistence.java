@@ -3,9 +3,7 @@ package mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.user.persistencia;
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-
 import java.util.ArrayList;
-
 import mpoo.bsi.ufrpe.organictrade.Infra.persistencia.ComandosSql;
 import mpoo.bsi.ufrpe.organictrade.Infra.persistencia.DatabaseHelper;
 import mpoo.bsi.ufrpe.organictrade.Infra.Session;
@@ -19,12 +17,12 @@ public class UserPersistence {
 
     public User criarUsuario(Cursor cursor) {
         User user = new User();
-        user.setId_user(cursor.getString(0));
+        user.setId_user(cursor.getInt(0));
         user.setUserName(cursor.getString(1));
         user.setPassword(cursor.getString(2));
         user.setEmail(cursor.getString(3));
         user.setName(cursor.getString(4));
-        user.setPhone(cursor.getString(5));
+        user.setPhone(cursor.getLong(5));
         user.setImage(cursor.getString(6));
         return user;
     }
@@ -48,7 +46,6 @@ public class UserPersistence {
     public void RegisterUser(User user){
         db = banco.getWritableDatabase();
         ContentValues userValues = new ContentValues();
-        userValues.put(DatabaseHelper.getColumnUserId(),user.getId_user());
         userValues.put(DatabaseHelper.getColumnUserUsername(), user.getUserName());
         userValues.put(DatabaseHelper.getColumnUserPassword(), user.getPassword());
         userValues.put(DatabaseHelper.getColumnUserEmail(), user.getEmail());
@@ -96,7 +93,7 @@ public class UserPersistence {
 
     public void userLogoff(){
         db = banco.getReadableDatabase();
-        Cursor cursor = db.rawQuery(ComandosSql.sqlUserLogoff(), new String[]{Session.getCurrentUser().getId_user()});
+        Cursor cursor = db.rawQuery(ComandosSql.sqlUserLogoff(), new String[]{Integer.toString(Session.getCurrentUser().getId_user())});
         if(cursor.moveToFirst()) {
             Session.setCurrentUser(null);
             db.execSQL(ComandosSql.sqlLimparTabela());
@@ -119,10 +116,10 @@ public class UserPersistence {
         db.close();
     }
 
-    public User searchFromId(String id){
+    public User searchFromId(int id){
         db = banco.getReadableDatabase();
         User user = null;
-        Cursor cursorLocal1 = db.rawQuery(ComandosSql.sqlUserFromId(),new String[]{id});
+        Cursor cursorLocal1 = db.rawQuery(ComandosSql.sqlUserFromId(),new String[]{Integer.toString(id)});
         if(cursorLocal1.moveToFirst()){
             user = criarUsuario(cursorLocal1);
         }
@@ -172,11 +169,11 @@ public class UserPersistence {
     public ArrayList<Product> getFavorites(){
         ArrayList<Product> products = new ArrayList<>();
         db = banco.getReadableDatabase();
-        Cursor cursor = db.rawQuery(ComandosSql.sqlGetFavorites(),new String[]{Session.getCurrentUser().getId_user()});
+        Cursor cursor = db.rawQuery(ComandosSql.sqlGetFavorites(),new String[]{Integer.toString(Session.getCurrentUser().getId_user())});
         if(cursor.moveToFirst()){
             ProductPersistence productPersistence = new ProductPersistence();
             do {
-                products.add(productPersistence.getProductById(cursor.getString(1)));
+                products.add(productPersistence.getProductById(cursor.getInt(1)));
             }while (cursor.moveToNext());
         }
         cursor.close();

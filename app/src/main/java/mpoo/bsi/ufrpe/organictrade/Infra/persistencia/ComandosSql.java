@@ -5,12 +5,12 @@ public class ComandosSql {
     public static String sqlCreateUserTable(){
         String sqlCreateUserTable =
                 "CREATE TABLE " +DatabaseHelper.getTableUserName()+ "( "
-                        + DatabaseHelper.getColumnUserId()+" integer primary key autoincrement not null , "
+                        + DatabaseHelper.getColumnUserId()+" integer primary key autoincrement unique not null , "
                         + DatabaseHelper.getColumnUserUsername() + " text unique not null ,"
                         + DatabaseHelper.getColumnUserPassword() + " text not null , "
                         + DatabaseHelper.getColumnUserEmail() + " text unique not null , "
                         + DatabaseHelper.getColumnUserName() + " text , "
-                        + DatabaseHelper.getColumnUserPhone() + " text , "
+                        + DatabaseHelper.getColumnUserPhone() + " integer , "
                         + DatabaseHelper.getColumnUserImg() + " text"
                         + ");";
         return(sqlCreateUserTable);
@@ -20,11 +20,11 @@ public class ComandosSql {
         String sqlCreateTentItemsTable =
                 "CREATE TABLE "+ DatabaseHelper.getTableTentitemsName() + "( "
                         + DatabaseHelper.getColumnTentitemsId()+" integer primary key autoincrement not null , "
-                        + DatabaseHelper.getColumnTentitemsAmount() +" text not null , "
-                        + DatabaseHelper.getColumnTentitemsPrice() + " text not null , "
+                        + DatabaseHelper.getColumnTentitemsAmount() +" integer not null , "
+                        + DatabaseHelper.getColumnTentitemsPrice() + " integer not null , "
                         + DatabaseHelper.getColumnTentitemsUnity() + " text no null , "
-                        + DatabaseHelper.getColumnTentitemsProductId()+ " integer , "
-                        + DatabaseHelper.getColumnTentitemsTentId()+ " integer , "
+                        + DatabaseHelper.getColumnTentitemsProductId()+ " integer no null , "
+                        + DatabaseHelper.getColumnTentitemsTentId()+ " integer no null , "
                         + DatabaseHelper.getColumnTentitemsImg() + " text , "
                         + "foreign key ( "+DatabaseHelper.getColumnTentitemsProductId()+" ) references "+DatabaseHelper.getTableProductName()+" ("+DatabaseHelper.getColumnProductId()+") , "
                         + "foreign key ( "+DatabaseHelper.getColumnTentitemsTentId()+" ) references "+DatabaseHelper.getTableTentName()+" ("+DatabaseHelper.getColumnTentId()+")"
@@ -36,7 +36,7 @@ public class ComandosSql {
     public static String sqlCreateUserLoggedTable(){
         String sqlCreateUserLoggedTable =
                 "CREATE TABLE "+ DatabaseHelper.getTableUserLoggedName() + "( "
-                        + DatabaseHelper.getColumnUserLoggedId()+" integer , "
+                        + DatabaseHelper.getColumnUserLoggedId()+" integer primary key autoincrement not null , "
                         + "foreign key ( "+DatabaseHelper.getColumnUserLoggedId()+" ) references "+DatabaseHelper.getTableUserName()+" ( "+DatabaseHelper.getColumnUserId()+" )"
                         + ");";
         return(sqlCreateUserLoggedTable);
@@ -46,8 +46,8 @@ public class ComandosSql {
         String sqlCreateProductTable =
                 "CREATE TABLE "+ DatabaseHelper.getTableProductName() + "( "
                         + DatabaseHelper.getColumnProductId()+" integer primary key autoincrement not null , "
-                        + DatabaseHelper.getColumnProductName()+" text , "
-                        + DatabaseHelper.getColumnProductType()+" text , "
+                        + DatabaseHelper.getColumnProductName()+" text not null , "
+                        + DatabaseHelper.getColumnProductType()+" text not null , "
                         + DatabaseHelper.getColumnProductDescription()+" text , "
                         + DatabaseHelper.getColumnProductImg()+" text"
                         + ");";
@@ -58,13 +58,13 @@ public class ComandosSql {
         String sqlCreateTentTable =
                 "CREATE TABLE "+ DatabaseHelper.getTableTentName() + "( "
                         + DatabaseHelper.getColumnTentId()+" integer primary key autoincrement not null , "
-                        + DatabaseHelper.getColumnTentLongi()+" text , "
-                        + DatabaseHelper.getColumnTentLagi()+ " text , "
-                        + DatabaseHelper.getColumnTentUserId()+" text , "
+                        + DatabaseHelper.getColumnTentLongi()+"  integer not null , "
+                        + DatabaseHelper.getColumnTentLagi()+ " integer not null  , "
+                        + DatabaseHelper.getColumnTentUserId()+" integer not null  , "
                         + DatabaseHelper.getColumnTentName()+" text , "
                         + DatabaseHelper.getColumnTentImg()+" text , "
-                        + DatabaseHelper.getColumnTentNote()+" text , "
-                        + DatabaseHelper.getColumnTentNumberofvotes()+" text , "
+                        + DatabaseHelper.getColumnTentNote()+" integer not null  , "
+                        + DatabaseHelper.getColumnTentNumberofvotes()+" integer not null , "
                         + "foreign key ( "+DatabaseHelper.getColumnTentUserId()+" ) references "+DatabaseHelper.getTableUserName()+" ("+DatabaseHelper.getColumnUserId()+")"
                         + ");";
         return(sqlCreateTentTable);
@@ -73,8 +73,8 @@ public class ComandosSql {
     public static String sqlCreateUserProductTable(){
         String sqlCreateUserProductTable =
                 "CREATE TABLE "+ DatabaseHelper.getTableUserproductName() + "( "
-                        + DatabaseHelper.getColumnUserproductUserId()+" integer , "
-                        + DatabaseHelper.getColumnUserproductProductId()+" inteer , "
+                        + DatabaseHelper.getColumnUserproductUserId()+" integer not null  , "
+                        + DatabaseHelper.getColumnUserproductProductId()+" integer not null  , "
                         + "foreign key ( "+DatabaseHelper.getColumnUserproductUserId()+" ) references "+DatabaseHelper.getTableUserName()+" ( "+DatabaseHelper.getColumnUserId()+" ) , "
                         + "foreign key ( "+DatabaseHelper.getColumnUserproductProductId()+" ) references "+DatabaseHelper.getTableProductName()+" ( "+DatabaseHelper.getColumnProductId()+" )"
                         + ");";

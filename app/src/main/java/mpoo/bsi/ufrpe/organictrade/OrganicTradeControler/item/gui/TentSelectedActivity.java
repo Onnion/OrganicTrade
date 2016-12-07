@@ -53,7 +53,7 @@ public class TentSelectedActivity extends FragmentActivity implements OnMapReady
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
-        locationTentSelected = new LatLng(parseDouble(tentSelected.getLagi()),parseDouble(tentSelected.getLongi()));
+        locationTentSelected = new LatLng(tentSelected.getLagi() , tentSelected.getLongi());
         loadLocationContactSelect();
         mMap.moveCamera(CameraUpdateFactory.newLatLng(locationTentSelected));
         mMap.setMinZoomPreference(13);
@@ -108,9 +108,9 @@ public class TentSelectedActivity extends FragmentActivity implements OnMapReady
         TextView productPrice = (TextView)findViewById(R.id.contatTextProductPrice);
         loadImgUser();
         loadImgTent();
-        phone.setText(contactSelected.getPhone());
+        phone.setText(contactSelected.getPhone().toString());
         productName.setText(productPersistence.nameProductById(itemSelected.getProduct().getProductId()));
-        productAmount.setText(itemSelected.getCurrentAmount());
+        productAmount.setText(Integer.toString(itemSelected.getCurrentAmount()));
         productPrice.setText(new StringBuilder().append("R$ ").append(itemSelected.getValue()).toString());
     }
 

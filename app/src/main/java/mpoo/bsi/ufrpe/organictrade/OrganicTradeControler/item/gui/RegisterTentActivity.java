@@ -152,8 +152,8 @@ public class RegisterTentActivity extends FragmentActivity implements OnMapReady
             public void onClick(View v) {
                 TentPersistence tentPersistence = new TentPersistence();
                 loadValuesToRegister();
-                tent.setLongi(Double.toString(locationTent.longitude));
-                tent.setLagi(Double.toString(locationTent.latitude));
+                tent.setLongi(locationTent.longitude);
+                tent.setLagi(locationTent.latitude);
                 tent.setName(nameStr);
                 tent.setUser(Session.getCurrentUser());
                 tentPersistence.registerTent(tent);
