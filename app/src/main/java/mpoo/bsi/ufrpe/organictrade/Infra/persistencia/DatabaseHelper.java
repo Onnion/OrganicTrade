@@ -6,7 +6,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
     //
-    private static final int DATABASE_VERSION = 33;
+    private static final int DATABASE_VERSION = 34;
     private static final String DATABASE_NAME = "organicTrade.db";
 
     //User
@@ -56,6 +56,19 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String COLUMN_TENT_USER_ID = "user_id";
     private static final String COLUMN_TENT_NAME = "tent_name";
     private static final String COLUMN_TENT_IMG = "tent_img";
+
+    //Transação
+    private static final String TABLE_TRANSACTION_NAME = "transaction";
+    private static final String COLUMN_TRANSACTION_ID = "transaction_id";
+    private static final String COLUMN_TRANSACTION_VOTE = "transaction_vote";
+    private static final String COLUMN_TRANSACTION_USER_ID = "user_id";
+    private static final String COLUMN_TRANSACTION_TENT_ID = "tent_id";
+    private static final String COLUMN_TRANSACTION_DATE = "transaction_date";
+
+    //Histórico
+    private static final String TABLE_HISTORIC_NAME = "historic";
+    private static final String COLUMN_HISTORIC_USER_ID = "user_id";
+    private static final String COLUMN_HISTORIC_TRANSACTION_ID ="transaction_id";
 
     //
     private SQLiteDatabase db;
@@ -210,6 +223,44 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
     //----------------------------------------------------------------------------//
 
+    public static String getTableTransactionName() {
+        return TABLE_TRANSACTION_NAME;
+    }
+
+    public static String getColumnTransactionId() {
+        return COLUMN_TRANSACTION_ID;
+    }
+
+    public static String getColumnTransactionUserId() {
+        return COLUMN_TRANSACTION_USER_ID;
+    }
+
+    public static String getColumnTransactionTentId() {
+        return COLUMN_TRANSACTION_TENT_ID;
+    }
+
+    public static String getColumnTransactionDate() {
+        return COLUMN_TRANSACTION_DATE;
+    }
+
+    public static String getColumnTransactionVote() {
+        return COLUMN_TRANSACTION_VOTE;
+    }
+    //----------------------------------------------------------------------------//
+
+    public static String getTableHistoricName() {
+        return TABLE_HISTORIC_NAME;
+    }
+
+    public static String getColumnHistoricUserId() {
+        return COLUMN_HISTORIC_USER_ID;
+    }
+
+    public static String getColumnHistoricTransactionId() {
+        return COLUMN_HISTORIC_TRANSACTION_ID;
+    }
+    //----------------------------------------------------------------------------//
+
     public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
@@ -222,6 +273,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL(ComandosSql.sqlCreateProductTable());
         db.execSQL(ComandosSql.sqlCreateTentTable());
         db.execSQL(ComandosSql.sqlCreateUserProductTable());
+        db.execSQL(ComandosSql.sqlCreateTransactionTable());
+        db.execSQL(ComandosSql.sqlCreateHistoricTable());
     }
 
     @Override
@@ -232,6 +285,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL(ComandosSql.sqlDropTableProduct());
         db.execSQL(ComandosSql.sqlDropTableTent());
         db.execSQL(ComandosSql.sqlDropTableUserProduct());
+        db.execSQL(ComandosSql.sqlDropTableTransaction());
+        db.execSQL(ComandosSql.sqlDropTableHistoric());
         this.onCreate(db);
     }
 }
