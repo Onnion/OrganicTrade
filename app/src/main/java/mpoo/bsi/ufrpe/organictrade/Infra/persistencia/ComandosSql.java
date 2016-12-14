@@ -261,10 +261,10 @@ public class ComandosSql {
         return (sqlGetFavorites);
     }
 
-    public static String sqlGetProductById() {
-        String sqlGetProductById =
-                "SELECT * FROM "+DatabaseHelper.getTableProductName()+" WHERE "
-                        +DatabaseHelper.getColumnProductId()+" =?;";
-        return (sqlGetProductById);
-    }
+//    public static String sqlGetProductById() {
+//        String sqlGetProductById =
+//                "SELECT * FROM "+DatabaseHelper.getTableProductName()+" WHERE "
+//                        +DatabaseHelper.getColumnProductId()+" =?;";
+//        return (sqlGetProductById);
+//    }
 }

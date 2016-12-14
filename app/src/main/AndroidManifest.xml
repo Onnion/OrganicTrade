@@ -48,7 +48,8 @@
         <activity android:name=".OrganicTradeControler.item.gui.RegisterTentActivity" />
         <activity android:name=".OrganicTradeControler.item.gui.TentActivity" />
         <activity android:name=".OrganicTradeControler.item.gui.RegisterFavoritesActivity" />
-        <activity android:name=".OrganicTradeControler.item.gui.FavoritesActivity"></activity>
+        <activity android:name=".OrganicTradeControler.item.gui.FavoritesActivity" />
+        <activity android:name=".OrganicTradeControler.item.gui.HistorycAcitivity"></activity>
     </application>
 
 </manifest>

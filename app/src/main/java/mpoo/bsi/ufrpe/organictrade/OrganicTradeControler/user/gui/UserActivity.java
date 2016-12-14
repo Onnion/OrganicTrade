@@ -12,7 +12,6 @@ import android.view.ContextMenu;
 import android.view.Gravity;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ImageView;
@@ -23,7 +22,6 @@ import java.util.ArrayList;
 import mpoo.bsi.ufrpe.organictrade.Infra.Session;
 import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.item.dominio.Tent;
 import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.item.gui.FavoritesActivity;
-import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.item.gui.RegisterFavoritesActivity;
 import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.item.gui.RegisterTentActivity;
 import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.item.gui.TentActivity;
 import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.item.gui.TentListAdapter;
@@ -301,7 +299,6 @@ public class UserActivity extends AppCompatActivity {
     }
 
     private void setFunctionEditBtn() {
-
         editBtn.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
@@ -338,18 +335,21 @@ public class UserActivity extends AppCompatActivity {
                 return false;
             }
         });
-
         addBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent p = new Intent(Session.getContext(),RegisterTentActivity.class);
+                addBtn.setImageResource(R.mipmap.ic_addonclick);
                 startActivity(p);
+
             }
         });
     }
 
     private void initializeAddBtn() {
         addBtn = (ImageView) findViewById(R.id.userImgBtnToCadastro);
+        addBtn.setImageResource(R.mipmap.ic_add);
+
     }
 
     private void loadFavoriteBtn(){

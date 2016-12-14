@@ -33,12 +33,22 @@
             android:layout_height="match_parent"
             />
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:orientation="horizontal"
         android:background="@color/accent300"
         android:layout_weight="0.1">
+        <ImageView
+            android:clickable="true"
+            android:layout_height="match_parent"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:visibility="visible"
+            android:id="@+id/userImgBtnToCadastro"
+            >
+        </ImageView>
         <ImageView
             android:id="@+id/userImgBtnToFavorites"
             android:clickable="true"
@@ -58,7 +68,7 @@
             android:layout_width="0dp"
             android:visibility="visible"
             android:clickable="true"
-            android:layout_weight="1"
+            android:layout_weight="1.05"
             android:layout_height="match_parent" />
         <ImageView
             android:clickable="true"
@@ -68,6 +78,56 @@
             android:layout_weight="1"
             android:layout_height="match_parent" />
     </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.05"
+        android:orientation="horizontal"
+        android:background="@color/accent300">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="0.75"
+            android:textAlignment="center"
+            android:textColor="#ffffff"
+
+            android:text="Adicionar"
+            android:layout_height="match_parent" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:textColor="#ffffff"
+            android:layout_weight="0.75"
+            android:textAlignment="center"
+            android:text="Favoritos"
+            android:layout_height="match_parent"
+            android:id="@+id/textView" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="0.75"
+            android:textColor="#ffffff"
+
+            android:textAlignment="center"
+            android:text="Editar"
+            android:layout_height="match_parent" />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="0.75"
+            android:textAlignment="center"
+            android:text="Pesquisar"
+            android:textColor="#ffffff"
+
+            android:layout_height="match_parent" />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="0.75"
+            android:textAlignment="center"
+            android:text="sair"
+            android:textColor="#ffffff"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -83,22 +143,4 @@
             android:layout_height="match_parent"
             />
     </LinearLayout>
-    <LinearLayout
-        android:layout_width="70dp"
-        android:layout_height="70dp"
-        android:layout_marginTop="-90dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="10dp"
-        android:background="@drawable/circle"
-        android:layout_gravity="end">
-        <ImageView
-            android:clickable="true"
-            android:layout_height="match_parent"
-            android:layout_width="match_parent"
-            android:src="@mipmap/ic_add_fab"
-            android:id="@+id/userImgBtnToCadastro"
-            >
-    </ImageView>
-    </LinearLayout>
-
 </LinearLayout>
