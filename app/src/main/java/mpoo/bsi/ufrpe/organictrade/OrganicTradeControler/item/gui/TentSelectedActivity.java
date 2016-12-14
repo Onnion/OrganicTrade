@@ -7,14 +7,13 @@ import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
-import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -26,12 +25,11 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import mpoo.bsi.ufrpe.organictrade.Infra.Session;
 import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.item.dominio.Tent;
 import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.item.dominio.TentItems;
+import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.item.persistencia.TentPersistence;
 import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.user.dominio.User;
-import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.item.gui.SearchProductsActivity;
 import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.item.persistencia.ProductPersistence;
+import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.user.gui.UserActivity;
 import mpoo.bsi.ufrpe.organictrade.R;
-
-import static java.lang.Double.parseDouble;
 
 public class TentSelectedActivity extends FragmentActivity implements OnMapReadyCallback {
     private Tent tentSelected = Session.getTentSelected();
@@ -39,6 +37,7 @@ public class TentSelectedActivity extends FragmentActivity implements OnMapReady
     private TentItems itemSelected = Session.getItemSelected();
     private ProductPersistence productPersistence = new ProductPersistence();
     private GoogleMap mMap;
+    private Button btnConfirmTransaction;
     private LatLng locationTentSelected;
 
     @Override
@@ -47,6 +46,7 @@ public class TentSelectedActivity extends FragmentActivity implements OnMapReady
         setContentView(R.layout.activity_tent_selected);
         Session.setContext(getBaseContext());
         loadContactOfTentItemSelected();
+        setFunctionBtnConfirmTransaction();
         loadMapFragment();
     }
 
@@ -135,5 +135,22 @@ public class TentSelectedActivity extends FragmentActivity implements OnMapReady
     private void loadMapFragment() {
         SupportMapFragment mapFragment = (SupportMapFragment)getSupportFragmentManager().findFragmentById(R.id.tentselectedFragMap);
         mapFragment.getMapAsync(this);
+    }
+
+    private void setFunctionBtnConfirmTransaction(){
+        loadBtnConfirmTransaction();
+        btnConfirmTransaction.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                TentPersistence tent = new TentPersistence();
+                tent.confirmTransaction();
+                Intent i = new Intent(Session.getContext(),UserActivity.class);
+                startActivity(i);
+            }
+        });
+    }
+
+    private void loadBtnConfirmTransaction() {
+        btnConfirmTransaction = (Button)findViewById(R.id.tentselectedBtnTransaction);
     }
 }

@@ -3,9 +3,8 @@ package mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.item.persistencia;
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-
 import java.util.ArrayList;
-
+import java.util.Calendar;
 import mpoo.bsi.ufrpe.organictrade.Infra.persistencia.ComandosSql;
 import mpoo.bsi.ufrpe.organictrade.Infra.persistencia.DatabaseHelper;
 import mpoo.bsi.ufrpe.organictrade.Infra.Session;
@@ -44,6 +43,7 @@ public class TentPersistence {
         db.close();
         return tents;
     }
+
     public Tent getTent(int tentId){
         Tent tent = null;
         db = banco.getReadableDatabase();
@@ -76,5 +76,25 @@ public class TentPersistence {
         db.delete(DatabaseHelper.getTableTentName(),where,new String[]{Integer.toString(id)});
     }
 
+    private String getDate(){
+        String data = "";
+        Calendar calendar = Calendar.getInstance();
+        data += calendar.get(Calendar.HOUR_OF_DAY)+"-";
+        data += calendar.get(Calendar.MINUTE)+"-";
+        data += calendar.get(Calendar.SECOND)+"-";
+        data += calendar.get(Calendar.DAY_OF_MONTH)+"-";
+        data += calendar.get(Calendar.MONTH)+"-";
+        data += calendar.get(Calendar.YEAR)+"-";
+        return data;
+    }
 
+    public void confirmTransaction(){
+        db = banco.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(DatabaseHelper.getColumnTransactionUserId(),Session.getCurrentUser().getId_user());
+        contentValues.put(DatabaseHelper.getColumnTransactionTentitemId(),Session.getItemSelected().getTentItemsId());
+        contentValues.put(DatabaseHelper.getColumnTransactionDate(),getDate());
+        db.insert(DatabaseHelper.getTableTransactionName(),null,contentValues);
+        db.close();
+    }
 }

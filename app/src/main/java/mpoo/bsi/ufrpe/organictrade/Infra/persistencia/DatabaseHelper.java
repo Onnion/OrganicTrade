@@ -6,7 +6,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
     //
-    private static final int DATABASE_VERSION = 34;
+    private static final int DATABASE_VERSION = 35;
     private static final String DATABASE_NAME = "organicTrade.db";
 
     //User
@@ -58,11 +58,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String COLUMN_TENT_IMG = "tent_img";
 
     //Transação
-    private static final String TABLE_TRANSACTION_NAME = "transaction";
+    private static final String TABLE_TRANSACTION_NAME = "transac";
     private static final String COLUMN_TRANSACTION_ID = "transaction_id";
     private static final String COLUMN_TRANSACTION_VOTE = "transaction_vote";
     private static final String COLUMN_TRANSACTION_USER_ID = "user_id";
-    private static final String COLUMN_TRANSACTION_TENT_ID = "tent_id";
+    private static final String COLUMN_TRANSACTION_TENTITEM_ID = "tentitem_id";
     private static final String COLUMN_TRANSACTION_DATE = "transaction_date";
 
     //Histórico
@@ -235,8 +235,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return COLUMN_TRANSACTION_USER_ID;
     }
 
-    public static String getColumnTransactionTentId() {
-        return COLUMN_TRANSACTION_TENT_ID;
+    public static String getColumnTransactionTentitemId() {
+        return COLUMN_TRANSACTION_TENTITEM_ID;
     }
 
     public static String getColumnTransactionDate() {

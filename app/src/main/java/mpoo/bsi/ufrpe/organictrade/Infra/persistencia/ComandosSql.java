@@ -30,7 +30,20 @@ public class ComandosSql {
                         + "foreign key ( "+DatabaseHelper.getColumnTentitemsTentId()+" ) references "+DatabaseHelper.getTableTentName()+" ("+DatabaseHelper.getColumnTentId()+")"
                         + ");";
         return(sqlCreateTentItemsTable);
+    }
 
+    public static String sqlCreateTransactionTable(){
+        String sqlCreateTransactionTable =
+                "CREATE TABLE "+ DatabaseHelper.getTableTransactionName() + "( "
+                        + DatabaseHelper.getColumnTransactionId()+" integer primary key autoincrement not null , "
+                        + DatabaseHelper.getColumnTransactionVote() +" integer , "
+                        + DatabaseHelper.getColumnTransactionDate() + " text not null , "
+                        + DatabaseHelper.getColumnTransactionUserId() + " integer no null , "
+                        + DatabaseHelper.getColumnTransactionTentitemId() + " integer no null , "
+                        + "foreign key ( "+DatabaseHelper.getColumnTransactionUserId()+" ) references "+DatabaseHelper.getTableUserName()+" ("+DatabaseHelper.getColumnUserId()+") , "
+                        + "foreign key ( "+DatabaseHelper.getColumnTransactionTentitemId()+" ) references "+DatabaseHelper.getTableTentitemsName()+" ("+DatabaseHelper.getColumnTentitemsId()+")"
+                        + ");";
+        return(sqlCreateTransactionTable);
     }
 
     public static String sqlCreateUserLoggedTable(){
@@ -58,7 +71,7 @@ public class ComandosSql {
         String sqlCreateTentTable =
                 "CREATE TABLE "+ DatabaseHelper.getTableTentName() + "( "
                         + DatabaseHelper.getColumnTentId()+" integer primary key autoincrement not null , "
-                        + DatabaseHelper.getColumnTentLongi()+"  integer not null , "
+                        + DatabaseHelper.getColumnTentLongi()+" integer not null , "
                         + DatabaseHelper.getColumnTentLagi()+ " integer not null  , "
                         + DatabaseHelper.getColumnTentUserId()+" integer not null  , "
                         + DatabaseHelper.getColumnTentName()+" text , "
@@ -79,20 +92,6 @@ public class ComandosSql {
                         + "foreign key ( "+DatabaseHelper.getColumnUserproductProductId()+" ) references "+DatabaseHelper.getTableProductName()+" ( "+DatabaseHelper.getColumnProductId()+" )"
                         + ");";
         return(sqlCreateUserProductTable);
-    }
-
-    public static String sqlCreateTransactionTable(){
-        String sqlCreateTransactionTable =
-                "CREATE TABLE "+ DatabaseHelper.getTableTransactionName() + "( "
-                        + DatabaseHelper.getColumnTransactionId()+" integer primary key autoincrement not null , "
-                        + DatabaseHelper.getColumnTransactionDate()+"  text not null , "
-                        + DatabaseHelper.getColumnTransactionVote()+"  integer not null , "
-                        + DatabaseHelper.getColumnTransactionUserId()+ " integer not null  , "
-                        + DatabaseHelper.getColumnTransactionTentId()+" integer not null  , "
-                        + "foreign key ( "+DatabaseHelper.getColumnTransactionUserId()+" ) references "+DatabaseHelper.getTableUserName()+" ("+DatabaseHelper.getColumnUserId()+") , "
-                        + "foreign key ( "+DatabaseHelper.getColumnTransactionTentId()+" ) references "+DatabaseHelper.getTableTentName()+" ("+DatabaseHelper.getColumnTentId()+")"
-                        + ");";
-        return(sqlCreateTransactionTable);
     }
 
     public static String sqlCreateHistoricTable(){
@@ -137,13 +136,13 @@ public class ComandosSql {
     }
 
     public static String sqlDropTableTransaction() {
-        String sqlDropTableProduct = "DROP TABLE IF EXISTS " + DatabaseHelper.getTableTransactionName();
-        return (sqlDropTableProduct);
+        String sqlDropTableTransaction = "DROP TABLE IF EXISTS " + DatabaseHelper.getTableTransactionName();
+        return (sqlDropTableTransaction);
     }
 
     public static String sqlDropTableHistoric() {
-        String sqlDropTableProduct = "DROP TABLE IF EXISTS " + DatabaseHelper.getTableHistoricName();
-        return (sqlDropTableProduct);
+        String sqlDropTableHistoric = "DROP TABLE IF EXISTS " + DatabaseHelper.getTableHistoricName();
+        return (sqlDropTableHistoric);
     }
 
     public static String sqlProductIdByName(){

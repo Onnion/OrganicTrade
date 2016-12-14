@@ -7,7 +7,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.item.gui.TentSelectedActivity">
-
     <RelativeLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
@@ -36,7 +35,6 @@
             android:id="@+id/contactImgUser"
             />
     </LinearLayout>
-
     <RelativeLayout
         android:id="@+id/layoutBottom"
         android:layout_width="match_parent"
@@ -50,7 +48,6 @@
             android:layout_marginStart="10dp"
             />
     </RelativeLayout>
-
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
@@ -156,7 +153,15 @@
                     android:id="@+id/tentselectedFragMap"
                     />
             </LinearLayout>
-
         </LinearLayout>
     </LinearLayout>
+    <Button
+        android:layout_marginStart="-10dp"
+        android:layout_marginEnd="-10dp"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:background="@color/verdeParaTudo"
+        android:id="@+id/tentselectedBtnTransaction"
+        android:text="Confirmar compra"
+        android:textColor="#ffff"/>
 </LinearLayout>
