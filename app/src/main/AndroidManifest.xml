@@ -37,7 +37,6 @@
         <activity android:name=".OrganicTradeControler.user.gui.LoadingActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

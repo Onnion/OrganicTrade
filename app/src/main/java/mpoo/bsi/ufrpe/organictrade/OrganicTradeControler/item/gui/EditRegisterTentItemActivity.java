@@ -83,7 +83,7 @@ public class EditRegisterTentItemActivity extends AppCompatActivity {
     private void loadValuesOfTentItemToEdit() {
         amount = (EditText) findViewById((R.id.editRegisterTentItemEdtProductAmount));
         price = (EditText) findViewById(R.id.editRegisterTentItemEdtProductPrice);
-        amount.setText(Session.getItemSelected().getCurrentAmount());
+        amount.setText(Integer.toString(Session.getItemSelected().getCurrentAmount()));
         price.setText(Session.getItemSelected().getValue().toString());
     }
 
