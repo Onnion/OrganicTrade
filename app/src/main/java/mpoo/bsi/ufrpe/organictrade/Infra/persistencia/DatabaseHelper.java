@@ -1,5 +1,6 @@
 package mpoo.bsi.ufrpe.organictrade.Infra.persistencia;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -279,6 +280,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL(ComandosSql.sqlCreateTentTable());
         db.execSQL(ComandosSql.sqlCreateUserProductTable());
         db.execSQL(ComandosSql.sqlCreateTransactionTable());
+        script.populateProductTable(db);
         //db.execSQL(ComandosSql.sqlCreateHistoricTable());
     }
 
