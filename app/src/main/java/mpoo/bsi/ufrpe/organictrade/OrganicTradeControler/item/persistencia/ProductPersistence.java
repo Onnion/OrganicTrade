@@ -32,18 +32,19 @@ public class ProductPersistence {
         return type;
     }
 
-    public Product createProduct(String name, String type) {
-        Product product = new Product();
-        //product.setProductId(getId());
-        product.setProductName(name);
-        product.setProductType(type);
-        product.setProductDescription("");
-        product.setProductImg("");
-        //setId(getId()+1);
-        return product;
-    }
+    //Comentar
+//    public Product createProduct(String name, String type) {
+//        Product product = new Product();
+//        //product.setProductId(getId());
+//        product.setProductName(name);
+//        product.setProductType(type);
+//        product.setProductDescription("");
+//        product.setProductImg("");
+//        //setId(getId()+1);
+//        return product;
+//    }
 
-    public Product createProductBtConsult(Cursor cursor){
+        public Product createProductBtConsult(Cursor cursor){
         Product product = new Product();
         product.setProductId(cursor.getInt(0));
         product.setProductName(cursor.getString(1));
@@ -53,28 +54,30 @@ public class ProductPersistence {
         return product;
     }
 
-    public void registerProduct(Product product){
-        db = banco.getWritableDatabase();
-        ContentValues valuesProduct = new ContentValues();
-        //valuesProduct.put(DatabaseHelper.getColumnProductId(),product.getProductId());
-        valuesProduct.put(DatabaseHelper.getColumnProductName(), product.getProductName());
-        valuesProduct.put(DatabaseHelper.getColumnProductType(), product.getProductType());
-        valuesProduct.put(DatabaseHelper.getColumnProductDescription(), product.getProductDescription());
-        valuesProduct.put(DatabaseHelper.getColumnProductImg(), product.getProductImg());
-        db.insert(DatabaseHelper.getTableProductName(), null, valuesProduct);
-        db.close();
-    }
+    //Comentar
+//    public void registerProduct(Product product){
+//        db = banco.getWritableDatabase();
+//        ContentValues valuesProduct = new ContentValues();
+//        //valuesProduct.put(DatabaseHelper.getColumnProductId(),product.getProductId());
+//        valuesProduct.put(DatabaseHelper.getColumnProductName(), product.getProductName());
+//        valuesProduct.put(DatabaseHelper.getColumnProductType(), product.getProductType());
+//        valuesProduct.put(DatabaseHelper.getColumnProductDescription(), product.getProductDescription());
+//        valuesProduct.put(DatabaseHelper.getColumnProductImg(), product.getProductImg());
+//        db.insert(DatabaseHelper.getTableProductName(), null, valuesProduct);
+//        db.close();
+//    }
 
-    public void populateProductTable(){
-        for (String product: products){
-            String[] value = product.split(" ");
-            registerProduct(createProduct(value[0], value[1]));
-        }
-    }
+    //Comentar
+//    public void populateProductTable(){
+//        for (String product: products){
+//            String[] value = product.split(" ");
+//            registerProduct(createProduct(value[0], value[1]));
+//        }
+//    }
 
-    public ProductPersistence(){
-        productTableIsEmpty();
-    }
+//    public ProductPersistence(){
+//        productTableIsEmpty();
+//    }
 
     public String idProductByName(String productName){
         db = banco.getReadableDatabase();
@@ -94,14 +97,14 @@ public class ProductPersistence {
         return name;
     }
 
-    public void productTableIsEmpty(){
-        db=banco.getReadableDatabase();
-        Cursor cursor = db.rawQuery(ComandosSql.productTableIsEmpty(),null);
-        if(!(cursor.moveToFirst())){
-            populateProductTable();}
-        cursor.close();
-        db.close();
-    }
+//    public void productTableIsEmpty(){
+//        db=banco.getReadableDatabase();
+//        Cursor cursor = db.rawQuery(ComandosSql.productTableIsEmpty(),null);
+//        if(!(cursor.moveToFirst())){
+//            populateProductTable();}
+//        cursor.close();
+//        db.close();
+//    }
 
     public Product getProductById(int productId) {
         db = banco.getReadableDatabase();
