@@ -278,6 +278,13 @@ public class ComandosSql {
         return (sqlGetSellingHistoryc);
     }
 
+    public static String sqlGetBuyingHistoryc() {
+        String sqlGetBuyingHistoryc =
+                "SELECT * FROM "+DatabaseHelper.getTableTransactionName()+" WHERE "
+                        +DatabaseHelper.getColumnTransactionUserBuyingId()+" =?;";
+        return (sqlGetBuyingHistoryc);
+    }
+
 
 //    public static String sqlGetProductById() {
 //        String sqlGetProductById =
