@@ -1,5 +1,7 @@
 package mpoo.bsi.ufrpe.organictrade.Infra.persistencia;
 
+import mpoo.bsi.ufrpe.organictrade.Infra.Session;
+
 public class ComandosSql {
 
     public static String sqlCreateUserTable(){
@@ -38,9 +40,11 @@ public class ComandosSql {
                         + DatabaseHelper.getColumnTransactionId()+" integer primary key autoincrement not null , "
                         + DatabaseHelper.getColumnTransactionVote() +" integer , "
                         + DatabaseHelper.getColumnTransactionDate() + " text not null , "
-                        + DatabaseHelper.getColumnTransactionUserId() + " integer no null , "
+                        + DatabaseHelper.getColumnTransactionUserSellingId() + " integer no null , "
+                        + DatabaseHelper.getColumnTransactionUserBuyingId() + " integer no null , "
                         + DatabaseHelper.getColumnTransactionTentitemId() + " integer no null , "
-                        + "foreign key ( "+DatabaseHelper.getColumnTransactionUserId()+" ) references "+DatabaseHelper.getTableUserName()+" ("+DatabaseHelper.getColumnUserId()+") , "
+                        + "foreign key ( "+DatabaseHelper.getColumnTransactionUserBuyingId()+" ) references "+DatabaseHelper.getTableUserName()+" ("+DatabaseHelper.getColumnUserId()+") , "
+                        + "foreign key ( "+DatabaseHelper.getColumnTransactionUserSellingId()+" ) references "+DatabaseHelper.getTableUserName()+" ("+DatabaseHelper.getColumnUserId()+") , "
                         + "foreign key ( "+DatabaseHelper.getColumnTransactionTentitemId()+" ) references "+DatabaseHelper.getTableTentitemsName()+" ("+DatabaseHelper.getColumnTentitemsId()+")"
                         + ");";
         return(sqlCreateTransactionTable);
@@ -247,6 +251,12 @@ public class ComandosSql {
         return (sqlTentById);
     }
 
+    public static String sqlTentItemById(){
+        String sqlTentItemById =
+                "SELECT * FROM "+DatabaseHelper.getTableTentitemsName() +" WHERE "
+                        +DatabaseHelper.getColumnTentitemsId()+" =?;";
+        return(sqlTentItemById);
+    }
 
     public static String sqlAllProducts(){
         String sqlAllProducts =
@@ -260,6 +270,14 @@ public class ComandosSql {
                         +DatabaseHelper.getColumnUserproductUserId()+" =?;";
         return (sqlGetFavorites);
     }
+
+    public static String sqlGetSellingHistoryc(){
+        String sqlGetSellingHistoryc =
+                "SELECT * FROM "+DatabaseHelper.getTableTransactionName()+" WHERE "
+                        +DatabaseHelper.getColumnTransactionUserSellingId()+" =?;";
+        return (sqlGetSellingHistoryc);
+    }
+
 
 //    public static String sqlGetProductById() {
 //        String sqlGetProductById =

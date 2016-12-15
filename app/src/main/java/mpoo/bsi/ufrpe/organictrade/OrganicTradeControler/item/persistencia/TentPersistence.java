@@ -91,7 +91,8 @@ public class TentPersistence {
     public void confirmTransaction(){
         db = banco.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
-        contentValues.put(DatabaseHelper.getColumnTransactionUserId(),Session.getCurrentUser().getId_user());
+        contentValues.put(DatabaseHelper.getColumnTransactionUserBuyingId(),Session.getCurrentUser().getId_user());
+        contentValues.put(DatabaseHelper.getColumnTransactionUserSellingId(),Session.getContactSelected().getId_user());
         contentValues.put(DatabaseHelper.getColumnTransactionTentitemId(),Session.getItemSelected().getTentItemsId());
         contentValues.put(DatabaseHelper.getColumnTransactionDate(),getDate());
         db.insert(DatabaseHelper.getTableTransactionName(),null,contentValues);

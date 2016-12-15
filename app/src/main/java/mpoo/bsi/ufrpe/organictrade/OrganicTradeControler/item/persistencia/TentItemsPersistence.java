@@ -106,4 +106,14 @@ public class TentItemsPersistence {
         db.close();
         return tentItems;
     }
+
+    public TentItems createTentItemsById(int anInt) {
+        db = banco.getReadableDatabase();
+        TentItems tentItem = null;
+        Cursor cursor = db.rawQuery(ComandosSql.sqlTentItemById(),new String[]{Integer.toString(anInt)});
+        if(cursor.moveToFirst()){
+            tentItem = createTentItems(cursor);
+        }
+        return tentItem;
+    }
 }

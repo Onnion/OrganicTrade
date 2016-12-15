@@ -24,6 +24,7 @@ import mpoo.bsi.ufrpe.organictrade.R;
 
 public class TentActivity extends AppCompatActivity {
     private ImageView addBtn;
+    private ImageView historycBtn;
     private ListView listOfItems;
     private ArrayList<TentItems> finalTent;
     private ItemListAdapter adapter;
@@ -63,8 +64,10 @@ public class TentActivity extends AppCompatActivity {
         setContentView(R.layout.activity_tent);
         Session.setContext(getBaseContext());
         loadAddBtn();
+        loadHistorycBtn();
         loadTentAtributes();
     }
+
     private void setFunctionItemOfListView() {
         listOfItems.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -115,6 +118,47 @@ public class TentActivity extends AppCompatActivity {
         addBtn.setImageResource(R.mipmap.ic_add);
     }
 
+    private void loadAddBtn() {
+        initializeAddBtn();
+        setFunctionAddBtn();
+    }
+
+    private void setFunctionHistorycBtn() {
+        historycBtn.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                displayToastAboveButton(v,R.string.txtNewItem);
+                return false;
+            }
+        });
+        historycBtn.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                historycBtn.setImageResource(R.mipmap.ic_history);
+                return false;
+            }
+        });
+        historycBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent p = new Intent(Session.getContext(),HistorycAcitivity.class);
+                historycBtn.setImageResource(R.mipmap.ic_history);
+                startActivity(p);
+                finish();
+            }
+        });
+    }
+
+    private void initializeHistorycBtn() {
+        historycBtn = (ImageView) findViewById(R.id.tentImgToHistory);
+        historycBtn.setImageResource(R.mipmap.ic_history);
+    }
+
+    private void loadHistorycBtn() {
+        initializeHistorycBtn();
+        setFunctionHistorycBtn();
+    }
+
     private void loadTentName(){
         TextView textView = (TextView)findViewById(R.id.tentTextTentName);
         textView.setText(Session.getTentSelected().getName());
@@ -133,11 +177,6 @@ public class TentActivity extends AppCompatActivity {
         }else{
             imgTent.setImageBitmap(BitmapFactory.decodeFile(Session.getTentSelected().getImg()));
         }
-    }
-
-    private void loadAddBtn() {
-        initializeAddBtn();
-        setFunctionAddBtn();
     }
 
     private void delete(AdapterView.AdapterContextMenuInfo info ) {
@@ -188,7 +227,6 @@ public class TentActivity extends AppCompatActivity {
                 xOffset = parentCenterX - halfWidth;
             }
         }
-
         Toast toast = Toast.makeText(Session.getContext(), messageId, Toast.LENGTH_SHORT);
         toast.setGravity(Gravity.CENTER, xOffset, yOffset);
         toast.show();

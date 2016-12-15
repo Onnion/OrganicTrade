@@ -8,7 +8,9 @@ import mpoo.bsi.ufrpe.organictrade.Infra.persistencia.ComandosSql;
 import mpoo.bsi.ufrpe.organictrade.Infra.persistencia.DatabaseHelper;
 import mpoo.bsi.ufrpe.organictrade.Infra.Session;
 import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.item.dominio.Product;
+import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.item.dominio.TentItems;
 import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.item.persistencia.ProductPersistence;
+import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.item.persistencia.TentItemsPersistence;
 import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.user.dominio.User;
 
 public class UserPersistence {
@@ -180,5 +182,23 @@ public class UserPersistence {
         db.close();
         return products;
     }
+
+    public ArrayList<TentItems> getSellingHistoryc(){
+        db = banco.getReadableDatabase();
+        ArrayList<TentItems> tentItems = null;
+        TentItemsPersistence tentItemsPersistence = new TentItemsPersistence();
+        Cursor cursor = db.rawQuery(ComandosSql.sqlGetSellingHistoryc(),new String[]{Integer.toString(Session.getCurrentUser().getId_user())});
+        if (cursor.moveToFirst()){
+            tentItems = new ArrayList<>();
+            do{
+                tentItems.add(tentItemsPersistence.createTentItemsById(cursor.getInt(5)));
+            }while (cursor.moveToNext());
+        }
+        return tentItems;
+    }
+
+//    public ArrayList<TentItems> getBuyingHistoryc(){
+//
+//    }
 
 }

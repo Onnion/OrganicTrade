@@ -48,13 +48,12 @@
             android:id="@+id/tentImgRegisterTentItem"
             android:layout_height="match_parent"
             android:clickable="true"
-            android:src="@mipmap/ic_add"/>
+           />
         <ImageView
             android:layout_width="0dp"
             android:layout_weight="1"
             android:clickable="true"
             android:visibility="visible"
-            android:src="@mipmap/ic_history"
             android:id="@+id/tentImgToHistory"
             android:layout_height="match_parent" />
         <ImageView

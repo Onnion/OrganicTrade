@@ -61,7 +61,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String TABLE_TRANSACTION_NAME = "transac";
     private static final String COLUMN_TRANSACTION_ID = "transaction_id";
     private static final String COLUMN_TRANSACTION_VOTE = "transaction_vote";
-    private static final String COLUMN_TRANSACTION_USER_ID = "user_id";
+    private static final String COLUMN_TRANSACTION_USER_BUYING_ID = "user_buying_id";
+    private static final String COLUMN_TRANSACTION_USER_SELLING_ID = "user_selling_id";
     private static final String COLUMN_TRANSACTION_TENTITEM_ID = "tentitem_id";
     private static final String COLUMN_TRANSACTION_DATE = "transaction_date";
 
@@ -231,8 +232,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return COLUMN_TRANSACTION_ID;
     }
 
-    public static String getColumnTransactionUserId() {
-        return COLUMN_TRANSACTION_USER_ID;
+    public static String getColumnTransactionUserSellingId() {
+        return COLUMN_TRANSACTION_USER_SELLING_ID;
+    }
+
+    public static String getColumnTransactionUserBuyingId() {
+        return COLUMN_TRANSACTION_USER_BUYING_ID;
     }
 
     public static String getColumnTransactionTentitemId() {
@@ -274,7 +279,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL(ComandosSql.sqlCreateTentTable());
         db.execSQL(ComandosSql.sqlCreateUserProductTable());
         db.execSQL(ComandosSql.sqlCreateTransactionTable());
-        db.execSQL(ComandosSql.sqlCreateHistoricTable());
+        //db.execSQL(ComandosSql.sqlCreateHistoricTable());
     }
 
     @Override
@@ -286,7 +291,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL(ComandosSql.sqlDropTableTent());
         db.execSQL(ComandosSql.sqlDropTableUserProduct());
         db.execSQL(ComandosSql.sqlDropTableTransaction());
-        db.execSQL(ComandosSql.sqlDropTableHistoric());
+        //db.execSQL(ComandosSql.sqlDropTableHistoric());
         this.onCreate(db);
     }
 }
