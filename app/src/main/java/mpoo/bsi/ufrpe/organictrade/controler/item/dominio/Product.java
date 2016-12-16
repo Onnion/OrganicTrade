@@ -5,8 +5,7 @@ public class Product {
     private String productName;
     private String productType;
     private String productDescription;
-    private byte[] productImg;
-
+    private String productImg;
 
     public int getProductId() {
         return productId;
@@ -40,11 +39,11 @@ public class Product {
         this.productDescription = productDescription;
     }
 
-    public byte[] getProductImg() {
+    public String getProductImg() {
         return productImg;
     }
 
-    public void setProductImg(byte[] productImg) {
+    public void setProductImg(String productImg) {
         this.productImg = productImg;
     }
 }

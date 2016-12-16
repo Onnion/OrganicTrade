@@ -64,7 +64,7 @@ public class ComandosSql {
                         + DatabaseHelper.getColumnProductName() + " text not null , "
                         + DatabaseHelper.getColumnProductType() + " text not null , "
                         + DatabaseHelper.getColumnProductDescription() + " text , "
-                        + DatabaseHelper.getColumnProductImg() + " blob"
+                        + DatabaseHelper.getColumnProductImg() + " text"
                         + ");";
         return (sqlCreateProductTable);
     }

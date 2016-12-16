@@ -6,7 +6,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
     //
-    private static final int DATABASE_VERSION = 35;
+    private static final int DATABASE_VERSION = 37;
     private static final String DATABASE_NAME = "organicTrade.db";
 
     //User

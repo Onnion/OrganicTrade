@@ -155,7 +155,7 @@ public class UserPersistence {
 
     public void registerFavorites(ArrayList<Product> products){
         for(Product product: products) {
-             setFavorite(product);
+            setFavorite(product);
         }
     }
 

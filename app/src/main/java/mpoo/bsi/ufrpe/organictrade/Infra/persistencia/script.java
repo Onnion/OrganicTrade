@@ -2,7 +2,6 @@ package mpoo.bsi.ufrpe.organictrade.infra.persistencia;
 
 import android.database.sqlite.SQLiteDatabase;
 
-
 public class Script {
     public static void populateProductTable(SQLiteDatabase db){
         db.execSQL("INSERT INTO "+DatabaseHelper.getTableProductName()+" ("+DatabaseHelper.getColumnProductName()+","+DatabaseHelper.getColumnProductType()+") VALUES  ('Abacate', 'Fruta')");

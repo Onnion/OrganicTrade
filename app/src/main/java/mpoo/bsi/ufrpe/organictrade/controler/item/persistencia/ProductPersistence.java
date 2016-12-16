@@ -23,7 +23,7 @@ public class ProductPersistence {
         product.setProductName(cursor.getString(1));
         product.setProductType(cursor.getString(2));
         product.setProductDescription(cursor.getString(3));
-        product.setProductImg(cursor.getBlob(4));
+        product.setProductImg(cursor.getString(4));
         return product;
     }
 
