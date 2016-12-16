@@ -8,12 +8,12 @@ import android.widget.ListView;
 import java.util.ArrayList;
 import mpoo.bsi.ufrpe.organictrade.Infra.Session;
 import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.item.dominio.TentItems;
-import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.user.persistencia.UserPersistence;
+import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.user.negocio.UserNegocio;
 import mpoo.bsi.ufrpe.organictrade.R;
 
 public class HistorycAcitivity extends AppCompatActivity {
     private ListView listOfItems;
-    private UserPersistence userPersistence = new UserPersistence();
+    private UserNegocio userNegocio = new UserNegocio();
     private ItemListAdapter adapter;
     private ImageView selling;
     private ImageView buying;
@@ -23,7 +23,7 @@ public class HistorycAcitivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_historyc_acitivity);
         Session.setContext(getBaseContext());
-        populateListView(userPersistence.getSellingHistoryc());
+        populateListView(userNegocio.userPersistence().getSellingHistoryc());
         loadBuyingImg();
         loadSellingImg();
     }
@@ -53,7 +53,7 @@ public class HistorycAcitivity extends AppCompatActivity {
         buying.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                populateListView(userPersistence.getBuyingHistoryc());
+                populateListView(userNegocio.userPersistence().getBuyingHistoryc());
                 adapter.notifyDataSetChanged();
             }
         });
@@ -63,7 +63,7 @@ public class HistorycAcitivity extends AppCompatActivity {
         selling.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                populateListView(userPersistence.getSellingHistoryc());
+                populateListView(userNegocio.userPersistence().getSellingHistoryc());
                 adapter.notifyDataSetChanged();
             }
         });

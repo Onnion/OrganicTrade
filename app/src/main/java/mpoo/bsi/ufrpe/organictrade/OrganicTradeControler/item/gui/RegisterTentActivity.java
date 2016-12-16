@@ -30,11 +30,9 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import mpoo.bsi.ufrpe.organictrade.Infra.Session;
 import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.item.dominio.Tent;
-import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.item.persistencia.TentPersistence;
+import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.item.negocio.TentNegocio;
 import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.user.dominio.User;
-import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.user.gui.LoginActivity;
 import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.user.gui.UserActivity;
-import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.user.persistencia.UserPersistence;
 import mpoo.bsi.ufrpe.organictrade.R;
 
 public class RegisterTentActivity extends FragmentActivity implements OnMapReadyCallback {
@@ -150,13 +148,13 @@ public class RegisterTentActivity extends FragmentActivity implements OnMapReady
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                TentPersistence tentPersistence = new TentPersistence();
+                TentNegocio tentNegocio = new TentNegocio();
                 loadValuesToRegister();
                 tent.setLongi(locationTent.longitude);
                 tent.setLagi(locationTent.latitude);
                 tent.setName(nameStr);
                 tent.setUser(Session.getCurrentUser());
-                tentPersistence.registerTent(tent);
+                tentNegocio.tentPersistence().registerTent(tent);
                 Intent i = new Intent(Session.getContext(), UserActivity.class);
                 startActivity(i);
                 finish();

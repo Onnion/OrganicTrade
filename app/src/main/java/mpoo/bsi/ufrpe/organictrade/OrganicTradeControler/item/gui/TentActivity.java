@@ -19,7 +19,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import mpoo.bsi.ufrpe.organictrade.Infra.Session;
 import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.item.dominio.TentItems;
-import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.item.persistencia.TentItemsPersistence;
+import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.item.negocio.TentsItemsNegocio;
 import mpoo.bsi.ufrpe.organictrade.R;
 
 public class TentActivity extends AppCompatActivity {
@@ -80,8 +80,8 @@ public class TentActivity extends AppCompatActivity {
     private void populateListView() {
         listOfItems = (ListView) findViewById(R.id.tentListTentItems);
         setFunctionItemOfListView();
-        TentItemsPersistence tentItemsPersistence = new TentItemsPersistence();
-        finalTent = tentItemsPersistence.getItemsOfTent(Session.getTentSelected().getTentId());
+        TentsItemsNegocio tentsItemsNegocio = new TentsItemsNegocio();
+        finalTent = tentsItemsNegocio.tentItemsPersistence().getItemsOfTent(Session.getTentSelected().getTentId());
         adapter = new ItemListAdapter(finalTent);
         listOfItems.setAdapter(adapter);
         registerForContextMenu(listOfItems);
@@ -180,9 +180,9 @@ public class TentActivity extends AppCompatActivity {
     }
 
     private void delete(AdapterView.AdapterContextMenuInfo info ) {
-        TentItemsPersistence tentItemsPersistence = new TentItemsPersistence();
+        TentsItemsNegocio tentsItemsNegocio = new TentsItemsNegocio();
         itemSelected =(TentItems) listOfItems.getAdapter().getItem(info.position);
-        tentItemsPersistence.deleteTentItems(itemSelected.getTentItemsId());
+        tentsItemsNegocio.tentItemsPersistence().deleteTentItems(itemSelected.getTentItemsId());
         finalTent.remove(info.position);
         adapter.notifyDataSetChanged();
     }

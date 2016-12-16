@@ -10,7 +10,6 @@ import android.widget.Toast;
 import mpoo.bsi.ufrpe.organictrade.Infra.Session;
 import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.user.negocio.Md5;
 import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.user.negocio.UserNegocio;
-import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.user.persistencia.UserPersistence;
 import mpoo.bsi.ufrpe.organictrade.R;
 
 public class LoginActivity extends AppCompatActivity {
@@ -66,10 +65,10 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void login(){
-        UserPersistence crud =  new UserPersistence();
+        UserNegocio crud =  new UserNegocio();
         loadValuesToLogin();
         if(userNegocio.loginOK(user,pass)){
-            if(crud.searchAndLoginUser(userString,passString)){
+            if(crud.userPersistence().searchAndLoginUser(userString,passString)){
                 Intent j = new Intent(Session.getContext(), UserActivity.class);
                 startActivity(j);
                 finish();

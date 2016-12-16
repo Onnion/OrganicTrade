@@ -25,11 +25,11 @@ import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.item.gui.FavoritesActiv
 import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.item.gui.RegisterTentActivity;
 import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.item.gui.TentActivity;
 import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.item.gui.TentListAdapter;
-import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.item.persistencia.TentItemsPersistence;
 import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.user.dominio.User;
 import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.item.gui.SearchProductsActivity;
-import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.item.persistencia.TentPersistence;
-import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.user.persistencia.UserPersistence;
+import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.item.negocio.TentsItemsNegocio;
+import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.item.negocio.TentNegocio;
+import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.user.negocio.UserNegocio;
 import mpoo.bsi.ufrpe.organictrade.R;
 
 public class UserActivity extends AppCompatActivity {
@@ -39,8 +39,8 @@ public class UserActivity extends AppCompatActivity {
     private ArrayList<Tent> finalTent;
     private ListView listOfTents;
     private TentListAdapter adapter;
-    private TentPersistence tentPersistence = new TentPersistence();
-    private UserPersistence crud = new UserPersistence();
+    private TentNegocio tentNegocio = new TentNegocio();
+    private UserNegocio crud = new UserNegocio();
     private String imageUser;
     private ImageView imageView;
     private ImageView favoriteBtn;
@@ -97,7 +97,7 @@ public class UserActivity extends AppCompatActivity {
             int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
             String picturePath = cursor.getString(columnIndex);
             cursor.close();
-            crud.setImageUser(picturePath);
+            crud.userPersistence().setImageUser(picturePath);
             Session.getCurrentUser().setImage(picturePath);
             changeImgUser();
         }
@@ -121,11 +121,11 @@ public class UserActivity extends AppCompatActivity {
     }
 
     private void delete(AdapterView.AdapterContextMenuInfo info ) {
-        TentItemsPersistence tentItemsPersistence = new TentItemsPersistence();
+        TentsItemsNegocio tentsItemsNegocio = new TentsItemsNegocio();
         tentSelected =(Tent) listOfTents.getAdapter().getItem(info.position);
-        tentPersistence.deleteTent(tentSelected.getTentId());
+        tentNegocio.tentPersistence().deleteTent(tentSelected.getTentId());
         finalTent.remove(info.position);
-        tentItemsPersistence.deleteAllItemsOfTent(tentSelected.getTentId());
+        tentsItemsNegocio.tentItemsPersistence().deleteAllItemsOfTent(tentSelected.getTentId());
         adapter.notifyDataSetChanged();
     }
 
@@ -192,8 +192,8 @@ public class UserActivity extends AppCompatActivity {
 
     private void pupulateListView() {
         setFunctionTentOfListView();
-        TentPersistence tentPersistence = new TentPersistence();
-        finalTent = tentPersistence.getTentOfUser(Session.getCurrentUser().getId_user());
+        TentNegocio tentNegocio = new TentNegocio();
+        finalTent = tentNegocio.tentPersistence().getTentOfUser(Session.getCurrentUser().getId_user());
         adapter = new TentListAdapter(finalTent);
         listOfTents.setAdapter(adapter);
         registerForContextMenu(listOfTents);
@@ -248,7 +248,7 @@ public class UserActivity extends AppCompatActivity {
         logoutBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                crud.userLogoff();
+                crud.userPersistence().userLogoff();
                 Session.setCurrentUser(new User());
                 Intent p = new Intent(Session.getContext(),LoginActivity.class);
                 logoutBtn.setImageResource(R.mipmap.ic_logoutonclick);

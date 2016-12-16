@@ -8,9 +8,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import mpoo.bsi.ufrpe.organictrade.Infra.Session;
 import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.user.dominio.User;
-import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.user.negocio.Md5;
 import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.user.negocio.UserNegocio;
-import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.user.persistencia.UserPersistence;
 import mpoo.bsi.ufrpe.organictrade.R;
 
 public class EditRegisterUserActivity extends AppCompatActivity {
@@ -54,8 +52,8 @@ public class EditRegisterUserActivity extends AppCompatActivity {
         userToEdit.setName(name.getText().toString());
         userToEdit.setEmail(email.getText().toString());
         userToEdit.setPhone(Long.parseLong(number.getText().toString()));
-        UserPersistence userPersistence = new UserPersistence();
-        userPersistence.userEdit(userToEdit);
+        UserNegocio userNegocio = new UserNegocio();
+        userNegocio.userPersistence().userEdit(userToEdit);
         Intent i = new Intent(Session.getContext(), UserActivity.class);
         startActivity(i);
         finish();

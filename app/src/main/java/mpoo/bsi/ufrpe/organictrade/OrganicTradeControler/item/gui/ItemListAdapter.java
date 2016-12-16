@@ -11,13 +11,13 @@ import android.widget.TextView;
 import java.util.List;
 import mpoo.bsi.ufrpe.organictrade.Infra.Session;
 import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.item.dominio.TentItems;
-import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.item.persistencia.ProductPersistence;
+import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.item.negocio.ProductNegocio;
 import mpoo.bsi.ufrpe.organictrade.R;
 
 public class ItemListAdapter extends ArrayAdapter<TentItems> {
     private Context context;
     private List<TentItems> tentItems = null;
-    private ProductPersistence productPersistence = new ProductPersistence();
+    private ProductNegocio productNegocio = new ProductNegocio();
 
     public ItemListAdapter(List<TentItems> tentItems) {
         super(Session.getContext(),0, tentItems);
@@ -34,7 +34,7 @@ public class ItemListAdapter extends ArrayAdapter<TentItems> {
         loadImg(itenDeTenda,view);
 
         TextView textoNomeProduto = (TextView) view.findViewById(R.id.itemTxtNome);
-        textoNomeProduto.setText(productPersistence.nameProductById(itenDeTenda.getProduct().getProductId()));
+        textoNomeProduto.setText(productNegocio.productPersistence().nameProductById(itenDeTenda.getProduct().getProductId()));
         TextView textoPriceProduto = (TextView)view.findViewById(R.id.itemTxtPrice);
         textoPriceProduto.setText(itenDeTenda.getValue().toString());
 

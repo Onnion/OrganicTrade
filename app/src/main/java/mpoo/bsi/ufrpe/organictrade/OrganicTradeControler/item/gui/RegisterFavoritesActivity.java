@@ -11,8 +11,8 @@ import android.widget.GridView;
 import java.util.ArrayList;
 import mpoo.bsi.ufrpe.organictrade.Infra.Session;
 import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.item.dominio.Product;
-import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.item.persistencia.ProductPersistence;
-import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.user.persistencia.UserPersistence;
+import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.item.negocio.ProductNegocio;
+import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.user.negocio.UserNegocio;
 import mpoo.bsi.ufrpe.organictrade.R;
 
 public class RegisterFavoritesActivity extends AppCompatActivity {
@@ -57,20 +57,20 @@ public class RegisterFavoritesActivity extends AppCompatActivity {
 
     private void initTentList(){
         listView = (GridView) findViewById(R.id.registerFavoritesListViewListProduct);
-        ProductPersistence productPersistence = new ProductPersistence();
-        listProducts = productPersistence.getAllProducts();
+        ProductNegocio productNegocio = new ProductNegocio();
+        listProducts = productNegocio.productPersistence().getAllProducts();
         adapter = new FavoriteToRegisterListAdapter(listProducts,selecionados);
         listView.setAdapter(adapter);
         setFunctionFavoriteBtn();
     }
 
     private void callRegisterItens(){
-        final UserPersistence userPersistence = new UserPersistence();
+        final UserNegocio userNegocio = new UserNegocio();
         Button button = (Button)findViewById(R.id.registerFavoriteBtnSaveFavorites);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-            userPersistence.registerFavorites(selecionados);
+            userNegocio.userPersistence().registerFavorites(selecionados);
             Intent i = new Intent(Session.getContext(),FavoritesActivity.class);
             startActivity(i);
             finish();

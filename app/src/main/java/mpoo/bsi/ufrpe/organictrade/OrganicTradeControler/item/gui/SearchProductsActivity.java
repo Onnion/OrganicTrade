@@ -15,19 +15,19 @@ import java.util.ArrayList;
 
 import mpoo.bsi.ufrpe.organictrade.Infra.Session;
 import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.item.dominio.TentItems;
-import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.item.persistencia.ProductPersistence;
-import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.item.persistencia.TentItemsPersistence;
-import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.user.persistencia.UserPersistence;
+import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.item.negocio.ProductNegocio;
+import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.item.negocio.TentsItemsNegocio;
 import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.user.gui.UserActivity;
+import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.user.negocio.UserNegocio;
 import mpoo.bsi.ufrpe.organictrade.R;
 
 public class SearchProductsActivity extends AppCompatActivity {
-    private ProductPersistence productPersistence = new ProductPersistence();
+    private ProductNegocio productNegocio = new ProductNegocio();
     ArrayList<TentItems> listTent;
     ItemListAdapter adapter;
     ListView listView;
     EditText editText;
-    UserPersistence userPersistence = new UserPersistence();
+    UserNegocio userNegocio = new UserNegocio();
 
     @Override
     public void onBackPressed() {
@@ -81,7 +81,7 @@ public class SearchProductsActivity extends AppCompatActivity {
                 TentItems item = (TentItems)listView.getAdapter().getItem(position);
                 Session.setItemSelected(item);
                 Session.setTentSelected(item.getTent());
-                Session.setContactSelected(userPersistence.searchFromId(item.getTent().getUser().getId_user()));
+                Session.setContactSelected(userNegocio.userPersistence().searchFromId(item.getTent().getUser().getId_user()));
                 Intent p = new Intent(Session.getContext(),TentSelectedActivity.class);
                 startActivity(p);
                 return false;
@@ -91,7 +91,7 @@ public class SearchProductsActivity extends AppCompatActivity {
 
     public void searchItem(String textToSearch){
         for(int i = 0; i < listTent.size(); i++){
-            if(!productPersistence.nameProductById(listTent.get(i).getProduct().getProductId()).contains(textToSearch)){
+            if(!productNegocio.productPersistence().nameProductById(listTent.get(i).getProduct().getProductId()).contains(textToSearch)){
                 listTent.remove(listTent.get(i));
             }
         }
@@ -99,8 +99,8 @@ public class SearchProductsActivity extends AppCompatActivity {
     }
 
     public void initTentList(){
-        TentItemsPersistence tentItemsPersistence = new TentItemsPersistence();
-        listTent = tentItemsPersistence.getAllItems(Session.getCurrentUser().getId_user());
+        TentsItemsNegocio tentsItemsNegocio = new TentsItemsNegocio();
+        listTent = tentsItemsNegocio.tentItemsPersistence().getAllItems(Session.getCurrentUser().getId_user());
         adapter = new ItemListAdapter(listTent);
         listView.setAdapter(adapter);
     }

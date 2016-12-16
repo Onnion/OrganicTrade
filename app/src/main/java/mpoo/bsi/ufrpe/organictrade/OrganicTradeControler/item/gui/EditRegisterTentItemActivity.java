@@ -15,7 +15,7 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 import mpoo.bsi.ufrpe.organictrade.Infra.Session;
 import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.item.dominio.TentItems;
-import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.item.persistencia.TentItemsPersistence;
+import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.item.negocio.TentsItemsNegocio;
 import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.user.gui.UserActivity;
 import mpoo.bsi.ufrpe.organictrade.R;
 
@@ -73,8 +73,8 @@ public class EditRegisterTentItemActivity extends AppCompatActivity {
         tentItemsToEdit.setCurrentAmount(Integer.parseInt(amount.getText().toString()));
         tentItemsToEdit.setValue(Double.parseDouble(price.getText().toString()));
         tentItemsToEdit.setImageItem(picturePath);
-        TentItemsPersistence tentItemsPersistence = new TentItemsPersistence();
-        tentItemsPersistence.tentItemEdit(tentItemsToEdit);
+        TentsItemsNegocio tentsItemsNegocio = new TentsItemsNegocio();
+        tentsItemsNegocio.tentItemsPersistence().tentItemEdit(tentItemsToEdit);
         Intent i = new Intent(Session.getContext(),TentActivity.class);
         startActivity(i);
         finish();

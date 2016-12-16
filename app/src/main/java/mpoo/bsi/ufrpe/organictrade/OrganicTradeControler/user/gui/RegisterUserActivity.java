@@ -11,7 +11,6 @@ import mpoo.bsi.ufrpe.organictrade.Infra.Session;
 import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.user.dominio.User;
 import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.user.negocio.Md5;
 import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.user.negocio.UserNegocio;
-import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.user.persistencia.UserPersistence;
 import mpoo.bsi.ufrpe.organictrade.R;
 
 public class RegisterUserActivity extends AppCompatActivity {
@@ -28,7 +27,7 @@ public class RegisterUserActivity extends AppCompatActivity {
     private String rpassString;
     private String remail;
     private String phoneString;
-    private UserPersistence crud;
+    private UserNegocio crud;
     
 
     @Override
@@ -58,11 +57,11 @@ public class RegisterUserActivity extends AppCompatActivity {
 
     public void validationRegisterUser(){
         loadValuesToRegister();
-        crud = new UserPersistence();
+        crud = new UserNegocio();
         if (!passString.equals(rpassString)){
             Toast.makeText(Session.getContext(),getText(R.string.tstPasswordDontMatch), Toast.LENGTH_LONG).show();
         }else{
-            if(crud.userNotRegistered(userString) && userNegocio.registerOK(email,user,nome,pass,phone,rpass)){
+            if(crud.userPersistence().userNotRegistered(userString) && userNegocio.registerOK(email,user,nome,pass,phone,rpass)){
                 registerUser();
                 Intent i = new Intent(Session.getContext(),LoginActivity.class);
                 startActivity(i);
@@ -77,7 +76,7 @@ public class RegisterUserActivity extends AppCompatActivity {
         usuario.setEmail(remail);
         usuario.setName(nomeString);
         usuario.setPhone(Long.parseLong(phoneString));
-        crud.RegisterUser(usuario);
+        crud.userPersistence().RegisterUser(usuario);
     }
 
     private void loadValuesToRegister() {

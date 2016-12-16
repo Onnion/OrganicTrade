@@ -2,10 +2,15 @@ package mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.user.negocio;
 
 import android.database.sqlite.SQLiteDatabase;
 import android.widget.EditText;
+
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import mpoo.bsi.ufrpe.organictrade.Infra.persistencia.DatabaseHelper;
+import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.user.persistencia.UserPersistence;
+
+
 public class UserNegocio{
+    private static UserPersistence userPersistence = new UserPersistence();
     private SQLiteDatabase db;
     private DatabaseHelper banco;
     private EditText loginEdtLogin, loginEdtPass, registerUserEdtName,registerUserEdtPhone, registerUserEdtLogin, registerUserEdtPass, registerUserEdtRpass, registerUserEdtEmail;
@@ -15,6 +20,10 @@ public class UserNegocio{
     private static final Pattern PHONE_VERIFICATION_CHARACTERS = Pattern.compile("^[1-9]{2}[9]{0,1}[6-9]{1}[0-9]{3}[0-9]{4}$", Pattern.CASE_INSENSITIVE);
     private static final Pattern PASS_VERIFICATION_CHARACTERS = Pattern.compile("^[A-Za-z0-9]{0,}$", Pattern.CASE_INSENSITIVE);
     private static final Pattern LOGIN_VERIFICATION_CHARACTERS = Pattern.compile("^[A-Za-z]{0,}$", Pattern.CASE_INSENSITIVE);
+
+    public static UserPersistence userPersistence(){
+        return userPersistence;
+    }
 
     public void initializeLogin(EditText loginEdtLogin, EditText loginEdtPass){
         this.loginEdtLogin = loginEdtLogin;

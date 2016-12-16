@@ -25,9 +25,9 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import mpoo.bsi.ufrpe.organictrade.Infra.Session;
 import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.item.dominio.Tent;
 import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.item.dominio.TentItems;
-import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.item.persistencia.TentPersistence;
+import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.item.negocio.TentNegocio;
 import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.user.dominio.User;
-import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.item.persistencia.ProductPersistence;
+import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.item.negocio.ProductNegocio;
 import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.user.gui.UserActivity;
 import mpoo.bsi.ufrpe.organictrade.R;
 
@@ -35,7 +35,7 @@ public class TentSelectedActivity extends FragmentActivity implements OnMapReady
     private Tent tentSelected = Session.getTentSelected();
     private User contactSelected = Session.getContactSelected();
     private TentItems itemSelected = Session.getItemSelected();
-    private ProductPersistence productPersistence = new ProductPersistence();
+    private ProductNegocio productNegocio = new ProductNegocio();
     private GoogleMap mMap;
     private Button btnConfirmTransaction;
     private LatLng locationTentSelected;
@@ -109,7 +109,7 @@ public class TentSelectedActivity extends FragmentActivity implements OnMapReady
         loadImgUser();
         loadImgTent();
         phone.setText(contactSelected.getPhone().toString());
-        productName.setText(productPersistence.nameProductById(itemSelected.getProduct().getProductId()));
+        productName.setText(productNegocio.productPersistence().nameProductById(itemSelected.getProduct().getProductId()));
         productAmount.setText(Integer.toString(itemSelected.getCurrentAmount()));
         productPrice.setText(new StringBuilder().append("R$ ").append(itemSelected.getValue()).toString());
     }
@@ -142,8 +142,8 @@ public class TentSelectedActivity extends FragmentActivity implements OnMapReady
         btnConfirmTransaction.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                TentPersistence tent = new TentPersistence();
-                tent.confirmTransaction();
+                TentNegocio tent = new TentNegocio();
+                tent.tentPersistence().confirmTransaction();
                 Intent i = new Intent(Session.getContext(),UserActivity.class);
                 startActivity(i);
             }

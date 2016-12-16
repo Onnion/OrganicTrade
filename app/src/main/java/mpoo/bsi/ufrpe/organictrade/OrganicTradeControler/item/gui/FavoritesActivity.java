@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import mpoo.bsi.ufrpe.organictrade.Infra.Session;
 import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.item.dominio.Product;
 import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.user.gui.UserActivity;
-import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.user.persistencia.UserPersistence;
+import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.user.negocio.UserNegocio;
 import mpoo.bsi.ufrpe.organictrade.R;
 
 public class FavoritesActivity extends AppCompatActivity {
@@ -36,9 +36,11 @@ public class FavoritesActivity extends AppCompatActivity {
         loadAddBtn();
     }
 
+
     private void initializeGridView(){
-        UserPersistence userPersistence = new UserPersistence();
-        products = userPersistence.getFavorites();
+        UserNegocio userNegocio = new UserNegocio();
+
+        products = userNegocio.userPersistence().getFavorites();
         adapter = new FavoriteListAdapter(products);
         GridView gridView = (GridView) findViewById(R.id.favoritesGridViewListProduct);
         gridView.setAdapter(adapter);

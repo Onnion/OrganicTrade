@@ -16,8 +16,8 @@ import android.widget.Spinner;
 
 import mpoo.bsi.ufrpe.organictrade.Infra.Session;
 import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.item.dominio.TentItems;
-import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.item.persistencia.ProductPersistence;
-import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.item.persistencia.TentItemsPersistence;
+import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.item.negocio.ProductNegocio;
+import mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.item.negocio.TentsItemsNegocio;
 import mpoo.bsi.ufrpe.organictrade.R;
 
 public class RegisterTentItemActivity extends AppCompatActivity {
@@ -30,7 +30,7 @@ public class RegisterTentItemActivity extends AppCompatActivity {
     private String priceString;
     private Spinner nameProduct;
     private Spinner unityProduct;
-    private ProductPersistence productPersistence = new ProductPersistence();
+    private ProductNegocio productNegocio = new ProductNegocio();
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -72,7 +72,7 @@ public class RegisterTentItemActivity extends AppCompatActivity {
     }
 
     private void loadProductNameSpinner() {
-        String[] productList = productPersistence.getNameProducts();
+        String[] productList = productNegocio.productPersistence().getNameProducts();
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, productList);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         nameProduct = (Spinner) findViewById(R.id.registerTentItemSpiProductName);
@@ -108,13 +108,13 @@ public class RegisterTentItemActivity extends AppCompatActivity {
 
     public void registerProduct() {
         loadValuesToRegister();
-        TentItemsPersistence crud = new TentItemsPersistence();
-        tentItems.setProduct(productPersistence.getProductById(Integer.parseInt(idProductString)));
+        TentsItemsNegocio crud = new TentsItemsNegocio();
+        tentItems.setProduct(productNegocio.productPersistence().getProductById(Integer.parseInt(idProductString)));
         tentItems.setCurrentAmount(Integer.parseInt(amountString));
         tentItems.setValue(Double.parseDouble(priceString));
         tentItems.setUnity(unityString);
         tentItems.setTent(Session.getTentSelected());
-        crud.insertTentItems(tentItems);
+        crud.tentItemsPersistence().insertTentItems(tentItems);
         Intent i = new Intent(Session.getContext(), TentActivity.class);
         startActivity(i);
         finish();
@@ -123,7 +123,7 @@ public class RegisterTentItemActivity extends AppCompatActivity {
     private void loadValuesToRegister() {
         EditText amount = (EditText) findViewById((R.id.registerTentItemEdtProductAmount));
         EditText price = (EditText) findViewById(R.id.registerTentItemEdtProductPrice);
-        idProductString = productPersistence.idProductByName(nameProduct.getSelectedItem().toString());
+        idProductString = productNegocio.productPersistence().idProductByName(nameProduct.getSelectedItem().toString());
         unityString = unityProduct.getSelectedItem().toString();
         amountString = amount.getText().toString();
         priceString = price.getText().toString();
