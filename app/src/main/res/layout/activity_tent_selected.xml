@@ -6,7 +6,7 @@
     android:id="@+id/activity_contact"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.item.gui.TentSelectedActivity">
+    tools:context="mpoo.bsi.ufrpe.organictrade.controler.item.gui.TentSelectedActivity">
     <RelativeLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
@@ -162,6 +162,6 @@
         android:layout_height="55dp"
         android:background="@color/verdeParaTudo"
         android:id="@+id/tentselectedBtnTransaction"
-        android:text="Confirmar compra"
+        android:text="@string/btnConfirmarCompra"
         android:textColor="#ffff"/>
 </LinearLayout>

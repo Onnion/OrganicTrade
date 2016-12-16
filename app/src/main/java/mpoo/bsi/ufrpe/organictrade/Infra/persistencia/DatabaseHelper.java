@@ -1,6 +1,5 @@
-package mpoo.bsi.ufrpe.organictrade.Infra.persistencia;
+package mpoo.bsi.ufrpe.organictrade.infra.persistencia;
 
-import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -66,11 +65,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String COLUMN_TRANSACTION_USER_SELLING_ID = "user_selling_id";
     private static final String COLUMN_TRANSACTION_TENTITEM_ID = "tentitem_id";
     private static final String COLUMN_TRANSACTION_DATE = "transaction_date";
-
-    //Histórico
-    private static final String TABLE_HISTORIC_NAME = "historic";
-    private static final String COLUMN_HISTORIC_USER_ID = "user_id";
-    private static final String COLUMN_HISTORIC_TRANSACTION_ID ="transaction_id";
 
     //
     private SQLiteDatabase db;
@@ -254,19 +248,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
     //----------------------------------------------------------------------------//
 
-    public static String getTableHistoricName() {
-        return TABLE_HISTORIC_NAME;
-    }
-
-    public static String getColumnHistoricUserId() {
-        return COLUMN_HISTORIC_USER_ID;
-    }
-
-    public static String getColumnHistoricTransactionId() {
-        return COLUMN_HISTORIC_TRANSACTION_ID;
-    }
-    //----------------------------------------------------------------------------//
-
     public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
@@ -280,8 +261,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL(ComandosSql.sqlCreateTentTable());
         db.execSQL(ComandosSql.sqlCreateUserProductTable());
         db.execSQL(ComandosSql.sqlCreateTransactionTable());
-        script.populateProductTable(db);
-        //db.execSQL(ComandosSql.sqlCreateHistoricTable());
+        Script.populateProductTable(db);
     }
 
     @Override
@@ -293,7 +273,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL(ComandosSql.sqlDropTableTent());
         db.execSQL(ComandosSql.sqlDropTableUserProduct());
         db.execSQL(ComandosSql.sqlDropTableTransaction());
-        //db.execSQL(ComandosSql.sqlDropTableHistoric());
         this.onCreate(db);
     }
 }

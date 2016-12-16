@@ -30,25 +30,25 @@
             android:name="com.google.android.maps.v2.API_KEY"
             android:value="AIzaSyBey3M4DtuXwXb8vE832zWPtf3Mona0ZIY" />
 
-        <activity android:name=".OrganicTradeControler.user.gui.LoginActivity" />
-        <activity android:name=".OrganicTradeControler.user.gui.RegisterUserActivity" />
-        <activity android:name=".OrganicTradeControler.user.gui.UserActivity" />
-        <activity android:name=".OrganicTradeControler.item.gui.RegisterTentItemActivity" />
-        <activity android:name=".OrganicTradeControler.user.gui.LoadingActivity">
+        <activity android:name=".controler.user.gui.LoginActivity" />
+        <activity android:name=".controler.user.gui.RegisterUserActivity" />
+        <activity android:name=".controler.user.gui.UserActivity" />
+        <activity android:name=".controler.item.gui.RegisterTentItemActivity" />
+        <activity android:name=".controler.user.gui.LoadingActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".OrganicTradeControler.item.gui.SearchProductsActivity" />
-        <activity android:name=".OrganicTradeControler.item.gui.TentSelectedActivity" />
-        <activity android:name=".OrganicTradeControler.user.gui.EditRegisterUserActivity" />
-        <activity android:name=".OrganicTradeControler.item.gui.EditRegisterTentItemActivity" />
-        <activity android:name=".OrganicTradeControler.item.gui.RegisterTentActivity" />
-        <activity android:name=".OrganicTradeControler.item.gui.TentActivity" />
-        <activity android:name=".OrganicTradeControler.item.gui.RegisterFavoritesActivity" />
-        <activity android:name=".OrganicTradeControler.item.gui.FavoritesActivity" />
-        <activity android:name=".OrganicTradeControler.item.gui.HistorycAcitivity"></activity>
+        <activity android:name=".controler.item.gui.SearchProductsActivity" />
+        <activity android:name=".controler.item.gui.TentSelectedActivity" />
+        <activity android:name=".controler.user.gui.EditRegisterUserActivity" />
+        <activity android:name=".controler.item.gui.EditRegisterTentItemActivity" />
+        <activity android:name=".controler.item.gui.RegisterTentActivity" />
+        <activity android:name=".controler.item.gui.TentActivity" />
+        <activity android:name=".controler.item.gui.RegisterFavoritesActivity" />
+        <activity android:name=".controler.item.gui.FavoritesActivity" />
+        <activity android:name=".controler.item.gui.HistorycAcitivity"></activity>
     </application>
 
 </manifest>

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.item.gui.TentActivity">
+    tools:context="mpoo.bsi.ufrpe.organictrade.controler.item.gui.TentActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -78,20 +78,20 @@
             android:textAlignment="center"
             android:textColor="#ffffff"
 
-            android:text="Adicionar"
+            android:text="@string/btnAdicionar"
             android:layout_height="match_parent" />
         <TextView
             android:layout_width="0dp"
             android:textColor="#ffffff"
             android:layout_weight="0.75"
             android:textAlignment="center"
-            android:text="Histórico"
+            android:text="@string/Histórico"
             android:layout_height="match_parent" />
         <TextView
             android:layout_width="0dp"
             android:layout_weight="0.75"
             android:textAlignment="center"
-            android:text="Editar"
+            android:text="@string/txtEditar"
             android:textColor="#ffffff"
             android:layout_height="match_parent" />
 

@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.user.gui.UserActivity">
+    tools:context="mpoo.bsi.ufrpe.organictrade.controler.user.gui.UserActivity">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -91,7 +91,7 @@
             android:textAlignment="center"
             android:textColor="#ffffff"
 
-            android:text="Adicionar"
+            android:text="@string/btnAdicionar"
             android:layout_height="match_parent" />
 
         <TextView
@@ -99,7 +99,7 @@
             android:textColor="#ffffff"
             android:layout_weight="0.75"
             android:textAlignment="center"
-            android:text="Favoritos"
+            android:text="@string/favoritos"
             android:layout_height="match_parent"
             android:id="@+id/textView" />
 
@@ -109,13 +109,13 @@
             android:textColor="#ffffff"
 
             android:textAlignment="center"
-            android:text="Editar"
+            android:text="@string/txtEditar"
             android:layout_height="match_parent" />
         <TextView
             android:layout_width="0dp"
             android:layout_weight="0.75"
             android:textAlignment="center"
-            android:text="Pesquisar"
+            android:text="@string/txtPesquisar"
             android:textColor="#ffffff"
 
             android:layout_height="match_parent" />
@@ -123,7 +123,7 @@
             android:layout_width="0dp"
             android:layout_weight="0.75"
             android:textAlignment="center"
-            android:text="sair"
+            android:text="@string/txtLogout"
             android:textColor="#ffffff"
             android:layout_height="match_parent" />
     </LinearLayout>

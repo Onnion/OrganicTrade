@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.user.gui.UserActivity">
+    tools:context="mpoo.bsi.ufrpe.organictrade.controler.user.gui.UserActivity">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -13,7 +13,7 @@
         android:background="@color/verdeParaTudo"
         android:layout_weight="0.3">
         <TextView
-            android:text="Histórico"
+            android:text="@string/Histórico"
             android:textStyle="bold"
             android:textAlignment="center"
             android:textSize="50sp"
@@ -55,14 +55,14 @@
             android:layout_weight="0.75"
             android:textAlignment="center"
             android:textColor="#ffffff"
-            android:text="Vendas"
+            android:text="@string/Vendas"
             android:layout_height="match_parent" />
         <TextView
             android:layout_width="0dp"
             android:textColor="#ffffff"
             android:layout_weight="0.75"
             android:textAlignment="center"
-            android:text="Compras"
+            android:text="@string/Compras"
             android:layout_height="match_parent" />
     </LinearLayout>
 

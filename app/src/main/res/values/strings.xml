@@ -6,7 +6,11 @@
     <string name="btnMyTent">Meus Produtos</string>
     <string name="btnRegister">Cadastrar</string>
     <string name="btnRegisterProduct">Cadastrar Produto</string>
+    <string name="btnConfirmarCompra">Confirmar compra</string>
     <string name="btnSalvar">Salvar</string>
+    <string name="btnAdicionar">Adicionar</string>
+    <string name="btnCadastrarTenda">Cadastrar Tenda"</string>
+
 
     <string name="hntEmail">Email</string>
     <string name="hntLogin">Login</string>
@@ -15,6 +19,7 @@
     <string name="hntPasswordConfirmation">Confirme a senha</string>
     <string name="hntPhone">Celular</string>
     <string name="hntSearch">Pesquisar</string>
+    <string name="hntNomeDaTenda">Nome da Tenda</string>
 
     <string name="tstInvalidEmail">Por favor, entre com um nome válido.</string>
     <string name="tstInvalidPassword">Senha inválida</string>
@@ -30,6 +35,8 @@
     <string name="tstNotDecimal">Não é decimal</string>
 
     <string name="txtAmount">Quantidade</string>
+    <string name="txtEditar">Editar</string>
+    <string name="txtPesquisar">Pesquisar</string>
     <string name="txtMoney">R$</string>
     <string name="txtSearch">Procurar item</string>
     <string name="txtLogout">Sair</string>
@@ -39,8 +46,14 @@
     <string name="txtNewItem">Novo item</string>
     <string name="title_activity_maps">Map</string>
 
-    <!--Adicionei para o refectoring-->
     <string name="myTent">Minha Tenda</string>
+
+    <string name="MeusFavorito">Meus Favoritos</string>
+    <string name="Histórico">Histórico</string>
+
+    <string name="Vendas">Vendas</string>
+    <string name="Compras">Compras</string>
+
     <string name="tentOf">Tenda de </string>
     <string name="tstPressAgainToCloseApp">Pressione o Botão Voltar novamente para fechar o Aplicativo</string>
     <string name="favoritos">Favoritos</string>

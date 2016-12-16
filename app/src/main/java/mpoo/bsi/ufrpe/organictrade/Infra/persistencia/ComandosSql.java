@@ -1,132 +1,119 @@
-package mpoo.bsi.ufrpe.organictrade.Infra.persistencia;
-
-import mpoo.bsi.ufrpe.organictrade.Infra.Session;
+package mpoo.bsi.ufrpe.organictrade.infra.persistencia;
 
 public class ComandosSql {
 
-    public static String sqlCreateUserTable(){
+    public static String sqlCreateUserTable() {
         String sqlCreateUserTable =
-                "CREATE TABLE " +DatabaseHelper.getTableUserName()+ "( "
-                        + DatabaseHelper.getColumnUserId()+" integer primary key autoincrement unique not null , "
+                "CREATE TABLE " + DatabaseHelper.getTableUserName() + "( "
+                        + DatabaseHelper.getColumnUserId() + " integer primary key autoincrement unique not null , "
                         + DatabaseHelper.getColumnUserUsername() + " text unique not null ,"
                         + DatabaseHelper.getColumnUserPassword() + " text not null , "
                         + DatabaseHelper.getColumnUserEmail() + " text unique not null , "
                         + DatabaseHelper.getColumnUserName() + " text , "
                         + DatabaseHelper.getColumnUserPhone() + " integer , "
-                        + DatabaseHelper.getColumnUserImg() + " text"
+                        + DatabaseHelper.getColumnUserImg() + " blob"
                         + ");";
-        return(sqlCreateUserTable);
+        return (sqlCreateUserTable);
     }
 
-    public static String sqlCreateTentItemsTable(){
+    public static String sqlCreateTentItemsTable() {
         String sqlCreateTentItemsTable =
-                "CREATE TABLE "+ DatabaseHelper.getTableTentitemsName() + "( "
-                        + DatabaseHelper.getColumnTentitemsId()+" integer primary key autoincrement not null , "
-                        + DatabaseHelper.getColumnTentitemsAmount() +" integer not null , "
+                "CREATE TABLE " + DatabaseHelper.getTableTentitemsName() + "( "
+                        + DatabaseHelper.getColumnTentitemsId() + " integer primary key autoincrement not null , "
+                        + DatabaseHelper.getColumnTentitemsAmount() + " integer not null , "
                         + DatabaseHelper.getColumnTentitemsPrice() + " integer not null , "
                         + DatabaseHelper.getColumnTentitemsUnity() + " text no null , "
-                        + DatabaseHelper.getColumnTentitemsProductId()+ " integer no null , "
-                        + DatabaseHelper.getColumnTentitemsTentId()+ " integer no null , "
-                        + DatabaseHelper.getColumnTentitemsImg() + " text , "
-                        + "foreign key ( "+DatabaseHelper.getColumnTentitemsProductId()+" ) references "+DatabaseHelper.getTableProductName()+" ("+DatabaseHelper.getColumnProductId()+") , "
-                        + "foreign key ( "+DatabaseHelper.getColumnTentitemsTentId()+" ) references "+DatabaseHelper.getTableTentName()+" ("+DatabaseHelper.getColumnTentId()+")"
+                        + DatabaseHelper.getColumnTentitemsProductId() + " integer no null , "
+                        + DatabaseHelper.getColumnTentitemsTentId() + " integer no null , "
+                        + DatabaseHelper.getColumnTentitemsImg() + " blob , "
+                        + "foreign key ( " + DatabaseHelper.getColumnTentitemsProductId() + " ) references " + DatabaseHelper.getTableProductName() + " (" + DatabaseHelper.getColumnProductId() + ") , "
+                        + "foreign key ( " + DatabaseHelper.getColumnTentitemsTentId() + " ) references " + DatabaseHelper.getTableTentName() + " (" + DatabaseHelper.getColumnTentId() + ")"
                         + ");";
-        return(sqlCreateTentItemsTable);
+        return (sqlCreateTentItemsTable);
     }
 
-    public static String sqlCreateTransactionTable(){
+    public static String sqlCreateTransactionTable() {
         String sqlCreateTransactionTable =
-                "CREATE TABLE "+ DatabaseHelper.getTableTransactionName() + "( "
-                        + DatabaseHelper.getColumnTransactionId()+" integer primary key autoincrement not null , "
-                        + DatabaseHelper.getColumnTransactionVote() +" integer , "
+                "CREATE TABLE " + DatabaseHelper.getTableTransactionName() + "( "
+                        + DatabaseHelper.getColumnTransactionId() + " integer primary key autoincrement not null , "
+                        + DatabaseHelper.getColumnTransactionVote() + " integer , "
                         + DatabaseHelper.getColumnTransactionDate() + " text not null , "
                         + DatabaseHelper.getColumnTransactionUserSellingId() + " integer no null , "
                         + DatabaseHelper.getColumnTransactionUserBuyingId() + " integer no null , "
                         + DatabaseHelper.getColumnTransactionTentitemId() + " integer no null , "
-                        + "foreign key ( "+DatabaseHelper.getColumnTransactionUserBuyingId()+" ) references "+DatabaseHelper.getTableUserName()+" ("+DatabaseHelper.getColumnUserId()+") , "
-                        + "foreign key ( "+DatabaseHelper.getColumnTransactionUserSellingId()+" ) references "+DatabaseHelper.getTableUserName()+" ("+DatabaseHelper.getColumnUserId()+") , "
-                        + "foreign key ( "+DatabaseHelper.getColumnTransactionTentitemId()+" ) references "+DatabaseHelper.getTableTentitemsName()+" ("+DatabaseHelper.getColumnTentitemsId()+")"
+                        + "foreign key ( " + DatabaseHelper.getColumnTransactionUserBuyingId() + " ) references " + DatabaseHelper.getTableUserName() + " (" + DatabaseHelper.getColumnUserId() + ") , "
+                        + "foreign key ( " + DatabaseHelper.getColumnTransactionUserSellingId() + " ) references " + DatabaseHelper.getTableUserName() + " (" + DatabaseHelper.getColumnUserId() + ") , "
+                        + "foreign key ( " + DatabaseHelper.getColumnTransactionTentitemId() + " ) references " + DatabaseHelper.getTableTentitemsName() + " (" + DatabaseHelper.getColumnTentitemsId() + ")"
                         + ");";
-        return(sqlCreateTransactionTable);
+        return (sqlCreateTransactionTable);
     }
 
-    public static String sqlCreateUserLoggedTable(){
+    public static String sqlCreateUserLoggedTable() {
         String sqlCreateUserLoggedTable =
-                "CREATE TABLE "+ DatabaseHelper.getTableUserLoggedName() + "( "
-                        + DatabaseHelper.getColumnUserLoggedId()+" integer primary key autoincrement not null , "
-                        + "foreign key ( "+DatabaseHelper.getColumnUserLoggedId()+" ) references "+DatabaseHelper.getTableUserName()+" ( "+DatabaseHelper.getColumnUserId()+" )"
+                "CREATE TABLE " + DatabaseHelper.getTableUserLoggedName() + "( "
+                        + DatabaseHelper.getColumnUserLoggedId() + " integer primary key autoincrement not null , "
+                        + "foreign key ( " + DatabaseHelper.getColumnUserLoggedId() + " ) references " + DatabaseHelper.getTableUserName() + " ( " + DatabaseHelper.getColumnUserId() + " )"
                         + ");";
-        return(sqlCreateUserLoggedTable);
+        return (sqlCreateUserLoggedTable);
     }
 
-    public static String sqlCreateProductTable(){
+    public static String sqlCreateProductTable() {
         String sqlCreateProductTable =
-                "CREATE TABLE "+ DatabaseHelper.getTableProductName() + "( "
-                        + DatabaseHelper.getColumnProductId()+" integer primary key autoincrement not null , "
-                        + DatabaseHelper.getColumnProductName()+" text not null , "
-                        + DatabaseHelper.getColumnProductType()+" text not null , "
-                        + DatabaseHelper.getColumnProductDescription()+" text , "
-                        + DatabaseHelper.getColumnProductImg()+" text"
+                "CREATE TABLE " + DatabaseHelper.getTableProductName() + "( "
+                        + DatabaseHelper.getColumnProductId() + " integer primary key autoincrement not null , "
+                        + DatabaseHelper.getColumnProductName() + " text not null , "
+                        + DatabaseHelper.getColumnProductType() + " text not null , "
+                        + DatabaseHelper.getColumnProductDescription() + " text , "
+                        + DatabaseHelper.getColumnProductImg() + " blob"
                         + ");";
-        return(sqlCreateProductTable);
+        return (sqlCreateProductTable);
     }
 
     public static String sqlCreateTentTable() {
         String sqlCreateTentTable =
-                "CREATE TABLE "+ DatabaseHelper.getTableTentName() + "( "
-                        + DatabaseHelper.getColumnTentId()+" integer primary key autoincrement not null , "
-                        + DatabaseHelper.getColumnTentLongi()+" integer not null , "
-                        + DatabaseHelper.getColumnTentLagi()+ " integer not null  , "
-                        + DatabaseHelper.getColumnTentUserId()+" integer not null  , "
-                        + DatabaseHelper.getColumnTentName()+" text , "
-                        + DatabaseHelper.getColumnTentImg()+" text , "
-                        + DatabaseHelper.getColumnTentNote()+" integer not null  , "
-                        + DatabaseHelper.getColumnTentNumberofvotes()+" integer not null , "
-                        + "foreign key ( "+DatabaseHelper.getColumnTentUserId()+" ) references "+DatabaseHelper.getTableUserName()+" ("+DatabaseHelper.getColumnUserId()+")"
+                "CREATE TABLE " + DatabaseHelper.getTableTentName() + "( "
+                        + DatabaseHelper.getColumnTentId() + " integer primary key autoincrement not null , "
+                        + DatabaseHelper.getColumnTentLongi() + " integer not null , "
+                        + DatabaseHelper.getColumnTentLagi() + " integer not null  , "
+                        + DatabaseHelper.getColumnTentUserId() + " integer not null  , "
+                        + DatabaseHelper.getColumnTentName() + " text , "
+                        + DatabaseHelper.getColumnTentImg() + " blob , "
+                        + DatabaseHelper.getColumnTentNote() + " integer not null  , "
+                        + DatabaseHelper.getColumnTentNumberofvotes() + " integer not null , "
+                        + "foreign key ( " + DatabaseHelper.getColumnTentUserId() + " ) references " + DatabaseHelper.getTableUserName() + " (" + DatabaseHelper.getColumnUserId() + ")"
                         + ");";
-        return(sqlCreateTentTable);
+        return (sqlCreateTentTable);
     }
 
-    public static String sqlCreateUserProductTable(){
+    public static String sqlCreateUserProductTable() {
         String sqlCreateUserProductTable =
-                "CREATE TABLE "+ DatabaseHelper.getTableUserproductName() + "( "
-                        + DatabaseHelper.getColumnUserproductUserId()+" integer not null  , "
-                        + DatabaseHelper.getColumnUserproductProductId()+" integer not null  , "
-                        + "foreign key ( "+DatabaseHelper.getColumnUserproductUserId()+" ) references "+DatabaseHelper.getTableUserName()+" ( "+DatabaseHelper.getColumnUserId()+" ) , "
-                        + "foreign key ( "+DatabaseHelper.getColumnUserproductProductId()+" ) references "+DatabaseHelper.getTableProductName()+" ( "+DatabaseHelper.getColumnProductId()+" )"
+                "CREATE TABLE " + DatabaseHelper.getTableUserproductName() + "( "
+                        + DatabaseHelper.getColumnUserproductUserId() + " integer not null  , "
+                        + DatabaseHelper.getColumnUserproductProductId() + " integer not null  , "
+                        + "foreign key ( " + DatabaseHelper.getColumnUserproductUserId() + " ) references " + DatabaseHelper.getTableUserName() + " ( " + DatabaseHelper.getColumnUserId() + " ) , "
+                        + "foreign key ( " + DatabaseHelper.getColumnUserproductProductId() + " ) references " + DatabaseHelper.getTableProductName() + " ( " + DatabaseHelper.getColumnProductId() + " )"
                         + ");";
-        return(sqlCreateUserProductTable);
+        return (sqlCreateUserProductTable);
     }
 
-    public static String sqlCreateHistoricTable(){
-        String sqlCreateHistoricTable =
-                "CREATE TABLE "+ DatabaseHelper.getTableHistoricName() + "( "
-                        + DatabaseHelper.getColumnHistoricUserId()+" integer not null , "
-                        + DatabaseHelper.getColumnHistoricTransactionId()+"  integer not null , "
-                        + "foreign key ( "+DatabaseHelper.getColumnHistoricUserId()+" ) references "+DatabaseHelper.getTableUserName()+" ("+DatabaseHelper.getColumnUserId()+") , "
-                        + "foreign key ( "+DatabaseHelper.getColumnHistoricTransactionId()+" ) references "+DatabaseHelper.getTableTransactionName()+" ("+DatabaseHelper.getColumnTransactionId()+")"
-                        + ");";
-        return (sqlCreateHistoricTable);
-    }
-
-    public static String sqlDropTableUsuarioLogado(){
+    public static String sqlDropTableUsuarioLogado() {
         String sqlDropTableUsuarioLogado = "DROP TABLE IF EXISTS " + DatabaseHelper.getTableUserLoggedName();
         return (sqlDropTableUsuarioLogado);
     }
 
     public static String sqlDropTableUsuario() {
         String sqlDropTableUsuario = "DROP TABLE IF EXISTS " + DatabaseHelper.getTableUserName();
-        return(sqlDropTableUsuario);
+        return (sqlDropTableUsuario);
     }
 
     public static String sqlDropTableTent() {
         String sqlDropTableTent = "DROP TABLE IF EXISTS " + DatabaseHelper.getTableTentName();
-        return(sqlDropTableTent);
+        return (sqlDropTableTent);
     }
 
     public static String sqlDropTableUserProduct() {
         String sqlDropTableUserProduct = "DROP TABLE IF EXISTS " + DatabaseHelper.getTableUserproductName();
-        return(sqlDropTableUserProduct);
+        return (sqlDropTableUserProduct);
     }
 
     public static String sqlDropTableItensDeTenda() {
@@ -144,25 +131,14 @@ public class ComandosSql {
         return (sqlDropTableTransaction);
     }
 
-    public static String sqlDropTableHistoric() {
-        String sqlDropTableHistoric = "DROP TABLE IF EXISTS " + DatabaseHelper.getTableHistoricName();
-        return (sqlDropTableHistoric);
-    }
-
-    public static String sqlProductIdByName(){
-        String sqlProductIdByName=
-                "SELECT * FROM "+DatabaseHelper.getTableProductName() +" WHERE "
-                        +DatabaseHelper.getColumnProductName() +" =?;";
+    public static String sqlProductIdByName() {
+        String sqlProductIdByName =
+                "SELECT * FROM " + DatabaseHelper.getTableProductName() + " WHERE "
+                        + DatabaseHelper.getColumnProductName() + " =?;";
         return (sqlProductIdByName);
     }
 
-    public static String productTableIsEmpty(){
-        String productTableIsEmpty=
-                "SELECT * FROM "+DatabaseHelper.getTableProductName()+";";
-        return (productTableIsEmpty);
-    }
-
-    public static String sqlTentFromUser(){
+    public static String sqlTentFromUser() {
         String sqlItemFromUser =
                 "SELECT * FROM " + DatabaseHelper.getTableTentName()
                         + " WHERE "
@@ -172,124 +148,116 @@ public class ComandosSql {
         return (sqlItemFromUser);
     }
 
-    public static String sqlUserFromLoginAndPass(){
+    public static String sqlUserFromLoginAndPass() {
         String sqlUserFromLoginAndPass =
-                "SELECT * FROM "+DatabaseHelper.getTableUserName() +" WHERE "
-                        +DatabaseHelper.getColumnUserUsername() +" =? AND "
-                        +DatabaseHelper.getColumnUserPassword() + " =?;";
+                "SELECT * FROM " + DatabaseHelper.getTableUserName() + " WHERE "
+                        + DatabaseHelper.getColumnUserUsername() + " =? AND "
+                        + DatabaseHelper.getColumnUserPassword() + " =?;";
         return (sqlUserFromLoginAndPass);
     }
 
-    public static String sqlUserFromLogin(){
+    public static String sqlUserFromLogin() {
         String sqlUserFromLogin =
-                "SELECT * FROM "+DatabaseHelper.getTableUserName() +" WHERE "
-                        +DatabaseHelper.getColumnUserUsername() +" =?;";
+                "SELECT * FROM " + DatabaseHelper.getTableUserName() + " WHERE "
+                        + DatabaseHelper.getColumnUserUsername() + " =?;";
         return (sqlUserFromLogin);
     }
 
-    public static String sqlUserFromId(){
+    public static String sqlUserFromId() {
         String sqlUserFromId =
-                "SELECT * FROM "+DatabaseHelper.getTableUserName() +" WHERE "
-                        +DatabaseHelper.getColumnUserId() +" =?;";
+                "SELECT * FROM " + DatabaseHelper.getTableUserName() + " WHERE "
+                        + DatabaseHelper.getColumnUserId() + " =?;";
         return (sqlUserFromId);
     }
 
-    public static String sqlLimparTabela(){
+    public static String sqlLimparTabela() {
         String sqlClearDisplay = "DELETE FROM " + DatabaseHelper.getTableUserLoggedName();
         return (sqlClearDisplay);
     }
 
-    public static String sqlSearchInBaseFromLoggedUser(){
+    public static String sqlSearchInBaseFromLoggedUser() {
         String sqlSearchInBaseFromLoggedUser =
-                "SELECT "+ DatabaseHelper.getColumnUserLoggedId()+" FROM "+DatabaseHelper.getTableUserLoggedName() +";";
+                "SELECT " + DatabaseHelper.getColumnUserLoggedId() + " FROM " + DatabaseHelper.getTableUserLoggedName() + ";";
         return (sqlSearchInBaseFromLoggedUser);
     }
 
-    public static String sqlUserLogged(){
+    public static String sqlUserLogged() {
         String sqlUserLogged =
-                "SELECT * FROM " + DatabaseHelper.getTableUserLoggedName()+";";
+                "SELECT * FROM " + DatabaseHelper.getTableUserLoggedName() + ";";
         return (sqlUserLogged);
     }
 
-    public static String sqlUserLogoff(){
+    public static String sqlUserLogoff() {
         String sqlUserLogoff =
-                "SELECT * FROM "+DatabaseHelper.getTableUserLoggedName() +" WHERE "
-                        +DatabaseHelper.getColumnUserLoggedId()+" =?;";
+                "SELECT * FROM " + DatabaseHelper.getTableUserLoggedName() + " WHERE "
+                        + DatabaseHelper.getColumnUserLoggedId() + " =?;";
         return (sqlUserLogoff);
     }
 
     public static String sqlProductNameById() {
-        String sqlProductNameById=
-                "SELECT * FROM "+DatabaseHelper.getTableProductName() +" WHERE "
-                        +DatabaseHelper.getColumnProductId() +" =?;";
+        String sqlProductNameById =
+                "SELECT * FROM " + DatabaseHelper.getTableProductName() + " WHERE "
+                        + DatabaseHelper.getColumnProductId() + " =?;";
         return (sqlProductNameById);
     }
 
-    public static String sqlAllItems(){
+    public static String sqlAllItems() {
         String sqlAllItems =
-                "SELECT * FROM "+DatabaseHelper.getTableTentitemsName() +" WHERE "
-                        +DatabaseHelper.getColumnTentitemsTentId()
-                        +" IN ( SELECT "+DatabaseHelper.getColumnTentId()+" FROM "+DatabaseHelper.getTableTentName()+" WHERE NOT "
-                        +DatabaseHelper.getColumnTentUserId()+" = ?) AND "
-                        +DatabaseHelper.getColumnTentitemsProductId()
-                        +" IN ( SELECT "+DatabaseHelper.getColumnUserproductProductId()+" FROM "+DatabaseHelper.getTableUserproductName()+" WHERE "
-                        +DatabaseHelper.getColumnUserproductUserId()+" = ?);";
+                "SELECT * FROM " + DatabaseHelper.getTableTentitemsName() + " WHERE "
+                        + DatabaseHelper.getColumnTentitemsTentId()
+                        + " IN ( SELECT " + DatabaseHelper.getColumnTentId() + " FROM " + DatabaseHelper.getTableTentName() + " WHERE NOT "
+                        + DatabaseHelper.getColumnTentUserId() + " = ?) AND "
+                        + DatabaseHelper.getColumnTentitemsProductId()
+                        + " IN ( SELECT " + DatabaseHelper.getColumnUserproductProductId() + " FROM " + DatabaseHelper.getTableUserproductName() + " WHERE "
+                        + DatabaseHelper.getColumnUserproductUserId() + " = ?);";
         return (sqlAllItems);
     }
 
-    public static String sqlAllItemsOfTent(){
+    public static String sqlAllItemsOfTent() {
         String sqlAllItemsOfTent =
-                "SELECT * FROM "+DatabaseHelper.getTableTentitemsName() +" WHERE "
-                        +DatabaseHelper.getColumnTentitemsTentId()+" =?;";
+                "SELECT * FROM " + DatabaseHelper.getTableTentitemsName() + " WHERE "
+                        + DatabaseHelper.getColumnTentitemsTentId() + " =?;";
         return (sqlAllItemsOfTent);
     }
 
-    public static String sqlTentById(){
+    public static String sqlTentById() {
         String sqlTentById =
-                "SELECT * FROM "+DatabaseHelper.getTableTentName() +" WHERE "
-                        +DatabaseHelper.getColumnTentId()+" =?;";
+                "SELECT * FROM " + DatabaseHelper.getTableTentName() + " WHERE "
+                        + DatabaseHelper.getColumnTentId() + " =?;";
         return (sqlTentById);
     }
 
-    public static String sqlTentItemById(){
+    public static String sqlTentItemById() {
         String sqlTentItemById =
-                "SELECT * FROM "+DatabaseHelper.getTableTentitemsName() +" WHERE "
-                        +DatabaseHelper.getColumnTentitemsId()+" =?;";
-        return(sqlTentItemById);
+                "SELECT * FROM " + DatabaseHelper.getTableTentitemsName() + " WHERE "
+                        + DatabaseHelper.getColumnTentitemsId() + " =?;";
+        return (sqlTentItemById);
     }
 
-    public static String sqlAllProducts(){
+    public static String sqlAllProducts() {
         String sqlAllProducts =
-                "SELECT * FROM "+DatabaseHelper.getTableProductName()+";";
+                "SELECT * FROM " + DatabaseHelper.getTableProductName() + ";";
         return (sqlAllProducts);
     }
 
     public static String sqlGetFavorites() {
         String sqlGetFavorites =
-                "SELECT * FROM "+DatabaseHelper.getTableUserproductName()+" WHERE "
-                        +DatabaseHelper.getColumnUserproductUserId()+" =?;";
+                "SELECT * FROM " + DatabaseHelper.getTableUserproductName() + " WHERE "
+                        + DatabaseHelper.getColumnUserproductUserId() + " =?;";
         return (sqlGetFavorites);
     }
 
-    public static String sqlGetSellingHistoryc(){
+    public static String sqlGetSellingHistoryc() {
         String sqlGetSellingHistoryc =
-                "SELECT * FROM "+DatabaseHelper.getTableTransactionName()+" WHERE "
-                        +DatabaseHelper.getColumnTransactionUserSellingId()+" =?;";
+                "SELECT * FROM " + DatabaseHelper.getTableTransactionName() + " WHERE "
+                        + DatabaseHelper.getColumnTransactionUserSellingId() + " =?;";
         return (sqlGetSellingHistoryc);
     }
 
     public static String sqlGetBuyingHistoryc() {
         String sqlGetBuyingHistoryc =
-                "SELECT * FROM "+DatabaseHelper.getTableTransactionName()+" WHERE "
-                        +DatabaseHelper.getColumnTransactionUserBuyingId()+" =?;";
+                "SELECT * FROM " + DatabaseHelper.getTableTransactionName() + " WHERE "
+                        + DatabaseHelper.getColumnTransactionUserBuyingId() + " =?;";
         return (sqlGetBuyingHistoryc);
     }
-
-
-//    public static String sqlGetProductById() {
-//        String sqlGetProductById =
-//                "SELECT * FROM "+DatabaseHelper.getTableProductName()+" WHERE "
-//                        +DatabaseHelper.getColumnProductId()+" =?;";
-//        return (sqlGetProductById);
-//    }
 }

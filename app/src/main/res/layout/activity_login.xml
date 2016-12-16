@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.user.gui.LoginActivity">
+    tools:context="mpoo.bsi.ufrpe.organictrade.controler.user.gui.LoginActivity">
 
     <Button
         android:id="@+id/loginBtnToCadastro"
@@ -14,7 +14,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_alignLeft="@+id/loginBtnEntrar"
         android:layout_alignStart="@+id/loginBtnEntrar"
         android:layout_marginBottom="18dp"
         />
@@ -37,7 +36,6 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="74dp"
         android:layout_above="@+id/loginBtnEntrar"
-        android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:hint="@string/hntLogin"
         android:maxLines="1"
@@ -50,7 +48,6 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_above="@+id/loginBtnEntrar"
-        android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginBottom="14dp"
         android:hint="@string/hntPassword"
@@ -63,11 +60,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@+id/loginEdtLogin"
-        android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginBottom="10dp"
         android:layout_marginTop="10dp"
         />
-
-
 </RelativeLayout>

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.item.gui.RegisterTentActivity">
+    tools:context="mpoo.bsi.ufrpe.organictrade.controler.item.gui.RegisterTentActivity">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -31,10 +31,12 @@
                 android:layout_weight="0.2"
                 android:orientation="vertical">
                 <EditText
+                    android:maxLines="1"
+                    android:inputType="text"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:id="@+id/registerTentEdtName"
-                    android:hint="Nome"
+                    android:hint="@string/hntNomeDaTenda"
                     />
             </LinearLayout>
             <LinearLayout
@@ -51,13 +53,12 @@
                     />
             </LinearLayout>
         </LinearLayout>
-
     </LinearLayout>
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/verdeParaTudo"
         android:id="@+id/registerTentBtnregister"
-        android:text="Cadastrar Tenda"
+        android:text="@string/btnCadastrarTenda"
         android:textColor="#ffff"/>
 </LinearLayout>

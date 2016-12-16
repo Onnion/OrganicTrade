@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="mpoo.bsi.ufrpe.organictrade.OrganicTradeControler.item.gui.FavoritesActivity">
+    tools:context="mpoo.bsi.ufrpe.organictrade.controler.item.gui.FavoritesActivity">
     <LinearLayout
         android:background="@color/verdeParaTudo"
         android:layout_width="match_parent"
@@ -14,7 +14,7 @@
         android:orientation="vertical">
 
         <TextView
-            android:text="Meus Favorito"
+            android:text="@string/MeusFavorito"
             android:textStyle="bold"
             android:textAlignment="center"
             android:textSize="50sp"
@@ -47,7 +47,7 @@
             android:textAlignment="center"
             android:textColor="#ffffff"
             android:layout_height="match_parent"
-            android:text="Adicionar"/>
+            android:text="@string/btnAdicionar"/>
     </LinearLayout>
     <LinearLayout
         android:layout_margin="5dp"
