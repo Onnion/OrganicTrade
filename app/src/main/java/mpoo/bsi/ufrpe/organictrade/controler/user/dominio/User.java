@@ -34,12 +34,12 @@ public class User {
         this.email = email;
     }
 
-    public int getId_user() {
+    public int getIdUser() {
         return userId;
     }
 
-    public void setId_user(int id_user) {
-        this.userId = id_user;
+    public void setIdUser(int iduser) {
+        this.userId = iduser;
     }
 
     public String getUserName() {

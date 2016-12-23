@@ -13,21 +13,21 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
+import mpoo.bsi.ufrpe.organictrade.controler.item.dominio.TentItem;
 import mpoo.bsi.ufrpe.organictrade.infra.Session;
-import mpoo.bsi.ufrpe.organictrade.controler.item.dominio.TentItems;
 import mpoo.bsi.ufrpe.organictrade.controler.item.negocio.ProductNegocio;
-import mpoo.bsi.ufrpe.organictrade.controler.item.negocio.TentsItemsNegocio;
+import mpoo.bsi.ufrpe.organictrade.controler.item.negocio.TentItemNegocio;
 import mpoo.bsi.ufrpe.organictrade.controler.user.gui.UserActivity;
 import mpoo.bsi.ufrpe.organictrade.controler.user.negocio.UserNegocio;
 import mpoo.bsi.ufrpe.organictrade.R;
 
 public class SearchProductsActivity extends AppCompatActivity {
     private ProductNegocio productNegocio = new ProductNegocio();
-    ArrayList<TentItems> listTent;
-    ItemListAdapter adapter;
-    ListView listView;
-    EditText editText;
-    UserNegocio userNegocio = new UserNegocio();
+    private ArrayList<TentItem> listTent;
+    private ItemListAdapter adapter;
+    private ListView listView;
+    private EditText editText;
+    private UserNegocio userNegocio = new UserNegocio();
 
     @Override
     public void onBackPressed() {
@@ -78,10 +78,10 @@ public class SearchProductsActivity extends AppCompatActivity {
         listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id){
-                TentItems item = (TentItems)listView.getAdapter().getItem(position);
+                TentItem item = (TentItem)listView.getAdapter().getItem(position);
                 Session.setItemSelected(item);
                 Session.setTentSelected(item.getTent());
-                Session.setContactSelected(userNegocio.getUserPersistence().searchFromId(item.getTent().getUser().getId_user()));
+                Session.setContactSelected(userNegocio.searchFromId(item.getTent().getUser().getIdUser()));
                 Intent p = new Intent(Session.getContext(),TentSelectedActivity.class);
                 startActivity(p);
                 return false;
@@ -91,7 +91,7 @@ public class SearchProductsActivity extends AppCompatActivity {
 
     public void searchItem(String textToSearch){
         for(int i = 0; i < listTent.size(); i++){
-            if(!productNegocio.productPersistence().nameProductById(listTent.get(i).getProduct().getProductId()).contains(textToSearch)){
+            if(!productNegocio.nameProductById(listTent.get(i).getProduct().getProductId()).contains(textToSearch)){
                 listTent.remove(listTent.get(i));
             }
         }
@@ -99,8 +99,8 @@ public class SearchProductsActivity extends AppCompatActivity {
     }
 
     public void initTentList(){
-        TentsItemsNegocio tentsItemsNegocio = new TentsItemsNegocio();
-        listTent = tentsItemsNegocio.getTentItemsPersistence().getAllItems(Session.getCurrentUser().getId_user());
+        TentItemNegocio tentItemNegocio = new TentItemNegocio();
+        listTent = tentItemNegocio.getAllItems(Session.getCurrentUser().getIdUser());
         adapter = new ItemListAdapter(listTent);
         listView.setAdapter(adapter);
     }

@@ -17,8 +17,6 @@ import mpoo.bsi.ufrpe.organictrade.R;
 
 public class FavoritesActivity extends AppCompatActivity {
     private ImageView addBtn;
-    private ArrayList<Product> products;
-    private FavoriteListAdapter adapter;
 
     @Override
     public void onBackPressed() {
@@ -39,9 +37,8 @@ public class FavoritesActivity extends AppCompatActivity {
 
     private void initializeGridView(){
         UserNegocio userNegocio = new UserNegocio();
-
-        products = userNegocio.getUserPersistence().getFavorites();
-        adapter = new FavoriteListAdapter(products);
+        ArrayList<Product> products = userNegocio.getFavorites();
+        FavoriteListAdapter adapter = new FavoriteListAdapter(products);
         GridView gridView = (GridView) findViewById(R.id.favoritesGridViewListProduct);
         gridView.setAdapter(adapter);
         registerForContextMenu(gridView);

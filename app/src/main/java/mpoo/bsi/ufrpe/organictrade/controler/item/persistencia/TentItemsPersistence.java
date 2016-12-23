@@ -4,36 +4,37 @@ import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import java.util.ArrayList;
+
+import mpoo.bsi.ufrpe.organictrade.controler.item.dominio.TentItem;
 import mpoo.bsi.ufrpe.organictrade.infra.persistencia.ComandosSql;
 import mpoo.bsi.ufrpe.organictrade.infra.persistencia.DatabaseHelper;
 import mpoo.bsi.ufrpe.organictrade.infra.Session;
 import mpoo.bsi.ufrpe.organictrade.controler.item.dominio.Product;
 import mpoo.bsi.ufrpe.organictrade.controler.item.dominio.Tent;
-import mpoo.bsi.ufrpe.organictrade.controler.item.dominio.TentItems;
 
 public class TentItemsPersistence {
     private SQLiteDatabase db;//
     private DatabaseHelper banco = Session.getDbAtual();
 
-    public TentItems createTentItems(Cursor cursor){
-        TentItems tentItems = new TentItems();
-        tentItems.setTentItemsId(cursor.getInt(0));
-        tentItems.setCurrentAmount(cursor.getInt(1));
-        tentItems.setValue(cursor.getDouble(2));
-        tentItems.setUnity(cursor.getString(3));
+    public TentItem createTentItems(Cursor cursor){
+        TentItem tentItem = new TentItem();
+        tentItem.setTentItemsId(cursor.getInt(0));
+        tentItem.setCurrentAmount(cursor.getInt(1));
+        tentItem.setValue(cursor.getDouble(2));
+        tentItem.setUnity(cursor.getString(3));
         //--------------------------------------------------------------//
         ProductPersistence productPersistence = new ProductPersistence();
         Product product;
         product = productPersistence.getProductById(cursor.getInt(4));
-        tentItems.setProduct(product);
+        tentItem.setProduct(product);
 
         TentPersistence tentPersistence = new TentPersistence();
         Tent tent;
         tent = tentPersistence.getTent(cursor.getInt(5));
-        tentItems.setTent(tent);
+        tentItem.setTent(tent);
         //--------------------------------------------------------------//
-        tentItems.setImageItem(cursor.getString(6));
-        return tentItems;
+        tentItem.setImageItem(cursor.getBlob(6));
+        return tentItem;
     }
 
     public void deleteTentItems(int id){
@@ -50,38 +51,38 @@ public class TentItemsPersistence {
         db.close();
     }
 
-    public void insertTentItems(TentItems tentItems){
+    public void insertTentItems(TentItem tentItem){
         db = banco.getWritableDatabase();
         ContentValues tentItemsValues = new ContentValues();
-        tentItemsValues.put(DatabaseHelper.getColumnTentitemsAmount(), tentItems.getCurrentAmount());
-        tentItemsValues.put(DatabaseHelper.getColumnTentitemsPrice(), tentItems.getValue());
-        tentItemsValues.put(DatabaseHelper.getColumnTentitemsUnity(), tentItems.getUnity());
-        tentItemsValues.put(DatabaseHelper.getColumnTentitemsTentId(),tentItems.getTent().getTentId());
-        tentItemsValues.put(DatabaseHelper.getColumnTentitemsProductId(),tentItems.getProduct().getProductId());
-        tentItemsValues.put(DatabaseHelper.getColumnTentitemsImg(),tentItems.getImageItem());
+        tentItemsValues.put(DatabaseHelper.getColumnTentitemsAmount(), tentItem.getCurrentAmount());
+        tentItemsValues.put(DatabaseHelper.getColumnTentitemsPrice(), tentItem.getValue());
+        tentItemsValues.put(DatabaseHelper.getColumnTentitemsUnity(), tentItem.getUnity());
+        tentItemsValues.put(DatabaseHelper.getColumnTentitemsTentId(), tentItem.getTent().getTentId());
+        tentItemsValues.put(DatabaseHelper.getColumnTentitemsProductId(), tentItem.getProduct().getProductId());
+        tentItemsValues.put(DatabaseHelper.getColumnTentitemsImg(), tentItem.getImageItem());
         db.insert(DatabaseHelper.getTableTentitemsName(), null, tentItemsValues);
         db.close();
     }
 
-    public void tentItemEdit(TentItems tentItems){
+    public void tentItemEdit(TentItem tentItem){
         db = banco.getWritableDatabase();
         String where = DatabaseHelper.getColumnTentitemsId()+" = "+Session.getItemSelected().getTentItemsId();
         ContentValues tentItemsEditedValues = new ContentValues();
-        tentItemsEditedValues.put(DatabaseHelper.getColumnTentitemsAmount(),tentItems.getCurrentAmount());
-        tentItemsEditedValues.put(DatabaseHelper.getColumnTentitemsPrice(),tentItems.getValue());
-        tentItemsEditedValues.put(DatabaseHelper.getColumnTentitemsUnity(), tentItems.getUnity());
-        tentItemsEditedValues.put(DatabaseHelper.getColumnTentitemsImg(), tentItems.getImageItem());
+        tentItemsEditedValues.put(DatabaseHelper.getColumnTentitemsAmount(), tentItem.getCurrentAmount());
+        tentItemsEditedValues.put(DatabaseHelper.getColumnTentitemsPrice(), tentItem.getValue());
+        tentItemsEditedValues.put(DatabaseHelper.getColumnTentitemsUnity(), tentItem.getUnity());
+        tentItemsEditedValues.put(DatabaseHelper.getColumnTentitemsImg(), tentItem.getImageItem());
         db.update(DatabaseHelper.getTableTentitemsName(), tentItemsEditedValues,where,null);
         db.close();
     }
 
-    public ArrayList<TentItems> getItemsOfTent(int tentId ){
-        ArrayList<TentItems> tentItems = new ArrayList<>();
+    public ArrayList<TentItem> getItemsOfTent(int tentId ){
+        ArrayList<TentItem> tentItems = new ArrayList<>();
         db = banco.getReadableDatabase();
         Cursor cursor = db.rawQuery(ComandosSql.sqlAllItemsOfTent(),new String[]{Integer.toString(tentId)});
         if(cursor.moveToFirst()){
             do{
-                TentItems tentItem = createTentItems(cursor);
+                TentItem tentItem = createTentItems(cursor);
                 tentItems.add(tentItem);
             }while (cursor.moveToNext());
         }
@@ -90,15 +91,15 @@ public class TentItemsPersistence {
         return tentItems;
     }
 
-    public ArrayList<TentItems> getAllItems(int userId){
-        ArrayList<TentItems> tentItems = new ArrayList<>();
+    public ArrayList<TentItem> getAllItems(int userId){
+        ArrayList<TentItem> tentItems = new ArrayList<>();
         db = banco.getReadableDatabase();
 
         Cursor cursor = db.rawQuery(ComandosSql.sqlAllItems(),new String[]{Integer.toString(userId),Integer.toString(userId)});
 
         if(cursor.moveToFirst()){
             do{
-                TentItems tentItem = createTentItems(cursor);
+                TentItem tentItem = createTentItems(cursor);
                 tentItems.add(tentItem);
             }while (cursor.moveToNext());
         }
@@ -107,9 +108,9 @@ public class TentItemsPersistence {
         return tentItems;
     }
 
-    public TentItems createTentItemsById(int anInt) {
+    public TentItem createTentItemsById(int anInt) {
         db = banco.getReadableDatabase();
-        TentItems tentItem = null;
+        TentItem tentItem = null;
         Cursor cursor = db.rawQuery(ComandosSql.sqlTentItemById(),new String[]{Integer.toString(anInt)});
         if(cursor.moveToFirst()){
             tentItem = createTentItems(cursor);

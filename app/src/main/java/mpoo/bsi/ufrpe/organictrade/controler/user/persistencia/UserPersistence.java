@@ -4,11 +4,12 @@ import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import java.util.ArrayList;
+
+import mpoo.bsi.ufrpe.organictrade.controler.item.dominio.TentItem;
 import mpoo.bsi.ufrpe.organictrade.infra.persistencia.ComandosSql;
 import mpoo.bsi.ufrpe.organictrade.infra.persistencia.DatabaseHelper;
 import mpoo.bsi.ufrpe.organictrade.infra.Session;
 import mpoo.bsi.ufrpe.organictrade.controler.item.dominio.Product;
-import mpoo.bsi.ufrpe.organictrade.controler.item.dominio.TentItems;
 import mpoo.bsi.ufrpe.organictrade.controler.item.persistencia.ProductPersistence;
 import mpoo.bsi.ufrpe.organictrade.controler.item.persistencia.TentItemsPersistence;
 import mpoo.bsi.ufrpe.organictrade.controler.user.dominio.User;
@@ -17,9 +18,9 @@ public class UserPersistence {
     private SQLiteDatabase db;
     private DatabaseHelper banco = Session.getDbAtual();
 
-    public User criarUsuario(Cursor cursor) {
+    private User criarUsuario(Cursor cursor) {
         User user = new User();
-        user.setId_user(cursor.getInt(0));
+        user.setIdUser(cursor.getInt(0));
         user.setUserName(cursor.getString(1));
         user.setPassword(cursor.getString(2));
         user.setEmail(cursor.getString(3));
@@ -45,7 +46,7 @@ public class UserPersistence {
         return false;
     }
 
-    public void RegisterUser(User user){
+    public void registerUser(User user){
         db = banco.getWritableDatabase();
         ContentValues userValues = new ContentValues();
         userValues.put(DatabaseHelper.getColumnUserUsername(), user.getUserName());
@@ -58,10 +59,10 @@ public class UserPersistence {
         db.close();
     }
 
-    public void userLogin(User user){
+    private void userLogin(User user){
         db = banco.getWritableDatabase();
         ContentValues userValues = new ContentValues();
-        userValues.put(DatabaseHelper.getColumnUserLoggedId(),user.getId_user());
+        userValues.put(DatabaseHelper.getColumnUserLoggedId(),user.getIdUser());
         db.insert(DatabaseHelper.getTableUserLoggedName(), null, userValues);
         db.close();
     }
@@ -80,22 +81,20 @@ public class UserPersistence {
     }
 
     public boolean userNotRegistered(String login) {
+        boolean userNotRegistered = false;
         db = banco.getReadableDatabase();
         Cursor cursor = db.rawQuery(ComandosSql.sqlUserFromLogin(),new String[]{login});
-        if (cursor.moveToFirst()) {
-            cursor.close();
-            db.close();
-            return false;
-        }else {
-            cursor.close();
-            db.close();
-            return true;
+        if (!cursor.moveToFirst()) {
+            userNotRegistered = true;
         }
+        cursor.close();
+        db.close();
+        return userNotRegistered;
     }
 
     public void userLogoff(){
         db = banco.getReadableDatabase();
-        Cursor cursor = db.rawQuery(ComandosSql.sqlUserLogoff(), new String[]{Integer.toString(Session.getCurrentUser().getId_user())});
+        Cursor cursor = db.rawQuery(ComandosSql.sqlUserLogoff(), new String[]{Integer.toString(Session.getCurrentUser().getIdUser())});
         if(cursor.moveToFirst()) {
             Session.setCurrentUser(null);
             db.execSQL(ComandosSql.sqlLimparTabela());
@@ -132,21 +131,20 @@ public class UserPersistence {
 
     public void userEdit(User user){
         db = banco.getWritableDatabase();
-        String where = DatabaseHelper.getColumnUserId()+" = "+Session.getCurrentUser().getId_user();
+        String where = DatabaseHelper.getColumnUserId()+" = "+Session.getCurrentUser().getIdUser();
         ContentValues userEditedValues = new ContentValues();
         userEditedValues.put(DatabaseHelper.getColumnUserName(), user.getName());
-        userEditedValues.put(DatabaseHelper.getColumnUserPassword(), user.getPassword());
         userEditedValues.put(DatabaseHelper.getColumnUserEmail(), user.getEmail());
         userEditedValues.put(DatabaseHelper.getColumnUserPhone(), user.getPhone());
         db.update(DatabaseHelper.getTableUserName(), userEditedValues,where,null);
         db.close();
         userLogoff();
-        searchAndLoginUser(user.getUserName(), user.getPassword());
+        searchAndLoginUser(user.getUserName(),user.getPassword());
     }
 
     public void setImageUser(byte[] img){
         db = banco.getWritableDatabase();
-        String where = DatabaseHelper.getColumnUserId()+" = "+Session.getCurrentUser().getId_user();
+        String where = DatabaseHelper.getColumnUserId()+" = "+Session.getCurrentUser().getIdUser();
         ContentValues contentValues = new ContentValues();
         contentValues.put(DatabaseHelper.getColumnUserImg(), img);
         db.update(DatabaseHelper.getTableUserName(),contentValues, where, null);
@@ -159,10 +157,10 @@ public class UserPersistence {
         }
     }
 
-    public void setFavorite(Product product){
+    private void setFavorite(Product product){
         db = banco.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
-        contentValues.put(DatabaseHelper.getColumnUserproductUserId(),Session.getCurrentUser().getId_user());
+        contentValues.put(DatabaseHelper.getColumnUserproductUserId(),Session.getCurrentUser().getIdUser());
         contentValues.put(DatabaseHelper.getColumnUserproductProductId(),product.getProductId());
         db.insert(DatabaseHelper.getTableUserproductName(),null,contentValues);
         db.close();
@@ -171,7 +169,7 @@ public class UserPersistence {
     public ArrayList<Product> getFavorites(){
         ArrayList<Product> products = new ArrayList<>();
         db = banco.getReadableDatabase();
-        Cursor cursor = db.rawQuery(ComandosSql.sqlGetFavorites(),new String[]{Integer.toString(Session.getCurrentUser().getId_user())});
+        Cursor cursor = db.rawQuery(ComandosSql.sqlGetFavorites(),new String[]{Integer.toString(Session.getCurrentUser().getIdUser())});
         if(cursor.moveToFirst()){
             ProductPersistence productPersistence = new ProductPersistence();
             do {
@@ -183,11 +181,11 @@ public class UserPersistence {
         return products;
     }
 
-    public ArrayList<TentItems> getSellingHistoryc(){
+    public ArrayList<TentItem> getSellingHistoryc(){
         db = banco.getReadableDatabase();
-        ArrayList<TentItems> tentItems = new ArrayList<>();
+        ArrayList<TentItem> tentItems = new ArrayList<>();
         TentItemsPersistence tentItemsPersistence = new TentItemsPersistence();
-        Cursor cursor = db.rawQuery(ComandosSql.sqlGetSellingHistoryc(),new String[]{Integer.toString(Session.getCurrentUser().getId_user())});
+        Cursor cursor = db.rawQuery(ComandosSql.sqlGetSellingHistoryc(),new String[]{Integer.toString(Session.getCurrentUser().getIdUser())});
         if (cursor.moveToFirst()){
             do{
                 tentItems.add(tentItemsPersistence.createTentItemsById(cursor.getInt(5)));
@@ -196,11 +194,11 @@ public class UserPersistence {
         return tentItems;
     }
 
-    public ArrayList<TentItems> getBuyingHistoryc(){
+    public ArrayList<TentItem> getBuyingHistoryc(){
         db = banco.getReadableDatabase();
-        ArrayList<TentItems> tentItems = new ArrayList<>();
+        ArrayList<TentItem> tentItems = new ArrayList<>();
         TentItemsPersistence tentItemsPersistence = new TentItemsPersistence();
-        Cursor cursor = db.rawQuery(ComandosSql.sqlGetBuyingHistoryc(),new String[]{Integer.toString(Session.getCurrentUser().getId_user())});
+        Cursor cursor = db.rawQuery(ComandosSql.sqlGetBuyingHistoryc(),new String[]{Integer.toString(Session.getCurrentUser().getIdUser())});
         if (cursor.moveToFirst()){
             do{
                 tentItems.add(tentItemsPersistence.createTentItemsById(cursor.getInt(5)));

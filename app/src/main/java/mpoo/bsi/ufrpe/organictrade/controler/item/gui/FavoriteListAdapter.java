@@ -12,8 +12,8 @@ import mpoo.bsi.ufrpe.organictrade.controler.item.dominio.Product;
 import mpoo.bsi.ufrpe.organictrade.R;
 
 public class FavoriteListAdapter extends ArrayAdapter<Product>{
-    Context context;
-    ArrayList<Product> products;
+    private Context context;
+    private ArrayList<Product> products;
 
     public FavoriteListAdapter(ArrayList<Product> products){
         super(Session.getContext(), 0, products);

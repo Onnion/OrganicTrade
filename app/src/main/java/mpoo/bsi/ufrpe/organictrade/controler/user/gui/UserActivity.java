@@ -8,7 +8,6 @@ import android.net.Uri;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.ContextMenu;
 import android.view.Gravity;
 import android.view.MenuInflater;
@@ -28,11 +27,11 @@ import mpoo.bsi.ufrpe.organictrade.controler.item.gui.TentActivity;
 import mpoo.bsi.ufrpe.organictrade.controler.item.gui.TentListAdapter;
 import mpoo.bsi.ufrpe.organictrade.controler.user.dominio.User;
 import mpoo.bsi.ufrpe.organictrade.controler.item.gui.SearchProductsActivity;
-import mpoo.bsi.ufrpe.organictrade.controler.item.negocio.TentsItemsNegocio;
+import mpoo.bsi.ufrpe.organictrade.controler.item.negocio.TentItemNegocio;
 import mpoo.bsi.ufrpe.organictrade.controler.item.negocio.TentNegocio;
 import mpoo.bsi.ufrpe.organictrade.controler.user.negocio.UserNegocio;
 import mpoo.bsi.ufrpe.organictrade.R;
-import mpoo.bsi.ufrpe.organictrade.util.Util;
+import mpoo.bsi.ufrpe.organictrade.infra.gui.Util;
 
 public class UserActivity extends AppCompatActivity {
     private long lastBackPressTime = 0;
@@ -41,8 +40,9 @@ public class UserActivity extends AppCompatActivity {
     private ArrayList<Tent> finalTent;
     private ListView listOfTents;
     private TentListAdapter adapter;
+    private UserNegocio userNegocio = new UserNegocio();
     private TentNegocio tentNegocio = new TentNegocio();
-    private UserNegocio crud = new UserNegocio();
+    private TentItemNegocio tentItemNegocio = new TentItemNegocio();
     private byte[] imageUser;
     private ImageView imageView;
     private ImageView favoriteBtn;
@@ -103,8 +103,9 @@ public class UserActivity extends AppCompatActivity {
 
             byte[] imgFinal = Util.getBytes(BitmapFactory.decodeFile(picturePath));
 
-            crud.getUserPersistence().setImageUser(imgFinal);
             Session.getCurrentUser().setImage(imgFinal);
+            userNegocio.editImg(Session.getCurrentUser());
+
             changeImgUser();
         }
     }
@@ -114,7 +115,6 @@ public class UserActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user);
         Session.setContext(getBaseContext());
-        imageUser = Session.getCurrentUser().getImage();
         setNameUser();
         loadImgUser();
         pupulateListView();
@@ -127,11 +127,10 @@ public class UserActivity extends AppCompatActivity {
     }
 
     private void delete(AdapterView.AdapterContextMenuInfo info ) {
-        TentsItemsNegocio tentsItemsNegocio = new TentsItemsNegocio();
         tentSelected =(Tent) listOfTents.getAdapter().getItem(info.position);
-        tentNegocio.tentPersistence().deleteTent(tentSelected.getTentId());
+        tentNegocio.deleteTent(tentSelected.getTentId());
+        tentItemNegocio.deleteAllItemsOfTent(tentSelected.getTentId());
         finalTent.remove(info.position);
-        tentsItemsNegocio.getTentItemsPersistence().deleteAllItemsOfTent(tentSelected.getTentId());
         adapter.notifyDataSetChanged();
     }
 
@@ -198,8 +197,7 @@ public class UserActivity extends AppCompatActivity {
 
     private void pupulateListView() {
         setFunctionTentOfListView();
-        TentNegocio tentNegocio = new TentNegocio();
-        finalTent = tentNegocio.tentPersistence().getTentOfUser(Session.getCurrentUser().getId_user());
+        finalTent = tentNegocio.getTentOfUser(Session.getCurrentUser().getIdUser());
         adapter = new TentListAdapter(finalTent);
         listOfTents.setAdapter(adapter);
         registerForContextMenu(listOfTents);
@@ -218,8 +216,10 @@ public class UserActivity extends AppCompatActivity {
     }
 
     private void loadImgUser() {
+        imageUser = Session.getCurrentUser().getImage();
         imageView = (ImageView) findViewById(R.id.profilePicture);
-        if (!(imageUser == null)){
+
+        if (imageUser != null){
             imageView.setImageBitmap(BitmapFactory.decodeByteArray(imageUser,0,imageUser.length));
         }else {
             imageView.setImageResource(R.drawable.no_img_icon);
@@ -254,7 +254,7 @@ public class UserActivity extends AppCompatActivity {
         logoutBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                crud.getUserPersistence().userLogoff();
+                userNegocio.logout();
                 Session.setCurrentUser(new User());
                 Intent p = new Intent(Session.getContext(),LoginActivity.class);
                 logoutBtn.setImageResource(R.mipmap.ic_logoutonclick);
@@ -318,6 +318,7 @@ public class UserActivity extends AppCompatActivity {
                 Intent p = new Intent(Session.getContext(),EditRegisterUserActivity.class);
                 editBtn.setImageResource(R.mipmap.ic_editonclick);
                 startActivity(p);
+                finish();
 
             }
         });

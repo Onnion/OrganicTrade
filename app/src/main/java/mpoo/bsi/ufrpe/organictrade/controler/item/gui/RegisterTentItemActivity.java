@@ -13,17 +13,16 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
-import android.widget.Toast;
-
+import mpoo.bsi.ufrpe.organictrade.controler.item.dominio.TentItem;
 import mpoo.bsi.ufrpe.organictrade.infra.Session;
-import mpoo.bsi.ufrpe.organictrade.controler.item.dominio.TentItems;
 import mpoo.bsi.ufrpe.organictrade.controler.item.negocio.ProductNegocio;
-import mpoo.bsi.ufrpe.organictrade.controler.item.negocio.TentsItemsNegocio;
+import mpoo.bsi.ufrpe.organictrade.controler.item.negocio.TentItemNegocio;
 import mpoo.bsi.ufrpe.organictrade.R;
+import mpoo.bsi.ufrpe.organictrade.infra.gui.Util;
 
 public class RegisterTentItemActivity extends AppCompatActivity {
 
-    private TentItems tentItems;
+    private TentItem tentItem;
     private static int RESULT_LOAD_IMAGE = 1;
     private EditText amount;
     private EditText price;
@@ -46,15 +45,17 @@ public class RegisterTentItemActivity extends AppCompatActivity {
                 int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
                 String picturePath = cursor.getString(columnIndex);
                 cursor.close();
-                tentItems.setImageItem(picturePath);
-                loadImgTentItem(picturePath);
+
+                byte[] imgFinal = Util.getBytes(BitmapFactory.decodeFile(picturePath));
+                tentItem.setImageItem(imgFinal);
+                loadImgTentItem(imgFinal);
             }
         }
     }
 
-    private void loadImgTentItem(String str) {
+    private void loadImgTentItem(byte[] str) {
         ImageView imageView = (ImageView) findViewById(R.id.registerTentItemImgProductImg);
-        imageView.setImageBitmap(BitmapFactory.decodeFile(str));
+        imageView.setImageBitmap(BitmapFactory.decodeByteArray(str,0,str.length));
     }
 
     @Override
@@ -67,7 +68,7 @@ public class RegisterTentItemActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         Session.setContext(getBaseContext());
         setContentView(R.layout.activity_register_tent_item);
-        tentItems = new TentItems();
+        tentItem = new TentItem();
         loadUnitySpinner();
         loadProductNameSpinner();
         callRegisterProduct();
@@ -75,8 +76,8 @@ public class RegisterTentItemActivity extends AppCompatActivity {
     }
 
     private void loadProductNameSpinner() {
-        String[] productList = productNegocio.productPersistence().getNameProducts();
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, productList);
+        String[] productList = productNegocio.getNameProducts();
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this,android.R.layout.simple_list_item_1, productList);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         nameProduct = (Spinner) findViewById(R.id.registerTentItemSpiProductName);
         nameProduct.setAdapter(adapter);
@@ -111,14 +112,15 @@ public class RegisterTentItemActivity extends AppCompatActivity {
 
     public void registerProduct() {
         loadValuesToRegister();
-        TentsItemsNegocio crud = new TentsItemsNegocio();
-        if (TentsItemsNegocio.registerItemItsOk(amount,price)) {
-            tentItems.setProduct(productNegocio.productPersistence().getProductById(Integer.parseInt(idProductString)));
-            tentItems.setCurrentAmount(Integer.parseInt(amountString));
-            tentItems.setValue(Double.parseDouble(priceString));
-            tentItems.setUnity(unityString);
-            tentItems.setTent(Session.getTentSelected());
-            crud.getTentItemsPersistence().insertTentItems(tentItems);
+        if (TentItemNegocio.registerItemItsOk(amount,price)) {
+            tentItem.setProduct(productNegocio.getProductById(Integer.parseInt(idProductString)));
+            tentItem.setCurrentAmount(Integer.parseInt(amountString));
+            tentItem.setValue(Double.parseDouble(priceString));
+            tentItem.setUnity(unityString);
+            tentItem.setTent(Session.getTentSelected());
+
+            TentItemNegocio tentItemNegocio = new TentItemNegocio();
+            tentItemNegocio.insertTentItems(tentItem);
             Intent i = new Intent(Session.getContext(), TentActivity.class);
             startActivity(i);
             finish();
@@ -128,7 +130,7 @@ public class RegisterTentItemActivity extends AppCompatActivity {
     private void loadValuesToRegister() {
         amount = (EditText) findViewById((R.id.registerTentItemEdtProductAmount));
         price = (EditText) findViewById(R.id.registerTentItemEdtProductPrice);
-        idProductString = productNegocio.productPersistence().idProductByName(nameProduct.getSelectedItem().toString());
+        idProductString = productNegocio.idProductByName(nameProduct.getSelectedItem().toString());
         unityString = unityProduct.getSelectedItem().toString();
         amountString = amount.getText().toString();
         priceString = price.getText().toString();
@@ -136,7 +138,6 @@ public class RegisterTentItemActivity extends AppCompatActivity {
     }
 
     private void formatPrice() {
-        //validação
         if (priceString.contains(",")){
             priceString = priceString.replace(",", ".");
         }

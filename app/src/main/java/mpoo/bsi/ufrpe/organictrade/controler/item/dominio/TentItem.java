@@ -1,5 +1,5 @@
 package mpoo.bsi.ufrpe.organictrade.controler.item.dominio;
-public class TentItems {
+public class TentItem {
 
     private int tentItemsId;
     private Double value;
@@ -7,7 +7,7 @@ public class TentItems {
     private Product product;
     private Tent tent;
     private String unity;
-    private String imageItem;
+    private byte[] imageItem;
 
     public Product getProduct() {
         return product;
@@ -57,11 +57,11 @@ public class TentItems {
         this.currentAmount = currentAmount;
     }
 
-    public String getImageItem() {
+    public byte[] getImageItem() {
         return imageItem;
     }
 
-    public void setImageItem(String imageItem) {
+    public void setImageItem(byte[] imageItem) {
         this.imageItem = imageItem;
     }
 }

@@ -13,7 +13,7 @@ public class ComandosSql {
                         + DatabaseHelper.getColumnUserPhone() + " integer , "
                         + DatabaseHelper.getColumnUserImg() + " blob"
                         + ");";
-        return (sqlCreateUserTable);
+        return sqlCreateUserTable;
     }
 
     public static String sqlCreateTentItemsTable() {
@@ -74,11 +74,11 @@ public class ComandosSql {
                 "CREATE TABLE " + DatabaseHelper.getTableTentName() + "( "
                         + DatabaseHelper.getColumnTentId() + " integer primary key autoincrement not null , "
                         + DatabaseHelper.getColumnTentLongi() + " integer not null , "
-                        + DatabaseHelper.getColumnTentLagi() + " integer not null  , "
-                        + DatabaseHelper.getColumnTentUserId() + " integer not null  , "
+                        + DatabaseHelper.getColumnTentLagi() + " integer not null , "
+                        + DatabaseHelper.getColumnTentUserId() + " integer not null , "
                         + DatabaseHelper.getColumnTentName() + " text , "
                         + DatabaseHelper.getColumnTentImg() + " blob , "
-                        + DatabaseHelper.getColumnTentNote() + " integer not null  , "
+                        + DatabaseHelper.getColumnTentNote() + " integer , "
                         + DatabaseHelper.getColumnTentNumberofvotes() + " integer not null , "
                         + "foreign key ( " + DatabaseHelper.getColumnTentUserId() + " ) references " + DatabaseHelper.getTableUserName() + " (" + DatabaseHelper.getColumnUserId() + ")"
                         + ");";

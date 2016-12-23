@@ -34,7 +34,7 @@ import mpoo.bsi.ufrpe.organictrade.controler.item.negocio.TentNegocio;
 import mpoo.bsi.ufrpe.organictrade.controler.user.dominio.User;
 import mpoo.bsi.ufrpe.organictrade.controler.user.gui.UserActivity;
 import mpoo.bsi.ufrpe.organictrade.R;
-import mpoo.bsi.ufrpe.organictrade.util.Util;
+import mpoo.bsi.ufrpe.organictrade.infra.gui.Util;
 
 public class RegisterTentActivity extends FragmentActivity implements OnMapReadyCallback {
     private static int RESULT_LOAD_IMAGE = 1;
@@ -150,18 +150,25 @@ public class RegisterTentActivity extends FragmentActivity implements OnMapReady
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                TentNegocio tentNegocio = new TentNegocio();
-                loadValuesToRegister();
-                tent.setLongi(locationTent.longitude);
-                tent.setLagi(locationTent.latitude);
-                tent.setName(nameStr);
-                tent.setUser(Session.getCurrentUser());
-                tentNegocio.tentPersistence().registerTent(tent);
-                Intent i = new Intent(Session.getContext(), UserActivity.class);
-                startActivity(i);
-                finish();
+                register();
             }
         });
+    }
+
+    private void register(){
+        EditText name = (EditText) findViewById((R.id.registerTentEdtName));
+        TentValidation tentValidation = new TentValidation();
+        if(tentValidation.validateRegister(name)) {
+            TentNegocio tentNegocio = new TentNegocio();
+            tent.setLongi(locationTent.longitude);
+            tent.setLagi(locationTent.latitude);
+            tent.setName(nameStr);
+            tent.setUser(Session.getCurrentUser());
+            tentNegocio.registerTent(tent);
+            Intent i = new Intent(Session.getContext(), UserActivity.class);
+            startActivity(i);
+            finish();
+        }
     }
 
     private void setFunctionImgNoIcon() {
@@ -173,11 +180,6 @@ public class RegisterTentActivity extends FragmentActivity implements OnMapReady
                 startActivityForResult(i, RESULT_LOAD_IMAGE);
             }
         });
-    }
-
-    private void loadValuesToRegister() {
-        EditText name = (EditText) findViewById((R.id.registerTentEdtName));
-        nameStr = name.getText().toString();
     }
 
     private void loadMapFragment() {

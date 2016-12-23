@@ -17,18 +17,19 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 import java.util.ArrayList;
+
+import mpoo.bsi.ufrpe.organictrade.controler.item.dominio.TentItem;
 import mpoo.bsi.ufrpe.organictrade.infra.Session;
-import mpoo.bsi.ufrpe.organictrade.controler.item.dominio.TentItems;
-import mpoo.bsi.ufrpe.organictrade.controler.item.negocio.TentsItemsNegocio;
+import mpoo.bsi.ufrpe.organictrade.controler.item.negocio.TentItemNegocio;
 import mpoo.bsi.ufrpe.organictrade.R;
 
 public class TentActivity extends AppCompatActivity {
     private ImageView addBtn;
     private ImageView historycBtn;
     private ListView listOfItems;
-    private ArrayList<TentItems> finalTent;
+    private ArrayList<TentItem> finalTent;
     private ItemListAdapter adapter;
-    private TentItems itemSelected;
+    private TentItem itemSelected;
 
     @Override
     public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
@@ -80,8 +81,8 @@ public class TentActivity extends AppCompatActivity {
     private void populateListView() {
         listOfItems = (ListView) findViewById(R.id.tentListTentItems);
         setFunctionItemOfListView();
-        TentsItemsNegocio tentsItemsNegocio = new TentsItemsNegocio();
-        finalTent = tentsItemsNegocio.getTentItemsPersistence().getItemsOfTent(Session.getTentSelected().getTentId());
+        TentItemNegocio tentItemNegocio = new TentItemNegocio();
+        finalTent = tentItemNegocio.getItemsOfTent(Session.getTentSelected().getTentId());
         adapter = new ItemListAdapter(finalTent);
         listOfItems.setAdapter(adapter);
         registerForContextMenu(listOfItems);
@@ -180,15 +181,15 @@ public class TentActivity extends AppCompatActivity {
     }
 
     private void delete(AdapterView.AdapterContextMenuInfo info ) {
-        TentsItemsNegocio tentsItemsNegocio = new TentsItemsNegocio();
-        itemSelected =(TentItems) listOfItems.getAdapter().getItem(info.position);
-        tentsItemsNegocio.getTentItemsPersistence().deleteTentItems(itemSelected.getTentItemsId());
+        TentItemNegocio tentItemNegocio = new TentItemNegocio();
+        itemSelected =(TentItem) listOfItems.getAdapter().getItem(info.position);
+        tentItemNegocio.deleteTentItems(itemSelected.getTentItemsId());
         finalTent.remove(info.position);
         adapter.notifyDataSetChanged();
     }
 
     private void toEdit( AdapterView.AdapterContextMenuInfo info ) {
-        itemSelected =(TentItems) listOfItems.getAdapter().getItem(info.position);
+        itemSelected =(TentItem) listOfItems.getAdapter().getItem(info.position);
         Session.setItemSelected(itemSelected);
         Intent i = new Intent(Session.getContext(), EditRegisterTentItemActivity.class);
         startActivity(i);

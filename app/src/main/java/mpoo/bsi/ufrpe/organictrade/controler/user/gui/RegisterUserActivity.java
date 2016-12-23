@@ -14,21 +14,6 @@ import mpoo.bsi.ufrpe.organictrade.controler.user.negocio.UserNegocio;
 import mpoo.bsi.ufrpe.organictrade.R;
 
 public class RegisterUserActivity extends AppCompatActivity {
-    private UserNegocio userNegocio = new UserNegocio();
-    private EditText nome;
-    private EditText user;
-    private EditText pass;
-    private EditText rpass;
-    private EditText email;
-    private EditText phone;
-    private String nomeString;
-    private String userString;
-    private String passString;
-    private String rpassString;
-    private String remail;
-    private String phoneString;
-    private UserNegocio crud;
-    
 
     @Override
     public void onBackPressed() {
@@ -50,47 +35,37 @@ public class RegisterUserActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                validationRegisterUser();
+                registerUser();
             }
         });
     }
 
-    public void validationRegisterUser(){
-        loadValuesToRegister();
-        crud = new UserNegocio();
-        if (!passString.equals(rpassString)){
-            Toast.makeText(Session.getContext(),getText(R.string.tstPasswordDontMatch), Toast.LENGTH_LONG).show();
-        }else{
-            if(crud.getUserPersistence().userNotRegistered(userString) && userNegocio.registerOK(email,user,nome,pass,phone,rpass)){
-                registerUser();
-                Intent i = new Intent(Session.getContext(),LoginActivity.class);
-                startActivity(i);
+    private void registerUser() {
+        EditText nome = (EditText)findViewById(R.id.registerUserEdtName);
+        EditText user = (EditText)findViewById(R.id.registerUserEdtLogin);
+        EditText pass = (EditText)findViewById((R.id.registerUserEdtPassword));
+        EditText rpass = (EditText)findViewById(R.id.registerUserEdtRepeatPassword);
+        EditText email = (EditText)findViewById(R.id.registerUserEdtEmail);
+        EditText phone = (EditText)findViewById(R.id.registerUserEdtPhone);
+        UserValidation userValidation = new UserValidation();
+        UserNegocio userNegocio = new UserNegocio();
+        if( userValidation.validateRegister(nome,user,pass,rpass,email,phone)){
+            if(userNegocio.validateRegister(user.getText().toString())) {
+                User userLocal = new User();
+                userLocal.setName(nome.getText().toString());
+                userLocal.setPassword(Md5.encrypt(pass.getText().toString()));
+                userLocal.setUserName(user.getText().toString());
+                userLocal.setEmail(email.getText().toString());
+                userLocal.setPhone(Long.parseLong(phone.getText().toString()));
+                userNegocio.register(userLocal);
+                Toast.makeText(Session.getContext(),getText(R.string.tstSuccessfullyRegistered),Toast.LENGTH_LONG).show();
+                Intent j = new Intent(Session.getContext(), LoginActivity.class);
+                startActivity(j);
+                finish();
+            }else{
+                Toast.makeText(Session.getContext(),getText(R.string.tstUnavaliableLogin),Toast.LENGTH_LONG).show();
             }
         }
-    }
 
-    private void registerUser() {
-        User usuario = new User();
-        usuario.setUserName(userString);
-        usuario.setPassword(Md5.encrypt(passString));
-        usuario.setEmail(remail);
-        usuario.setName(nomeString);
-        usuario.setPhone(Long.parseLong(phoneString));
-        crud.getUserPersistence().RegisterUser(usuario);
-    }
-
-    private void loadValuesToRegister() {
-        nome = (EditText)findViewById(R.id.registerUserEdtName);
-        user = (EditText)findViewById(R.id.registerUserEdtLogin);
-        pass = (EditText)findViewById((R.id.registerUserEdtPassword));
-        rpass = (EditText)findViewById(R.id.registerUserEdtRepeatPassword);
-        email = (EditText)findViewById(R.id.registerUserEdtEmail);
-        phone = (EditText)findViewById(R.id.registerUserEdtPhone);
-        nomeString = nome.getText().toString();
-        userString = user.getText().toString();
-        passString = pass.getText().toString();
-        rpassString = rpass.getText().toString();
-        remail = email.getText().toString();
-        phoneString = phone.getText().toString().trim();
     }
 }

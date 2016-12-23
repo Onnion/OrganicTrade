@@ -1,31 +1,31 @@
 package mpoo.bsi.ufrpe.organictrade.controler.item.gui;
 
-import android.content.Intent;
-import android.database.Cursor;
-import android.graphics.BitmapFactory;
 import android.net.Uri;
-import android.provider.MediaStore;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.Spinner;
+import android.content.Intent;
+import android.database.Cursor;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.Spinner;
-import mpoo.bsi.ufrpe.organictrade.infra.Session;
-import mpoo.bsi.ufrpe.organictrade.controler.item.dominio.TentItems;
-import mpoo.bsi.ufrpe.organictrade.controler.item.negocio.TentsItemsNegocio;
-import mpoo.bsi.ufrpe.organictrade.controler.user.gui.UserActivity;
+import android.provider.MediaStore;
+import android.widget.ArrayAdapter;
 import mpoo.bsi.ufrpe.organictrade.R;
+import android.graphics.BitmapFactory;
+import android.support.v7.app.AppCompatActivity;
+import mpoo.bsi.ufrpe.organictrade.infra.Session;
+import mpoo.bsi.ufrpe.organictrade.infra.gui.Util;
+import mpoo.bsi.ufrpe.organictrade.controler.item.dominio.TentItem;
+import mpoo.bsi.ufrpe.organictrade.controler.user.gui.UserActivity;
+import mpoo.bsi.ufrpe.organictrade.controler.item.negocio.TentItemNegocio;
 
 public class EditRegisterTentItemActivity extends AppCompatActivity {
-
-    private TentItems tentItemsToEdit = new TentItems();
+    private TentItem tentItemToEdit = new TentItem();
     private Spinner unityProduct;
     private EditText amount;
     private EditText price;
-    private String picturePath = Session.getItemSelected().getImageItem();
+    private byte[] picturePath = Session.getItemSelected().getImageItem();
     private static int RESULT_LOAD_IMAGE = 1;
 
     @Override
@@ -45,10 +45,11 @@ public class EditRegisterTentItemActivity extends AppCompatActivity {
             Cursor cursor = getContentResolver().query(selectedImage,filePathColumn, null, null, null);
             if(cursor.moveToFirst()) {
                 int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
-                picturePath = cursor.getString(columnIndex);
+                String picturePath = cursor.getString(columnIndex);
                 cursor.close();
-                tentItemsToEdit.setImageItem(picturePath);
-                loadImgTentItem(picturePath);
+                byte[] imgFinal = Util.getBytes(BitmapFactory.decodeFile(picturePath));
+                tentItemToEdit.setImageItem(imgFinal);
+                loadImgTentItem(imgFinal);
             }
         }
     }
@@ -65,19 +66,22 @@ public class EditRegisterTentItemActivity extends AppCompatActivity {
         setFunctionToTentItemNoImgIcon();
     }
 
-    public void EditRegisterProduct(View v) {
-        tentItemsToEdit.setProduct(Session.getItemSelected().getProduct());
-        tentItemsToEdit.setTentItemsId(Session.getItemSelected().getTentItemsId());
-        tentItemsToEdit.setTent(Session.getItemSelected().getTent());
-        tentItemsToEdit.setUnity(unityProduct.getSelectedItem().toString());
-        tentItemsToEdit.setCurrentAmount(Integer.parseInt(amount.getText().toString()));
-        tentItemsToEdit.setValue(Double.parseDouble(price.getText().toString()));
-        tentItemsToEdit.setImageItem(picturePath);
-        TentsItemsNegocio tentsItemsNegocio = new TentsItemsNegocio();
-        tentsItemsNegocio.getTentItemsPersistence().tentItemEdit(tentItemsToEdit);
-        Intent i = new Intent(Session.getContext(),TentActivity.class);
-        startActivity(i);
-        finish();
+    public void editRegisterProduct() {
+        TentItemValidation tentItemValidation = new TentItemValidation();
+        if(tentItemValidation.validateEdit(amount,price)) {
+            tentItemToEdit.setProduct(Session.getItemSelected().getProduct());
+            tentItemToEdit.setTentItemsId(Session.getItemSelected().getTentItemsId());
+            tentItemToEdit.setTent(Session.getItemSelected().getTent());
+            tentItemToEdit.setUnity(unityProduct.getSelectedItem().toString());
+            tentItemToEdit.setCurrentAmount(Integer.parseInt(amount.getText().toString()));
+            tentItemToEdit.setValue(Double.parseDouble(price.getText().toString()));
+            tentItemToEdit.setImageItem(picturePath);
+            TentItemNegocio tentItemNegocio = new TentItemNegocio();
+            tentItemNegocio.tentItemEdit(tentItemToEdit);
+            Intent i = new Intent(Session.getContext(), TentActivity.class);
+            startActivity(i);
+            finish();
+        }
     }
 
     private void loadValuesOfTentItemToEdit() {
@@ -93,9 +97,9 @@ public class EditRegisterTentItemActivity extends AppCompatActivity {
         unityProduct.setAdapter(adapter1);
     }
 
-    private void loadImgTentItem(String str) {
+    private void loadImgTentItem(byte[] str) {
         ImageView imageView = (ImageView) findViewById(R.id.editRegisterTentItemImgProductImg);
-        imageView.setImageBitmap(BitmapFactory.decodeFile(str));
+        imageView.setImageBitmap(BitmapFactory.decodeByteArray(str,0,str.length));
     }
 
     private void setFunctionToTentItemNoImgIcon() {
@@ -114,7 +118,7 @@ public class EditRegisterTentItemActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                EditRegisterProduct(button);
+                editRegisterProduct();
             }
         });
     }

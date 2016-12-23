@@ -5,7 +5,6 @@ import android.os.Handler;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import mpoo.bsi.ufrpe.organictrade.infra.Session;
-import mpoo.bsi.ufrpe.organictrade.controler.item.negocio.ProductNegocio;
 import mpoo.bsi.ufrpe.organictrade.controler.user.negocio.UserNegocio;
 import mpoo.bsi.ufrpe.organictrade.R;
 
@@ -18,8 +17,6 @@ public class LoadingActivity extends AppCompatActivity{
         Session.setContext(getBaseContext());
         startSession();
         setDelay();
-        ProductNegocio productNegocio = new ProductNegocio();
-        productNegocio.productPersistence();
     }
 
     private void setDelay() {
@@ -28,8 +25,8 @@ public class LoadingActivity extends AppCompatActivity{
             @Override
             public void run() {
                 UserNegocio userNegocio = new UserNegocio();
-                if(userNegocio.getUserPersistence().userLogged()){
-                    userNegocio.getUserPersistence().searchFromUserLogged();
+                if(userNegocio.getUserLogged()){
+                    userNegocio.searchFromUserLogged();
                     Intent j = new Intent(Session.getContext(), UserActivity.class);
                     startActivity(j);
                     finish();

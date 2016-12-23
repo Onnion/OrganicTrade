@@ -22,9 +22,10 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+
+import mpoo.bsi.ufrpe.organictrade.controler.item.dominio.TentItem;
 import mpoo.bsi.ufrpe.organictrade.infra.Session;
 import mpoo.bsi.ufrpe.organictrade.controler.item.dominio.Tent;
-import mpoo.bsi.ufrpe.organictrade.controler.item.dominio.TentItems;
 import mpoo.bsi.ufrpe.organictrade.controler.item.negocio.TentNegocio;
 import mpoo.bsi.ufrpe.organictrade.controler.user.dominio.User;
 import mpoo.bsi.ufrpe.organictrade.controler.item.negocio.ProductNegocio;
@@ -34,7 +35,7 @@ import mpoo.bsi.ufrpe.organictrade.R;
 public class TentSelectedActivity extends FragmentActivity implements OnMapReadyCallback {
     private Tent tentSelected = Session.getTentSelected();
     private User contactSelected = Session.getContactSelected();
-    private TentItems itemSelected = Session.getItemSelected();
+    private TentItem itemSelected = Session.getItemSelected();
     private ProductNegocio productNegocio = new ProductNegocio();
     private GoogleMap mMap;
     private Button btnConfirmTransaction;
@@ -109,7 +110,7 @@ public class TentSelectedActivity extends FragmentActivity implements OnMapReady
         loadImgUser();
         loadImgTent();
         phone.setText(contactSelected.getPhone().toString());
-        productName.setText(productNegocio.productPersistence().nameProductById(itemSelected.getProduct().getProductId()));
+        productName.setText(productNegocio.nameProductById(itemSelected.getProduct().getProductId()));
         productAmount.setText(Integer.toString(itemSelected.getCurrentAmount()));
         productPrice.setText(new StringBuilder().append("R$ ").append(itemSelected.getValue()).toString());
     }
@@ -143,7 +144,7 @@ public class TentSelectedActivity extends FragmentActivity implements OnMapReady
             @Override
             public void onClick(View v) {
                 TentNegocio tent = new TentNegocio();
-                tent.tentPersistence().confirmTransaction();
+                tent.confirmTransaction();
                 Intent i = new Intent(Session.getContext(),UserActivity.class);
                 startActivity(i);
             }

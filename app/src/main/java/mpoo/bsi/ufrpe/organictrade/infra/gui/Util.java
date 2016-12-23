@@ -1,4 +1,4 @@
-package mpoo.bsi.ufrpe.organictrade.util;
+package mpoo.bsi.ufrpe.organictrade.infra.gui;
 
 import android.graphics.Bitmap;
 import java.io.ByteArrayOutputStream;
@@ -9,6 +9,4 @@ public class Util {
         bitmap.compress(Bitmap.CompressFormat.PNG, 0, stream);
         return stream.toByteArray();
     }
-
-
 }

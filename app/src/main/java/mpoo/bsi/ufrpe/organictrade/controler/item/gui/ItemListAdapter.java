@@ -10,16 +10,16 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import java.util.List;
 import mpoo.bsi.ufrpe.organictrade.infra.Session;
-import mpoo.bsi.ufrpe.organictrade.controler.item.dominio.TentItems;
+import mpoo.bsi.ufrpe.organictrade.controler.item.dominio.TentItem;
 import mpoo.bsi.ufrpe.organictrade.controler.item.negocio.ProductNegocio;
 import mpoo.bsi.ufrpe.organictrade.R;
 
-public class ItemListAdapter extends ArrayAdapter<TentItems> {
+public class ItemListAdapter extends ArrayAdapter<TentItem> {
     private Context context;
-    private List<TentItems> tentItems = null;
+    private List<TentItem> tentItems = null;
     private ProductNegocio productNegocio = new ProductNegocio();
 
-    public ItemListAdapter(List<TentItems> tentItems) {
+    public ItemListAdapter(List<TentItem> tentItems) {
         super(Session.getContext(),0, tentItems);
         this.tentItems = tentItems;
         this.context = Session.getContext();
@@ -27,26 +27,26 @@ public class ItemListAdapter extends ArrayAdapter<TentItems> {
 
     @Override
     public View getView(int position, View view, ViewGroup parent) {
-        TentItems itenDeTenda = tentItems.get(position);
+        TentItem itenDeTenda = tentItems.get(position);
 
         if(view == null)
             view = LayoutInflater.from(context).inflate(R.layout.item_listview_adapter, null);
         loadImg(itenDeTenda,view);
 
         TextView textoNomeProduto = (TextView) view.findViewById(R.id.itemTxtNome);
-        textoNomeProduto.setText(productNegocio.productPersistence().nameProductById(itenDeTenda.getProduct().getProductId()));
+        textoNomeProduto.setText(productNegocio.nameProductById(itenDeTenda.getProduct().getProductId()));
         TextView textoPriceProduto = (TextView)view.findViewById(R.id.itemTxtPrice);
         textoPriceProduto.setText(itenDeTenda.getValue().toString());
 
         return view;
     }
 
-    private void loadImg(TentItems item,View view){
+    private void loadImg(TentItem item, View view){
         ImageView imageView = (ImageView) view.findViewById(R.id.itemImg);
         if (item.getImageItem() == null){
             imageView.setImageResource(R.drawable.icon_item_no_img);
         }else{
-            imageView.setImageBitmap(BitmapFactory.decodeFile(item.getImageItem()));
+            imageView.setImageBitmap(BitmapFactory.decodeByteArray(item.getImageItem(),0,item.getImageItem().length));
         }
     }
 }

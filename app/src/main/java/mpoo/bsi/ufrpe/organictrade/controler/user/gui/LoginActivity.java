@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import mpoo.bsi.ufrpe.organictrade.controler.user.dominio.User;
 import mpoo.bsi.ufrpe.organictrade.infra.Session;
 import mpoo.bsi.ufrpe.organictrade.controler.user.negocio.Md5;
 import mpoo.bsi.ufrpe.organictrade.controler.user.negocio.UserNegocio;
@@ -14,12 +16,7 @@ import mpoo.bsi.ufrpe.organictrade.R;
 
 public class LoginActivity extends AppCompatActivity {
     private long lastBackPressTime = 0;
-    private EditText user;
-    private EditText pass;
-    private String userString;
-    private String passString;
     private Toast toast;
-    private UserNegocio userNegocio = new UserNegocio();
 
     @Override
     public void onBackPressed() {
@@ -65,26 +62,22 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void login(){
-        UserNegocio crud =  new UserNegocio();
-        loadValuesToLogin();
-        if(userNegocio.loginOK(user,pass)){
-            if(crud.getUserPersistence().searchAndLoginUser(userString,passString)){
-                Intent j = new Intent(Session.getContext(), UserActivity.class);
-                startActivity(j);
+        UserValidation userValidation = new UserValidation();
+        UserNegocio userNegocio = new UserNegocio();
+        EditText username = (EditText) findViewById(R.id.loginEdtLogin);
+        EditText password = (EditText) findViewById(R.id.loginEdtPassword);
+        if(userValidation.validateLogin(username,password)){
+            User userLocal = new User();
+            userLocal.setUserName(username.getText().toString());
+            userLocal.setPassword(password.getText().toString());
+            if(userNegocio.login(userLocal)){
+                Intent i = new Intent(Session.getContext(), UserActivity.class);
+                startActivity(i);
                 finish();
             }else{
-                Toast.makeText(Session.getContext(),getText(R.string.tstInvalidLoginAndPassword) , Toast.LENGTH_LONG).show();
+                Toast.makeText(Session.getContext(),getText(R.string.tstInvalidLoginAndPassword),Toast.LENGTH_LONG).show();
             }
-        }else{
-            Toast.makeText(Session.getContext(),getText(R.string.tstInvalidLoginAndPassword) , Toast.LENGTH_LONG).show();
         }
-    }
-
-    private void loadValuesToLogin() {
-        user = (EditText)findViewById(R.id.loginEdtLogin);
-        pass = (EditText)findViewById((R.id.loginEdtPassword));
-        userString = user.getText().toString();
-        passString = Md5.encrypt(pass.getText().toString());
     }
 
     public void register(){

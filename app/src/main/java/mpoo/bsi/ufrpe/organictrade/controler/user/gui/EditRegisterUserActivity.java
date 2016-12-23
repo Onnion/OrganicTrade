@@ -12,8 +12,6 @@ import mpoo.bsi.ufrpe.organictrade.controler.user.negocio.UserNegocio;
 import mpoo.bsi.ufrpe.organictrade.R;
 
 public class EditRegisterUserActivity extends AppCompatActivity {
-    private UserNegocio userNegocio = new UserNegocio();
-    private User userToEdit = new User();
     private EditText name;
     private EditText email;
     private EditText number;
@@ -40,23 +38,28 @@ public class EditRegisterUserActivity extends AppCompatActivity {
         saveEdition.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(userNegocio.editOk(name,email,number)) {
-                    editRegisterOfUser();
-                }
+                editRegisterOfUser();
             }
         });
     }
 
     private void editRegisterOfUser() {
-        userToEdit.setUserName(Session.getCurrentUser().getUserName());
-        userToEdit.setName(name.getText().toString());
-        userToEdit.setEmail(email.getText().toString());
-        userToEdit.setPhone(Long.parseLong(number.getText().toString()));
-        UserNegocio userNegocio = new UserNegocio();
-        userNegocio.getUserPersistence().userEdit(userToEdit);
-        Intent i = new Intent(Session.getContext(), UserActivity.class);
-        startActivity(i);
-        finish();
+        UserValidation userValidation = new UserValidation();
+        if (userValidation.validateEdit(name,email,number)) {
+            User userToEdit = new User();
+
+            userToEdit.setUserName(Session.getCurrentUser().getUserName());
+            userToEdit.setPassword(Session.getCurrentUser().getPassword());
+
+            userToEdit.setName(name.getText().toString());
+            userToEdit.setEmail(email.getText().toString());
+            userToEdit.setPhone(Long.parseLong(number.getText().toString()));
+            UserNegocio userNegocio = new UserNegocio();
+            userNegocio.edit(userToEdit);
+            Intent i = new Intent(Session.getContext(), UserActivity.class);
+            startActivity(i);
+            finish();
+        }
     }
 
     private void loadValuesOfCurrentUserToEdit() {

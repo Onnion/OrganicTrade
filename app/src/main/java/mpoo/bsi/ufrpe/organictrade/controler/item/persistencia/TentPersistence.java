@@ -61,7 +61,7 @@ public class TentPersistence {
         ContentValues contentValues = new ContentValues();
         contentValues.put(DatabaseHelper.getColumnTentLongi(),tent.getLongi());
         contentValues.put(DatabaseHelper.getColumnTentLagi(),tent.getLagi());
-        contentValues.put(DatabaseHelper.getColumnTentUserId(),tent.getUser().getId_user());
+        contentValues.put(DatabaseHelper.getColumnTentUserId(),tent.getUser().getIdUser());
         contentValues.put(DatabaseHelper.getColumnTentImg(),tent.getImg());
         contentValues.put(DatabaseHelper.getColumnTentName(),tent.getName());
         contentValues.put(DatabaseHelper.getColumnTentNote(),tent.getNote());
@@ -91,8 +91,8 @@ public class TentPersistence {
     public void confirmTransaction(){
         db = banco.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
-        contentValues.put(DatabaseHelper.getColumnTransactionUserBuyingId(),Session.getCurrentUser().getId_user());
-        contentValues.put(DatabaseHelper.getColumnTransactionUserSellingId(),Session.getContactSelected().getId_user());
+        contentValues.put(DatabaseHelper.getColumnTransactionUserBuyingId(),Session.getCurrentUser().getIdUser());
+        contentValues.put(DatabaseHelper.getColumnTransactionUserSellingId(),Session.getContactSelected().getIdUser());
         contentValues.put(DatabaseHelper.getColumnTransactionTentitemId(),Session.getItemSelected().getTentItemsId());
         contentValues.put(DatabaseHelper.getColumnTransactionDate(),getDate());
         db.insert(DatabaseHelper.getTableTransactionName(),null,contentValues);

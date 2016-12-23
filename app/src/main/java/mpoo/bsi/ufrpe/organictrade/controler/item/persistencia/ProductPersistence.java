@@ -17,7 +17,7 @@ public class ProductPersistence {
         return nameProducts;
     }
 
-        public Product createProductBtConsult(Cursor cursor){
+    private Product createProductBtConsult(Cursor cursor){
         Product product = new Product();
         product.setProductId(cursor.getInt(0));
         product.setProductName(cursor.getString(1));
@@ -30,8 +30,14 @@ public class ProductPersistence {
     public String idProductByName(String productName){
         db = banco.getReadableDatabase();
         Cursor cursor = db.rawQuery(ComandosSql.sqlProductIdByName(),new String[]{productName});
-        if(cursor.moveToFirst()){return cursor.getString(0);}
-        else{return "";}
+        if(cursor.moveToFirst()){
+            db.close();
+            return cursor.getString(0);
+            }
+        else{
+            db.close();
+            cursor.close();
+            return "";}
     }
 
     public String nameProductById(int id){

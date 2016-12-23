@@ -16,8 +16,6 @@ import mpoo.bsi.ufrpe.organictrade.controler.user.negocio.UserNegocio;
 import mpoo.bsi.ufrpe.organictrade.R;
 
 public class RegisterFavoritesActivity extends AppCompatActivity {
-    private ArrayList<Product> listProducts;
-    private FavoriteToRegisterListAdapter adapter;
     private GridView listView;
     private ArrayList<Product> selecionados = new ArrayList<>();
 
@@ -58,23 +56,27 @@ public class RegisterFavoritesActivity extends AppCompatActivity {
     private void initTentList(){
         listView = (GridView) findViewById(R.id.registerFavoritesListViewListProduct);
         ProductNegocio productNegocio = new ProductNegocio();
-        listProducts = productNegocio.productPersistence().getAllProducts();
-        adapter = new FavoriteToRegisterListAdapter(listProducts,selecionados);
+        ArrayList<Product> listProducts = productNegocio.getAllProducts();
+        FavoriteToRegisterListAdapter adapter = new FavoriteToRegisterListAdapter(listProducts,selecionados);
         listView.setAdapter(adapter);
         setFunctionFavoriteBtn();
     }
 
     private void callRegisterItens(){
-        final UserNegocio userNegocio = new UserNegocio();
         Button button = (Button)findViewById(R.id.registerFavoriteBtnSaveFavorites);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-            userNegocio.getUserPersistence().registerFavorites(selecionados);
-            Intent i = new Intent(Session.getContext(),FavoritesActivity.class);
-            startActivity(i);
-            finish();
+                registerItem();
+                Intent i = new Intent(Session.getContext(),FavoritesActivity.class);
+                startActivity(i);
+                finish();
             }
         });
+    }
+
+    private void registerItem() {
+        UserNegocio userNegocio = new UserNegocio();
+        userNegocio.registerFavorites(selecionados);
     }
 }

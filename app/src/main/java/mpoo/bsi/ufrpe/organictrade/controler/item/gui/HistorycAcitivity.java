@@ -6,8 +6,9 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.ListView;
 import java.util.ArrayList;
+
+import mpoo.bsi.ufrpe.organictrade.controler.item.dominio.TentItem;
 import mpoo.bsi.ufrpe.organictrade.infra.Session;
-import mpoo.bsi.ufrpe.organictrade.controler.item.dominio.TentItems;
 import mpoo.bsi.ufrpe.organictrade.controler.user.negocio.UserNegocio;
 import mpoo.bsi.ufrpe.organictrade.R;
 
@@ -23,7 +24,6 @@ public class HistorycAcitivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_historyc_acitivity);
         Session.setContext(getBaseContext());
-        populateListView(userNegocio.getUserPersistence().getSellingHistoryc());
         loadBuyingImg();
         loadSellingImg();
     }
@@ -53,7 +53,7 @@ public class HistorycAcitivity extends AppCompatActivity {
         buying.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                populateListView(userNegocio.getUserPersistence().getBuyingHistoryc());
+                populateListView(userNegocio.getBuyingHistoryc());
                 adapter.notifyDataSetChanged();
             }
         });
@@ -63,7 +63,7 @@ public class HistorycAcitivity extends AppCompatActivity {
         selling.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                populateListView(userNegocio.getUserPersistence().getSellingHistoryc());
+                populateListView(userNegocio.getSellingHistoryc());
                 adapter.notifyDataSetChanged();
             }
         });
@@ -74,7 +74,7 @@ public class HistorycAcitivity extends AppCompatActivity {
         listOfItems = (ListView) findViewById(R.id.historicListListView);
     }
 
-    private void populateListView(ArrayList<TentItems> finalTent) {
+    private void populateListView(ArrayList<TentItem> finalTent) {
         loadListView();
         adapter = new ItemListAdapter(finalTent);
         listOfItems.setAdapter(adapter);
