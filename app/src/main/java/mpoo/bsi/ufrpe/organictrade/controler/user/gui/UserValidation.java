@@ -105,7 +105,8 @@ public class UserValidation {
         return validateUserName(username) && validatePassword(password);
     }
 
-    public boolean validateRegister(EditText name, EditText username, EditText password, EditText rpassword, EditText email, EditText phone){
+    public boolean validateRegister(EditText name, EditText username, EditText password,
+                                    EditText rpassword, EditText email, EditText phone){
         return
             validateName(name) &&
             validateUserName(username) &&

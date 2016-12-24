@@ -19,6 +19,8 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 import java.util.ArrayList;
+
+import mpoo.bsi.ufrpe.organictrade.controler.item.gui.HistorycAcitivity;
 import mpoo.bsi.ufrpe.organictrade.infra.Session;
 import mpoo.bsi.ufrpe.organictrade.controler.item.dominio.Tent;
 import mpoo.bsi.ufrpe.organictrade.controler.item.gui.FavoritesActivity;
@@ -48,6 +50,7 @@ public class UserActivity extends AppCompatActivity {
     private ImageView favoriteBtn;
     private ImageView addBtn;
     private ImageView editBtn;
+    private ImageView histoBtn;
     private ImageView searchBtn;
     private ImageView logoutBtn;
     private Tent tentSelected;
@@ -121,6 +124,7 @@ public class UserActivity extends AppCompatActivity {
         loadAddBtn();
         loadFavoriteBtn();
         loadEditBtn();
+        loadHistoBtn();
         loadSearchBtn();
         loadLogoutBtn();
         setFunctionImgUser();
@@ -329,6 +333,37 @@ public class UserActivity extends AppCompatActivity {
         editBtn.setImageResource(R.mipmap.ic_edit);
     }
 
+    private void loadHistoBtn() {
+        initializeHistoBtn();
+        setFunctionHistoBtn();
+    }
+
+    private void setFunctionHistoBtn() {
+        histoBtn.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                displayToastAboveButton(v,R.string.txtEditPerfil);
+                return false;
+            }
+        });
+        histoBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent p = new Intent(Session.getContext(),HistorycAcitivity.class);
+                histoBtn.setImageResource(R.mipmap.ic_history);
+                startActivity(p);
+                finish();
+            }
+        });
+    }
+
+    private void initializeHistoBtn() {
+        histoBtn = (ImageView)findViewById(R.id.userImgBtnToHisto);
+        histoBtn.setImageResource(R.mipmap.ic_history);
+    }
+
+
+
     private void loadAddBtn() {
         initializeAddBtn();
         setFunctionAddBtn();
@@ -356,7 +391,6 @@ public class UserActivity extends AppCompatActivity {
     private void initializeAddBtn() {
         addBtn = (ImageView) findViewById(R.id.userImgBtnToCadastro);
         addBtn.setImageResource(R.mipmap.ic_add);
-
     }
 
     private void loadFavoriteBtn(){

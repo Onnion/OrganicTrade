@@ -65,7 +65,6 @@ public class TentActivity extends AppCompatActivity {
         setContentView(R.layout.activity_tent);
         Session.setContext(getBaseContext());
         loadAddBtn();
-        loadHistorycBtn();
         loadTentAtributes();
     }
 
@@ -122,42 +121,6 @@ public class TentActivity extends AppCompatActivity {
     private void loadAddBtn() {
         initializeAddBtn();
         setFunctionAddBtn();
-    }
-
-    private void setFunctionHistorycBtn() {
-        historycBtn.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View v) {
-                displayToastAboveButton(v,R.string.txtNewItem);
-                return false;
-            }
-        });
-        historycBtn.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                historycBtn.setImageResource(R.mipmap.ic_history);
-                return false;
-            }
-        });
-        historycBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent p = new Intent(Session.getContext(),HistorycAcitivity.class);
-                historycBtn.setImageResource(R.mipmap.ic_history);
-                startActivity(p);
-                finish();
-            }
-        });
-    }
-
-    private void initializeHistorycBtn() {
-        historycBtn = (ImageView) findViewById(R.id.tentImgToHistory);
-        historycBtn.setImageResource(R.mipmap.ic_history);
-    }
-
-    private void loadHistorycBtn() {
-        initializeHistorycBtn();
-        setFunctionHistorycBtn();
     }
 
     private void loadTentName(){

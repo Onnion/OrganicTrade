@@ -262,6 +262,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL(ComandosSql.sqlCreateUserProductTable());
         db.execSQL(ComandosSql.sqlCreateTransactionTable());
         Script.populateProductTable(db);
+        Script.standardUsers(db);
     }
 
     @Override

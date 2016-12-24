@@ -61,5 +61,7 @@ public class FavoritesActivity extends AppCompatActivity {
 
     private void initializeAddBtn() {
         addBtn = (ImageView) findViewById(R.id.favoritesImgToRegisterFavorites);
+        addBtn.setImageResource(R.mipmap.ic_add);
+
     }
 }

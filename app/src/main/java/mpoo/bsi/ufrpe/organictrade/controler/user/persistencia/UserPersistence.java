@@ -185,7 +185,7 @@ public class UserPersistence {
         db = banco.getReadableDatabase();
         ArrayList<TentItem> tentItems = new ArrayList<>();
         TentItemsPersistence tentItemsPersistence = new TentItemsPersistence();
-        Cursor cursor = db.rawQuery(ComandosSql.sqlGetSellingHistoryc(),new String[]{Integer.toString(Session.getCurrentUser().getIdUser())});
+        Cursor cursor = db.rawQuery(ComandosSql.sqlGetSellingHistorycOfUser(),new String[]{Integer.toString(Session.getCurrentUser().getIdUser())});
         if (cursor.moveToFirst()){
             do{
                 tentItems.add(tentItemsPersistence.createTentItemsById(cursor.getInt(5)));
@@ -198,7 +198,7 @@ public class UserPersistence {
         db = banco.getReadableDatabase();
         ArrayList<TentItem> tentItems = new ArrayList<>();
         TentItemsPersistence tentItemsPersistence = new TentItemsPersistence();
-        Cursor cursor = db.rawQuery(ComandosSql.sqlGetBuyingHistoryc(),new String[]{Integer.toString(Session.getCurrentUser().getIdUser())});
+        Cursor cursor = db.rawQuery(ComandosSql.sqlGetBuyingHistorycOfUser(),new String[]{Integer.toString(Session.getCurrentUser().getIdUser())});
         if (cursor.moveToFirst()){
             do{
                 tentItems.add(tentItemsPersistence.createTentItemsById(cursor.getInt(5)));

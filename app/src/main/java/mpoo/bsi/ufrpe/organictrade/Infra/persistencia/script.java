@@ -2,9 +2,11 @@ package mpoo.bsi.ufrpe.organictrade.infra.persistencia;
 
 import android.database.sqlite.SQLiteDatabase;
 
-public class Script {
-    public static void populateProductTable(SQLiteDatabase db){
+import mpoo.bsi.ufrpe.organictrade.controler.user.negocio.Md5;
 
+public class Script {
+
+    public static void populateProductTable(SQLiteDatabase db){
         String columns = "INSERT INTO "+DatabaseHelper.getTableProductName()+" ("+DatabaseHelper.getColumnProductName()+","+ DatabaseHelper.getColumnProductType()+") VALUES  ";
         db.execSQL(columns +"('Abacate', 'Fruta');");
         db.execSQL(columns +"('Abacaxi', 'Fruta');");
@@ -88,5 +90,18 @@ public class Script {
         db.execSQL(columns +"('Repolho', 'Legumes');");
         db.execSQL(columns +"('Soja', 'Legumes');");
         db.execSQL(columns +"('Vagem', 'Legumes');");
+    }
+
+    public static void standardUsers(SQLiteDatabase db){
+        String senhaNeresb = Md5.encrypt("neresb");
+        String senhaMarcio = Md5.encrypt("marcio");
+        String columns = "INSERT INTO "+DatabaseHelper.getTableUserName()+ " (" +
+                DatabaseHelper.getColumnUserName()+","+
+                DatabaseHelper.getColumnUserUsername()+","+
+                DatabaseHelper.getColumnUserPassword()+","+
+                DatabaseHelper.getColumnUserEmail()+
+                ") VALUES  ";
+        db.execSQL(columns +"('Iago', 'neresb', '"+senhaNeresb+"', 'iago@iago.com');");
+        db.execSQL(columns +"('Marcio', 'marcio', '"+senhaMarcio+"', 'marcio@marcio.com');");
     }
 }

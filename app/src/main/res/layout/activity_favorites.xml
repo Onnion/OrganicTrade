@@ -30,7 +30,6 @@
         <ImageView
             android:visibility="visible"
             android:clickable="true"
-            android:src="@mipmap/ic_add"
             android:background="@color/accent300"
             android:layout_width="match_parent"
             android:layout_height="match_parent"

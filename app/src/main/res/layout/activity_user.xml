@@ -34,99 +34,127 @@
             />
     </LinearLayout>
 
-    <LinearLayout
+    <HorizontalScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:orientation="horizontal"
         android:background="@color/accent300"
-        android:layout_weight="0.1">
-        <ImageView
-            android:clickable="true"
-            android:layout_height="match_parent"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:visibility="visible"
-            android:id="@+id/userImgBtnToCadastro"
+        android:scrollbars="none"
+        android:layout_weight="0.15">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
             >
-        </ImageView>
-        <ImageView
-            android:id="@+id/userImgBtnToFavorites"
-            android:clickable="true"
-            android:visibility="visible"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="match_parent" />
-        <ImageView
-            android:id="@+id/userImgBtnToEdit"
-            android:layout_width="0dp"
-            android:visibility="visible"
-            android:clickable="true"
-            android:layout_weight="1"
-            android:layout_height="match_parent" />
-        <ImageView
-            android:id="@+id/userImgBtnToSearch"
-            android:layout_width="0dp"
-            android:visibility="visible"
-            android:clickable="true"
-            android:layout_weight="1.05"
-            android:layout_height="match_parent" />
-        <ImageView
-            android:clickable="true"
-            android:id="@+id/userImgBtnLogout"
-            android:layout_width="0dp"
-            android:visibility="visible"
-            android:layout_weight="1"
-            android:layout_height="match_parent" />
-    </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+                <ImageView
+                    android:clickable="true"
+                    android:layout_height="match_parent"
+                    android:layout_width="79dp"
+                    android:src="@mipmap/ic_add"
+                    android:visibility="visible"
+                    android:id="@+id/userImgBtnToCadastro" />
+                <ImageView
+                    android:clickable="true"
+                    android:layout_height="match_parent"
+                    android:layout_width="79dp"
+                    android:src="@mipmap/ic_history"
+                    android:visibility="visible"
+                    android:id="@+id/userImgBtnToHisto" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="0.05"
-        android:orientation="horizontal"
-        android:background="@color/accent300">
-        <TextView
-            android:layout_width="0dp"
-            android:layout_weight="0.75"
-            android:textAlignment="center"
-            android:textColor="#ffffff"
+                <ImageView
+                    android:id="@+id/userImgBtnToFavorites"
+                    android:clickable="true"
+                    android:visibility="visible"
+                    android:layout_width="79dp"
+                    android:src="@mipmap/ic_favoriteonclick"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent" />
+                <ImageView
+                    android:id="@+id/userImgBtnToEdit"
+                    android:layout_width="79dp"
+                    android:visibility="visible"
+                    android:clickable="true"
+                    android:src="@mipmap/ic_edit"
+                    android:layout_height="match_parent" />
+                <ImageView
+                    android:id="@+id/userImgBtnToSearch"
+                    android:layout_width="79dp"
+                    android:visibility="visible"
+                    android:clickable="true"
+                    android:src="@mipmap/ic_search"
+                    android:layout_height="match_parent" />
+                <ImageView
+                    android:clickable="true"
+                    android:id="@+id/userImgBtnLogout"
+                    android:layout_width="79dp"
+                    android:visibility="visible"
+                    android:src="@mipmap/ic_logout"
+                    android:layout_height="match_parent" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.05"
+                android:orientation="horizontal"
+                android:background="@color/accent300">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="0.75"
+                    android:textAlignment="center"
+                    android:textColor="#ffffff"
+                    android:text="@string/btnAdicionar"
+                    android:layout_height="match_parent" />
+                <TextView
+                    android:layout_width="0dp"
+                    android:textColor="#ffffff"
+                    android:layout_weight="0.75"
+                    android:textAlignment="center"
+                    android:text="@string/Histórico"
+                    android:layout_height="match_parent"
+                    android:id="@+id/textView2" />
 
-            android:text="@string/btnAdicionar"
-            android:layout_height="match_parent" />
+                <TextView
+                    android:layout_width="0dp"
+                    android:textColor="#ffffff"
+                    android:layout_weight="0.75"
+                    android:textAlignment="center"
+                    android:text="@string/favoritos"
+                    android:layout_height="match_parent"
+                    android:id="@+id/textView" />
 
-        <TextView
-            android:layout_width="0dp"
-            android:textColor="#ffffff"
-            android:layout_weight="0.75"
-            android:textAlignment="center"
-            android:text="@string/favoritos"
-            android:layout_height="match_parent"
-            android:id="@+id/textView" />
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="0.75"
+                    android:textColor="#ffffff"
 
-        <TextView
-            android:layout_width="0dp"
-            android:layout_weight="0.75"
-            android:textColor="#ffffff"
+                    android:textAlignment="center"
+                    android:text="@string/txtEditar"
+                    android:layout_height="match_parent" />
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="0.75"
+                    android:textAlignment="center"
+                    android:text="@string/txtPesquisar"
+                    android:textColor="#ffffff"
 
-            android:textAlignment="center"
-            android:text="@string/txtEditar"
-            android:layout_height="match_parent" />
-        <TextView
-            android:layout_width="0dp"
-            android:layout_weight="0.75"
-            android:textAlignment="center"
-            android:text="@string/txtPesquisar"
-            android:textColor="#ffffff"
+                    android:layout_height="match_parent" />
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="0.75"
+                    android:textAlignment="center"
+                    android:text="@string/txtLogout"
+                    android:textColor="#ffffff"
+                    android:layout_height="match_parent" />
+            </LinearLayout>
 
-            android:layout_height="match_parent" />
-        <TextView
-            android:layout_width="0dp"
-            android:layout_weight="0.75"
-            android:textAlignment="center"
-            android:text="@string/txtLogout"
-            android:textColor="#ffffff"
-            android:layout_height="match_parent" />
-    </LinearLayout>
+        </LinearLayout>
+
+    </HorizontalScrollView>
+
 
     <LinearLayout
         android:layout_width="match_parent"

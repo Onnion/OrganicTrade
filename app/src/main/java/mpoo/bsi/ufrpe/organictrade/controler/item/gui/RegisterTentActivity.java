@@ -39,7 +39,6 @@ import mpoo.bsi.ufrpe.organictrade.infra.gui.Util;
 public class RegisterTentActivity extends FragmentActivity implements OnMapReadyCallback {
     private static int RESULT_LOAD_IMAGE = 1;
     private Tent tent;
-    private String nameStr;
     private GoogleMap mMap;
     private LatLng locationTent;
     private Locality locality = new Locality();
@@ -162,7 +161,7 @@ public class RegisterTentActivity extends FragmentActivity implements OnMapReady
             TentNegocio tentNegocio = new TentNegocio();
             tent.setLongi(locationTent.longitude);
             tent.setLagi(locationTent.latitude);
-            tent.setName(nameStr);
+            tent.setName(name.getText().toString());
             tent.setUser(Session.getCurrentUser());
             tentNegocio.registerTent(tent);
             Intent i = new Intent(Session.getContext(), UserActivity.class);

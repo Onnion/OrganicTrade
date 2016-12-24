@@ -49,13 +49,7 @@
             android:layout_height="match_parent"
             android:clickable="true"
            />
-        <ImageView
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:clickable="true"
-            android:visibility="visible"
-            android:id="@+id/tentImgToHistory"
-            android:layout_height="match_parent" />
+
         <ImageView
             android:layout_width="0dp"
             android:layout_weight="1"
@@ -77,16 +71,9 @@
             android:layout_weight="0.75"
             android:textAlignment="center"
             android:textColor="#ffffff"
-
             android:text="@string/btnAdicionar"
             android:layout_height="match_parent" />
-        <TextView
-            android:layout_width="0dp"
-            android:textColor="#ffffff"
-            android:layout_weight="0.75"
-            android:textAlignment="center"
-            android:text="@string/Histórico"
-            android:layout_height="match_parent" />
+
         <TextView
             android:layout_width="0dp"
             android:layout_weight="0.75"

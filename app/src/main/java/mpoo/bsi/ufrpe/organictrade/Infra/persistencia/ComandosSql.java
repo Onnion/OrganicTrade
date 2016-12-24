@@ -247,17 +247,31 @@ public class ComandosSql {
         return (sqlGetFavorites);
     }
 
-    public static String sqlGetSellingHistoryc() {
-        String sqlGetSellingHistoryc =
+    public static String sqlGetSellingHistorycOfUser() {
+        String sqlGetSellingHistorycOfUser =
                 "SELECT * FROM " + DatabaseHelper.getTableTransactionName() + " WHERE "
                         + DatabaseHelper.getColumnTransactionUserSellingId() + " =?;";
-        return (sqlGetSellingHistoryc);
+        return (sqlGetSellingHistorycOfUser);
     }
 
-    public static String sqlGetBuyingHistoryc() {
-        String sqlGetBuyingHistoryc =
+    public static String sqlGetBuyingHistorycOfUser() {
+        String sqlGetBuyingHistorycOfUser =
                 "SELECT * FROM " + DatabaseHelper.getTableTransactionName() + " WHERE "
                         + DatabaseHelper.getColumnTransactionUserBuyingId() + " =?;";
-        return (sqlGetBuyingHistoryc);
+        return (sqlGetBuyingHistorycOfUser);
+    }
+
+    public static String sqlGetSellingHistorycOfTent() {
+        String sqlGetSellingHistorycOfTent =
+                "SELECT * FROM " + DatabaseHelper.getTableTransactionName() + " WHERE "
+                        + DatabaseHelper.getColumnTransactionUserSellingId() + " =?;";
+        return (sqlGetSellingHistorycOfTent);
+    }
+
+    public static String sqlGetBuyingHistorycOfTent() {
+        String sqlGetBuyingHistorycOfTent =
+                "SELECT * FROM " + DatabaseHelper.getTableTransactionName() + " WHERE "
+                        + DatabaseHelper.getColumnTransactionUserBuyingId() + " =?;";
+        return (sqlGetBuyingHistorycOfTent);
     }
 }
