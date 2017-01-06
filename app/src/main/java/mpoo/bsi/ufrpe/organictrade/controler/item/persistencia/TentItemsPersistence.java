@@ -79,7 +79,7 @@ public class TentItemsPersistence {
     public ArrayList<TentItem> getItemsOfTent(int tentId ){
         ArrayList<TentItem> tentItems = new ArrayList<>();
         db = banco.getReadableDatabase();
-        Cursor cursor = db.rawQuery(ComandosSql.sqlAllItemsOfTent(),new String[]{Integer.toString(tentId)});
+        Cursor cursor = db.rawQuery(ComandosSql.sqlGetAllItemsOfTent(),new String[]{Integer.toString(tentId)});
         if(cursor.moveToFirst()){
             do{
                 TentItem tentItem = createTentItems(cursor);
@@ -95,7 +95,7 @@ public class TentItemsPersistence {
         ArrayList<TentItem> tentItems = new ArrayList<>();
         db = banco.getReadableDatabase();
 
-        Cursor cursor = db.rawQuery(ComandosSql.sqlAllItems(),new String[]{Integer.toString(userId),Integer.toString(userId)});
+        Cursor cursor = db.rawQuery(ComandosSql.sqlGetAllItems(),new String[]{Integer.toString(userId),Integer.toString(userId)});
 
         if(cursor.moveToFirst()){
             do{
@@ -111,7 +111,7 @@ public class TentItemsPersistence {
     public TentItem createTentItemsById(int anInt) {
         db = banco.getReadableDatabase();
         TentItem tentItem = null;
-        Cursor cursor = db.rawQuery(ComandosSql.sqlTentItemById(),new String[]{Integer.toString(anInt)});
+        Cursor cursor = db.rawQuery(ComandosSql.sqlSearchTentItemById(),new String[]{Integer.toString(anInt)});
         if(cursor.moveToFirst()){
             tentItem = createTentItems(cursor);
         }

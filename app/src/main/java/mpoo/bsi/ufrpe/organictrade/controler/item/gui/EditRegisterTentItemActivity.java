@@ -99,7 +99,11 @@ public class EditRegisterTentItemActivity extends AppCompatActivity {
 
     private void loadImgTentItem(byte[] str) {
         ImageView imageView = (ImageView) findViewById(R.id.editRegisterTentItemImgProductImg);
-        imageView.setImageBitmap(BitmapFactory.decodeByteArray(str,0,str.length));
+        if(str != null) {
+            imageView.setImageBitmap(BitmapFactory.decodeByteArray(str, 0, str.length));
+        }else{
+            imageView.setImageResource(R.drawable.icon_item_no_img);
+        }
     }
 
     private void setFunctionToTentItemNoImgIcon() {

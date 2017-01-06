@@ -4,12 +4,13 @@ import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import java.util.ArrayList;
-import java.util.Calendar;
+
 import mpoo.bsi.ufrpe.organictrade.infra.persistencia.ComandosSql;
 import mpoo.bsi.ufrpe.organictrade.infra.persistencia.DatabaseHelper;
 import mpoo.bsi.ufrpe.organictrade.infra.Session;
 import mpoo.bsi.ufrpe.organictrade.controler.item.dominio.Tent;
 import mpoo.bsi.ufrpe.organictrade.controler.user.persistencia.UserPersistence;
+import mpoo.bsi.ufrpe.organictrade.infra.persistencia.Util;
 
 public class TentPersistence {
     private SQLiteDatabase db;
@@ -47,7 +48,7 @@ public class TentPersistence {
     public Tent getTent(int tentId){
         Tent tent = null;
         db = banco.getReadableDatabase();
-        Cursor cursor = db.rawQuery(ComandosSql.sqlTentById(),new String[]{Integer.toString(tentId)});
+        Cursor cursor = db.rawQuery(ComandosSql.sqlSearchTentById(),new String[]{Integer.toString(tentId)});
         if(cursor.moveToFirst()){
             tent = createTent(cursor);
         }
@@ -76,25 +77,13 @@ public class TentPersistence {
         db.delete(DatabaseHelper.getTableTentName(),where,new String[]{Integer.toString(id)});
     }
 
-    private String getDate(){
-        String data = "";
-        Calendar calendar = Calendar.getInstance();
-        data += calendar.get(Calendar.HOUR_OF_DAY)+"-";
-        data += calendar.get(Calendar.MINUTE)+"-";
-        data += calendar.get(Calendar.SECOND)+"-";
-        data += calendar.get(Calendar.DAY_OF_MONTH)+"-";
-        data += calendar.get(Calendar.MONTH)+"-";
-        data += calendar.get(Calendar.YEAR)+"-";
-        return data;
-    }
-
     public void confirmTransaction(){
         db = banco.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(DatabaseHelper.getColumnTransactionUserBuyingId(),Session.getCurrentUser().getIdUser());
         contentValues.put(DatabaseHelper.getColumnTransactionUserSellingId(),Session.getContactSelected().getIdUser());
         contentValues.put(DatabaseHelper.getColumnTransactionTentitemId(),Session.getItemSelected().getTentItemsId());
-        contentValues.put(DatabaseHelper.getColumnTransactionDate(),getDate());
+        contentValues.put(DatabaseHelper.getColumnTransactionDate(), Util.getDate());
         db.insert(DatabaseHelper.getTableTransactionName(),null,contentValues);
         db.close();
     }

@@ -1,6 +1,8 @@
 package mpoo.bsi.ufrpe.organictrade.controler.user.gui;
 
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -13,6 +15,7 @@ import mpoo.bsi.ufrpe.organictrade.infra.Session;
 import mpoo.bsi.ufrpe.organictrade.controler.user.negocio.Md5;
 import mpoo.bsi.ufrpe.organictrade.controler.user.negocio.UserNegocio;
 import mpoo.bsi.ufrpe.organictrade.R;
+import mpoo.bsi.ufrpe.organictrade.infra.persistencia.DatabaseHelper;
 
 public class LoginActivity extends AppCompatActivity {
     private long lastBackPressTime = 0;
@@ -84,4 +87,5 @@ public class LoginActivity extends AppCompatActivity {
         Intent i = new Intent(Session.getContext(), RegisterUserActivity.class);
         startActivity(i);
     }
+
 }

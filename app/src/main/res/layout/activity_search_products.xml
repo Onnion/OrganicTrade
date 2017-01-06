@@ -14,13 +14,27 @@
         android:layout_height="wrap_content"
         android:hint="@string/hntSearch"
         />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:padding="2dp"
+        android:textSize="20sp"
+        android:background="@color/verdeParaTudo"
+        android:textColor="#ffffff"
+        android:text="Produtos que você pode gostar:"/>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="@color/verdeParaTudo">
+    </LinearLayout>
 
     <ListView
         android:id="@+id/searchProductsListViewSearch"
         android:layout_margin="10dp"
         android:layout_width="fill_parent"
-        android:layout_height="match_parent"
-        >
+        android:layout_height="match_parent">
 
     </ListView>
 </LinearLayout>

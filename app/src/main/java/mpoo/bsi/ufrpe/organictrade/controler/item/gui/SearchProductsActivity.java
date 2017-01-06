@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
+import mpoo.bsi.ufrpe.organictrade.controler.item.dominio.Product;
 import mpoo.bsi.ufrpe.organictrade.controler.item.dominio.TentItem;
 import mpoo.bsi.ufrpe.organictrade.infra.Session;
 import mpoo.bsi.ufrpe.organictrade.controler.item.negocio.ProductNegocio;
@@ -20,6 +21,7 @@ import mpoo.bsi.ufrpe.organictrade.controler.item.negocio.TentItemNegocio;
 import mpoo.bsi.ufrpe.organictrade.controler.user.gui.UserActivity;
 import mpoo.bsi.ufrpe.organictrade.controler.user.negocio.UserNegocio;
 import mpoo.bsi.ufrpe.organictrade.R;
+import mpoo.bsi.ufrpe.organictrade.recomendationSystem.SlopeOne;
 
 public class SearchProductsActivity extends AppCompatActivity {
     private ProductNegocio productNegocio = new ProductNegocio();
@@ -43,6 +45,7 @@ public class SearchProductsActivity extends AppCompatActivity {
         setFunctionItemOfListView();
         initTentList();
         initializeSearchFunctions();
+        loadRecomendation();
     }
 
     private void initializeSearchFunctions() {
@@ -103,5 +106,10 @@ public class SearchProductsActivity extends AppCompatActivity {
         listTent = tentItemNegocio.getAllItems(Session.getCurrentUser().getIdUser());
         adapter = new ItemListAdapter(listTent);
         listView.setAdapter(adapter);
+    }
+
+    private void loadRecomendation(){
+        SlopeOne slopeOne = new SlopeOne();
+        ArrayList<Product> recomendation = slopeOne.getRecomendation();
     }
 }

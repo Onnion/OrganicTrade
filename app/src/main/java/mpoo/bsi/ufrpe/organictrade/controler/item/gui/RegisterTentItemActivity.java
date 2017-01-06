@@ -113,6 +113,7 @@ public class RegisterTentItemActivity extends AppCompatActivity {
     public void registerProduct() {
         loadValuesToRegister();
         if (TentItemNegocio.registerItemItsOk(amount,price)) {
+
             tentItem.setProduct(productNegocio.getProductById(Integer.parseInt(idProductString)));
             tentItem.setCurrentAmount(Integer.parseInt(amountString));
             tentItem.setValue(Double.parseDouble(priceString));

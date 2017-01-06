@@ -66,7 +66,7 @@ public class ProductPersistence {
     public ArrayList<Product> getAllProducts(){
         ArrayList<Product> products = new ArrayList<>();
         db=banco.getReadableDatabase();
-        Cursor cursor = db.rawQuery(ComandosSql.sqlAllProducts(),null);
+        Cursor cursor = db.rawQuery(ComandosSql.sqlGetAllProducts(),null);
         if(cursor.moveToFirst())
             do{
                 products.add(createProductBtConsult(cursor));
