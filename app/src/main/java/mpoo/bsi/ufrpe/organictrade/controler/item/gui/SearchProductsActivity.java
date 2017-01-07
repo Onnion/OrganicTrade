@@ -5,10 +5,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -108,8 +111,15 @@ public class SearchProductsActivity extends AppCompatActivity {
         listView.setAdapter(adapter);
     }
 
-    private void loadRecomendation(){
-        SlopeOne slopeOne = new SlopeOne();
-        ArrayList<Product> recomendation = slopeOne.getRecomendation();
+    private void loadRecomendation() {
+        SlopeOne.getRecomendation();
+        //ArrayList<Product> recomendation =
+//        for (Product product : recomendation) {
+//            LinearLayout linearLayout = (LinearLayout) findViewById(R.id.casts_container);
+//            View child = getLayoutInflater().inflate(R.layout.recomendation_listview_adapter, null);
+//            TextView name = (TextView) child.findViewById(R.id.productName);
+//            name.setText(product.getProductName());
+//            linearLayout.addView(child);
+//        }
     }
 }
