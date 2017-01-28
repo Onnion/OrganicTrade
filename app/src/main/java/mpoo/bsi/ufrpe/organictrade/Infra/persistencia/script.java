@@ -211,35 +211,34 @@ public class Script {
         db.execSQL(columnInsertTransaction+"('"+Util.getDate()+"','6','3','20');");
         db.execSQL(columnInsertTransaction+"('"+Util.getDate()+"','6','3','16');");
 
-//        db.execSQL(columnInsertTransaction+"('"+Util.getDate()+"','5','4','23');");
-//        db.execSQL(columnInsertTransaction+"('"+Util.getDate()+"','3','4','12');");
-//        db.execSQL(columnInsertTransaction+"('"+Util.getDate()+"','6','4','19');");
-//
-//        db.execSQL(columnInsertTransaction+"('"+Util.getDate()+"','6','5','20');");
-//        db.execSQL(columnInsertTransaction+"('"+Util.getDate()+"','4','5','7');");
-//        db.execSQL(columnInsertTransaction+"('"+Util.getDate()+"','3','5','2');");
-//
-//        db.execSQL(columnInsertTransaction+"('"+Util.getDate()+"','3','6','4');");
-//        db.execSQL(columnInsertTransaction+"('"+Util.getDate()+"','4','6','6');");
-//        db.execSQL(columnInsertTransaction+"('"+Util.getDate()+"','9','6','32');");
-//
-//        db.execSQL(columnInsertTransaction+"('"+Util.getDate()+"','9','7','33');");
-//        db.execSQL(columnInsertTransaction+"('"+Util.getDate()+"','5','7','14');");
-//        db.execSQL(columnInsertTransaction+"('"+Util.getDate()+"','5','7','15');");
-//        db.execSQL(columnInsertTransaction+"('"+Util.getDate()+"','9','7','32');");
-//
-//        db.execSQL(columnInsertTransaction+"('"+Util.getDate()+"','3','8','4');");
-//        db.execSQL(columnInsertTransaction+"('"+Util.getDate()+"','4','8','7');");
-//        db.execSQL(columnInsertTransaction+"('"+Util.getDate()+"','7','8','24');");
-//
-//        db.execSQL(columnInsertTransaction+"('"+Util.getDate()+"','7','9','25');");
-//        db.execSQL(columnInsertTransaction+"('"+Util.getDate()+"','3','9','4');");
+        db.execSQL(columnInsertTransaction+"('"+Util.getDate()+"','5','4','23');");
+        db.execSQL(columnInsertTransaction+"('"+Util.getDate()+"','3','4','12');");
+        db.execSQL(columnInsertTransaction+"('"+Util.getDate()+"','6','4','19');");
+
+        db.execSQL(columnInsertTransaction+"('"+Util.getDate()+"','6','5','20');");
+        db.execSQL(columnInsertTransaction+"('"+Util.getDate()+"','4','5','7');");
+        db.execSQL(columnInsertTransaction+"('"+Util.getDate()+"','3','5','2');");
+
+        db.execSQL(columnInsertTransaction+"('"+Util.getDate()+"','3','6','4');");
+        db.execSQL(columnInsertTransaction+"('"+Util.getDate()+"','4','6','6');");
+        db.execSQL(columnInsertTransaction+"('"+Util.getDate()+"','9','6','32');");
+
+        db.execSQL(columnInsertTransaction+"('"+Util.getDate()+"','9','7','33');");
+        db.execSQL(columnInsertTransaction+"('"+Util.getDate()+"','5','7','14');");
+        db.execSQL(columnInsertTransaction+"('"+Util.getDate()+"','5','7','15');");
+        db.execSQL(columnInsertTransaction+"('"+Util.getDate()+"','9','7','32');");
+
+        db.execSQL(columnInsertTransaction+"('"+Util.getDate()+"','3','8','4');");
+        db.execSQL(columnInsertTransaction+"('"+Util.getDate()+"','4','8','7');");
+        db.execSQL(columnInsertTransaction+"('"+Util.getDate()+"','7','8','24');");
+
+        db.execSQL(columnInsertTransaction+"('"+Util.getDate()+"','7','9','25');");
+        db.execSQL(columnInsertTransaction+"('"+Util.getDate()+"','3','9','4');");
 
         //marcio transactions
         db.execSQL(columnInsertTransaction+"('"+Util.getDate()+"','6','2','16');");
+        db.execSQL(columnInsertTransaction+"('"+Util.getDate()+"','9','2','35');");
     }
-
-
 
     public static void loadRecomendation(SQLiteDatabase db){
         userForRecomendation(db);

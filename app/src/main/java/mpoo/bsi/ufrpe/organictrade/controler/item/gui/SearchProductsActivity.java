@@ -5,7 +5,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.EditText;
@@ -24,7 +23,8 @@ import mpoo.bsi.ufrpe.organictrade.controler.item.negocio.TentItemNegocio;
 import mpoo.bsi.ufrpe.organictrade.controler.user.gui.UserActivity;
 import mpoo.bsi.ufrpe.organictrade.controler.user.negocio.UserNegocio;
 import mpoo.bsi.ufrpe.organictrade.R;
-import mpoo.bsi.ufrpe.organictrade.recomendationSystem.SlopeOne;
+import mpoo.bsi.ufrpe.organictrade.recommendationsystem.RecommendationItem;
+import mpoo.bsi.ufrpe.organictrade.recommendationsystem.SlopeOne;
 
 public class SearchProductsActivity extends AppCompatActivity {
     private ProductNegocio productNegocio = new ProductNegocio();
@@ -112,14 +112,13 @@ public class SearchProductsActivity extends AppCompatActivity {
     }
 
     private void loadRecomendation() {
-        SlopeOne.getRecomendation();
-        //ArrayList<Product> recomendation =
-//        for (Product product : recomendation) {
-//            LinearLayout linearLayout = (LinearLayout) findViewById(R.id.casts_container);
-//            View child = getLayoutInflater().inflate(R.layout.recomendation_listview_adapter, null);
-//            TextView name = (TextView) child.findViewById(R.id.productName);
-//            name.setText(product.getProductName());
-//            linearLayout.addView(child);
-//        }
+        ArrayList<RecommendationItem> recomendation =  SlopeOne.getRecomendation();
+        for (RecommendationItem recommendationItem : recomendation) {
+            LinearLayout linearLayout = (LinearLayout) findViewById(R.id.casts_container);
+            View child = getLayoutInflater().inflate(R.layout.recomendation_listview_adapter, null);
+            TextView name = (TextView) child.findViewById(R.id.productName);
+            name.setText(recommendationItem.getProduct().getProductName());
+            linearLayout.addView(child);
+        }
     }
 }

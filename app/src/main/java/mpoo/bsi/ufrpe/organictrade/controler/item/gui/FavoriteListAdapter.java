@@ -27,19 +27,13 @@ public class FavoriteListAdapter extends ArrayAdapter<Product>{
         if (convertView == null)
             convertView = LayoutInflater.from(context).inflate(R.layout.favorite_listview_adapter, null);
         loadTextViwes(product,convertView);
-        //loadImg(product,convertView);
         return convertView;
     }
 
     private void loadTextViwes(Product product, View convertView){
-//        TextView productType = (TextView) convertView.findViewById(R.id.productType);
-//        productType.setText(product.getProductType());
+        TextView productType = (TextView) convertView.findViewById(R.id.productType);
+        productType.setText(product.getProductType());
         TextView productName = (TextView) convertView.findViewById(R.id.productName);
         productName.setText(product.getProductName());
     }
-
-//    private void loadImg(Product product, View view){
-//        ImageView imageView = (ImageView)view.findViewById(R.id.productImg);
-//        imageView.setImageBitmap(BitmapFactory.decodeFile(product.getProductImg()));
-//    }
 }

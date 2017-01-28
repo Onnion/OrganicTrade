@@ -1,9 +1,8 @@
-package mpoo.bsi.ufrpe.organictrade.recomendationSystem;
-
-public class UserId  {
+package mpoo.bsi.ufrpe.organictrade.recommendationsystem;
+public class ItemId {
     private String content;
 
-    public UserId(String s) {
+    public ItemId(String s) {
         content = s;
     }
 

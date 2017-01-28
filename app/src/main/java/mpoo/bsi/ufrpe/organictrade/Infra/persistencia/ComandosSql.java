@@ -132,70 +132,61 @@ public class ComandosSql {
     }
 
     public static String sqlTentFromUser() {
-        String sqlItemFromUser =
+        return
                 "SELECT * FROM " + DatabaseHelper.getTableTentName()
                         + " WHERE "
                         + DatabaseHelper.getColumnTentUserId()
                         + " =?;";
-        ;
-        return (sqlItemFromUser);
     }
 
     public static String sqlUserFromLoginAndPass() {
-        String sqlUserFromLoginAndPass =
+        return
                 "SELECT * FROM " + DatabaseHelper.getTableUserName() + " WHERE "
                         + DatabaseHelper.getColumnUserUsername() + " =? AND "
                         + DatabaseHelper.getColumnUserPassword() + " =?;";
-        return (sqlUserFromLoginAndPass);
     }
 
     public static String sqlUserFromLogin() {
-        String sqlUserFromLogin =
+        return
                 "SELECT * FROM " + DatabaseHelper.getTableUserName() + " WHERE "
                         + DatabaseHelper.getColumnUserUsername() + " =?;";
-        return (sqlUserFromLogin);
     }
 
     public static String sqlUserFromId() {
-        String sqlUserFromId =
+        return
                 "SELECT * FROM " + DatabaseHelper.getTableUserName() + " WHERE "
                         + DatabaseHelper.getColumnUserId() + " =?;";
-        return (sqlUserFromId);
     }
 
     public static String sqlLimparTabela() {
-        String sqlClearDisplay = "DELETE FROM " + DatabaseHelper.getTableUserLoggedName();
-        return (sqlClearDisplay);
+        return
+                "DELETE FROM " + DatabaseHelper.getTableUserLoggedName();
     }
 
     public static String sqlSearchInBaseFromLoggedUser() {
-        String sqlSearchInBaseFromLoggedUser =
+        return
                 "SELECT " + DatabaseHelper.getColumnUserLoggedId() + " FROM " + DatabaseHelper.getTableUserLoggedName() + ";";
-        return (sqlSearchInBaseFromLoggedUser);
     }
 
     public static String sqlUserLogged() {
-        String sqlUserLogged =
+        return
                 "SELECT * FROM " + DatabaseHelper.getTableUserLoggedName() + ";";
-        return (sqlUserLogged);
     }
 
     public static String sqlUserLogoff() {
-        String sqlUserLogoff =
+        return
                 "SELECT * FROM " + DatabaseHelper.getTableUserLoggedName() + " WHERE "
                         + DatabaseHelper.getColumnUserLoggedId() + " =?;";
-        return (sqlUserLogoff);
     }
 
     public static String sqlProductNameById() {
-        String sqlProductNameById =
+        return
                 "SELECT * FROM " + DatabaseHelper.getTableProductName() + " WHERE "
                         + DatabaseHelper.getColumnProductId() + " =?;";
-        return (sqlProductNameById);
     }
 
     public static String sqlGetAllItems() {
-        String sqlAllItems =
+        return
                 "SELECT * FROM " + DatabaseHelper.getTableTentitemsName() + " WHERE "
                         + DatabaseHelper.getColumnTentitemsTentId()
                         + " IN ( SELECT " + DatabaseHelper.getColumnTentId() + " FROM " + DatabaseHelper.getTableTentName() + " WHERE NOT "
@@ -203,62 +194,54 @@ public class ComandosSql {
                         + DatabaseHelper.getColumnTentitemsProductId()
                         + " IN ( SELECT " + DatabaseHelper.getColumnUserproductProductId() + " FROM " + DatabaseHelper.getTableUserproductName() + " WHERE "
                         + DatabaseHelper.getColumnUserproductUserId() + " = ?);";
-        return (sqlAllItems);
     }
 
     public static String sqlGetAllItemsOfTent() {
-        String sqlAllItemsOfTent =
+        return
                 "SELECT * FROM " + DatabaseHelper.getTableTentitemsName() + " WHERE "
                         + DatabaseHelper.getColumnTentitemsTentId() + " =?;";
-        return (sqlAllItemsOfTent);
     }
 
     public static String sqlSearchTentById() {
-        String sqlTentById =
+        return
                 "SELECT * FROM " + DatabaseHelper.getTableTentName() + " WHERE "
                         + DatabaseHelper.getColumnTentId() + " =?;";
-        return (sqlTentById);
     }
 
     public static String sqlSearchTentItemById() {
-        String sqlTentItemById =
+        return
                 "SELECT * FROM " + DatabaseHelper.getTableTentitemsName() + " WHERE "
                         + DatabaseHelper.getColumnTentitemsId() + " =?;";
-        return (sqlTentItemById);
     }
 
     public static String sqlGetAllProducts() {
-        String sqlAllProducts =
+        return
                 "SELECT * FROM " + DatabaseHelper.getTableProductName() + ";";
-        return (sqlAllProducts);
     }
 
     public static String sqlGetFavorites() {
-        String sqlGetFavorites =
+        return
                 "SELECT * FROM " + DatabaseHelper.getTableUserproductName() + " WHERE "
                         + DatabaseHelper.getColumnUserproductUserId() + " =?;";
-        return (sqlGetFavorites);
     }
 
     public static String sqlGetSellingHistorycOfUser() {
-        String sqlGetSellingHistorycOfUser =
+        return
                 "SELECT * FROM " + DatabaseHelper.getTableTransactionName() + " WHERE "
                         + DatabaseHelper.getColumnTransactionUserSellingId() + " =?;";
-        return (sqlGetSellingHistorycOfUser);
     }
 
     public static String sqlGetBuyingHistorycOfUser() {
-        String sqlGetBuyingHistorycOfUser =
+        return
                 "SELECT * FROM " + DatabaseHelper.getTableTransactionName() + " WHERE "
                         + DatabaseHelper.getColumnTransactionUserBuyingId() + " =?;";
-        return (sqlGetBuyingHistorycOfUser);
     }
 
-    //----------------------------------RecomendationSystem---------------------------------------//
+    //----------------------------------RecommendationSystem---------------------------------------//
     public static String sqlLoadUsersToRecomendationSystem(){
         return
                 "SELECT " + DatabaseHelper.getColumnTransactionUserBuyingId() + " FROM " + DatabaseHelper.getTableTransactionName()
-                        + " WHERE " + DatabaseHelper.getColumnTransactionUserBuyingId() + "!=?;";
+                        + " WHERE " + DatabaseHelper.getColumnTransactionUserBuyingId() + "<>?;";
     }
 
     public static String sqlLoadProductsOfUserToRecomendationSystem() {
@@ -266,14 +249,22 @@ public class ComandosSql {
                 "SELECT " + DatabaseHelper.getColumnTentitemsProductId() + " FROM " + DatabaseHelper.getTableTentitemsName()
                         + " WHERE " + DatabaseHelper.getColumnTentitemsId()
                         + " IN ( SELECT " + DatabaseHelper.getColumnTransactionTentitemId() + " FROM " + DatabaseHelper.getTableTransactionName() + " WHERE "
-                        + DatabaseHelper.getColumnTransactionUserBuyingId() + "!=?);";
+                        + DatabaseHelper.getColumnTransactionUserBuyingId() + "=? AND "
+                        + DatabaseHelper.getColumnTransactionUserBuyingId() + "<>? " + ");";
     }
 
     public static String sqlLoadProductsOfCurrentUserToRecomendationSystem() {
         return
-                "SELECT " + DatabaseHelper.getColumnTentitemsProductId() + " FROM " + DatabaseHelper.getTableTentitemsName()
-                        + " WHERE " + DatabaseHelper.getColumnTentitemsId()
+                "SELECT " + DatabaseHelper.getColumnTentitemsProductId() + " FROM " + DatabaseHelper.getTableTentitemsName() + " WHERE "
+                        + DatabaseHelper.getColumnTentitemsId()
                         + " IN ( SELECT " + DatabaseHelper.getColumnTransactionTentitemId() + " FROM " + DatabaseHelper.getTableTransactionName() + " WHERE "
                         + DatabaseHelper.getColumnTransactionUserBuyingId() + "=?);";
+    }
+
+    public static String sqlGetAllItensOfTransitions(){
+        return
+                "SELECT " + DatabaseHelper.getColumnTentitemsProductId() + " FROM " + DatabaseHelper.getTableTentitemsName()
+                        + " WHERE " + DatabaseHelper.getColumnTentitemsId()
+                        + " IN ( SELECT " + DatabaseHelper.getColumnTransactionTentitemId() + " FROM " + DatabaseHelper.getTableTransactionName()+");";
     }
 }
