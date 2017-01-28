@@ -50,9 +50,8 @@ public class SlopeOne {
     }
 
     private void getProductsForRecomendation(Map<ItemId,Float> user) {
-        products = new ArrayList<>();
+        ArrayList<RecommendationItem> productsRecommendation = new ArrayList<>();
         ProductPersistence productPersistence = new ProductPersistence();
-
         for (ItemId itemId : user.keySet()) {
             if(!(user.get(itemId).equals(0.0f))) {
                 Product product = productPersistence.getProductById(Integer.parseInt(itemId.toString()));
@@ -66,11 +65,17 @@ public class SlopeOne {
                     }
                 }
                 if(aux==0){
-                    products.add(recommendationItem);
+                    productsRecommendation.add(recommendationItem);
                 }
             }
         }
-        Collections.sort(products);
+        Collections.sort(productsRecommendation);
+        products = new ArrayList<>();
+
+        for (int i = 0; i<3; i++){
+            products.add(productsRecommendation.get(i));
+        }
+
     }
 
     private void buildDiffMatrix() {
