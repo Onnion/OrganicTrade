@@ -18,7 +18,7 @@ import mpoo.bsi.ufrpe.organictrade.infra.Session;
 import mpoo.bsi.ufrpe.organictrade.controler.item.negocio.ProductNegocio;
 import mpoo.bsi.ufrpe.organictrade.controler.item.negocio.TentItemNegocio;
 import mpoo.bsi.ufrpe.organictrade.R;
-import mpoo.bsi.ufrpe.organictrade.infra.gui.Util;
+import mpoo.bsi.ufrpe.organictrade.infra.gui.UtilInfraGui;
 
 public class RegisterTentItemActivity extends AppCompatActivity {
 
@@ -46,7 +46,7 @@ public class RegisterTentItemActivity extends AppCompatActivity {
                 String picturePath = cursor.getString(columnIndex);
                 cursor.close();
 
-                byte[] imgFinal = Util.getBytes(BitmapFactory.decodeFile(picturePath));
+                byte[] imgFinal = UtilInfraGui.getBytes(BitmapFactory.decodeFile(picturePath));
                 tentItem.setImageItem(imgFinal);
                 loadImgTentItem(imgFinal);
             }

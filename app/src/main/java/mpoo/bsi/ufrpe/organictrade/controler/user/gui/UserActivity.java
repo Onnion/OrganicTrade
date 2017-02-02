@@ -33,7 +33,7 @@ import mpoo.bsi.ufrpe.organictrade.controler.item.negocio.TentItemNegocio;
 import mpoo.bsi.ufrpe.organictrade.controler.item.negocio.TentNegocio;
 import mpoo.bsi.ufrpe.organictrade.controler.user.negocio.UserNegocio;
 import mpoo.bsi.ufrpe.organictrade.R;
-import mpoo.bsi.ufrpe.organictrade.infra.gui.Util;
+import mpoo.bsi.ufrpe.organictrade.infra.gui.UtilInfraGui;
 
 public class UserActivity extends AppCompatActivity {
     private long lastBackPressTime = 0;
@@ -104,7 +104,7 @@ public class UserActivity extends AppCompatActivity {
             String picturePath = cursor.getString(columnIndex);
             cursor.close();
 
-            byte[] imgFinal = Util.getBytes(BitmapFactory.decodeFile(picturePath));
+            byte[] imgFinal = UtilInfraGui.getBytes(BitmapFactory.decodeFile(picturePath));
 
             Session.getCurrentUser().setImage(imgFinal);
             userNegocio.editImg(Session.getCurrentUser());

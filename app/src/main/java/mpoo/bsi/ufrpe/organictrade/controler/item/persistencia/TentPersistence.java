@@ -10,7 +10,7 @@ import mpoo.bsi.ufrpe.organictrade.infra.persistencia.DatabaseHelper;
 import mpoo.bsi.ufrpe.organictrade.infra.Session;
 import mpoo.bsi.ufrpe.organictrade.controler.item.dominio.Tent;
 import mpoo.bsi.ufrpe.organictrade.controler.user.persistencia.UserPersistence;
-import mpoo.bsi.ufrpe.organictrade.infra.persistencia.Util;
+import mpoo.bsi.ufrpe.organictrade.infra.persistencia.UtilInfraPersistence;
 
 public class TentPersistence {
     private SQLiteDatabase db;
@@ -83,7 +83,7 @@ public class TentPersistence {
         contentValues.put(DatabaseHelper.getColumnTransactionUserBuyingId(),Session.getCurrentUser().getIdUser());
         contentValues.put(DatabaseHelper.getColumnTransactionUserSellingId(),Session.getContactSelected().getIdUser());
         contentValues.put(DatabaseHelper.getColumnTransactionTentitemId(),Session.getItemSelected().getTentItemsId());
-        contentValues.put(DatabaseHelper.getColumnTransactionDate(), Util.getDate());
+        contentValues.put(DatabaseHelper.getColumnTransactionDate(), UtilInfraPersistence.getDate());
         db.insert(DatabaseHelper.getTableTransactionName(),null,contentValues);
         db.close();
     }

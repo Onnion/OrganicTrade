@@ -34,7 +34,7 @@ import mpoo.bsi.ufrpe.organictrade.controler.item.negocio.TentNegocio;
 import mpoo.bsi.ufrpe.organictrade.controler.user.dominio.User;
 import mpoo.bsi.ufrpe.organictrade.controler.user.gui.UserActivity;
 import mpoo.bsi.ufrpe.organictrade.R;
-import mpoo.bsi.ufrpe.organictrade.infra.gui.Util;
+import mpoo.bsi.ufrpe.organictrade.infra.gui.UtilInfraGui;
 
 public class RegisterTentActivity extends FragmentActivity implements OnMapReadyCallback {
     private static int RESULT_LOAD_IMAGE = 1;
@@ -62,7 +62,7 @@ public class RegisterTentActivity extends FragmentActivity implements OnMapReady
                 int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
                 String picturePath = cursor.getString(columnIndex);
                 cursor.close();
-                byte[] imgFinal = Util.getBytes(BitmapFactory.decodeFile(picturePath));
+                byte[] imgFinal = UtilInfraGui.getBytes(BitmapFactory.decodeFile(picturePath));
                 tent.setImg(imgFinal);
                 loadImgTentItem(imgFinal);
             }

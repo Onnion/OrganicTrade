@@ -15,7 +15,7 @@ import mpoo.bsi.ufrpe.organictrade.R;
 import android.graphics.BitmapFactory;
 import android.support.v7.app.AppCompatActivity;
 import mpoo.bsi.ufrpe.organictrade.infra.Session;
-import mpoo.bsi.ufrpe.organictrade.infra.gui.Util;
+import mpoo.bsi.ufrpe.organictrade.infra.gui.UtilInfraGui;
 import mpoo.bsi.ufrpe.organictrade.controler.item.dominio.TentItem;
 import mpoo.bsi.ufrpe.organictrade.controler.user.gui.UserActivity;
 import mpoo.bsi.ufrpe.organictrade.controler.item.negocio.TentItemNegocio;
@@ -47,7 +47,7 @@ public class EditRegisterTentItemActivity extends AppCompatActivity {
                 int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
                 String picturePath = cursor.getString(columnIndex);
                 cursor.close();
-                byte[] imgFinal = Util.getBytes(BitmapFactory.decodeFile(picturePath));
+                byte[] imgFinal = UtilInfraGui.getBytes(BitmapFactory.decodeFile(picturePath));
                 tentItemToEdit.setImageItem(imgFinal);
                 loadImgTentItem(imgFinal);
             }
