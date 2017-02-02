@@ -37,6 +37,7 @@
         <activity android:name=".controler.user.gui.LoadingActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -48,7 +49,7 @@
         <activity android:name=".controler.item.gui.TentActivity" />
         <activity android:name=".controler.item.gui.RegisterFavoritesActivity" />
         <activity android:name=".controler.item.gui.FavoritesActivity" />
-        <activity android:name=".controler.item.gui.HistorycAcitivity"></activity>
+        <activity android:name=".controler.item.gui.HistorycAcitivity"/>
     </application>
 
 </manifest>

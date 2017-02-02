@@ -247,18 +247,18 @@ public class ComandosSql {
     public static String sqlLoadProductsOfUserToRecomendationSystem() {
         return
                 "SELECT " + DatabaseHelper.getColumnTentitemsProductId() + " FROM " + DatabaseHelper.getTableTentitemsName()
-                        + " WHERE " + DatabaseHelper.getColumnTentitemsId()
-                        + " IN ( SELECT " + DatabaseHelper.getColumnTransactionTentitemId() + " FROM " + DatabaseHelper.getTableTransactionName() + " WHERE "
-                        + DatabaseHelper.getColumnTransactionUserBuyingId() + "=? AND "
-                        + DatabaseHelper.getColumnTransactionUserBuyingId() + "<>? " + ");";
+                        + " INNER JOIN " + DatabaseHelper.getTableTransactionName()
+                        + " ON " + DatabaseHelper.getColumnTransactionTentitemId() + " = " + DatabaseHelper.getColumnTentitemsId()
+                        + " WHERE "+ DatabaseHelper.getColumnTransactionUserBuyingId() + "=? AND "
+                        + DatabaseHelper.getColumnTransactionUserBuyingId() + "<>? ;";
     }
 
     public static String sqlLoadProductsOfCurrentUserToRecomendationSystem() {
         return
-                "SELECT " + DatabaseHelper.getColumnTentitemsProductId() + " FROM " + DatabaseHelper.getTableTentitemsName() + " WHERE "
-                        + DatabaseHelper.getColumnTentitemsId()
-                        + " IN ( SELECT " + DatabaseHelper.getColumnTransactionTentitemId() + " FROM " + DatabaseHelper.getTableTransactionName() + " WHERE "
-                        + DatabaseHelper.getColumnTransactionUserBuyingId() + "=?);";
+                "SELECT " + DatabaseHelper.getColumnTentitemsProductId() + " FROM " + DatabaseHelper.getTableTentitemsName()
+                        + " INNER JOIN " + DatabaseHelper.getTableTransactionName()
+                        + " ON " + DatabaseHelper.getColumnTentitemsId() + " = " +  DatabaseHelper.getColumnTransactionTentitemId()
+                        + " WHERE " + DatabaseHelper.getColumnTransactionUserBuyingId() + "=?;";
     }
 
     public static String sqlGetAllItensOfTransitions(){

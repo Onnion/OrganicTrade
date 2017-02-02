@@ -8,6 +8,7 @@ import android.text.TextWatcher;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.EditText;
+import android.widget.GridView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -112,13 +113,9 @@ public class SearchProductsActivity extends AppCompatActivity {
     }
 
     private void loadRecomendation() {
-        ArrayList<RecommendationItem> recomendation =  SlopeOne.getRecomendation();
-        for (RecommendationItem recommendationItem : recomendation) {
-            LinearLayout linearLayout = (LinearLayout) findViewById(R.id.casts_container);
-            View child = getLayoutInflater().inflate(R.layout.recomendation_listview_adapter, null);
-            TextView name = (TextView) child.findViewById(R.id.productName);
-            name.setText(recommendationItem.getProduct().getProductName());
-            linearLayout.addView(child);
-        }
+        ArrayList<Product> recomendation =  SlopeOne.getRecomendation();
+        GridView gridView = (GridView) findViewById(R.id.searchProductsGridRecomendation);
+        RecomendationListAdapter adapter = new RecomendationListAdapter(recomendation);
+        gridView.setAdapter(adapter);
     }
 }
