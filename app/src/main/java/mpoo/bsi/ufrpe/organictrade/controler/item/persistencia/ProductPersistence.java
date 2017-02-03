@@ -3,6 +3,7 @@ package mpoo.bsi.ufrpe.organictrade.controler.item.persistencia;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import java.util.ArrayList;
+import java.util.List;
 import mpoo.bsi.ufrpe.organictrade.infra.persistencia.ComandosSql;
 import mpoo.bsi.ufrpe.organictrade.infra.persistencia.DatabaseHelper;
 import mpoo.bsi.ufrpe.organictrade.infra.Session;
@@ -63,14 +64,15 @@ public class ProductPersistence {
         return product;
     }
 
-    public ArrayList<Product> getAllProducts(){
-        ArrayList<Product> products = new ArrayList<>();
+    public List<Product> getAllProducts(){
+        List<Product> products = new ArrayList<>();
         db=banco.getReadableDatabase();
         Cursor cursor = db.rawQuery(ComandosSql.sqlGetAllProducts(),null);
-        if(cursor.moveToFirst())
-            do{
+        if(cursor.moveToFirst()) {
+            do {
                 products.add(createProductBtConsult(cursor));
-            }while (cursor.moveToNext());
+            } while (cursor.moveToNext());
+        }
         cursor.close();
         db.close();
         return products;

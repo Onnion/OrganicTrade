@@ -3,9 +3,10 @@ package mpoo.bsi.ufrpe.organictrade.controler.user.negocio;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
-public class Md5 {
-
+public final class Md5 {
     private static MessageDigest md = null;
+
+    private Md5(){}
 
     static {
         try {

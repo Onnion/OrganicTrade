@@ -1,29 +1,25 @@
 package mpoo.bsi.ufrpe.organictrade.controler.user.gui;
 
 import android.content.Intent;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
 import mpoo.bsi.ufrpe.organictrade.controler.user.dominio.User;
 import mpoo.bsi.ufrpe.organictrade.infra.Session;
-import mpoo.bsi.ufrpe.organictrade.controler.user.negocio.Md5;
 import mpoo.bsi.ufrpe.organictrade.controler.user.negocio.UserNegocio;
 import mpoo.bsi.ufrpe.organictrade.R;
-import mpoo.bsi.ufrpe.organictrade.infra.persistencia.DatabaseHelper;
 
 public class LoginActivity extends AppCompatActivity {
+    private static final int DELAY_FOR_BACKPRESS_AGAIN = 4000;
     private long lastBackPressTime = 0;
     private Toast toast;
 
     @Override
     public void onBackPressed() {
-        if (this.lastBackPressTime < System.currentTimeMillis() - 4000) {
+        if (this.lastBackPressTime < System.currentTimeMillis() - DELAY_FOR_BACKPRESS_AGAIN) {
             toast = Toast.makeText(this , R.string.tstPressAgainToCloseApp , Toast.LENGTH_LONG);
             toast.show();
             this.lastBackPressTime = System.currentTimeMillis();

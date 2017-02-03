@@ -1,6 +1,8 @@
 package mpoo.bsi.ufrpe.organictrade.infra.persistencia;
 
-public class ComandosSql {
+public final class ComandosSql {
+
+    private ComandosSql(){}
 
     static String sqlCreateUserTable() {
         return

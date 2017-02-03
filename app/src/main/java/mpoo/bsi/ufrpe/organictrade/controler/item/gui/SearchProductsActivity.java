@@ -9,13 +9,9 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.GridView;
-import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.Toast;
-
-import java.util.ArrayList;
-
+import java.util.List;
 import mpoo.bsi.ufrpe.organictrade.controler.item.dominio.Product;
 import mpoo.bsi.ufrpe.organictrade.controler.item.dominio.TentItem;
 import mpoo.bsi.ufrpe.organictrade.infra.Session;
@@ -24,15 +20,13 @@ import mpoo.bsi.ufrpe.organictrade.controler.item.negocio.TentItemNegocio;
 import mpoo.bsi.ufrpe.organictrade.controler.user.gui.UserActivity;
 import mpoo.bsi.ufrpe.organictrade.controler.user.negocio.UserNegocio;
 import mpoo.bsi.ufrpe.organictrade.R;
-import mpoo.bsi.ufrpe.organictrade.recommendationsystem.RecommendationItem;
 import mpoo.bsi.ufrpe.organictrade.recommendationsystem.SlopeOne;
 
 public class SearchProductsActivity extends AppCompatActivity {
     private ProductNegocio productNegocio = new ProductNegocio();
-    private ArrayList<TentItem> listTent;
+    private List<TentItem> listTent;
     private ItemListAdapter adapter;
     private ListView listView;
-    private EditText editText;
     private UserNegocio userNegocio = new UserNegocio();
 
     @Override
@@ -53,7 +47,7 @@ public class SearchProductsActivity extends AppCompatActivity {
     }
 
     private void initializeSearchFunctions() {
-        editText=(EditText)findViewById(R.id.searchProductsEdtSearch);
+        EditText editText = (EditText)findViewById(R.id.searchProductsEdtSearch);
         editText.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -113,7 +107,7 @@ public class SearchProductsActivity extends AppCompatActivity {
     }
 
     private void loadRecomendation() {
-        ArrayList<Product> recomendation =  SlopeOne.getRecomendation();
+        List<Product> recomendation =  SlopeOne.getRecomendation();
         GridView gridView = (GridView) findViewById(R.id.searchProductsGridRecomendation);
         RecomendationListAdapter adapter = new RecomendationListAdapter(recomendation);
         gridView.setAdapter(adapter);

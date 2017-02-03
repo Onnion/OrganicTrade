@@ -42,7 +42,7 @@ public class LoadData {
         Cursor usuario = db.rawQuery(ComandosSql.sqlLoadUsersToRecomendationSystem(),new String[]{Integer.toString(Session.getCurrentUser().getIdUser())});
         if(usuario.moveToFirst()) {
             do {
-                HashMap<ItemId,Float> compras = new HashMap<>();
+                Map<ItemId,Float> compras = new HashMap<>();
                 Cursor itemDoUsuario = db.rawQuery(ComandosSql.sqlLoadProductsOfUserToRecomendationSystem(), new String[]{usuario.getString(0),Integer.toString(Session.getCurrentUser().getIdUser())});
                 if(itemDoUsuario.moveToFirst()){
                     do{
@@ -58,8 +58,8 @@ public class LoadData {
         return data;
     }
 
-    public  HashMap<ItemId,Float> loadCurrentUser(ArrayList<RecommendationItem> itensOfUser){
-        HashMap<ItemId,Float> user = new HashMap<>();
+    public Map<ItemId,Float> loadCurrentUser(List<RecommendationItem> itensOfUser){
+        Map<ItemId,Float> user = new HashMap<>();
         ProductPersistence productPersistence = new ProductPersistence();
         db = banco.getReadableDatabase();
         Cursor cursor = db.rawQuery(ComandosSql.sqlLoadProductsOfCurrentUserToRecomendationSystem(),new String[]{Integer.toString(Session.getCurrentUser().getIdUser())});

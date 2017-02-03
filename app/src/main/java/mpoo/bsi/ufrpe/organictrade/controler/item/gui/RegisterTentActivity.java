@@ -37,7 +37,8 @@ import mpoo.bsi.ufrpe.organictrade.R;
 import mpoo.bsi.ufrpe.organictrade.infra.gui.UtilInfraGui;
 
 public class RegisterTentActivity extends FragmentActivity implements OnMapReadyCallback {
-    private static int RESULT_LOAD_IMAGE = 1;
+    private static final int RESULT_LOAD_IMAGE = 1;
+    private static final int DELAY_FOR_CAPTURE_LOCATION = 1000;
     private Tent tent;
     private GoogleMap mMap;
     private LatLng locationTent;
@@ -92,7 +93,7 @@ public class RegisterTentActivity extends FragmentActivity implements OnMapReady
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(locationTent));
                 mMap.setMinZoomPreference(13);
                 }
-        }, 1000);
+        }, DELAY_FOR_CAPTURE_LOCATION);
     }
 
     private void setMarkerFunction() {
@@ -133,8 +134,9 @@ public class RegisterTentActivity extends FragmentActivity implements OnMapReady
         Canvas canvas = new Canvas(returnedBitmap);
         canvas.drawColor(Color.WHITE, PorterDuff.Mode.SRC_IN);
         Drawable drawable = customMarkerView.getBackground();
-        if (drawable != null)
+        if (drawable != null) {
             drawable.draw(canvas);
+        }
         customMarkerView.draw(canvas);
         return returnedBitmap;
     }

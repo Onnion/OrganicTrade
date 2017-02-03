@@ -1,4 +1,4 @@
-package mpoo.bsi.ufrpe.organictrade.recommendationsystem;
+    package mpoo.bsi.ufrpe.organictrade.recommendationsystem;
 
 import java.util.*;
 import mpoo.bsi.ufrpe.organictrade.controler.item.dominio.Product;
@@ -6,9 +6,10 @@ import mpoo.bsi.ufrpe.organictrade.controler.item.negocio.ProductNegocio;
 import mpoo.bsi.ufrpe.organictrade.controler.item.persistencia.ProductPersistence;
 import mpoo.bsi.ufrpe.organictrade.recommendationsystem.persistencia.LoadData;
 
-public class SlopeOne {
-    private static ArrayList<Product> reommendation;
-    private static ArrayList<RecommendationItem> recommendationItems;
+public final class SlopeOne {
+    private static final int NUMBER_MAX_OF_RECOMMENDATION = 3;
+    private static List<Product> reommendation;
+    private static List<RecommendationItem> recommendationItems;
     private Map<UserId,Map<ItemId,Float>> dataBase;
     private Map<ItemId,Map<ItemId,Float>> matrizDeNotas;
 
@@ -17,7 +18,7 @@ public class SlopeOne {
         buildDiffMatrix();
     }
 
-    public static ArrayList<Product> getRecomendation(){
+    public static List<Product> getRecomendation(){
         recommendationItems = new ArrayList<>();
         LoadData loadData = new LoadData();
         SlopeOne slopeOne = new SlopeOne(loadData.loadData());
@@ -26,7 +27,7 @@ public class SlopeOne {
     }
 
     private Map<ItemId,Float> predict(Map<ItemId,Float> user) {
-        HashMap<ItemId,Float> predictions = new HashMap<>();
+        Map<ItemId,Float> predictions = new HashMap<>();
         for (ItemId j : matrizDeNotas.keySet()) {
             predictions.put(j,0.0f);
         }
@@ -48,7 +49,7 @@ public class SlopeOne {
     }
 
     private void getProductsForRecomendation(Map<ItemId,Float> user) {
-        ArrayList<RecommendationItem> productsRecommendation = new ArrayList<>();
+        List<RecommendationItem> productsRecommendation = new ArrayList<>();
         ProductPersistence productPersistence = new ProductPersistence();
         ProductNegocio productNegocio = new ProductNegocio();
         for (ItemId itemId : user.keySet()) {
@@ -67,8 +68,9 @@ public class SlopeOne {
             }
         }
         Collections.sort(productsRecommendation);
+
         reommendation = new ArrayList<>();
-        for (int i = 0; i<3; i++){
+        for (int i = 0; i < NUMBER_MAX_OF_RECOMMENDATION ; i++){
             reommendation.add(productNegocio.getProductById(productsRecommendation.get(i).getProduct().getProductId()));
         }
     }
@@ -77,26 +79,26 @@ public class SlopeOne {
         matrizDeNotas = new HashMap<>();
         Map<ItemId,Map<ItemId,Integer>> mFreqMatrix = new HashMap<>();
         for(Map<ItemId,Float> user : dataBase.values()) {
-            for(Map.Entry<ItemId,Float> entry: user.entrySet()) {
-                if(!matrizDeNotas.containsKey(entry.getKey())) {
-                    matrizDeNotas.put(entry.getKey(), new HashMap<ItemId,Float>());
-                    mFreqMatrix.put(entry.getKey(), new HashMap<ItemId,Integer>());
+            for(Map.Entry<ItemId,Float> item: user.entrySet()) {
+                if(!matrizDeNotas.containsKey(item.getKey())) {
+                    matrizDeNotas.put(item.getKey(), new HashMap<ItemId,Float>());
+                    mFreqMatrix.put(item.getKey(), new HashMap<ItemId,Integer>());
                 }
-
-                for(Map.Entry<ItemId,Float> entry2: user.entrySet()) {
+                for(Map.Entry<ItemId,Float> itemAux: user.entrySet()) {
                     int oldcount = 0;
                     float olddiff = 0.0f;
-                    if(mFreqMatrix.get(entry.getKey()).containsKey(entry2.getKey()))
-                        oldcount = mFreqMatrix.get(entry.getKey()).get(entry2.getKey());
-                    if(matrizDeNotas.get(entry.getKey()).containsKey(entry2.getKey()))
-                        olddiff = matrizDeNotas.get(entry.getKey()).get(entry2.getKey());
-                    float observeddiff = entry.getValue() - entry2.getValue();
-                    mFreqMatrix.get(entry.getKey()).put(entry2.getKey(),oldcount + 1);
-                    matrizDeNotas.get(entry.getKey()).put(entry2.getKey(),olddiff+observeddiff);
+                    if(mFreqMatrix.get(item.getKey()).containsKey(itemAux.getKey())) {
+                        oldcount = mFreqMatrix.get(item.getKey()).get(itemAux.getKey());
+                    }
+                    if(matrizDeNotas.get(item.getKey()).containsKey(itemAux.getKey())) {
+                        olddiff = matrizDeNotas.get(item.getKey()).get(itemAux.getKey());
+                    }
+                    float observeddiff = item.getValue() - itemAux.getValue();
+                    mFreqMatrix.get(item.getKey()).put(itemAux.getKey(),oldcount + 1);
+                    matrizDeNotas.get(item.getKey()).put(itemAux.getKey(),olddiff+observeddiff);
                 }
             }
         }
-
         for (ItemId j : matrizDeNotas.keySet()) {
             for (ItemId i : matrizDeNotas.get(j).keySet()) {
                 float oldvalue = matrizDeNotas.get(j).get(i);

@@ -28,17 +28,18 @@ public class ItemListAdapter extends ArrayAdapter<TentItem> {
     @Override
     public View getView(int position, View view, ViewGroup parent) {
         TentItem itenDeTenda = tentItems.get(position);
+        View viewAux = view;
+        if(viewAux == null) {
+            viewAux = LayoutInflater.from(context).inflate(R.layout.item_listview_adapter, null);
+        }
+        loadImg(itenDeTenda,viewAux);
 
-        if(view == null)
-            view = LayoutInflater.from(context).inflate(R.layout.item_listview_adapter, null);
-        loadImg(itenDeTenda,view);
-
-        TextView textoNomeProduto = (TextView) view.findViewById(R.id.itemTxtNome);
+        TextView textoNomeProduto = (TextView) viewAux.findViewById(R.id.itemTxtNome);
         textoNomeProduto.setText(productNegocio.nameProductById(itenDeTenda.getProduct().getProductId()));
-        TextView textoPriceProduto = (TextView)view.findViewById(R.id.itemTxtPrice);
+        TextView textoPriceProduto = (TextView)viewAux.findViewById(R.id.itemTxtPrice);
         textoPriceProduto.setText(itenDeTenda.getValue().toString());
 
-        return view;
+        return viewAux;
     }
 
     private void loadImg(TentItem item, View view){

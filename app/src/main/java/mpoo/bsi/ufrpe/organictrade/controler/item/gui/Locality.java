@@ -10,14 +10,13 @@ import mpoo.bsi.ufrpe.organictrade.infra.Session;
 
 public class Locality implements GoogleApiClient.OnConnectionFailedListener,GoogleApiClient.ConnectionCallbacks {
 
-    private Location mLastLocation;
     private GoogleApiClient mGoogleApiClient;
     private String longi;
     private String lagi;
 
     @Override
     public void onConnected(Bundle connectionHint) {
-        mLastLocation = LocationServices.FusedLocationApi.getLastLocation(mGoogleApiClient);
+        Location mLastLocation = LocationServices.FusedLocationApi.getLastLocation(mGoogleApiClient);
         if (mLastLocation != null) {
             this.setLagi(String.valueOf(mLastLocation.getLatitude()));
             this.setLongi(String.valueOf(mLastLocation.getLongitude()));

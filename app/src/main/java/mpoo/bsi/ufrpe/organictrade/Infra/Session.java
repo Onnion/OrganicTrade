@@ -59,8 +59,9 @@ public class Session {
         Session.itemSelected = itemSelected;
     }
 
-    public Session(){
-        DatabaseHelper db = new DatabaseHelper(Session.getContext());
-        Session.dbAtual = db;
+    public Session() {}
+
+    public void startSession(){
+        Session.dbAtual = new DatabaseHelper(Session.getContext());
     }
 }

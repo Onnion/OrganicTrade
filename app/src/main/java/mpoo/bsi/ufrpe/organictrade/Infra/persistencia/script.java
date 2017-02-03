@@ -3,7 +3,9 @@ package mpoo.bsi.ufrpe.organictrade.infra.persistencia;
 import android.database.sqlite.SQLiteDatabase;
 import mpoo.bsi.ufrpe.organictrade.controler.user.negocio.Md5;
 
-public class Script {
+public final class Script {
+
+    private Script(){}
 
     private static String columnInsertUser = "INSERT INTO " + DatabaseHelper.getTableUserName() + " (" +
             DatabaseHelper.getColumnUserName() +" , " +

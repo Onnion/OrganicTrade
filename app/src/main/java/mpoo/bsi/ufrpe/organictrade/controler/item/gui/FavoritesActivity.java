@@ -6,9 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.GridView;
 import android.widget.ImageView;
-
-import java.util.ArrayList;
-
+import java.util.List;
 import mpoo.bsi.ufrpe.organictrade.infra.Session;
 import mpoo.bsi.ufrpe.organictrade.controler.item.dominio.Product;
 import mpoo.bsi.ufrpe.organictrade.controler.user.gui.UserActivity;
@@ -37,7 +35,7 @@ public class FavoritesActivity extends AppCompatActivity {
 
     private void initializeGridView(){
         UserNegocio userNegocio = new UserNegocio();
-        ArrayList<Product> products = userNegocio.getFavorites();
+        List<Product> products = userNegocio.getFavorites();
         FavoriteListAdapter adapter = new FavoriteListAdapter(products);
         GridView gridView = (GridView) findViewById(R.id.favoritesGridViewListProduct);
         gridView.setAdapter(adapter);

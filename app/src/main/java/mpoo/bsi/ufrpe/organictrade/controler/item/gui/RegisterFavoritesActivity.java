@@ -9,6 +9,8 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.GridView;
 import java.util.ArrayList;
+import java.util.List;
+
 import mpoo.bsi.ufrpe.organictrade.infra.Session;
 import mpoo.bsi.ufrpe.organictrade.controler.item.dominio.Product;
 import mpoo.bsi.ufrpe.organictrade.controler.item.negocio.ProductNegocio;
@@ -17,7 +19,7 @@ import mpoo.bsi.ufrpe.organictrade.R;
 
 public class RegisterFavoritesActivity extends AppCompatActivity {
     private GridView listView;
-    private ArrayList<Product> selecionados = new ArrayList<>();
+    private List<Product> selecionados = new ArrayList<>();
 
     @Override
     public void onBackPressed() {
@@ -56,7 +58,7 @@ public class RegisterFavoritesActivity extends AppCompatActivity {
     private void initTentList(){
         listView = (GridView) findViewById(R.id.registerFavoritesListViewListProduct);
         ProductNegocio productNegocio = new ProductNegocio();
-        ArrayList<Product> listProducts = productNegocio.getAllProducts();
+        List<Product> listProducts = productNegocio.getAllProducts();
         FavoriteToRegisterListAdapter adapter = new FavoriteToRegisterListAdapter(listProducts,selecionados);
         listView.setAdapter(adapter);
         setFunctionFavoriteBtn();

@@ -17,7 +17,7 @@ public class EditRegisterUserActivity extends AppCompatActivity {
     private EditText number;
 
     @Override
-    public void onBackPressed() {
+    public final void onBackPressed() {
         Session.setItemSelected(null);
         Intent i = new Intent(Session.getContext(),UserActivity.class);
         startActivity(i);
@@ -25,7 +25,7 @@ public class EditRegisterUserActivity extends AppCompatActivity {
     }
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected final void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Session.setContext(getBaseContext());
         setContentView(R.layout.activity_edit_register_user);

@@ -10,6 +10,8 @@ public class UserValidation {
     private static final Pattern PHONE_VERIFICATION_CHARACTERS = Pattern.compile("^[1-9]{2}[9]{0,1}[6-9]{1}[0-9]{3}[0-9]{4}$", Pattern.CASE_INSENSITIVE);
     private static final Pattern PASS_VERIFICATION_CHARACTERS = Pattern.compile("^[A-Za-z0-9]{0,}$", Pattern.CASE_INSENSITIVE);
     private static final Pattern LOGIN_VERIFICATION_CHARACTERS = Pattern.compile("^[A-Za-z]{0,}$", Pattern.CASE_INSENSITIVE);
+    private static final int NUMER_MAX_OF_STRING = 16;
+    private static final int NUMER_MIN_OF_STRING = 4;
 
     private boolean checkUserNameFormat(String login){
         Matcher matcher = LOGIN_VERIFICATION_CHARACTERS.matcher(login);
@@ -39,7 +41,7 @@ public class UserValidation {
     private boolean validateUserName(EditText username){
         boolean validateUserName = false;
         String userNameStr = username.getText().toString();
-        if(userNameStr.equals("")|| 16 < userNameStr.length() || userNameStr.length() < 4 ||!checkUserNameFormat(userNameStr) ){
+        if(userNameStr.equals("")|| NUMER_MAX_OF_STRING < userNameStr.length() || userNameStr.length() < NUMER_MIN_OF_STRING ||!checkUserNameFormat(userNameStr) ){
             username.setError("");
         }else {
             validateUserName = true;
@@ -50,7 +52,7 @@ public class UserValidation {
     private boolean validatePassword(EditText password){
         boolean validatePassword = false;
         String passwordStr = password.getText().toString();
-        if(passwordStr.equals("") || 16 < passwordStr.length() || passwordStr.length() < 4 || !checkPasswordFormat(passwordStr) ){
+        if(passwordStr.equals("") || NUMER_MAX_OF_STRING < passwordStr.length() || passwordStr.length() < NUMER_MIN_OF_STRING || !checkPasswordFormat(passwordStr) ){
             password.setError("");
         }else {
             validatePassword = true;
@@ -107,13 +109,17 @@ public class UserValidation {
 
     public boolean validateRegister(EditText name, EditText username, EditText password,
                                     EditText rpassword, EditText email, EditText phone){
+        boolean validationOne =  validateName(name) &&
+                validateUserName(username);
+
+        boolean validationTwo = validatePassword(password) &&
+                validateMatchPasswords(password,rpassword);
+
+        boolean validationThree =  validateEmail(email) &&
+                validatePhone(phone);
+
         return
-            validateName(name) &&
-            validateUserName(username) &&
-            validatePassword(password) &&
-            validateMatchPasswords(password,rpassword) &&
-            validateEmail(email) &&
-            validatePhone(phone);
+            validationOne && validationTwo && validationThree;
     }
 
     public boolean validateEdit(EditText name, EditText email, EditText phone){

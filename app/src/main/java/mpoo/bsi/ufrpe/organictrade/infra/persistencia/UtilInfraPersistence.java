@@ -2,7 +2,10 @@ package mpoo.bsi.ufrpe.organictrade.infra.persistencia;
 
 import java.util.Calendar;
 
-public class UtilInfraPersistence {
+public final class UtilInfraPersistence {
+
+    private UtilInfraPersistence(){}
+
     public static String getDate() {
         String data = "";
         Calendar calendar = Calendar.getInstance();

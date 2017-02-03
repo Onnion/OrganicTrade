@@ -36,8 +36,9 @@ import mpoo.bsi.ufrpe.organictrade.R;
 import mpoo.bsi.ufrpe.organictrade.infra.gui.UtilInfraGui;
 
 public class UserActivity extends AppCompatActivity {
+    private static final int DELAY_FOR_BACKPRESS_AGAIN = 4000;
+    private static final int RESULT_LOAD_IMAGE = 1;
     private long lastBackPressTime = 0;
-    private static int RESULT_LOAD_IMAGE = 1;
     private Toast toast;
     private ArrayList<Tent> finalTent;
     private ListView listOfTents;
@@ -79,7 +80,7 @@ public class UserActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        if (this.lastBackPressTime < System.currentTimeMillis() - 4000) {
+        if (this.lastBackPressTime < System.currentTimeMillis() - DELAY_FOR_BACKPRESS_AGAIN) {
             toast = Toast.makeText(this,getText(R.string.tstPressAgainToCloseApp), Toast.LENGTH_LONG);
             toast.show();
             this.lastBackPressTime = System.currentTimeMillis();

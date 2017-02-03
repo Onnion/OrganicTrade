@@ -23,7 +23,7 @@ import mpoo.bsi.ufrpe.organictrade.infra.gui.UtilInfraGui;
 public class RegisterTentItemActivity extends AppCompatActivity {
 
     private TentItem tentItem;
-    private static int RESULT_LOAD_IMAGE = 1;
+    private static final int RESULT_LOAD_IMAGE = 1;
     private EditText amount;
     private EditText price;
     private String idProductString;

@@ -1,6 +1,6 @@
 package mpoo.bsi.ufrpe.organictrade.controler.user.negocio;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import mpoo.bsi.ufrpe.organictrade.controler.item.dominio.Product;
 import mpoo.bsi.ufrpe.organictrade.controler.item.dominio.TentItem;
@@ -43,19 +43,19 @@ public class UserNegocio{
         userPersistence.registerUser(userLocal);
     }
 
-    public ArrayList<Product> getFavorites() {
+    public List<Product> getFavorites() {
         return userPersistence.getFavorites();
     }
 
-    public ArrayList<TentItem> getBuyingHistoryc() {
+    public List<TentItem> getBuyingHistoryc() {
         return userPersistence.getBuyingHistoryc();
     }
 
-    public ArrayList<TentItem> getSellingHistoryc() {
+    public List<TentItem> getSellingHistoryc() {
         return userPersistence.getSellingHistoryc();
     }
 
-    public void registerFavorites(ArrayList<Product> selecionados) {
+    public void registerFavorites(List<Product> selecionados) {
         userPersistence.registerFavorites(selecionados);
     }
 

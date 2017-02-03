@@ -8,7 +8,7 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import mpoo.bsi.ufrpe.organictrade.controler.item.dominio.TentItem;
 import mpoo.bsi.ufrpe.organictrade.controler.user.gui.UserActivity;
@@ -92,7 +92,7 @@ public class HistorycAcitivity extends AppCompatActivity {
         listOfItems = (ListView) findViewById(R.id.historicListListView);
     }
 
-    private void populateListView(ArrayList<TentItem> finalTent) {
+    private void populateListView(List<TentItem> finalTent) {
         loadListView();
         adapter = new ItemListAdapter(finalTent);
         listOfItems.setAdapter(adapter);

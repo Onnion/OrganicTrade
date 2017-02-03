@@ -9,6 +9,7 @@ import mpoo.bsi.ufrpe.organictrade.controler.user.negocio.UserNegocio;
 import mpoo.bsi.ufrpe.organictrade.R;
 
 public class LoadingActivity extends AppCompatActivity{
+    private static final int DELAY = 3000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,10 +37,11 @@ public class LoadingActivity extends AppCompatActivity{
                     finish();
                 }
             }
-        }, 3000);
+        }, DELAY);
     }
 
     private void startSession() {
         Session session = new Session();
+        session.startSession();
     }
 }

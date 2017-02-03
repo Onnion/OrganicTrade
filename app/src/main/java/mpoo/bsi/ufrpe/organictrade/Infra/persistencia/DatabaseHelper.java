@@ -3,6 +3,7 @@ package mpoo.bsi.ufrpe.organictrade.infra.persistencia;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.support.annotation.Nullable;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
     //
@@ -65,9 +66,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String COLUMN_TRANSACTION_USER_SELLING_ID = "user_selling_id";
     private static final String COLUMN_TRANSACTION_TENTITEM_ID = "tentitem_id";
     private static final String COLUMN_TRANSACTION_DATE = "transaction_date";
-
-    //
-    private SQLiteDatabase db;
 
     //
     public static String getTableUserName() {
@@ -253,7 +251,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     @Override
-    public void onCreate(SQLiteDatabase db) {
+    public final void onCreate(SQLiteDatabase db) {
         db.execSQL(ComandosSql.sqlCreateUserTable());
         db.execSQL(ComandosSql.sqlCreateTentItemsTable());
         db.execSQL(ComandosSql.sqlCreateUserLoggedTable());
@@ -267,7 +265,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     @Override
-    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+    public final void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL(ComandosSql.sqlDropTableUsuario());
         db.execSQL(ComandosSql.sqlDropTableUsuarioLogado());
         db.execSQL(ComandosSql.sqlDropTableItensDeTenda());

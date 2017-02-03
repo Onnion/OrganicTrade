@@ -3,6 +3,7 @@ package mpoo.bsi.ufrpe.organictrade.controler.item.gui;
 import android.widget.EditText;
 
 public class TentItemValidation {
+    private static final int NUMBER_MAX_OF_AMOUNT = 4;
 
     public boolean validateEdit(EditText amount, EditText price) {
         return validateAmount(amount) && validatePrice(price);
@@ -31,6 +32,6 @@ public class TentItemValidation {
     }
 
     private boolean checkAmountFormat(String amountStr) {
-        return amountStr.length() > 4;
+        return amountStr.length() > NUMBER_MAX_OF_AMOUNT;
     }
 }

@@ -4,7 +4,7 @@ import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import java.util.ArrayList;
-
+import java.util.List;
 import mpoo.bsi.ufrpe.organictrade.controler.item.dominio.TentItem;
 import mpoo.bsi.ufrpe.organictrade.infra.persistencia.ComandosSql;
 import mpoo.bsi.ufrpe.organictrade.infra.persistencia.DatabaseHelper;
@@ -151,7 +151,7 @@ public class UserPersistence {
         db.close();
     }
 
-    public void registerFavorites(ArrayList<Product> products){
+    public void registerFavorites(List<Product> products){
         for(Product product: products) {
             setFavorite(product);
         }
@@ -166,8 +166,8 @@ public class UserPersistence {
         db.close();
     }
 
-    public ArrayList<Product> getFavorites(){
-        ArrayList<Product> products = new ArrayList<>();
+    public List<Product> getFavorites(){
+        List<Product> products = new ArrayList<>();
         db = banco.getReadableDatabase();
         Cursor cursor = db.rawQuery(ComandosSql.sqlGetFavorites(),new String[]{Integer.toString(Session.getCurrentUser().getIdUser())});
         if(cursor.moveToFirst()){
@@ -181,9 +181,9 @@ public class UserPersistence {
         return products;
     }
 
-    public ArrayList<TentItem> getSellingHistoryc(){
+    public List<TentItem> getSellingHistoryc(){
         db = banco.getReadableDatabase();
-        ArrayList<TentItem> tentItems = new ArrayList<>();
+        List<TentItem> tentItems = new ArrayList<>();
         TentItemsPersistence tentItemsPersistence = new TentItemsPersistence();
         Cursor cursor = db.rawQuery(ComandosSql.sqlGetSellingHistorycOfUser(),new String[]{Integer.toString(Session.getCurrentUser().getIdUser())});
         if (cursor.moveToFirst()){
@@ -194,9 +194,9 @@ public class UserPersistence {
         return tentItems;
     }
 
-    public ArrayList<TentItem> getBuyingHistoryc(){
+    public List<TentItem> getBuyingHistoryc(){
         db = banco.getReadableDatabase();
-        ArrayList<TentItem> tentItems = new ArrayList<>();
+        List<TentItem> tentItems = new ArrayList<>();
         TentItemsPersistence tentItemsPersistence = new TentItemsPersistence();
         Cursor cursor = db.rawQuery(ComandosSql.sqlGetBuyingHistorycOfUser(),new String[]{Integer.toString(Session.getCurrentUser().getIdUser())});
         if (cursor.moveToFirst()){

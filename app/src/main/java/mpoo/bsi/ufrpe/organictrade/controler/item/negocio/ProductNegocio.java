@@ -1,6 +1,5 @@
 package mpoo.bsi.ufrpe.organictrade.controler.item.negocio;
-
-import java.util.ArrayList;
+import java.util.List;
 
 import mpoo.bsi.ufrpe.organictrade.controler.item.dominio.Product;
 import mpoo.bsi.ufrpe.organictrade.controler.item.persistencia.ProductPersistence;
@@ -24,7 +23,7 @@ public class ProductNegocio {
         return productPerssitence.nameProductById(productId);
     }
 
-    public ArrayList<Product> getAllProducts() {
+    public List<Product> getAllProducts() {
         return productPerssitence.getAllProducts();
     }
 }

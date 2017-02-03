@@ -16,7 +16,7 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
-import java.util.ArrayList;
+import java.util.List;
 
 import mpoo.bsi.ufrpe.organictrade.controler.item.dominio.TentItem;
 import mpoo.bsi.ufrpe.organictrade.infra.Session;
@@ -25,9 +25,8 @@ import mpoo.bsi.ufrpe.organictrade.R;
 
 public class TentActivity extends AppCompatActivity {
     private ImageView addBtn;
-    private ImageView historycBtn;
     private ListView listOfItems;
-    private ArrayList<TentItem> finalTent;
+    private List<TentItem> finalTent;
     private ItemListAdapter adapter;
     private TentItem itemSelected;
 

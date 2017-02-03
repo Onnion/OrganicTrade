@@ -52,11 +52,12 @@ public class TentSelectedActivity extends FragmentActivity implements OnMapReady
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
+        int zoomValue = 13;
         mMap = googleMap;
         locationTentSelected = new LatLng(tentSelected.getLagi() , tentSelected.getLongi());
         loadLocationContactSelect();
         mMap.moveCamera(CameraUpdateFactory.newLatLng(locationTentSelected));
-        mMap.setMinZoomPreference(13);
+        mMap.setMinZoomPreference(zoomValue );
     }
 
     @Override
@@ -81,8 +82,9 @@ public class TentSelectedActivity extends FragmentActivity implements OnMapReady
         Canvas canvas = new Canvas(returnedBitmap);
         canvas.drawColor(Color.WHITE, PorterDuff.Mode.SRC_IN);
         Drawable drawable = customMarkerView.getBackground();
-        if (drawable != null)
+        if (drawable != null) {
             drawable.draw(canvas);
+        }
         customMarkerView.draw(canvas);
         return returnedBitmap;
     }

@@ -26,7 +26,7 @@ public class EditRegisterTentItemActivity extends AppCompatActivity {
     private EditText amount;
     private EditText price;
     private byte[] picturePath = Session.getItemSelected().getImageItem();
-    private static int RESULT_LOAD_IMAGE = 1;
+    private static final int RESULT_LOAD_IMAGE = 1;
 
     @Override
     public void onBackPressed() {
